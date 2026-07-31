@@ -571,7 +571,7 @@
                         "text_WJHkqM": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.adress | metafield_tag }}, {{ closest.page.metafields.custom.store_list.value.state_city.value }}</p>",
+                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.phone_number.value }}</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
