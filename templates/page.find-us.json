@@ -834,7 +834,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "{{ closest.page.metafields.custom.store_list.value.img_store.value }}",
+                "image": "{{ closest.page.metafields.custom.store_list.value.img_store_2.value }}",
                 "link": "",
                 "image_ratio": "square",
                 "width": "fit-content",
@@ -939,7 +939,7 @@
                         "text_TCthGJ": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>{{ closest.page.metafields.custom.store_location_fixx.value.adress_2 | metafield_tag }}, {{ closest.page.metafields.custom.store_location_fixx.value.state_city_2.value }}</p>",
+                            "text": "<p>, {{ closest.page.metafields.custom.store_list.value.adress_2 | metafield_tag }}, {{ closest.page.metafields.custom.store_list.value.state_city_2.value }}</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
@@ -1022,7 +1022,7 @@
                         "text_xxKyxy": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.phone_number.value }}</p>",
+                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.phone_number_2.value }}</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
@@ -1105,7 +1105,7 @@
                         "text_6zAttL": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.open_close.value }}, {{ closest.page.metafields.custom.store_list.value.operational_time.value }}</p>",
+                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.open_close_2.value }}, {{ closest.page.metafields.custom.store_list.value.operational_time_2.value }}</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
