@@ -59,10 +59,10 @@
         "padding-block-end": 80
       }
     },
-    "section_mpcGxT": {
+    "section_PG8RpC": {
       "type": "section",
       "blocks": {
-        "group_c4XVgF": {
+        "group_UTGznx": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
@@ -71,15 +71,15 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
+            "width": "custom",
+            "custom_width": 20,
+            "width_mobile": "custom",
+            "custom_width_mobile": 50,
+            "height": "fill",
+            "custom_height": 0,
             "background_media": "none",
             "background_color": "",
             "video_position": "cover",
@@ -102,11 +102,35 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_EnG98V": {
+            "image_j8hATw": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/Knitted_Cardigan_Chestnut_Editorial_0a329354-d4f3-4a08-be03-01630c4432f5_1.jpg",
+                "link": "",
+                "image_ratio": "square",
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_XiY436": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
+                "text": "",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -128,7 +152,7 @@
               },
               "blocks": {}
             },
-            "text_TbFmJV": {
+            "text_JN8gHM": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
@@ -154,7 +178,7 @@
               },
               "blocks": {}
             },
-            "text_WKJjFX": {
+            "text_HXpAjH": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
@@ -177,78 +201,24 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "icon_zMDEQn": {
-              "type": "icon",
-              "name": "t:names.icon",
-              "settings": {
-                "icon": "price_tag",
-                "width": 24,
-                "link": "",
-                "open_in_new_tab": false,
-                "icon_color": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "text_EnG98V",
-            "text_TbFmJV",
-            "text_WKJjFX",
-            "icon_zMDEQn"
+            "image_j8hATw",
+            "text_XiY436",
+            "text_JN8gHM",
+            "text_HXpAjH"
           ]
-        },
-        "group_CdCNdN": {
-          "type": "group",
-          "name": "t:names.group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_c4XVgF",
-        "group_CdCNdN"
+        "group_UTGznx"
       ],
       "name": "t:names.custom_section",
       "settings": {
-        "content_direction": "row",
+        "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -279,6 +249,6 @@
   },
   "order": [
     "main",
-    "section_mpcGxT"
+    "section_PG8RpC"
   ]
 }
