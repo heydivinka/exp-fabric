@@ -878,7 +878,7 @@
                 "accordion_row_zdPXpA": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "{{ closest.page.metafields.custom.store_list.value.store_name.value }}",
+                    "heading": "",
                     "open_by_default": true,
                     "icon": "none",
                     "width": 20
