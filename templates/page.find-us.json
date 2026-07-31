@@ -148,7 +148,7 @@
                   "settings": {
                     "image": "{{ closest.page.metafields.custom.store_list.value.img_store.value }}",
                     "link": "",
-                    "image_ratio": "portrait",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 85,
                     "width_mobile": "fill",
@@ -319,7 +319,7 @@
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "space-between",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
