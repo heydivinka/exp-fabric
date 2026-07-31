@@ -643,7 +643,7 @@
                           "type": "icon",
                           "name": "t:names.icon",
                           "settings": {
-                            "icon": "check_box",
+                            "icon": "stopwatch",
                             "width": 24,
                             "link": "",
                             "open_in_new_tab": false,
@@ -654,7 +654,7 @@
                         "text_hYYWJG": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.phone_number.value }}</p>",
+                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.open_close.value }}, {{ closest.page.metafields.custom.store_list.value.operational_time.value }}</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
