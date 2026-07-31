@@ -364,7 +364,7 @@
             "accordion_row_XNQfaM": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "d{{ closest.page.metafields.custom.store_list.value.store_name.value }}",
+                "heading": "{{ closest.page.metafields.custom.store_list.value.store_name.value }}",
                 "open_by_default": true,
                 "icon": "none",
                 "width": 20
