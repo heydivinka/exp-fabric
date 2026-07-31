@@ -551,7 +551,7 @@
                         "open_in_new_tab": false,
                         "placeholder": "",
                         "padding-block-start": 0,
-                        "padding-block-end": 0,
+                        "padding-block-end": 10,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
                       },
@@ -598,11 +598,95 @@
                         "icon_kjCHhR",
                         "text_WJHkqM"
                       ]
+                    },
+                    "group_mjz9XY": {
+                      "type": "group",
+                      "name": "t:names.group",
+                      "settings": {
+                        "content_direction": "row",
+                        "vertical_on_mobile": true,
+                        "horizontal_alignment": "flex-start",
+                        "vertical_alignment": "center",
+                        "align_baseline": false,
+                        "horizontal_alignment_flex_direction_column": "flex-start",
+                        "vertical_alignment_flex_direction_column": "center",
+                        "gap": 12,
+                        "width": "fill",
+                        "custom_width": 100,
+                        "width_mobile": "fill",
+                        "custom_width_mobile": 100,
+                        "height": "fit",
+                        "custom_height": 100,
+                        "background_media": "none",
+                        "background_color": "",
+                        "video_position": "cover",
+                        "background_image_position": "cover",
+                        "toggle_overlay": false,
+                        "overlay_color": "#00000026",
+                        "overlay_style": "solid",
+                        "gradient_direction": "to top",
+                        "border": "none",
+                        "border_width": 1,
+                        "border_opacity": 100,
+                        "border_color": "",
+                        "border_radius": 0,
+                        "link": "",
+                        "open_in_new_tab": false,
+                        "placeholder": "",
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {
+                        "icon_YkecNr": {
+                          "type": "icon",
+                          "name": "t:names.icon",
+                          "settings": {
+                            "icon": "check_box",
+                            "width": 24,
+                            "link": "",
+                            "open_in_new_tab": false,
+                            "icon_color": ""
+                          },
+                          "blocks": {}
+                        },
+                        "text_hYYWJG": {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>{{ closest.page.metafields.custom.store_list.value.phone_number.value }}</p>",
+                            "width": "100%",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "text_color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "icon_YkecNr",
+                        "text_hYYWJG"
+                      ]
                     }
                   },
                   "block_order": [
                     "group_kc4TzL",
-                    "group_TPwJem"
+                    "group_TPwJem",
+                    "group_mjz9XY"
                   ]
                 }
               },
