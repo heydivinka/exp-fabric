@@ -1,0 +1,55 @@
+    
+    <h1>{{ section.settings.latihan_ngetik }}</h1>
+
+    {% schema %}
+    {
+    "name": "Practice",
+    "settings": [
+        {
+        "type": "text",
+        "id": "latihan_ngetik",
+        "label": "Latihan ngetik"
+        },
+        {
+            "type": "textarea",
+            "id": "deskripsi",
+            "label": "Deskripsi"
+        },
+        {
+            "type": "checkbox",
+            "id": "checkbox",
+            "label": "Checkbox"
+        },
+        {
+            "type": "select",
+            "id": "select",
+            "label": "Select",
+            "options": [
+                {
+                    "value": "option_1",
+                    "label": "Option 1"
+                },
+                {
+                    "value": "option_2",
+                    "label": "Option 2"
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "id": "radio",
+            "label": "Radio",
+            "options": [
+                {
+                    "value": "option_1",
+                    "label": "Option 1"
+                },
+                {
+                    "value": "option_2",
+                    "label": "Option 2"
+                }
+            ]
+        }
+    ]
+    }
+    {% endschema %}
