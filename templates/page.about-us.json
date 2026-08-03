@@ -23,6 +23,12 @@
     "section_yngHrJ": {
       "type": "section",
       "blocks": {
+        "custom_liquid_overlay": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<style>#split-showcase-overlay-wrapper{position:absolute;inset:0;z-index:10;pointer-events:none;display:flex;align-items:center;justify-content:center;}#split-showcase-overlay-wrapper h2{margin:0;color:#ffffff;font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.02em;text-align:center;text-shadow:0 2px 24px rgba(0,0,0,0.45);line-height:1.1;padding:0 1rem;}.section-content-wrapper:has(#split-showcase-overlay-wrapper){overflow:visible;}</style><div id=\"split-showcase-overlay-wrapper\"><h2>Materials make a difference<\/h2><\/div>"
+          }
+        },
         "group_EXMpch": {
           "type": "group",
           "settings": {
@@ -106,7 +112,7 @@
           "blocks": {}
         }
       },
-      "block_order": ["group_EXMpch", "group_XpJC3m"],
+      "block_order": ["custom_liquid_overlay", "group_EXMpch", "group_XpJC3m"],
       "name": "t:names.split_showcase",
       "settings": {
         "content_direction": "row",
@@ -139,6 +145,7 @@
     },
     "section_6ecPjn": {
       "type": "section",
+      "disabled": true,
       "blocks": {
         "group_gNARax": {
           "type": "group",
