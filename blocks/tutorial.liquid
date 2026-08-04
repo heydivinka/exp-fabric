@@ -1,0 +1,178 @@
+{% render 'tutorial',
+  block: block,
+  step_number: block.settings.step_number,
+  heading: block.settings.heading,
+  body: block.settings.body,
+  button_label: block.settings.button_label,
+  button_url: block.settings.button_url,
+  button_style: block.settings.button_style,
+  background_color: block.settings.background_color,
+  text_color: block.settings.text_color,
+  accent_color: block.settings.accent_color,
+  border_radius: block.settings.border_radius,
+  card_style: block.settings.card_style,
+  settings: block.settings
+%}
+
+{% schema %}
+{
+  "name": "Tutorial Card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "step_number",
+      "label": "Step badge",
+      "info": "Short label shown in the badge, e.g. \"01\" or \"Step 1\". Leave blank to hide.",
+      "placeholder": "01"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How to get started"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description",
+      "default": "<p>Walk through this step to complete the process. Add any helpful context here to guide the reader.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "info": "Leave blank to hide the button."
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "button", "label": "Primary" },
+        { "value": "button-secondary", "label": "Secondary" },
+        { "value": "button-unstyled", "label": "Link" }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Style",
+      "options": [
+        { "value": "filled", "label": "Filled (shadow)" },
+        { "value": "outlined", "label": "Outlined (border)" },
+        { "value": "minimal", "label": "Minimal (line)" }
+      ],
+      "default": "filled"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Card background",
+      "placeholder": "Default"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Badge & icon color",
+      "info": "Used for the step badge background.",
+      "placeholder": "Default (foreground)"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tutorial Card",
+      "category": "Tutorial",
+      "settings": {
+        "step_number": "01",
+        "heading": "How to get started",
+        "body": "<p>Walk through this step to complete the process. Add any helpful context here to guide the reader.</p>",
+        "card_style": "filled",
+        "border_radius": 8
+      }
+    }
+  ]
+}
+{% endschema %}

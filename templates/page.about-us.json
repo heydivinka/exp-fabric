@@ -228,7 +228,7 @@
                 "text_E9hEkc": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Materials make a difference<\/h2>",
+                    "text": "<h6>Materials make a difference</h6>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "center",
