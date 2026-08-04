@@ -1,0 +1,412 @@
+{%- liquid
+  assign order_count = customer.orders_count
+  assign is_vip      = false
+  if order_count > 10
+    assign is_vip = true
+  endif
+-%}
+
+<div class="customer-account section page-width-content">
+  <div class="customer-account__inner spacing-style">
+
+    {%- comment -%} ── Header: Avatar + Name + VIP badge ────────── {%- endcomment -%}
+    <div class="customer-account__header">
+      <div class="customer-account__avatar" aria-hidden="true">
+        {{- customer.first_name | slice: 0 | upcase -}}
+      </div>
+
+      <div class="customer-account__identity">
+        <div class="customer-account__name-row">
+          <h1 class="customer-account__name">
+            {{- customer.first_name }} {{ customer.last_name -}}
+          </h1>
+          {%- if is_vip -%}
+            <span class="customer-account__vip-badge" aria-label="VIP customer">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <path d="M6 0l1.5 4H12L8.5 6.5 10 11 6 8.5 2 11l1.5-4.5L0 4h4.5z"/>
+              </svg>
+              VIP
+            </span>
+          {%- endif -%}
+        </div>
+        <p class="customer-account__email">{{ customer.email }}</p>
+      </div>
+    </div>
+
+    {%- comment -%} ── Stats row ───────────────────────────────── {%- endcomment -%}
+    <div class="customer-account__stats">
+      <div class="customer-account__stat">
+        <span class="customer-account__stat-value">{{ order_count }}</span>
+        <span class="customer-account__stat-label">
+          {%- if order_count == 1 -%}Order{%- else -%}Orders{%- endif -%}
+        </span>
+      </div>
+
+      <div class="customer-account__stat-divider" aria-hidden="true"></div>
+
+      <div class="customer-account__stat">
+        <span class="customer-account__stat-value">
+          {{- customer.default_address.city | default: '—' -}}
+        </span>
+        <span class="customer-account__stat-label">City</span>
+      </div>
+
+      <div class="customer-account__stat-divider" aria-hidden="true"></div>
+
+      <div class="customer-account__stat">
+        <span class="customer-account__stat-value">
+          {%- if is_vip -%}VIP{%- else -%}Standard{%- endif -%}
+        </span>
+        <span class="customer-account__stat-label">Status</span>
+      </div>
+    </div>
+
+    {%- comment -%} ── VIP callout ─────────────────────────────── {%- endcomment -%}
+    {%- if is_vip -%}
+      <div class="customer-account__vip-callout" role="status">
+        <svg width="20" height="20" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+          <path d="M6 0l1.5 4H12L8.5 6.5 10 11 6 8.5 2 11l1.5-4.5L0 4h4.5z"/>
+        </svg>
+        <p>
+          <strong>You're a VIP customer.</strong>
+          Thank you for your loyalty — you've placed {{ order_count }} orders with us.
+        </p>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Recent orders ───────────────────────────── {%- endcomment -%}
+    {%- if customer.orders.size > 0 -%}
+      <div class="customer-account__orders">
+        <h2 class="customer-account__section-title">Recent orders</h2>
+
+        <div class="customer-account__orders-list">
+          {%- for order in customer.orders limit: 5 -%}
+            <a href="{{ order.customer_url }}" class="customer-account__order-row">
+              <span class="customer-account__order-name">{{ order.name }}</span>
+              <span class="customer-account__order-date">{{ order.created_at | date: '%b %d, %Y' }}</span>
+              <span class="customer-account__order-status customer-account__order-status--{{ order.financial_status }}">
+                {{ order.financial_status | capitalize }}
+              </span>
+              <span class="customer-account__order-total">{{ order.total_price | money }}</span>
+              <svg class="customer-account__order-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M6 3l5 5-5 5"/>
+              </svg>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Actions ────────────────────────────────── {%- endcomment -%}
+    <div class="customer-account__actions">
+      <a href="{{ routes.account_addresses_url }}" class="button-secondary">Manage addresses</a>
+      <a href="{{ routes.account_logout_url }}" class="customer-account__logout button-unstyled">Sign out</a>
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+
+/* ── Page wrapper ──────────────────────────────────────── */
+.customer-account {
+  padding-block: 3rem;
+}
+
+.customer-account__inner {
+  max-width: 680px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+.customer-account__header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.customer-account__avatar {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading--family);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+}
+
+.customer-account__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.customer-account__name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.customer-account__name {
+  margin: 0;
+  font-family: var(--font-heading--family);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: var(--font-heading--weight);
+  color: var(--color-foreground);
+}
+
+.customer-account__email {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+/* ── VIP badge (inline pill) ───────────────────────────── */
+.customer-account__vip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b8860b, #ffd700);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(184,134,11,0.35);
+}
+
+/* ── Stats row ─────────────────────────────────────────── */
+.customer-account__stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border, var(--color-foreground));
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.customer-account__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.customer-account__stat-value {
+  font-family: var(--font-heading--family);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-foreground);
+}
+
+.customer-account__stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+.customer-account__stat-divider {
+  width: 1px;
+  height: 2.5rem;
+  background-color: var(--color-border, currentcolor);
+  opacity: 0.25;
+  flex-shrink: 0;
+}
+
+/* ── VIP callout ────────────────────────────────────────── */
+.customer-account__vip-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fffbea, #fff8d6);
+  border: 1px solid #f0d060;
+  color: #6b4e00;
+}
+
+.customer-account__vip-callout svg {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  color: #b8860b;
+}
+
+.customer-account__vip-callout p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* ── Orders ────────────────────────────────────────────── */
+.customer-account__section-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading--family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+.customer-account__orders-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-border, currentcolor);
+}
+
+.customer-account__order-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  text-decoration: none;
+  color: var(--color-foreground);
+  border-bottom: 1px solid var(--color-border, currentcolor);
+  transition: background-color 0.15s ease;
+  font-size: 0.9375rem;
+}
+
+.customer-account__order-row:last-child {
+  border-bottom: none;
+}
+
+.customer-account__order-row:hover {
+  background-color: rgba(var(--color-foreground-rgb, 0,0,0), 0.03);
+}
+
+.customer-account__order-name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.customer-account__order-date {
+  color: var(--color-foreground-muted, var(--color-foreground));
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.customer-account__order-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background-color: rgba(var(--color-foreground-rgb, 0,0,0), 0.06);
+  white-space: nowrap;
+}
+
+.customer-account__order-status--paid {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.customer-account__order-status--pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.customer-account__order-status--refunded,
+.customer-account__order-status--voided {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.customer-account__order-total {
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.customer-account__order-chevron {
+  opacity: 0.35;
+  flex-shrink: 0;
+}
+
+/* ── Actions ────────────────────────────────────────────── */
+.customer-account__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.customer-account__logout {
+  font-size: 0.9375rem;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media screen and (max-width: 749px) {
+  .customer-account__order-row {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .customer-account__order-name {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .customer-account__order-total {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  .customer-account__order-date {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+  }
+
+  .customer-account__order-status {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+  }
+
+  .customer-account__order-chevron {
+    display: none;
+  }
+
+  .customer-account__stats {
+    gap: 0;
+    padding: 1rem;
+  }
+}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Customer Account",
+  "settings": []
+}
+{% endschema %}
