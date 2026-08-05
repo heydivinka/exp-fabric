@@ -1,0 +1,159 @@
+{%- comment -%}
+  exp-custom-icons.liquid
+  Renders a payment icon SVG by name.
+  Width/height are intentionally omitted from SVG attributes — controlled by CSS via --icon-width.
+  All SVGs share viewBox="0 0 38 24" for consistent aspect ratio.
+
+  @param {string} icon - Icon name (already stripped and downcased by caller)
+{%- endcomment -%}
+
+{%- case icon -%}
+
+{%- when 'visa' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-visa">
+  <title id="pi-visa">Visa</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"/>
+</svg>
+
+{%- when 'mastercard' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-mastercard">
+  <title id="pi-mastercard">Mastercard</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <circle fill="#EB001B" cx="15" cy="12" r="7"/>
+  <circle fill="#F79E1B" cx="23" cy="12" r="7"/>
+  <path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"/>
+</svg>
+
+{%- when 'jcb' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-jcb">
+  <title id="pi-jcb">JCB</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <path d="M11.5 5H15v11.5a2.5 2.5 0 0 1-2.5 2.5H9V7.5A2.5 2.5 0 0 1 11.5 5z" fill="#006EBC"/>
+  <path d="M18.5 5H22v11.5a2.5 2.5 0 0 1-2.5 2.5H16V7.5A2.5 2.5 0 0 1 18.5 5z" fill="#F00036"/>
+  <path d="M25.5 5H29v11.5a2.5 2.5 0 0 1-2.5 2.5H23V7.5A2.5 2.5 0 0 1 25.5 5z" fill="#2AB419"/>
+  <path d="M10.755 14.5c-1.06 0-2.122-.304-2.656-.987l.78-.676c.068 1.133 3.545 1.24 3.545-.19V9.5h1.802v3.147c0 .728-.574 1.322-1.573 1.632-.466.144-1.365.221-1.898.221zm8.116 0c-.674 0-1.388-.107-1.965-.366-.948-.425-1.312-1.206-1.3-2.199.012-1.014.436-1.782 1.468-2.165 1.319-.49 3.343-.261 3.926.27v.972c-.572-.521-1.958-.898-2.919-.46-.494.226-.737.917-.744 1.448-.006.56.245 1.252.744 1.497.953.467 2.39.04 2.919-.441v1.01c-.358.255-1.253.434-2.129.434zm8.679-2.587c.37-.235.582-.567.582-1.005 0-.438-.116-.687-.348-.939-.206-.207-.58-.469-1.238-.469H23v5h3.546c.696 0 1.097-.23 1.315-.415.283-.25.426-.53.426-.96 0-.431-.155-.908-.737-1.212zm-1.906-.281h-1.428v-1.444h1.495c.956 0 .944 1.444-.067 1.444zm.288 2.157h-1.716v-1.513h1.716c.986 0 1.083 1.513 0 1.513z" fill="#fff" fill-rule="nonzero"/>
+</svg>
+
+{%- when 'amex' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-amex">
+  <title id="pi-amex">American Express</title>
+  <path fill="#007BC1" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M22.012 19.936v-8.5H38v8.5H22.012zM0 19.936v-8.5h16.012v8.5H0z"/>
+  <path fill="#007BC1" d="M9.34 19.005H7.603l-2.182-4.01v4.01H3.04l-.408-1.003H.62l-.408 1.003H-1.5l2.468-5.772h1.864l2.343 5.469v-5.469h2.056l1.65 3.61 1.515-3.61h2.056v5.772H11.21v-4.01l-1.87 4.01zM1.98 16.86h1.337l-.668-1.647L1.98 16.86zm14.04 2.145h-4.985v-5.772h4.985v1.212h-3.505v1.022h3.42v1.18h-3.42v1.148h3.505v1.21z"/>
+  <path fill="#007BC1" d="M27.658 19.005h-1.737l-2.182-4.01v4.01h-2.382l-.408-1.003h-2.011l-.408 1.003h-1.62l2.468-5.772h1.864l2.343 5.469v-5.469h2.056l1.65 3.61 1.515-3.61h2.056v5.772h-1.564v-4.01l-1.64 4.01zM20.3 16.86h1.336l-.668-1.647L20.3 16.86zm14.04 2.145h-4.985v-5.772h4.985v1.212h-3.505v1.022h3.42v1.18h-3.42v1.148h3.505v1.21z"/>
+</svg>
+
+{%- when 'bca' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-bca">
+  <title id="pi-bca">BCA</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <text x="19" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#003f8a">BCA</text>
+</svg>
+
+{%- when 'bni' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-bni">
+  <title id="pi-bni">BNI</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#F15A23"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5" font-weight="700" fill="#fff">BNI</text>
+</svg>
+
+{%- when 'bri' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-bri">
+  <title id="pi-bri">BRI</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#034EA2"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5" font-weight="700" fill="#fff">BRI</text>
+</svg>
+
+{%- when 'mandiri' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-mandiri">
+  <title id="pi-mandiri">Mandiri</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#0D2B5B"/>
+  <text x="19" y="12.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="5.5" font-weight="700" fill="#FDD213">MANDIRI</text>
+  <text x="19" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="4" fill="#FDD213">FIESTAPOIN</text>
+</svg>
+
+{%- when 'permata' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-permata">
+  <title id="pi-permata">Permata Bank</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#E31837"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="700" fill="#fff">PERMATA</text>
+</svg>
+
+{%- when 'dana' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-dana">
+  <title id="pi-dana">DANA</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="6" fill="#108DE8"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">DANA</text>
+</svg>
+
+{%- when 'ovo' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-ovo">
+  <title id="pi-ovo">OVO</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="6" fill="#4C3494"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">OVO</text>
+</svg>
+
+{%- when 'gopay' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-gopay">
+  <title id="pi-gopay">GoPay</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="6" fill="#00AAE4"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#fff">GoPay</text>
+</svg>
+
+{%- when 'shopeepay' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-shopeepay">
+  <title id="pi-shopeepay">ShopeePay</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#EE4D2D"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="5.5" font-weight="700" fill="#fff">ShopeePay</text>
+</svg>
+
+{%- when 'linkaja' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-linkaja">
+  <title id="pi-linkaja">LinkAja</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#EA222A"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#fff">LinkAja</text>
+</svg>
+
+{%- when 'qris' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-qris">
+  <title id="pi-qris">QRIS</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <rect x="3" y="6" width="32" height="12" rx="2" fill="#E62129"/>
+  <text x="19" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">QRIS</text>
+</svg>
+
+{%- when 'paypal' -%}
+<svg class="payment-icon" viewBox="0 0 38 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-paypal">
+  <title id="pi-paypal">PayPal</title>
+  <path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"/>
+  <path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"/>
+  <path fill="#003087" d="M14.2 7.5h3.8c1.7 0 2.9.7 2.9 2.3 0 2-1.4 3.1-3.4 3.1h-1.5l-.6 3H13l1.2-8.4z"/>
+  <path fill="#009cde" d="M17.9 7.5h3.8c1.7 0 2.9.7 2.9 2.3 0 2-1.4 3.1-3.4 3.1h-1.5l-.6 3H16.7l1.2-8.4z"/>
+  <path fill="#003087" d="M15.5 14.9l.5-3h1.5c2 0 3.4-1.1 3.4-3.1 0-.4-.1-.7-.2-1 .7.6 1 1.5 1 2.5 0 2-1.4 3.1-3.4 3.1h-1.5l-.4 2.5h-.9z"/>
+</svg>
+
+{%- endcase -%}

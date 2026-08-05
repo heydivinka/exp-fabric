@@ -94,6 +94,27 @@
       justify-self: end;
       text-align: right;
     }
+
+    /* 4 blocks: Two rows — copyright+policy on top, social+payment on bottom */
+    .utilities--blocks-4 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .utilities--blocks-4 > *:nth-child(2) {
+      justify-self: end;
+      text-align: right;
+    }
+
+    .utilities--blocks-4 > *:nth-child(3) {
+      justify-self: start;
+      text-align: left;
+    }
+
+    .utilities--blocks-4 > *:nth-child(4) {
+      justify-self: end;
+      text-align: right;
+    }
   }
 {% endstylesheet %}
 
@@ -102,7 +123,7 @@
   "name": "t:names.policies_and_links",
   "tag": "div",
   "class": "footer-utilities",
-  "max_blocks": 3,
+  "max_blocks": 4,
   "enabled_on": {
     "groups": ["footer"]
   },
@@ -189,6 +210,9 @@
     },
     {
       "type": "social-links"
+    },
+    {
+      "type": "exp-payment-icons"
     }
   ],
   "presets": [

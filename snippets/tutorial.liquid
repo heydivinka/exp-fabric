@@ -1,0 +1,132 @@
+{%- doc -%}
+  Renders a tutorial card with step number, heading, body text, and optional CTA.
+
+  @param {block}   block
+  @param {string}  step_number
+  @param {string}  heading
+  @param {string}  body
+  @param {string}  button_label
+  @param {string}  button_url
+  @param {string}  button_style
+  @param {color}   background_color
+  @param {color}   text_color
+  @param {color}   accent_color
+  @param {number}  border_radius
+  @param {string}  card_style
+  @param {object}  settings
+{%- enddoc -%}
+
+{%- liquid
+  assign card_style    = card_style    | default: 'filled'
+  assign button_style  = button_style  | default: 'button'
+  assign border_radius = border_radius | default: 8
+  assign block_id      = block.id      | default: 'tutorial'
+  assign has_button    = button_label != blank and button_url != blank
+-%}
+
+{%- render 'contrast-override',
+  background_color: background_color,
+  text_color: text_color,
+  section_id: block_id
+-%}
+
+<div
+  class="tutorial-card tutorial-card--{{ card_style }} tutorial-card--{{ block_id }} spacing-style{% if background_color != blank or text_color != blank %} color-custom-{{ block_id }}{% endif %}"
+  style="
+    --tutorial-radius: {{ border_radius }}px;
+    {% if accent_color != blank %}--tutorial-accent: {{ accent_color }};{% endif %}
+    {% render 'spacing-style', settings: settings %}
+  "
+  {% if block != blank %}{{ block.shopify_attributes }}{% endif %}
+>
+  <div class="tutorial-card__top">
+    {%- if step_number != blank -%}
+      <span class="tutorial-card__badge">{{ step_number }}</span>
+    {%- endif -%}
+  </div>
+
+  <div class="tutorial-card__body">
+    {%- if heading != blank -%}
+      <p class="tutorial-card__heading">{{ heading }}</p>
+    {%- endif -%}
+    {%- if body != blank -%}
+      <div class="tutorial-card__text rte">{{ body }}</div>
+    {%- endif -%}
+    {%- if has_button -%}
+      <a href="{{ button_url }}" class="tutorial-card__cta {{ button_style }}">
+        {{- button_label -}}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.tutorial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: var(--tutorial-radius, 8px);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.tutorial-card--filled {
+  background-color: var(--color-background, #fff);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+  padding: 1.5rem;
+}
+.tutorial-card--filled:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,.12), 0 12px 32px rgba(0,0,0,.09);
+  transform: translateY(-2px);
+}
+.tutorial-card--outlined {
+  border: 1px solid var(--color-border, currentcolor);
+  padding: 1.5rem;
+}
+.tutorial-card--minimal {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border, currentcolor);
+}
+.tutorial-card__top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+}
+.tutorial-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding-inline: 0.5rem;
+  border-radius: 999px;
+  background-color: var(--tutorial-accent, var(--color-foreground, #000));
+  color: var(--color-background, #fff);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.tutorial-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.tutorial-card__heading {
+  margin: 0;
+  font-family: var(--font-heading--family);
+  font-weight: var(--font-heading--weight);
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: var(--color, var(--color-foreground));
+}
+.tutorial-card__text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-foreground-muted, var(--color-foreground));
+  margin: 0;
+}
+.tutorial-card__cta { margin-top: 0.5rem; align-self: flex-start; }
+{% endstylesheet %}

@@ -1,0 +1,208 @@
+{%- doc -%}
+  Renders a row of payment method icons using exp-custom-icons.liquid.
+
+  @param {block} block - The block object
+{%- enddoc -%}
+
+{% assign block_settings = block.settings %}
+
+<div
+  class="exp-payment-icons spacing-style"
+  style="
+    {% render 'spacing-style', settings: block_settings %}
+    --icon-gap: {{ block_settings.gap }}px;
+    --icon-alignment: {{ block_settings.horizontal_alignment }};
+    --icon-width: {{ block_settings.icon_width }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  {%- if block_settings.heading != blank -%}
+    <{{ block_settings.heading_tag }} class="exp-payment-icons__heading">
+      {{- block_settings.heading | escape -}}
+    </{{ block_settings.heading_tag }}>
+  {%- endif -%}
+
+  <ul class="exp-payment-icons__list" role="list">
+    {%- assign icons = block_settings.payment_icons | split: ',' -%}
+    {%- for icon_raw in icons -%}
+      {%- assign icon = icon_raw | strip | downcase -%}
+      {%- if icon != blank -%}
+        <li class="exp-payment-icons__item">
+          {%- render 'exp-custom-icons', icon: icon -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .exp-payment-icons {
+    width: 100%;
+  }
+
+  .exp-payment-icons__heading {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .exp-payment-icons__list {
+    display: flex;
+    align-items: center;
+    justify-content: var(--icon-alignment, flex-start);
+    flex-wrap: wrap;
+    gap: var(--icon-gap, 8px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .exp-payment-icons__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .exp-payment-icons__item svg,
+  .exp-payment-icons__item .payment-icon {
+    width: var(--icon-width, 38px);
+    height: auto;
+    aspect-ratio: 38 / 24;
+    display: block;
+    border-radius: 4px;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Payment Icons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Leave blank to hide."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "p",  "label": "Paragraph" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "text",
+      "id": "payment_icons",
+      "label": "Payment icons",
+      "default": "visa,mastercard,bca,bni,bri,mandiri,dana,ovo,shopeepay,gopay,qris,jcb",
+      "info": "Comma-separated. Available: visa, mastercard, bca, bni, bri, mandiri, permata, dana, ovo, gopay, linkaja, shopeepay, qris, jcb"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "flex-start",    "label": "Left" },
+        { "value": "center",        "label": "Center" },
+        { "value": "flex-end",      "label": "Right" },
+        { "value": "space-between", "label": "Space between" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between icons",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "label": "Icon width",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment Icons",
+      "category": "Footer",
+      "settings": {
+        "payment_icons": "visa,mastercard,bca,bni,bri,mandiri,dana,ovo,shopeepay,gopay,qris,jcb",
+        "horizontal_alignment": "flex-start",
+        "gap": 8,
+        "icon_width": 38
+      }
+    }
+  ]
+}
+{% endschema %}
