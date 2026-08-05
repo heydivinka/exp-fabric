@@ -7,8 +7,8 @@
     "dev": "shopify theme dev --store divinka-playground",
     "pull": "shopify theme pull --store divinka-playground",
     "push": "shopify theme push --store divinka-playground",
-    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/exp.css --watch",
-    "tailwind:build": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/exp.css --minify"
+    "tailwind": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/exp.css --watch",
+    "tailwind:build": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/exp.css --minify"
   },
   "repository": {
     "type": "git",

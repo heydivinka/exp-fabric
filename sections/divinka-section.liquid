@@ -1,0 +1,46 @@
+    {%- liquid
+    assign formatted_name = section.settings.user_name | upcase
+    assign is_show_promo = section.settings.show_promo
+    assign discount = section.settings.discount_percent
+    -%}
+
+    <section class="divinka-section">
+    <h2>{{ formatted_name }}</h2>
+
+    {%- if is_show_promo -%} 
+        <p>Selamat! {{ formatted_name }}. Anda mendapatkan diskon {{ discount }}%!</p>
+    {%- else -%}
+        <p>Maaf, tidak ada potongan harga saat ini.</p>
+    {%- endif -%}
+    </section>
+
+    {% schema %}
+    {
+    "name": "Divinka Section",
+    "settings": [
+        {
+        "type": "text",
+        "id": "user_name",
+        "label": "Nama User",
+        "default": "Divinka"
+        },
+        {
+        "type": "checkbox",
+        "id": "show_promo",
+        "label": "Tampilkan Promo",
+        "default": true
+        },
+        {
+        "type": "number",
+        "id": "discount_percent",
+        "label": "Diskon (%)",
+        "default": 20
+        }
+    ],
+    "presets": [
+        {
+        "name": "Divinka Section"
+        }
+    ]
+    }
+    {% endschema %}
