@@ -5,7 +5,7 @@ export class RecentlyViewed {
   /** @static @constant {string} The key used to store the viewed products in session storage */
   static #STORAGE_KEY = 'viewedProducts';
   /** @static @constant {number} The maximum number of products to store */
-  static #MAX_PRODUCTS = 4;
+  static #MAX_PRODUCTS = 5;
 
   /**
    * Adds a product to the recently viewed products list.
@@ -30,6 +30,10 @@ export class RecentlyViewed {
    * @returns {string[]} The list of viewed products.
    */
   static getProducts() {
-    return JSON.parse(localStorage.getItem(this.#STORAGE_KEY) || '[]');
+    try {
+      return JSON.parse(localStorage.getItem(this.#STORAGE_KEY) || '[]');
+    } catch (_) {
+      return [];
+    }
   }
 }
