@@ -105,7 +105,15 @@
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return [];
       var parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
+      if (!Array.isArray(parsed)) return [];
+      // Normalise: support plain string IDs and legacy {id, handle} objects
+      return parsed
+        .map(function (item) {
+          if (typeof item === 'string') return item;
+          if (typeof item === 'object' && item !== null && item.id) return String(item.id);
+          return null;
+        })
+        .filter(Boolean);
     } catch (_) {
       return [];
     }
