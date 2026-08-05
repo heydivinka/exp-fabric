@@ -21,20 +21,18 @@
     echo '--column-count: '                     | append: columns  | append: ';'
   endcapture
 
-  comment
-    Build a comma-separated list of rendered product IDs
-    so JS knows exactly which IDs are available in the DOM
-  endcomment
   assign rv_rendered_ids = ''
-  for rv_product in collections.all.products limit: 100
-    unless rv_product.id == product.id
-      if rv_rendered_ids != ''
-        assign rv_rendered_ids = rv_rendered_ids | append: ','
-      endif
-      assign rv_rendered_ids = rv_rendered_ids | append: rv_product.id
-    endunless
-  endfor
 -%}
+
+{%- comment -%} for loop MUST be outside liquid tag — not supported inside {%- endcomment -%}
+{%- for rv_product in collections.all.products limit: 100 -%}
+  {%- unless rv_product.id == product.id -%}
+    {%- if rv_rendered_ids != '' -%}
+      {%- assign rv_rendered_ids = rv_rendered_ids | append: ',' -%}
+    {%- endif -%}
+    {%- assign rv_rendered_ids = rv_rendered_ids | append: rv_product.id -%}
+  {%- endunless -%}
+{%- endfor -%}
 
 {%- if bg != blank -%}
   {%- render 'contrast-override', background_color: bg, section_id: section.id -%}
@@ -100,6 +98,7 @@
 
   var STORAGE_KEY = 'viewedProducts';
   var MAX_SHOW    = 5;
+  var SECTION_ID  = 'rv-section-{{ section.id }}';
 
   function getViewedIds() {
     try {
@@ -113,37 +112,36 @@
   }
 
   function init() {
-    var wrapper = document.getElementById('rv-section-{{ section.id }}');
+    var wrapper = document.getElementById(SECTION_ID);
     if (!wrapper) return;
 
-    var currentId   = wrapper.dataset.currentId;
-    var renderedIds = (wrapper.dataset.renderedIds || '').split(',').filter(Boolean);
+    var currentId = String(wrapper.dataset.currentId || '');
 
-    /* Filter: exclude current product, keep only IDs that were actually rendered */
+    /* Read all viewed IDs, exclude the current product */
     var viewedIds = getViewedIds()
       .map(function (id) { return String(id); })
-      .filter(function (id) {
-        return id !== String(currentId) && renderedIds.includes(id);
-      })
+      .filter(function (id) { return id !== currentId; })
       .slice(0, MAX_SHOW);
 
-    /* Nothing to show → hide entire section */
     if (viewedIds.length === 0) {
       wrapper.style.display = 'none';
       return;
     }
 
-    var grid    = wrapper.querySelector('.rv-grid');
-    var heading = wrapper.querySelector('.rv-heading');
+    /* Build cardMap from DOM — source of truth for what is actually rendered */
     var allCards = wrapper.querySelectorAll('.rv-card');
-    var cardMap  = {};
+    if (allCards.length === 0) {
+      wrapper.style.display = 'none';
+      return;
+    }
 
-    /* Build a map of productId → card element for O(1) lookup */
+    var cardMap = {};
     allCards.forEach(function (card) {
-      cardMap[card.dataset.productId] = card;
+      var pid = String(card.dataset.productId || '');
+      if (pid) cardMap[pid] = card;
     });
 
-    /* Show cards in recency order */
+    /* Show matching cards in recency order */
     var shown = 0;
     viewedIds.forEach(function (id) {
       if (shown >= MAX_SHOW) return;
@@ -159,15 +157,16 @@
       return;
     }
 
-    /* Reveal grid and heading */
-    grid.classList.remove('rv-hidden');
-    heading.classList.remove('rv-hidden');
+    var grid    = wrapper.querySelector('.rv-grid');
+    var heading = wrapper.querySelector('.rv-heading');
+    if (grid)    grid.classList.remove('rv-hidden');
+    if (heading) heading.classList.remove('rv-hidden');
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  if (document.readyState === 'complete') {
     init();
+  } else {
+    window.addEventListener('load', init);
   }
 })();
 </script>
