@@ -1,245 +1,164 @@
-  {% comment %}
-    Block: exp-payments-icon
-    Memanggil snippet exp-custom-icons.liquid untuk menampilkan payment icons
-  {% endcomment %}
+{%- doc -%}
+  Renders payment icons based on checkbox settings.
+  Uses exp-custom-icons.liquid for each SVG.
+  @param {block} block_obj - The block object
+{%- enddoc -%}
 
-  <div class="exp-payment-icons" {{ block.shopify_attributes }}
-    style="
-      padding: {{ block.settings.padding_top }}px {{ block.settings.padding_right }}px {{ block.settings.padding_bottom }}px {{ block.settings.padding_left }}px;
-    "
-  >
-    <ul class="exp-payment-icons__list" style="justify-content: {{ block.settings.alignment }}; gap: {{ block.settings.gap }}px;">
+{% assign block_settings = block.settings %}
 
-      {%- comment %} Shopify built-in payment types {% endcomment -%}
-      {%- if block.settings.show_shopify_payments -%}
-        {%- for type in shop.enabled_payment_types -%}
-          <li class="exp-payment-icons__item">
-            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-          </li>
-        {%- endfor -%}
-      {%- endif -%}
+<div
+  class="exp-payment-icons spacing-style"
+  style="
+    {% render 'spacing-style', settings: block_settings %}
+    --icon-gap: {{ block_settings.gap }}px;
+    justify-content: {{ block_settings.alignment }};
+  "
+  {{ block.shopify_attributes }}
+>
+  <ul class="exp-payment-icons__list">
 
-      {%- comment %} Global payment icons {% endcomment -%}
-      {%- if block.settings.show_visa -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'visa' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_mastercard -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'mastercard' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_jcb -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'jcb' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_qris -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'qris' %}</li>
-      {%- endif -%}
+    {%- comment %} Shopify built-in payment types {% endcomment -%}
+    {%- if block_settings.show_shopify_payments -%}
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="exp-payment-icons__item">
+          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+      {%- endfor -%}
+    {%- endif -%}
 
-      {%- comment %} Local payment icons (Indonesia) {% endcomment -%}
-      {%- if block.settings.show_bca -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bca' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_bni -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bni' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_bri -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bri' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_mandiri -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'mandiri' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_permata -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'permata' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_shopeepay -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'shopeepay' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_dana -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'dana' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_ovo -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'ovo' %}</li>
-      {%- endif -%}
-      {%- if block.settings.show_linkaja -%}
-        <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'linkaja' %}</li>
-      {%- endif -%}
+    {%- comment %} Global payment icons {% endcomment -%}
+    {%- if block_settings.show_visa -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'visa' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_mastercard -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'mastercard' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_jcb -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'jcb' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_qris -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'qris' %}</li>
+    {%- endif -%}
 
-    </ul>
-  </div>
+    {%- comment %} Local payment icons (Indonesia) {% endcomment -%}
+    {%- if block_settings.show_bca -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bca' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_bni -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bni' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_bri -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'bri' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_mandiri -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'mandiri' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_permata -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'permata' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_shopeepay -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'shopeepay' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_dana -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'dana' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_ovo -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'ovo' %}</li>
+    {%- endif -%}
+    {%- if block_settings.show_linkaja -%}
+      <li class="exp-payment-icons__item">{% render 'exp-custom-icons', icon: 'linkaja' %}</li>
+    {%- endif -%}
 
-  {% stylesheet %}
-    .exp-payment-icons {
-      width: 100%;
-    }
-    .exp-payment-icons__list {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .exp-payment-icons__item {
-      display: inline-flex;
-      align-items: center;
-    }
-    .payment-icon,
-    .icon--full-color {
-      display: block;
-      width: 38px;
-      height: 24px;
-    }
-  {% endstylesheet %}
+  </ul>
+</div>
 
-  {% schema %}
-  {
-    "name": "Payment Icons",
-    "settings": [
-      {
-        "type": "select",
-        "id": "alignment",
-        "label": "Alignment",
-        "options": [
-          { "value": "flex-start", "label": "Left" },
-          { "value": "center",     "label": "Center" },
-          { "value": "flex-end",   "label": "Right" },
-          { "value": "space-between", "label": "Space between" }
-        ],
-        "default": "flex-end"
-      },
-      {
-        "type": "range",
-        "id": "gap",
-        "label": "Gap",
-        "min": 0,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "default": 10
-      },
-      {
-        "type": "checkbox",
-        "id": "show_shopify_payments",
-        "label": "Show Shopify payment icons",
-        "info": "Display payment methods enabled in your Shopify payment settings",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Global payment icons"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_visa",
-        "label": "Visa",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_mastercard",
-        "label": "Mastercard",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_jcb",
-        "label": "JCB",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_qris",
-        "label": "QRIS",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Local payment icons (Indonesia)"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_bca",
-        "label": "BCA",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_bni",
-        "label": "BNI",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_bri",
-        "label": "Bank BRI",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_mandiri",
-        "label": "Mandiri",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_permata",
-        "label": "Permata",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "show_shopeepay",
-        "label": "ShopeePay",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_dana",
-        "label": "Dana",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_ovo",
-        "label": "OVO",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_linkaja",
-        "label": "LinkAja",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Padding"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0, "max": 100, "step": 4, "unit": "px",
-        "label": "Top",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0, "max": 100, "step": 4, "unit": "px",
-        "label": "Bottom",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "padding_left",
-        "min": 0, "max": 100, "step": 4, "unit": "px",
-        "label": "Left",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "padding_right",
-        "min": 0, "max": 100, "step": 4, "unit": "px",
-        "label": "Right",
-        "default": 0
-      }
-    ]
+{% stylesheet %}
+  .exp-payment-icons {
+    width: 100%;
   }
-  {% endschema %}
+  .exp-payment-icons__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--icon-gap, 10px);
+    justify-content: inherit;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .exp-payment-icons__item {
+    display: inline-flex;
+    align-items: center;
+  }
+  .payment-icon,
+  .icon--full-color {
+    display: block;
+    width: 38px;
+    height: 24px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Payment Icons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "flex-start",    "label": "Left" },
+        { "value": "center",        "label": "Center" },
+        { "value": "flex-end",      "label": "Right" },
+        { "value": "space-between", "label": "Space between" }
+      ],
+      "default": "flex-end"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0, "max": 40, "step": 1, "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shopify_payments",
+      "label": "Show Shopify payment icons",
+      "info": "Display payment methods enabled in your Shopify payment settings",
+      "default": false
+    },
+    { "type": "header", "content": "Global payment icons" },
+    { "type": "checkbox", "id": "show_visa",       "label": "Visa",       "default": true  },
+    { "type": "checkbox", "id": "show_mastercard",  "label": "Mastercard", "default": true  },
+    { "type": "checkbox", "id": "show_jcb",         "label": "JCB",        "default": true  },
+    { "type": "checkbox", "id": "show_qris",        "label": "QRIS",       "default": true  },
+    { "type": "header", "content": "Local payment icons (Indonesia)" },
+    { "type": "checkbox", "id": "show_bca",         "label": "BCA",        "default": true  },
+    { "type": "checkbox", "id": "show_bni",         "label": "BNI",        "default": true  },
+    { "type": "checkbox", "id": "show_bri",         "label": "Bank BRI",   "default": true  },
+    { "type": "checkbox", "id": "show_mandiri",     "label": "Mandiri",    "default": true  },
+    { "type": "checkbox", "id": "show_permata",     "label": "Permata",    "default": false },
+    { "type": "checkbox", "id": "show_shopeepay",   "label": "ShopeePay", "default": true  },
+    { "type": "checkbox", "id": "show_dana",        "label": "Dana",       "default": true  },
+    { "type": "checkbox", "id": "show_ovo",         "label": "OVO",        "default": true  },
+    { "type": "checkbox", "id": "show_linkaja",     "label": "LinkAja",    "default": true  },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding-block-start",  "label": "Top",    "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-block-end",    "label": "Bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-start", "label": "Left",   "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding-inline-end",   "label": "Right",  "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 }
+  ],
+  "presets": [
+    {
+      "name": "Payment Icons",
+      "category": "Footer",
+      "settings": {
+        "alignment": "flex-start",
+        "gap": 10
+      }
+    }
+  ]
+}
+{% endschema %}

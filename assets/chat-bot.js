@@ -4,7 +4,11 @@
  * Languages: en (default), id, fr, de, es, ja
  */
 
+/** @typedef {{ title: string, subtitle: string, placeholder: string, send: string, greeting: string, fallback: string, quick_replies: string[] }} I18nEntry */
+/** @typedef {{ keys: string[], answer: string }} KbEntry */
+
 /* ─── i18n ──────────────────────────────────────────────────────────── */
+/** @type {Record<string, I18nEntry>} */
 const I18N = {
   en: {
     title: 'Customer Support', subtitle: 'Typically replies instantly',
@@ -51,6 +55,7 @@ const I18N = {
 };
 
 /* ─── Knowledge base ────────────────────────────────────────────────── */
+/** @type {Record<string, KbEntry[]>} */
 const KB = {
   en: [
     { keys: ['order','orders','track','tracking','status'], answer: "**Order Tracking**\nVisit your [account orders page](/account/orders) or use the tracking link in your confirmation email.\n\nOrders ship within 1–2 business days. Need more help? Type **contact**." },
@@ -75,11 +80,15 @@ const KB = {
 };
 
 /* Supplement partial KB langs with EN fallback */
-['fr','de','es','ja'].forEach(lang => {
-  KB[lang] = KB.en;
+['fr','de','es','ja'].forEach((/** @type {string} */ lang) => {
+  KB[lang] = KB['en'];
 });
 
 /* ─── Markdown-lite ─────────────────────────────────────────────────── */
+/**
+ * @param {string} text
+ * @returns {string}
+ */
 function renderMd(text) {
   return text
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -89,16 +98,30 @@ function renderMd(text) {
 
 /* ─── Bot engine ─────────────────────────────────────────────────────── */
 class ChatBot {
+  /** @param {string} [lang] */
   constructor(lang = 'en') { this.lang = lang; }
+
+  /** @param {string} lang */
   setLang(lang) { this.lang = lang; }
-  t(key) { return (I18N[this.lang] || I18N.en)[key]; }
+
+  /** @param {string} key */
+  t(key) {
+    const locale = I18N[this.lang] ?? I18N['en'];
+    return /** @type {string} */ (/** @type {Record<string,unknown>} */ (locale)[key] ?? '');
+  }
+
+  /** @param {string} input */
   respond(input) {
     const text = input.toLowerCase().trim();
-    const kb   = KB[this.lang] || KB.en;
-    const hit  = kb.find(e => e.keys.some(k => text.includes(k)));
+    const kb   = KB[this.lang] ?? KB['en'];
+    const hit  = kb.find((/** @type {KbEntry} */ e) => e.keys.some((/** @type {string} */ k) => text.includes(k)));
     return hit ? hit.answer : this.t('fallback');
   }
-  quickReplies() { return this.t('quick_replies'); }
+
+  quickReplies() {
+    const locale = I18N[this.lang] ?? I18N['en'];
+    return locale.quick_replies;
+  }
 }
 
 /* ─── Widget ─────────────────────────────────────────────────────────── */
@@ -106,18 +129,19 @@ class ChatWidget {
   constructor() {
     this.bot     = new ChatBot('en');
     this.isOpen  = false;
+    /** @type {{ role: string, text: string }[]} */
     this.history = [];
-    this.el      = document.getElementById('cb-widget');
+    this.el      = /** @type {HTMLElement|null} */ (document.getElementById('cb-widget'));
     if (!this.el) return;
-    this.messagesEl = this.el.querySelector('#cb-messages');
-    this.inputEl    = this.el.querySelector('#cb-input');
-    this.sendBtn    = this.el.querySelector('#cb-send');
-    this.toggleBtn  = document.getElementById('cb-toggle');
-    this.closeBtn   = this.el.querySelector('#cb-close');
-    this.langSel    = this.el.querySelector('#cb-lang');
-    this.badge      = document.getElementById('cb-badge');
-    this.panel      = this.el.querySelector('#cb-panel');
-    this.quickEl    = this.el.querySelector('#cb-quick-replies');
+    this.messagesEl = /** @type {HTMLElement|null} */ (this.el.querySelector('#cb-messages'));
+    this.inputEl    = /** @type {HTMLInputElement|null} */ (this.el.querySelector('#cb-input'));
+    this.sendBtn    = /** @type {HTMLElement|null} */ (this.el.querySelector('#cb-send'));
+    this.toggleBtn  = /** @type {HTMLElement|null} */ (document.getElementById('cb-toggle'));
+    this.closeBtn   = /** @type {HTMLElement|null} */ (this.el.querySelector('#cb-close'));
+    this.langSel    = /** @type {HTMLSelectElement|null} */ (this.el.querySelector('#cb-lang'));
+    this.badge      = /** @type {HTMLElement|null} */ (document.getElementById('cb-badge'));
+    this.panel      = /** @type {HTMLElement|null} */ (this.el.querySelector('#cb-panel'));
+    this.quickEl    = /** @type {HTMLElement|null} */ (this.el.querySelector('#cb-quick-replies'));
     this._bind();
     setTimeout(() => this.badge?.classList.remove('cb-hidden'), 4000);
   }
@@ -126,8 +150,12 @@ class ChatWidget {
     this.toggleBtn?.addEventListener('click', () => this.toggle());
     this.closeBtn?.addEventListener('click',  () => this.close());
     this.sendBtn?.addEventListener('click',   () => this._send());
-    this.inputEl?.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this._send(); } });
-    this.langSel?.addEventListener('change',  e => this._changeLang(e.target.value));
+    this.inputEl?.addEventListener('keydown', (/** @type {KeyboardEvent} */ e) => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this._send(); }
+    });
+    this.langSel?.addEventListener('change', (/** @type {Event} */ e) => {
+      this._changeLang(/** @type {HTMLSelectElement} */ (e.target).value);
+    });
   }
 
   toggle() { this.isOpen ? this.close() : this.open(); }
@@ -147,29 +175,36 @@ class ChatWidget {
     this.toggleBtn?.setAttribute('aria-expanded', 'false');
   }
 
+  /** @param {string} lang */
   _changeLang(lang) {
     this.bot.setLang(lang);
-    this.el.querySelector('#cb-title').textContent    = this.bot.t('title');
-    this.el.querySelector('#cb-subtitle').textContent = this.bot.t('subtitle');
-    this.inputEl.placeholder = this.bot.t('placeholder');
-    this.sendBtn.textContent = this.bot.t('send');
+    const titleEl    = /** @type {HTMLElement|null} */ (this.el?.querySelector('#cb-title'));
+    const subtitleEl = /** @type {HTMLElement|null} */ (this.el?.querySelector('#cb-subtitle'));
+    if (titleEl)    titleEl.textContent    = this.bot.t('title');
+    if (subtitleEl) subtitleEl.textContent = this.bot.t('subtitle');
+    if (this.inputEl)  this.inputEl.placeholder = this.bot.t('placeholder');
+    if (this.sendBtn)  this.sendBtn.textContent  = this.bot.t('send');
     this._renderQR();
     this._botMsg(this.bot.t('greeting'));
   }
 
+  /** @param {string} text */
   _botMsg(text) {
     this.history.push({ role: 'bot', text });
     this._appendMsg({ role: 'bot', text });
     this._renderQR();
   }
 
+  /** @param {string} text */
   _userMsg(text) {
     this.history.push({ role: 'user', text });
     this._appendMsg({ role: 'user', text });
     if (this.quickEl) this.quickEl.innerHTML = '';
   }
 
+  /** @param {{ role: string, text: string }} msg */
   _appendMsg({ role, text }) {
+    if (!this.messagesEl) return;
     const wrap   = document.createElement('div');
     wrap.className = `cb-msg cb-msg--${role}`;
     const bubble = document.createElement('div');
@@ -184,6 +219,7 @@ class ChatWidget {
   }
 
   _showTyping() {
+    if (!this.messagesEl) return;
     const el = document.createElement('div');
     el.className = 'cb-msg cb-msg--bot cb-typing-wrap';
     el.id = 'cb-typing';
@@ -197,22 +233,23 @@ class ChatWidget {
   _renderQR() {
     if (!this.quickEl) return;
     this.quickEl.innerHTML = '';
-    this.bot.quickReplies().forEach(label => {
+    this.bot.quickReplies().forEach((/** @type {string} */ label) => {
       const btn = document.createElement('button');
       btn.className = 'cb-qr';
       btn.textContent = label;
       btn.addEventListener('click', () => this._process(label));
-      this.quickEl.append(btn);
+      this.quickEl?.append(btn);
     });
   }
 
   _send() {
     const val = this.inputEl?.value.trim();
     if (!val) return;
-    this.inputEl.value = '';
+    if (this.inputEl) this.inputEl.value = '';
     this._process(val);
   }
 
+  /** @param {string} text */
   _process(text) {
     this._userMsg(text);
     this._showTyping();

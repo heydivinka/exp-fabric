@@ -20,19 +20,7 @@
     echo '--resource-list-columns-mobile: repeat(' | append: mob_col | append: ', 1fr);'
     echo '--column-count: '                     | append: columns  | append: ';'
   endcapture
-
-  assign rv_rendered_ids = ''
 -%}
-
-{%- comment -%} for loop MUST be outside liquid tag — not supported inside {%- endcomment -%}
-{%- for rv_product in collections.all.products limit: 100 -%}
-  {%- unless rv_product.id == product.id -%}
-    {%- if rv_rendered_ids != '' -%}
-      {%- assign rv_rendered_ids = rv_rendered_ids | append: ',' -%}
-    {%- endif -%}
-    {%- assign rv_rendered_ids = rv_rendered_ids | append: rv_product.id -%}
-  {%- endunless -%}
-{%- endfor -%}
 
 {%- if bg != blank -%}
   {%- render 'contrast-override', background_color: bg, section_id: section.id -%}
@@ -57,24 +45,13 @@
     {{ styles }}
   "
   data-current-id="{{ product.id }}"
-  data-rendered-ids="{{ rv_rendered_ids }}"
+  data-rv-section-id="{{ section.id }}"
   {{ section.shopify_attributes }}
 >
-
-  {%- comment -%}
-    Heading: hidden via aria-hidden + CSS until JS reveals it.
-    Using a class instead of the HTML `hidden` attribute avoids
-    Shopify theme editor stripping content in design mode.
-  {%- endcomment -%}
   <div class="section-resource-list__content rv-heading rv-hidden">
     {% content_for 'blocks' %}
   </div>
 
-  {%- comment -%}
-    Cards: all pre-rendered server-side, hidden individually.
-    JS shows only the ones matching localStorage viewedProducts,
-    in the correct recency order, max 5.
-  {%- endcomment -%}
   <div class="resource-list resource-list--grid rv-grid rv-hidden">
     {%- for rv_product in collections.all.products limit: 100 -%}
       {%- unless rv_product.id == product.id -%}
@@ -92,98 +69,14 @@
 
 </div>
 
-<script>
-(function () {
-  'use strict';
-
-  var STORAGE_KEY = 'viewedProducts';
-  var MAX_SHOW    = 5;
-  var SECTION_ID  = 'rv-section-{{ section.id }}';
-
-  function getViewedIds() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return [];
-      var parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed)) return [];
-      // Normalise: support plain string IDs and legacy {id, handle} objects
-      return parsed
-        .map(function (item) {
-          if (typeof item === 'string') return item;
-          if (typeof item === 'object' && item !== null && item.id) return String(item.id);
-          return null;
-        })
-        .filter(Boolean);
-    } catch (_) {
-      return [];
-    }
-  }
-
-  function init() {
-    var wrapper = document.getElementById(SECTION_ID);
-    if (!wrapper) return;
-
-    var currentId = String(wrapper.dataset.currentId || '');
-
-    /* Read all viewed IDs, exclude the current product */
-    var viewedIds = getViewedIds()
-      .map(function (id) { return String(id); })
-      .filter(function (id) { return id !== currentId; })
-      .slice(0, MAX_SHOW);
-
-    if (viewedIds.length === 0) {
-      wrapper.style.display = 'none';
-      return;
-    }
-
-    /* Build cardMap from DOM — source of truth for what is actually rendered */
-    var allCards = wrapper.querySelectorAll('.rv-card');
-    if (allCards.length === 0) {
-      wrapper.style.display = 'none';
-      return;
-    }
-
-    var cardMap = {};
-    allCards.forEach(function (card) {
-      var pid = String(card.dataset.productId || '');
-      if (pid) cardMap[pid] = card;
-    });
-
-    /* Show matching cards in recency order */
-    var shown = 0;
-    viewedIds.forEach(function (id) {
-      if (shown >= MAX_SHOW) return;
-      var card = cardMap[id];
-      if (card) {
-        card.classList.remove('rv-hidden');
-        shown++;
-      }
-    });
-
-    if (shown === 0) {
-      wrapper.style.display = 'none';
-      return;
-    }
-
-    var grid    = wrapper.querySelector('.rv-grid');
-    var heading = wrapper.querySelector('.rv-heading');
-    if (grid)    grid.classList.remove('rv-hidden');
-    if (heading) heading.classList.remove('rv-hidden');
-  }
-
-  if (document.readyState === 'complete') {
-    init();
-  } else {
-    window.addEventListener('load', init);
-  }
-})();
-</script>
+{%- comment -%} Load from asset — no inline JS {%- endcomment -%}
+<script
+  src="{{ 'recently-viewed-products.js' | asset_url }}"
+  type="module"
+></script>
 
 {% stylesheet %}
-  /* Hidden state — used by JS to show/hide cards, heading, and grid */
-  .rv-hidden {
-    display: none !important;
-  }
+  .rv-hidden { display: none !important; }
 {% endstylesheet %}
 
 {% schema %}
@@ -192,124 +85,29 @@
   "tag": "div",
   "class": "section-wrapper",
   "limit": 1,
-  "enabled_on": {
-    "templates": ["product"]
-  },
+  "enabled_on": { "templates": ["product"] },
   "blocks": [
     { "type": "text"   },
     { "type": "button" },
     { "type": "@theme" }
   ],
   "settings": [
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "range",
-      "id": "columns",
-      "label": "Columns (desktop)",
-      "min": 2,
-      "max": 6,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "select",
-      "id": "mobile_columns",
-      "label": "Columns (mobile)",
-      "options": [
-        { "value": "1", "label": "1" },
-        { "value": "2", "label": "2" }
-      ],
-      "default": "2"
-    },
-    {
-      "type": "range",
-      "id": "columns_gap",
-      "label": "Column gap",
-      "min": 0,
-      "max": 48,
-      "step": 2,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "rows_gap",
-      "label": "Row gap",
-      "min": 0,
-      "max": 48,
-      "step": 2,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "Width",
-      "options": [
-        { "value": "page-width", "label": "Page" },
-        { "value": "full-width", "label": "Full" }
-      ],
-      "default": "page-width"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "Inner gap",
-      "min": 0,
-      "max": 60,
-      "step": 4,
-      "unit": "px",
-      "default": 28
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "placeholder": "Default"
-    },
-    {
-      "type": "header",
-      "content": "Padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "Top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 48
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "Bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 48
-    }
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns", "label": "Columns (desktop)", "min": 2, "max": 6, "step": 1, "default": 5 },
+    { "type": "select", "id": "mobile_columns", "label": "Columns (mobile)", "options": [{ "value": "1", "label": "1" }, { "value": "2", "label": "2" }], "default": "2" },
+    { "type": "range", "id": "columns_gap", "label": "Column gap", "min": 0, "max": 48, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "rows_gap", "label": "Row gap", "min": 0, "max": 48, "step": 2, "unit": "px", "default": 16 },
+    { "type": "select", "id": "section_width", "label": "Width", "options": [{ "value": "page-width", "label": "Page" }, { "value": "full-width", "label": "Full" }], "default": "page-width" },
+    { "type": "range", "id": "gap", "label": "Inner gap", "min": 0, "max": 60, "step": 4, "unit": "px", "default": 28 },
+    { "type": "color", "id": "background_color", "label": "Background color", "placeholder": "Default" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding-block-start", "label": "Top",    "min": 0, "max": 100, "step": 1, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding-block-end",   "label": "Bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 48 }
   ],
-  "presets": [
-    {
-      "name": "Recently Viewed",
-      "category": "Products",
-      "settings": {
-        "columns": 5,
-        "mobile_columns": "2",
-        "columns_gap": 12,
-        "rows_gap": 16,
-        "section_width": "page-width",
-        "gap": 28,
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    }
-  ]
+  "presets": [{
+    "name": "Recently Viewed",
+    "category": "Products",
+    "settings": { "columns": 5, "mobile_columns": "2", "columns_gap": 12, "rows_gap": 16, "section_width": "page-width", "gap": 28, "padding-block-start": 48, "padding-block-end": 48 }
+  }]
 }
 {% endschema %}

@@ -46,4 +46,77 @@ export class RecentlyViewed {
       return [];
     }
   }
+
+  /**
+   * Initialises the recently-viewed section on the page.
+   * Reads stored IDs, matches them against pre-rendered `.rv-card` elements,
+   * and reveals matching cards in recency order.
+   *
+   * @param {string} sectionId - The Shopify section ID used to locate the wrapper element.
+   */
+  static initSection(sectionId) {
+    const wrapper = /** @type {HTMLElement|null} */ (document.getElementById(`rv-section-${sectionId}`));
+    if (!wrapper) return;
+
+    const currentId = String(wrapper.dataset.currentId || '');
+    const viewedIds = this.getProducts()
+      .filter((id) => id !== currentId)
+      .slice(0, this.#MAX_PRODUCTS);
+
+    if (viewedIds.length === 0) {
+      wrapper.style.display = 'none';
+      return;
+    }
+
+    const allCards = wrapper.querySelectorAll('.rv-card');
+    if (allCards.length === 0) {
+      wrapper.style.display = 'none';
+      return;
+    }
+
+    /** @type {Record<string, Element>} */
+    const cardMap = {};
+    allCards.forEach((card) => {
+      const pid = String(/** @type {HTMLElement} */ (card).dataset.productId || '');
+      if (pid) cardMap[pid] = card;
+    });
+
+    let shown = 0;
+    viewedIds.forEach((id) => {
+      if (shown >= this.#MAX_PRODUCTS) return;
+      const card = cardMap[id];
+      if (card) {
+        card.classList.remove('rv-hidden');
+        shown++;
+      }
+    });
+
+    if (shown === 0) {
+      wrapper.style.display = 'none';
+      return;
+    }
+
+    wrapper.querySelector('.rv-grid')?.classList.remove('rv-hidden');
+    wrapper.querySelector('.rv-heading')?.classList.remove('rv-hidden');
+  }
+
+  /**
+   * Auto-initialises all recently-viewed sections found in the DOM.
+   * Called automatically on 'load' when this file is loaded as a plain script.
+   * Scans for elements with id matching `rv-section-*`.
+   */
+  static initAll() {
+    document.querySelectorAll('[id^="rv-section-"]').forEach((el) => {
+      const sectionId = el.id.replace('rv-section-', '');
+      this.initSection(sectionId);
+    });
+  }
+}
+
+/* Auto-init: when this module is loaded as a direct <script src> tag,
+   scan the DOM for any rv-section-* wrappers and initialise them. */
+if (document.readyState === 'complete') {
+  RecentlyViewed.initAll();
+} else {
+  window.addEventListener('load', () => RecentlyViewed.initAll());
 }
