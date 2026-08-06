@@ -461,7 +461,7 @@
       }
     },
     "recently_viewed_section": {
-      "type": "exp-recently-viewed",
+      "type": "recently-viewed",
       "blocks": {
         "rv_heading": {
           "type": "text",
