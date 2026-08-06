@@ -1,0 +1,582 @@
+{%- doc -%}
+  Renders a carousel or grid of cards from a Shopify metaobject list.
+  The metaobject type must be `card_content` with fields:
+    - display_name  (single_line_text)
+    - image         (file_reference / image)
+    - title         (rich_text)
+    - icon_name     (single_line_text)
+
+  @param {block} block - The block object
+
+  @example
+  Drag "Carousel Metaobject" block into any section that accepts @theme blocks.
+{%- enddoc -%}
+
+{%- liquid
+  assign block_settings    = block.settings
+  assign metaobject_list   = block_settings.metaobject_list
+  assign desktop_layout    = block_settings.desktop_layout
+  assign mobile_layout     = block_settings.mobile_layout
+  assign columns           = block_settings.columns
+  assign mobile_columns    = block_settings.mobile_columns
+  assign h_gap             = block_settings.horizontal_gap
+  assign v_gap             = block_settings.vertical_gap
+  assign h_gap_mobile      = block_settings.mobile_horizontal_gap
+  assign v_gap_mobile      = block_settings.mobile_vertical_gap
+  assign desktop_fit       = block_settings.desktop_grid_items
+  assign mobile_fit        = block_settings.mobile_grid_items
+  assign gutters           = block_settings.enable_gutters
+  assign card_height       = block_settings.card_height
+  assign card_position     = block_settings.card_position
+  assign border_style      = block_settings.border_style
+  assign border_radius     = block_settings.border_radius
+  assign inherit_color     = block_settings.inherit_color_scheme
+-%}
+
+<div
+  class="cmo spacing-style{% if inherit_color %} color-inherit{% endif %}"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  {%- if metaobject_list != blank -%}
+
+    {%- comment -%} ── CAROUSEL layout ───────────────────── {%- endcomment -%}
+    {%- if desktop_layout == 'carousel' -%}
+      <div
+        class="cmo__carousel-wrap"
+        style="
+          --cmo-columns: {{ columns }};
+          --cmo-h-gap: {{ h_gap }}px;
+          --cmo-v-gap: {{ v_gap }}px;
+          --cmo-h-gap-mobile: {{ h_gap_mobile }}px;
+          --cmo-v-gap-mobile: {{ v_gap_mobile }}px;
+        "
+      >
+        <div class="cmo__track">
+          {%- for entry in metaobject_list.values -%}
+            {%- render 'carousel-metaobject-card',
+              entry: entry,
+              card_height: card_height,
+              card_position: card_position,
+              border_style: border_style,
+              border_radius: border_radius,
+              desktop_fit: desktop_fit,
+              mobile_fit: mobile_fit
+            -%}
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Navigation arrows {%- endcomment -%}
+        <div class="cmo__nav" aria-label="Carousel navigation">
+          <button class="cmo__arrow cmo__arrow--prev" aria-label="Previous" type="button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12.5 15L7.5 10l5-5"/></svg>
+          </button>
+          <button class="cmo__arrow cmo__arrow--next" aria-label="Next" type="button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7.5 5l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+
+    {%- comment -%} ── GRID layout ──────────────────────── {%- endcomment -%}
+    {%- else -%}
+      <div
+        class="cmo__grid"
+        style="
+          --cmo-columns: {{ columns }};
+          --cmo-mobile-columns: {{ mobile_columns }};
+          --cmo-h-gap: {{ h_gap }}px;
+          --cmo-v-gap: {{ v_gap }}px;
+          --cmo-h-gap-mobile: {{ h_gap_mobile }}px;
+          --cmo-v-gap-mobile: {{ v_gap_mobile }}px;
+          --cmo-desktop-fit: {{ desktop_fit }};
+          --cmo-mobile-fit: {{ mobile_fit }};
+        "
+      >
+        {%- for entry in metaobject_list.values -%}
+          {%- render 'carousel-metaobject-card',
+            entry: entry,
+            card_height: card_height,
+            card_position: card_position,
+            border_style: border_style,
+            border_radius: border_radius,
+            desktop_fit: desktop_fit,
+            mobile_fit: mobile_fit
+          -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  {%- else -%}
+    <div class="cmo__empty">
+      <p>Please select a metaobject list. Create a metaobject type named <strong>card_content</strong> first.</p>
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+
+/* ── Container ─────────────────────────────────── */
+.cmo {
+  width: 100%;
+}
+
+/* ── Grid ──────────────────────────────────────── */
+.cmo__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cmo-mobile-columns, 2), var(--cmo-mobile-fit, 1fr));
+  gap: var(--cmo-v-gap-mobile, 8px) var(--cmo-h-gap-mobile, 8px);
+}
+
+@media screen and (min-width: 750px) {
+  .cmo__grid {
+    grid-template-columns: repeat(var(--cmo-columns, 4), var(--cmo-desktop-fit, 1fr));
+    gap: var(--cmo-v-gap, 12px) var(--cmo-h-gap, 12px);
+  }
+}
+
+/* ── Carousel ──────────────────────────────────── */
+.cmo__carousel-wrap {
+  position: relative;
+}
+
+.cmo__track {
+  display: flex;
+  gap: var(--cmo-h-gap-mobile, 8px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.cmo__track::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .cmo__track {
+    gap: var(--cmo-h-gap, 12px);
+  }
+}
+
+.cmo__track .cmo__card {
+  flex: 0 0 calc(
+    (100% - (var(--cmo-h-gap-mobile, 8px) * (var(--cmo-columns, 4) - 1))) /
+    var(--cmo-columns, 4)
+  );
+  scroll-snap-align: start;
+}
+
+@media screen and (min-width: 750px) {
+  .cmo__track .cmo__card {
+    flex: 0 0 calc(
+      (100% - (var(--cmo-h-gap, 12px) * (var(--cmo-columns, 4) - 1))) /
+      var(--cmo-columns, 4)
+    );
+  }
+}
+
+/* ── Arrow navigation ──────────────────────────── */
+.cmo__nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cmo__arrow {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: var(--color-background, #fff);
+  color: var(--color-foreground, #111);
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s;
+}
+
+.cmo__arrow:hover {
+  background: var(--color-foreground, #111);
+  color: var(--color-background, #fff);
+}
+
+.cmo__arrow[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.cmo__arrow--prev {
+  transform: translateX(-50%);
+}
+
+.cmo__arrow--next {
+  transform: translateX(50%);
+}
+
+/* ── Icon fallback ─────────────────────────────── */
+.cmo__card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.cmo__card__icon svg,
+.cmo__card__icon .payment-icon {
+  width: 3rem;
+  height: auto;
+  display: block;
+}
+
+/* ── Card ──────────────────────────────────────── */
+.cmo__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--cmo-border-radius, 0px);
+  border: var(--cmo-border, none);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cmo__card--border-solid {
+  border: 1px solid var(--color-border, rgba(0,0,0,0.12));
+}
+
+.cmo__card__media {
+  overflow: hidden;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.cmo__card__media img,
+.cmo__card__media svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* height modes */
+.cmo__card--height-fill .cmo__card__media {
+  flex: 1;
+}
+
+.cmo__card--height-fit .cmo__card__media {
+  height: auto;
+}
+
+/* position modes */
+.cmo__card--pos-top    { justify-content: flex-start; }
+.cmo__card--pos-center { justify-content: center; }
+.cmo__card--pos-bottom { justify-content: flex-end; }
+
+.cmo__card__body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cmo__card__display-name {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+.cmo__card__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-foreground);
+}
+
+.cmo__card__icon-name {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+/* ── Empty state ────────────────────────────────── */
+.cmo__empty {
+  padding: 2rem;
+  text-align: center;
+  border: 2px dashed rgba(0,0,0,0.12);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--color-foreground-muted, var(--color-foreground));
+}
+
+{% endstylesheet %}
+
+<script>
+(function () {
+  'use strict';
+
+  document.querySelectorAll('[data-block-id="{{ block.id }}"] .cmo__carousel-wrap, .cmo__carousel-wrap').forEach(function (wrap) {
+    var track = wrap.querySelector('.cmo__track');
+    var prev  = wrap.querySelector('.cmo__arrow--prev');
+    var next  = wrap.querySelector('.cmo__arrow--next');
+    if (!track || !prev || !next) return;
+
+    function updateArrows() {
+      prev.disabled = track.scrollLeft <= 0;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    }
+
+    prev.addEventListener('click', function () {
+      track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', function () {
+      track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Carousel Metaobject",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Source"
+    },
+    {
+      "type": "metaobject_list",
+      "id": "metaobject_list",
+      "label": "Metaobject list",
+      "metaobject_type": "card_content",
+      "info": "Please create a metaobject type named card_content first before using this field."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_layout",
+      "label": "Desktop layout",
+      "options": [
+        { "value": "carousel", "label": "Carousel" },
+        { "value": "grid",     "label": "Grid"     }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        { "value": "carousel", "label": "Carousel" },
+        { "value": "grid",     "label": "Grid"     }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "select",
+      "id": "desktop_grid_items",
+      "label": "Desktop grid items",
+      "options": [
+        { "value": "1fr",         "label": "Fill"        },
+        { "value": "fit-content", "label": "Fit content" }
+      ],
+      "default": "1fr"
+    },
+    {
+      "type": "select",
+      "id": "mobile_grid_items",
+      "label": "Mobile grid items",
+      "options": [
+        { "value": "1fr",         "label": "Fill"        },
+        { "value": "fit-content", "label": "Fit content" }
+      ],
+      "default": "1fr"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Gap"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "vertical_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_horizontal_gap",
+      "label": "Mobile horizontal gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_gap",
+      "label": "Mobile vertical gap",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gutters",
+      "label": "Enable horizontal page gutters",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "Inherit color scheme",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "card_height",
+      "label": "Card height",
+      "options": [
+        { "value": "fit",  "label": "Fit"  },
+        { "value": "fill", "label": "Fill" }
+      ],
+      "default": "fit"
+    },
+    {
+      "type": "select",
+      "id": "card_position",
+      "label": "Position",
+      "options": [
+        { "value": "top",    "label": "Top"    },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border_style",
+      "label": "Style",
+      "options": [
+        { "value": "none",  "label": "None"  },
+        { "value": "solid", "label": "Solid" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel Metaobject",
+      "category": "Media",
+      "settings": {
+        "desktop_layout": "carousel",
+        "mobile_layout":  "carousel",
+        "columns":        4,
+        "mobile_columns": 4,
+        "horizontal_gap": 12,
+        "vertical_gap":   12,
+        "mobile_horizontal_gap": 8,
+        "mobile_vertical_gap":   8,
+        "card_height":    "fit",
+        "card_position":  "top",
+        "border_style":   "none",
+        "border_radius":  0
+      }
+    }
+  ]
+}
+{% endschema %}

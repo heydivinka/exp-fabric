@@ -1,0 +1,61 @@
+{%- doc -%}
+  Renders a single card from a card_content metaobject entry.
+  Displays image if available, otherwise falls back to icon via exp-custom-icons snippet.
+
+  @param {object} entry         - The metaobject entry (card_content type)
+  @param {string} card_height   - "fit" | "fill"
+  @param {string} card_position - "top" | "center" | "bottom"
+  @param {string} border_style  - "none" | "solid"
+  @param {number} border_radius - Corner radius in px
+{%- enddoc -%}
+
+{%- liquid
+  assign display_name = entry.display_name.value
+  assign img_field    = entry.image.value
+  assign title_field  = entry.title.value
+  assign icon_name    = entry.icon_name.value
+
+  assign border_class   = ''
+  if border_style == 'solid'
+    assign border_class = ' cmo__card--border-solid'
+  endif
+
+  assign height_class   = 'cmo__card--height-' | append: card_height
+  assign position_class = 'cmo__card--pos-'    | append: card_position
+-%}
+
+<div
+  class="cmo__card {{ height_class }} {{ position_class }}{{ border_class }}"
+  style="--cmo-border-radius: {{ border_radius }}px;"
+>
+  {%- comment -%} Image takes priority; icon_name is the fallback {%- endcomment -%}
+  {%- if img_field != blank -%}
+    <div class="cmo__card__media">
+      {{-
+        img_field
+        | image_url: width: 600
+        | image_tag:
+          class: 'cmo__card__media-img',
+          widths: '200,300,400,600',
+          sizes: '(min-width: 750px) 20vw, 40vw',
+          loading: 'lazy',
+          alt: display_name | default: '' | escape
+      -}}
+    </div>
+  {%- elsif icon_name != blank -%}
+    <div class="cmo__card__icon">
+      {%- render 'exp-custom-icons', icon: icon_name | strip | downcase -%}
+    </div>
+  {%- endif -%}
+
+  {%- if display_name != blank or title_field != blank -%}
+    <div class="cmo__card__body">
+      {%- if display_name != blank -%}
+        <p class="cmo__card__display-name">{{ display_name }}</p>
+      {%- endif -%}
+      {%- if title_field != blank -%}
+        <div class="cmo__card__title">{{ title_field }}</div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
