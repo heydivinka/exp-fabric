@@ -47,10 +47,16 @@
       </button>
 
       <p class="bdp__eyebrow">🎉 Special offer just for you</p>
-      <h2 id="bdp-heading" class="bdp__heading">{{ heading | default: "It's your birthday month!" }}</h2>
-      <p class="bdp__body">{{ body | default: "Enter your birthday and unlock an exclusive discount — our gift to you." }}</p>
+      <h2 id="bdp-heading" class="bdp__heading" style="font-size: {{ section.settings.heading_size }}px; text-align: {{ section.settings.text_alignment }};">{{ heading | default: "It's your birthday month!" }}</h2>
+      <p class="bdp__body" style="font-size: {{ section.settings.subtext_size }}px; text-align: {{ section.settings.text_alignment }};">{{ body | default: "Enter your birthday and unlock an exclusive discount — our gift to you." }}</p>
 
       {%- comment -%} Step 1: birthday form {%- endcomment -%}
+      {%- comment -%} Hidden Shopify newsletter form — submitted via JS on popup submit {%- endcomment -%}
+      {%- form 'customer', id: 'bdp-newsletter-form', class: 'bdp__hidden-form' -%}
+        <input type="email" name="contact[email]" id="bdp-nl-email" required>
+        <input type="hidden" name="contact[tags]" value="newsletter,birthday-popup">
+      {%- endform -%}
+
       <div id="bdp-step-form" class="bdp__step">
         <form id="bdp-form" class="bdp__form" novalidate>
           <div class="bdp__fields">
@@ -59,7 +65,6 @@
               <select id="bdp-month" name="month" class="bdp__select" required>
                 <option value="" disabled selected>Month</option>
                 {%- for i in (1..12) -%}
-                  {%- assign m = i | date: '%B' | date: '%B', from_now: false -%}
                   <option value="{{ i }}">
                     {%- case i -%}
                       {%- when 1 -%}January
@@ -121,6 +126,9 @@
             </button>
           </div>
           <p class="bdp__reveal-note">{{ subheading | default: 'Valid this month · Applies at checkout' }}</p>
+          {%- if section.settings.success_message != blank -%}
+            <p class="bdp__success-msg">{{ section.settings.success_message }}</p>
+          {%- endif -%}
           <a href="/collections/all" class="button bdp__shop-btn">Shop now →</a>
         </div>
       </div>
@@ -312,6 +320,7 @@
 .bdp__copy:hover { opacity: 0.85; }
 .bdp__copy--copied { background: #276749; }
 .bdp__reveal-note { margin: 0; font-size: 0.8rem; color: rgba(0,0,0,0.45); }
+.bdp__success-msg { margin: 0; font-size: 0.85rem; color: rgba(0,0,0,0.6); line-height: 1.5; }
 .bdp__shop-btn { margin-top: 0.25rem; width: 100%; text-align: center; }
 
 /* ── Confetti canvas ── */
@@ -320,6 +329,8 @@
   width: 100%; height: 100%;
   pointer-events: none; z-index: 10;
 }
+
+.bdp__hidden-form { display: none !important; }
 {% endstylesheet %}
 
 <script>
@@ -443,6 +454,18 @@
       localStorage.setItem('bdp_birth_month', month);
       localStorage.setItem('bdp_birth_day', day);
       localStorage.setItem('bdp_email', email);
+
+      /* ── Subscribe via Shopify native customer form ── */
+      var nlForm  = document.getElementById('bdp-newsletter-form');
+      var nlEmail = document.getElementById('bdp-nl-email');
+      if (nlForm && nlEmail) {
+        nlEmail.value = email;
+        fetch(nlForm.action, {
+          method: 'POST',
+          body: new FormData(nlForm)
+        }).catch(function () {});
+      }
+
       /* Show reveal */
       stepForm.classList.add('bdp__step--hidden');
       stepReveal.classList.remove('bdp__step--hidden');
