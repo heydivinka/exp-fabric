@@ -150,71 +150,49 @@
 </div>
 
 <script>
-(function () {
-  /*
-   * Fix #1 — event delegation instead of getElementById + addEventListener.
-   *
-   * The old version looked up the form once, immediately, when this
-   * script tag was parsed. That only works if this exact markup is
-   * already sitting in the DOM at that moment. This theme re-renders
-   * sections/blocks dynamically in several places (section-renderer.js,
-   * section-hydration.js, dialog.js, quick-add, theme editor live
-   * preview, etc.) — a script tag inserted that way via innerHTML /
-   * fetch / cloneNode never auto-executes, so the old listener could
-   * silently never attach at all.
-   *
-   * A single delegated listener on `document`, bound once, keeps
-   * working no matter how many times this block's HTML is replaced,
-   * cloned, or re-rendered after the page first loads — because it's
-   * matching against e.target every time a submit happens, not against
-   * a node reference captured at parse time.
-   */
-  if (window.__emailSignupDelegationBound) return;
-  window.__emailSignupDelegationBound = true;
+  (function() {
+    function bindEmailForms() {
+      var forms = document.querySelectorAll('.email-signup__form:not(.js-bound)');
+      forms.forEach(function (formEl) {
+        formEl.classList.add('js-bound');
+        formEl.addEventListener('submit', function (e) {
+          e.preventDefault();
 
-  document.addEventListener('submit', function (e) {
-    var formEl = e.target.closest('.email-signup__form');
-    if (!formEl) return;
+          var wrapper    = formEl.closest('.email-signup-block');
+          var successEl  = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
+          var group      = formEl.querySelector('.email-signup__input-group');
+          var emailInput = formEl.querySelector('input[type="email"]');
+          var submitBtn  = formEl.querySelector('button[type="submit"], button:not([type])');
 
-    e.preventDefault();
+          var email = emailInput ? emailInput.value.trim() : '';
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return;
+          }
 
-    var wrapper    = formEl.closest('.email-signup-block');
-    var successEl  = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
-    var group      = formEl.querySelector('.email-signup__input-group');
-    var emailInput = formEl.querySelector('input[type="email"]');
-    var submitBtn  = formEl.querySelector('button[type="submit"], button:not([type])');
+          if (submitBtn) submitBtn.setAttribute('disabled', 'true');
 
-    if (!emailInput || !emailInput.value.trim()) return;
+          /* Submit via fetch — direct submission to Shopify contact endpoint */
+          var actionUrl = formEl.getAttribute('action') || '/contact';
+          fetch(actionUrl, {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: new FormData(formEl)
+          }).finally(function () {
+            if (group) group.style.display = 'none';
+            if (successEl) successEl.style.display = 'flex';
+            if (emailInput) emailInput.value = '';
+            if (submitBtn) submitBtn.removeAttribute('disabled');
+          });
+        });
+      });
+    }
 
-    if (submitBtn) submitBtn.setAttribute('disabled', 'true');
-
-    /*
-     * No extra client-side format validation here on purpose — the input
-     * already has type="email" required, so the browser's own (fairly
-     * loose) email check already ran before this submit handler ever
-     * fires. Re-checking with a stricter regex was rejecting inputs the
-     * browser itself considered fine, which is why some emails looked
-     * "stuck" with an error instead of going through.
-     *
-     * This always shows success once the request is sent, regardless of
-     * Shopify's actual response — same tradeoff as the original version.
-     * That means a genuinely dropped request (network error, blocked by
-     * an extension, etc.) won't be visible in the UI. If you ever need
-     * to confirm delivery, check Shopify Admin → Customers directly
-     * rather than relying on this success message.
-     */
-    fetch(formEl.action, {
-      method: 'POST',
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-      body: new FormData(formEl)
-    }).finally(function () {
-      if (group) group.style.display = 'none';
-      if (successEl) successEl.style.display = 'flex';
-      emailInput.value = '';
-      if (submitBtn) submitBtn.removeAttribute('disabled');
-    });
-  });
-})();
+    // Run immediately for any forms already in DOM
+    bindEmailForms();
+    
+    // Also run on DOMContentLoaded just in case
+    document.addEventListener('DOMContentLoaded', bindEmailForms);
+  })();
 </script>
 
 {% stylesheet %}
