@@ -53,14 +53,14 @@
 
       {%- comment -%} Shopify customer form — submitted via JS fetch, no redirect {%- endcomment -%}
       {%- form 'customer', id: 'bdp-form' -%}
-        <input type="hidden" name="contact[tags]" value="newsletter,birthday-popup">
+        <input type="hidden" name="contact[tags]" id="bdp-tags" value="newsletter,birthday-popup">
+        <input type="hidden" name="contact[note]" id="bdp-note" value="">
 
         <div class="bdp__field bdp__field--full">
           <label for="bdp-date" class="bdp__label">Birthday</label>
           <input
             id="bdp-date"
             type="text"
-            name="contact[note][birthday]"
             class="bdp__input"
             placeholder="mm/dd/yyyy"
             maxlength="10"
@@ -429,14 +429,22 @@
         }
         if (errEl) errEl.hidden = true;
 
-        /* Submit via fetch — prevents redirect/CAPTCHA challenge */
-        fetch(form.action, {
+        var dateEl = document.getElementById('bdp-date');
+        var bdayVal = dateEl ? dateEl.value.trim() : '';
+        if (bdayVal) {
+          var noteEl = document.getElementById('bdp-note');
+          var tagsEl = document.getElementById('bdp-tags');
+          if (noteEl) noteEl.value = 'Date of Birth: ' + bdayVal;
+          if (tagsEl) tagsEl.value = 'newsletter,birthday-popup,DOB-' + bdayVal.replace(/\//g, '-');
+        }
+
+        /* Submit via fetch — direct submission to Shopify contact endpoint */
+        var actionUrl = form.getAttribute('action') || '/contact';
+        fetch(actionUrl, {
           method: 'POST',
           headers: { 'X-Requested-With': 'XMLHttpRequest' },
           body: new FormData(form)
         }).finally(function () {
-          /* Always show reveal regardless of server response.
-             Email is stored if Shopify accepted it; silent fail otherwise. */
           form.style.display = 'none';
           if (revealEl) revealEl.style.display = 'flex';
           if (canvas) {
