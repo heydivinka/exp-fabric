@@ -25,6 +25,9 @@
     </div>
   {% endif %}
   {%- form 'customer', id: block.id, class: 'email-signup__form spacing-style' %}
+    {%- comment -%} Required for Shopify to mark customer as newsletter subscriber {%- endcomment -%}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="contact[accepts_marketing]" value="true">
     {% comment %} --- Input group classes --- {% endcomment %}
     {%- liquid
       assign input_group_classes = 'email-signup__input-group'
