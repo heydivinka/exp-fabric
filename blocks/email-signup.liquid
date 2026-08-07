@@ -25,9 +25,15 @@
     </div>
   {% endif %}
   {%- form 'customer', id: block.id, class: 'email-signup__form spacing-style' %}
-    {%- comment -%} Required for Shopify to mark customer as newsletter subscriber {%- endcomment -%}
+    {%- comment -%}
+      contact[tags]=newsletter is enough here. Per Shopify's own docs
+      (Email consent), submitting contact[email] through the 'customer'
+      form already sets accepts_marketing: true automatically — there's
+      no contact[accepts_marketing] field on this form type, so it was
+      removed (it was silently ignored by Shopify, not actually doing
+      anything, and just added noise).
+    {%- endcomment -%}
     <input type="hidden" name="contact[tags]" value="newsletter">
-    <input type="hidden" name="contact[accepts_marketing]" value="true">
     {% comment %} --- Input group classes --- {% endcomment %}
     {%- liquid
       assign input_group_classes = 'email-signup__input-group'
@@ -78,6 +84,7 @@
         {% endif %}
       >
       <button
+        type="submit"
         class="email-signup__button {% if block_settings.integrated_button or block_settings.border_style == 'underline' %}email-signup__button--integrated{% endif %} email-signup__button--{{ block_settings.display_type }} {{ block_settings.button_type_preset }} {{ block_settings.style_class }} {{ block_settings.style_class }}--{{ block.id }}"
         {% if block_settings.display_type != 'text' %}
           aria-label="{{ 'actions.sign_up' | t }}"
@@ -132,7 +139,7 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} Ajax success message — shown by JS after fetch submit {%- endcomment -%}
+    {%- comment -%} Ajax success message — shown by JS after fetch submit is sent {%- endcomment -%}
     <div class="email-signup__message email-signup__message-success-ajax" style="display:none">
       <span class="svg-wrapper icon-success">
         {{ 'icon-checkmark.svg' | inline_asset_content }}
@@ -144,29 +151,63 @@
 
 <script>
 (function () {
-  var formEl = document.getElementById('{{ block.id }}');
-  if (!formEl) return;
+  /*
+   * Fix #1 — event delegation instead of getElementById + addEventListener.
+   *
+   * The old version looked up the form once, immediately, when this
+   * script tag was parsed. That only works if this exact markup is
+   * already sitting in the DOM at that moment. This theme re-renders
+   * sections/blocks dynamically in several places (section-renderer.js,
+   * section-hydration.js, dialog.js, quick-add, theme editor live
+   * preview, etc.) — a script tag inserted that way via innerHTML /
+   * fetch / cloneNode never auto-executes, so the old listener could
+   * silently never attach at all.
+   *
+   * A single delegated listener on `document`, bound once, keeps
+   * working no matter how many times this block's HTML is replaced,
+   * cloned, or re-rendered after the page first loads — because it's
+   * matching against e.target every time a submit happens, not against
+   * a node reference captured at parse time.
+   */
+  if (window.__emailSignupDelegationBound) return;
+  window.__emailSignupDelegationBound = true;
 
-  var wrapper   = formEl.closest('.email-signup-block');
-  var successEl = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
+  document.addEventListener('submit', function (e) {
+    var formEl = e.target.closest('.email-signup__form');
+    if (!formEl) return;
 
-  formEl.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    var wrapper    = formEl.closest('.email-signup-block');
+    var successEl  = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
+    var group      = formEl.querySelector('.email-signup__input-group');
     var emailInput = formEl.querySelector('input[type="email"]');
+    var submitBtn  = formEl.querySelector('button[type="submit"], button:not([type])');
+
     if (!emailInput || !emailInput.value.trim()) return;
 
-    var submitBtn = formEl.querySelector('button[type="submit"], button:not([type])');
     if (submitBtn) submitBtn.setAttribute('disabled', 'true');
 
-    /* Same pattern as birthday popup — fetch prevents redirect/CAPTCHA,
-       .finally() always shows success regardless of server response */
+    /*
+     * No extra client-side format validation here on purpose — the input
+     * already has type="email" required, so the browser's own (fairly
+     * loose) email check already ran before this submit handler ever
+     * fires. Re-checking with a stricter regex was rejecting inputs the
+     * browser itself considered fine, which is why some emails looked
+     * "stuck" with an error instead of going through.
+     *
+     * This always shows success once the request is sent, regardless of
+     * Shopify's actual response — same tradeoff as the original version.
+     * That means a genuinely dropped request (network error, blocked by
+     * an extension, etc.) won't be visible in the UI. If you ever need
+     * to confirm delivery, check Shopify Admin → Customers directly
+     * rather than relying on this success message.
+     */
     fetch(formEl.action, {
       method: 'POST',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
       body: new FormData(formEl)
     }).finally(function () {
-      var group = formEl.querySelector('.email-signup__input-group');
       if (group) group.style.display = 'none';
       if (successEl) successEl.style.display = 'flex';
       emailInput.value = '';
