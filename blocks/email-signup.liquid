@@ -144,8 +144,8 @@
   var formEl = document.getElementById('{{ block.id }}');
   if (!formEl) return;
 
-  var inputGroup = formEl.closest('.email-signup-block');
-  var successEl  = inputGroup && inputGroup.querySelector('.email-signup__message-success-ajax');
+  var wrapper   = formEl.closest('.email-signup-block');
+  var successEl = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
 
   formEl.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -156,20 +156,17 @@
     var submitBtn = formEl.querySelector('button[type="submit"], button:not([type])');
     if (submitBtn) submitBtn.setAttribute('disabled', 'true');
 
+    /* Same pattern as birthday popup — fetch prevents redirect/CAPTCHA,
+       .finally() always shows success regardless of server response */
     fetch(formEl.action, {
       method: 'POST',
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
       body: new FormData(formEl)
-    })
-    .then(function () {
-      /* Success — hide input group, show success message */
+    }).finally(function () {
       var group = formEl.querySelector('.email-signup__input-group');
       if (group) group.style.display = 'none';
       if (successEl) successEl.style.display = 'flex';
       emailInput.value = '';
-    })
-    .catch(function () {
-      /* Network error — re-enable button */
       if (submitBtn) submitBtn.removeAttribute('disabled');
     });
   });
