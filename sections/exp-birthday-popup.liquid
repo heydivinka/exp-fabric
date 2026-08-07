@@ -444,7 +444,13 @@
           method: 'POST',
           headers: { 'X-Requested-With': 'XMLHttpRequest' },
           body: new FormData(form)
-        }).finally(function () {
+        })
+        .then(function(response) {
+          if (response.url && response.url.includes('challenge')) {
+            alert("Shopify menghentikan pengiriman karena sistem Anti-Spam (reCAPTCHA). Data TIDAK masuk ke Admin. Untuk mengatasi ini permanen, matikan fitur 'Enable Google reCAPTCHA' di pengaturan toko Shopify Anda (Settings > Customer Events / Preferences).");
+          }
+        })
+        .finally(function () {
           form.style.display = 'none';
           if (revealEl) revealEl.style.display = 'flex';
           if (canvas) {
