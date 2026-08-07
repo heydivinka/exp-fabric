@@ -51,71 +51,60 @@
       <h2 id="bdp-heading" class="bdp__heading" style="font-size: {{ section.settings.heading_size }}px; text-align: {{ section.settings.text_alignment }};">{{ heading | default: "It's your birthday month!" }}</h2>
       <p class="bdp__body" style="font-size: {{ section.settings.subtext_size }}px; text-align: {{ section.settings.text_alignment }};">{{ body | default: "Enter your birthday and unlock an exclusive discount — our gift to you." }}</p>
 
-      {%- comment -%} Step 1 — visible only when form not yet posted {%- endcomment -%}
+      {%- comment -%} Shopify customer form — submitted via JS fetch, no redirect {%- endcomment -%}
       {%- form 'customer', id: 'bdp-form' -%}
-        {%- if form.posted_successfully? -%}
-          {%- comment -%} Step 2: reveal promo after successful subscribe {%- endcomment -%}
-          <div class="bdp__reveal">
-            <p class="bdp__reveal-label">Your exclusive code</p>
-            <div class="bdp__code-row">
-              <span id="bdp-code" class="bdp__code">{{ promo_code | default: 'BDAY20' }}</span>
-              <button id="bdp-copy" class="bdp__copy" type="button" aria-label="Copy promo code">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
-                <span id="bdp-copy-label">Copy</span>
-              </button>
-            </div>
-            <p class="bdp__reveal-note">{{ subheading | default: 'Valid this month · Applies at checkout' }}</p>
-            {%- if section.settings.success_message != blank -%}
-              <p class="bdp__success-msg">{{ section.settings.success_message }}</p>
-            {%- endif -%}
-            <a href="{{ routes.all_products_collection_url }}" class="button bdp__shop-btn">Shop now →</a>
-          </div>
+        <input type="hidden" name="contact[tags]" value="newsletter,birthday-popup">
 
-        {%- else -%}
-          {%- comment -%} Hidden fields for birthday data {%- endcomment -%}
-          <input type="hidden" name="contact[tags]" value="newsletter,birthday-popup">
+        <div class="bdp__field bdp__field--full">
+          <label for="bdp-date" class="bdp__label">Birthday</label>
+          <input
+            id="bdp-date"
+            type="text"
+            name="contact[note][birthday]"
+            class="bdp__input"
+            placeholder="mm/dd/yyyy"
+            maxlength="10"
+            autocomplete="off"
+            inputmode="numeric"
+          >
+        </div>
 
-          <div class="bdp__field bdp__field--full">
-            <label for="bdp-date" class="bdp__label">Birthday</label>
-            <input
-              id="bdp-date"
-              type="text"
-              name="contact[note][birthday]"
-              class="bdp__input"
-              placeholder="mm/dd/yyyy"
-              maxlength="10"
-              autocomplete="off"
-              inputmode="numeric"
-            >
-          </div>
+        <div class="bdp__field bdp__field--full">
+          <label for="bdp-email" class="bdp__label">Email address</label>
+          <input
+            id="bdp-email"
+            type="email"
+            name="contact[email]"
+            class="bdp__input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-          <div class="bdp__field bdp__field--full">
-            <label for="bdp-email" class="bdp__label">Email address</label>
-            <input
-              id="bdp-email"
-              type="email"
-              name="contact[email]"
-              class="bdp__input"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-              value="{{ form.email }}"
-            >
-          </div>
-
-          {%- if form.errors -%}
-            <p class="bdp__error" aria-live="polite">
-              {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
-            </p>
-          {%- endif -%}
-
-          <button type="submit" class="bdp__submit button">{{ btn_label | default: 'Claim my discount' }}</button>
-          <p class="bdp__note">No spam, ever. Unsubscribe anytime.</p>
-
-        {%- endif -%}
+        <p id="bdp-error" class="bdp__error" aria-live="polite" hidden>Please enter a valid email address.</p>
+        <button type="submit" class="bdp__submit button">{{ btn_label | default: 'Claim my discount' }}</button>
+        <p class="bdp__note">No spam, ever. Unsubscribe anytime.</p>
       {%- endform -%}
+
+      {%- comment -%} Step 2: promo reveal — shown by JS after successful subscribe {%- endcomment -%}
+      <div id="bdp-reveal" class="bdp__reveal" style="display:none">
+        <p class="bdp__reveal-label">Your exclusive code</p>
+        <div class="bdp__code-row">
+          <span id="bdp-code" class="bdp__code">{{ promo_code | default: 'BDAY20' }}</span>
+          <button id="bdp-copy" class="bdp__copy" type="button" aria-label="Copy promo code">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span id="bdp-copy-label">Copy</span>
+          </button>
+        </div>
+        <p class="bdp__reveal-note">{{ subheading | default: 'Valid this month · Applies at checkout' }}</p>
+        {%- if section.settings.success_message != blank -%}
+          <p class="bdp__success-msg">{{ section.settings.success_message }}</p>
+        {%- endif -%}
+        <a href="{{ routes.all_products_collection_url }}" class="button bdp__shop-btn">Shop now →</a>
+      </div>
 
     </div>
   </div>
@@ -392,9 +381,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     var dialog    = document.getElementById('bdp-dialog');
     var closeBtn  = document.getElementById('bdp-close');
-    var copyBtn   = document.getElementById('bdp-copy');
-    var copyLabel = document.getElementById('bdp-copy-label');
-    var codeEl    = document.getElementById('bdp-code');
     var canvas    = document.getElementById('bdp-confetti');
 
     if (!dialog) return;
@@ -413,10 +399,10 @@
       setTimeout(openDialog, DELAY_MS);
     }
 
-    /* If form was just submitted successfully, re-open to show promo reveal + confetti */
-    if (dialog.querySelector('.bdp__reveal')) {
+    /* If re-opened after page load with reveal already in DOM (shouldn't happen now but kept as fallback) */
+    var revealEl = document.getElementById('bdp-reveal');
+    if (revealEl && revealEl.style.display !== 'none') {
       dialog.showModal();
-      var canvas = document.getElementById('bdp-confetti');
       if (canvas) {
         var stop = runConfetti(canvas);
         setTimeout(stop, 5000);
@@ -427,6 +413,39 @@
     dialog.addEventListener('click', function (e) {
       if (e.target === dialog) closeDialog();
     });
+
+    /* ── Form submit: fetch so no redirect / no CAPTCHA ── */
+    var form = document.getElementById('bdp-form');
+    var errEl = document.getElementById('bdp-error');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var emailInput = document.getElementById('bdp-email');
+        var email = emailInput ? emailInput.value.trim() : '';
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          if (errEl) errEl.hidden = false;
+          return;
+        }
+        if (errEl) errEl.hidden = true;
+
+        /* Submit via fetch — prevents redirect/CAPTCHA challenge */
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+          body: new FormData(form)
+        }).finally(function () {
+          /* Always show reveal regardless of server response.
+             Email is stored if Shopify accepted it; silent fail otherwise. */
+          form.style.display = 'none';
+          if (revealEl) revealEl.style.display = 'flex';
+          if (canvas) {
+            var stop = runConfetti(canvas);
+            setTimeout(stop, 5000);
+          }
+        });
+      });
+    }
 
     /* Date input mask: auto-insert slashes → mm/dd/yyyy */
     var dateEl = document.getElementById('bdp-date');
@@ -439,15 +458,19 @@
       });
     }
 
-    /* Copy code */
-    copyBtn.addEventListener('click', function () {
-      var code = codeEl.textContent.trim();
-      navigator.clipboard.writeText(code).then(function () {
-        copyLabel.textContent = 'Copied!';
-        copyBtn.classList.add('bdp__copy--copied');
+    /* Copy code — bind after reveal is shown */
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('#bdp-copy');
+      if (!btn) return;
+      var code = document.getElementById('bdp-code');
+      var label = document.getElementById('bdp-copy-label');
+      if (!code || !label) return;
+      navigator.clipboard.writeText(code.textContent.trim()).then(function () {
+        label.textContent = 'Copied!';
+        btn.classList.add('bdp__copy--copied');
         setTimeout(function () {
-          copyLabel.textContent = 'Copy';
-          copyBtn.classList.remove('bdp__copy--copied');
+          label.textContent = 'Copy';
+          btn.classList.remove('bdp__copy--copied');
         }, 2000);
       });
     });
