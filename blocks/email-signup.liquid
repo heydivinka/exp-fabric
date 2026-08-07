@@ -150,33 +150,32 @@
 </div>
 
 <script>
-  (function() {
-    function bindEmailForms() {
-      var forms = document.querySelectorAll('.email-signup__form:not(.js-bound)');
-      forms.forEach(function (formEl) {
-        formEl.classList.add('js-bound');
-        formEl.addEventListener('submit', function (e) {
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('{{ block.id }}');
+      if (form) {
+        form.addEventListener('submit', function (e) {
           e.preventDefault();
 
-          var wrapper    = formEl.closest('.email-signup-block');
-          var successEl  = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
-          var group      = formEl.querySelector('.email-signup__input-group');
-          var emailInput = formEl.querySelector('input[type="email"]');
-          var submitBtn  = formEl.querySelector('button[type="submit"], button:not([type])');
-
+          var emailInput = form.querySelector('input[type="email"]');
           var email = emailInput ? emailInput.value.trim() : '';
           if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return;
           }
 
+          var wrapper = form.closest('.email-signup-block');
+          var successEl = wrapper && wrapper.querySelector('.email-signup__message-success-ajax');
+          var group = form.querySelector('.email-signup__input-group');
+          var submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+
           if (submitBtn) submitBtn.setAttribute('disabled', 'true');
 
           /* Submit via fetch — direct submission to Shopify contact endpoint */
-          var actionUrl = formEl.getAttribute('action') || '/contact';
+          var actionUrl = form.getAttribute('action') || '/contact';
           fetch(actionUrl, {
             method: 'POST',
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            body: new FormData(formEl)
+            body: new FormData(form)
           }).finally(function () {
             if (group) group.style.display = 'none';
             if (successEl) successEl.style.display = 'flex';
@@ -184,14 +183,8 @@
             if (submitBtn) submitBtn.removeAttribute('disabled');
           });
         });
-      });
-    }
-
-    // Run immediately for any forms already in DOM
-    bindEmailForms();
-    
-    // Also run on DOMContentLoaded just in case
-    document.addEventListener('DOMContentLoaded', bindEmailForms);
+      }
+    });
   })();
 </script>
 
