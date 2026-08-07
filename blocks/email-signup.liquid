@@ -128,8 +128,53 @@
         <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
       </div>
     {%- endif -%}
+
+    {%- comment -%} Ajax success message — shown by JS after fetch submit {%- endcomment -%}
+    <div class="email-signup__message email-signup__message-success-ajax" style="display:none">
+      <span class="svg-wrapper icon-success">
+        {{ 'icon-checkmark.svg' | inline_asset_content }}
+      </span>
+      <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
+    </div>
   {% endform %}
 </div>
+
+<script>
+(function () {
+  var formEl = document.getElementById('{{ block.id }}');
+  if (!formEl) return;
+
+  var inputGroup = formEl.closest('.email-signup-block');
+  var successEl  = inputGroup && inputGroup.querySelector('.email-signup__message-success-ajax');
+
+  formEl.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var emailInput = formEl.querySelector('input[type="email"]');
+    if (!emailInput || !emailInput.value.trim()) return;
+
+    var submitBtn = formEl.querySelector('button[type="submit"], button:not([type])');
+    if (submitBtn) submitBtn.setAttribute('disabled', 'true');
+
+    fetch(formEl.action, {
+      method: 'POST',
+      headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      body: new FormData(formEl)
+    })
+    .then(function () {
+      /* Success — hide input group, show success message */
+      var group = formEl.querySelector('.email-signup__input-group');
+      if (group) group.style.display = 'none';
+      if (successEl) successEl.style.display = 'flex';
+      emailInput.value = '';
+    })
+    .catch(function () {
+      /* Network error — re-enable button */
+      if (submitBtn) submitBtn.removeAttribute('disabled');
+    });
+  });
+})();
+</script>
 
 {% stylesheet %}
   .email-signup-block {
