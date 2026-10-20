@@ -1,112 +1,69 @@
 {% comment %}
-  Logika Hirarki Size Chart:
-  1. Metafield Spesifik Produk: product.metafields.custom.size_chart.value
-  2. Metafield Koleksi Aktif: collection.metafields.custom.default_size_chart.value
-  3. Metafield Koleksi yang Membawahi Produk: loop product.collections
-  4. Pencocokan Cerdas Koleksi: jika kategori/judul produk cocok dengan koleksi yang memiliki default_size_chart
-  5. Jika salah satu di atas ditemukan: IS_PREVIEW = FALSE (Data Riil dari Metafield)
-  6. Jika nihil dan mode Theme Editor: IS_PREVIEW = TRUE (Preview Fallback)
+  Strictly Dynamic Size Chart:
+  1. Product Metafield: product.metafields.custom.size_chart.value
+  2. Active Collection Metafield: collection.metafields.custom.default_size_chart.value
+  3. Parent Collection Metafield: loop product.collections mencari custom.default_size_chart.value
+
+  Conditional:
+  - Hanya akan tampil jika entry Metafield Size Chart benar-benar diisi di produk atau koleksinya.
+  - Jika tidak ada entry metafield, elemen tidak akan dirender sama sekali.
+  - Tidak ada lagi preview mode statis/dummy.
 {% endcomment %}
 
-{% assign chart = nil %}
-{% assign chart_source = nil %}
+{%- liquid
+  if chart == blank
+    if product.metafields.custom.size_chart.value != blank
+      assign chart = product.metafields.custom.size_chart.value
+    elsif collection.metafields.custom.default_size_chart.value != blank
+      assign chart = collection.metafields.custom.default_size_chart.value
+    elsif product != blank
+      for col in product.collections
+        if col.metafields.custom.default_size_chart.value != blank
+          assign chart = col.metafields.custom.default_size_chart.value
+          break
+        endif
+      endfor
+    endif
+  endif
+-%}
 
-{% comment %} 1. Cek Metafield Produk Langsung {% endcomment %}
-{% if product.metafields.custom.size_chart.value != blank %}
-  {% assign chart = product.metafields.custom.size_chart.value %}
-  {% assign chart_source = 'product' %}
-{% endif %}
+{%- if chart != blank and chart.rows.value.size > 0 -%}
+  {%- liquid
+    assign has_chest = false
+    assign has_waist = false
+    assign has_hip = false
+    assign has_length = false
+    assign has_shoulder = false
+    assign has_sleeve = false
 
-{% comment %} 2. Cek Koleksi yang Sedang Aktif / Dibuka {% endcomment %}
-{% if chart == blank and collection.metafields.custom.default_size_chart.value != blank %}
-  {% assign chart = collection.metafields.custom.default_size_chart.value %}
-  {% assign chart_source = 'collection' %}
-{% endif %}
+    for row in chart.rows.value
+      assign c_val = row.chest_cm.value | default: row.chest_cm
+      assign w_val = row.waist_cm.value | default: row.waist_cm
+      assign h_val = row.hip_cm.value | default: row.hip_cm
+      assign l_val = row.length_cm.value | default: row.length_cm
+      assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm
+      assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm
 
-{% comment %} 3. Cek Semua Koleksi yang Menaungi Produk Ini {% endcomment %}
-{% if chart == blank and product != blank %}
-  {% for col in product.collections %}
-    {% if col.metafields.custom.default_size_chart.value != blank %}
-      {% assign chart = col.metafields.custom.default_size_chart.value %}
-      {% assign chart_source = 'collection' %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
-{% comment %} 4. Pencocokan Cerdas Berdasarkan Nama / Tipe / Vendor Produk {% endcomment %}
-{% if chart == blank and product != blank %}
-  {% assign p_title_lower = product.title | downcase %}
-  {% assign p_type_lower = product.type | downcase %}
-  {% assign p_vendor_lower = product.vendor | downcase %}
-
-  {% for c in collections %}
-    {% if c.metafields.custom.default_size_chart.value != blank %}
-      {% assign c_handle = c.handle | downcase %}
-      {% assign c_title = c.title | downcase %}
-
-      {% if p_title_lower contains c_title or p_title_lower contains c_handle or p_type_lower contains c_title or p_type_lower contains c_handle or p_vendor_lower contains c_title or p_vendor_lower contains c_handle %}
-        {% assign chart = c.metafields.custom.default_size_chart.value %}
-        {% assign chart_source = 'collection' %}
-        {% break %}
-      {% elsif p_title_lower contains 'women' and c_handle contains 'women' %}
-        {% assign chart = c.metafields.custom.default_size_chart.value %}
-        {% assign chart_source = 'collection' %}
-        {% break %}
-      {% elsif p_title_lower contains 'men' and c_handle contains 'men' %}
-        {% unless p_title_lower contains 'women' %}
-          {% assign chart = c.metafields.custom.default_size_chart.value %}
-          {% assign chart_source = 'collection' %}
-          {% break %}
-        {% endunless %}
-      {% elsif p_title_lower contains 'knit' and c_handle contains 'knit' %}
-        {% assign chart = c.metafields.custom.default_size_chart.value %}
-        {% assign chart_source = 'collection' %}
-        {% break %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
-{% assign is_preview = false %}
-{% if chart == blank and request.design_mode %}
-  {% assign is_preview = true %}
-  {% if shop.metaobjects['size_chart'].values.size > 0 %}
-    {% assign chart = shop.metaobjects['size_chart'].values.first %}
-  {% endif %}
-{% endif %}
-
-{% if chart != blank or is_preview %}
-  {% comment %} Pre-check Kolom Kosong {% endcomment %}
-  {% assign has_chest = false %}
-  {% assign has_waist = false %}
-  {% assign has_hip = false %}
-  {% assign has_length = false %}
-  {% assign has_shoulder = false %}
-  {% assign has_sleeve = false %}
-
-  {% if chart != blank and chart.rows.value.size > 0 %}
-    {% for row in chart.rows.value %}
-      {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
-      {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
-      {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
-      {% assign l_val = row.length_cm.value | default: row.length_cm %}
-      {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
-      {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
-
-      {% if c_val != blank and c_val != 0 %}{% assign has_chest = true %}{% endif %}
-      {% if w_val != blank and w_val != 0 %}{% assign has_waist = true %}{% endif %}
-      {% if h_val != blank and h_val != 0 %}{% assign has_hip = true %}{% endif %}
-      {% if l_val != blank and l_val != 0 %}{% assign has_length = true %}{% endif %}
-      {% if sh_val != blank and sh_val != 0 %}{% assign has_shoulder = true %}{% endif %}
-      {% if sl_val != blank and sl_val != 0 %}{% assign has_sleeve = true %}{% endif %}
-    {% endfor %}
-  {% else %}
-    {% assign has_chest = true %}
-    {% assign has_waist = true %}
-    {% assign has_hip = true %}
-    {% assign has_length = true %}
-  {% endif %}
+      if c_val != blank and c_val != 0
+        assign has_chest = true
+      endif
+      if w_val != blank and w_val != 0
+        assign has_waist = true
+      endif
+      if h_val != blank and h_val != 0
+        assign has_hip = true
+      endif
+      if l_val != blank and l_val != 0
+        assign has_length = true
+      endif
+      if sh_val != blank and sh_val != 0
+        assign has_shoulder = true
+      endif
+      if sl_val != blank and sl_val != 0
+        assign has_sleeve = true
+      endif
+    endfor
+  -%}
 
   {% comment %} Tombol Pemicu Text-Link Minimalis (Gaya Mandalas) {% endcomment %}
   <div class="product__size-chart-wrapper">
@@ -145,13 +102,10 @@
         </button>
       </div>
 
-      {% if is_preview %}
-        <div class="size-chart-preview-banner" style="background: #fff8e6; padding: 10px 14px; border-radius: 6px; border: 1px solid #ffe29a; font-size: 0.8125rem; color: #8a6300; margin-bottom: 16px; line-height: 1.5;">
-          <strong>Mode Preview Theme Editor:</strong> Produk/koleksi ini belum memiliki data Size Chart di admin. Menampilkan sampel dari metaobject: <strong>"{{ chart.title.value | default: chart.title }}"</strong>.
-        </div>
-      {% elsif chart.description.value != blank %}
-        <p class="size-chart-drawer__desc">{{ chart.description.value }}</p>
-      {% endif %}
+      {%- assign chart_desc = chart.description.value | default: chart.description -%}
+      {%- if chart_desc != blank -%}
+        <p class="size-chart-drawer__desc">{{ chart_desc }}</p>
+      {%- endif -%}
 
       {% comment %} Toggle Satuan CM / Inci {% endcomment %}
       <div class="size-chart-unit-switcher">
@@ -165,136 +119,100 @@
           <thead>
             <tr>
               <th class="sticky-column">{{ 'products.size_chart.size' | t }}</th>
-              {% if chart != blank and chart.rows.value.size > 0 %}
-                {% for row in chart.rows.value %}
-                  <th>{{ row.size.value | default: row.size }}</th>
-                {% endfor %}
-              {% else %}
-                <th>S</th><th>M</th><th>L</th><th>XL</th>
-              {% endif %}
+              {% for row in chart.rows.value %}
+                <th>{{ row.size.value | default: row.size }}</th>
+              {% endfor %}
             </tr>
           </thead>
           <tbody>
             {% if has_chest %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.chest' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
-                    <td>
-                      {% if c_val != blank and c_val != 0 %}
-                        <span class="size-val" data-cm="{{ c_val }}">{{ c_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% else %}
-                  <td><span class="size-val" data-cm="94">94</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="100">100</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="106">106</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="112">112</span> <span class="unit-text">cm</span></td>
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
+                  <td>
+                    {% if c_val != blank and c_val != 0 %}
+                      <span class="size-val" data-cm="{{ c_val }}">{{ c_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
             {% if has_waist %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.waist' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
-                    <td>
-                      {% if w_val != blank and w_val != 0 %}
-                        <span class="size-val" data-cm="{{ w_val }}">{{ w_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% else %}
-                  <td><span class="size-val" data-cm="76">76</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="82">82</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="88">88</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="94">94</span> <span class="unit-text">cm</span></td>
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
+                  <td>
+                    {% if w_val != blank and w_val != 0 %}
+                      <span class="size-val" data-cm="{{ w_val }}">{{ w_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
             {% if has_hip %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.hip' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
-                    <td>
-                      {% if h_val != blank and h_val != 0 %}
-                        <span class="size-val" data-cm="{{ h_val }}">{{ h_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% else %}
-                  <td><span class="size-val" data-cm="98">98</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="104">104</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="110">110</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="116">116</span> <span class="unit-text">cm</span></td>
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
+                  <td>
+                    {% if h_val != blank and h_val != 0 %}
+                      <span class="size-val" data-cm="{{ h_val }}">{{ h_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
             {% if has_length %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.length' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign l_val = row.length_cm.value | default: row.length_cm %}
-                    <td>
-                      {% if l_val != blank and l_val != 0 %}
-                        <span class="size-val" data-cm="{{ l_val }}">{{ l_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% else %}
-                  <td><span class="size-val" data-cm="70">70</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="72">72</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="74">74</span> <span class="unit-text">cm</span></td>
-                  <td><span class="size-val" data-cm="76">76</span> <span class="unit-text">cm</span></td>
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign l_val = row.length_cm.value | default: row.length_cm %}
+                  <td>
+                    {% if l_val != blank and l_val != 0 %}
+                      <span class="size-val" data-cm="{{ l_val }}">{{ l_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
             {% if has_shoulder %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.shoulder' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
-                    <td>
-                      {% if sh_val != blank and sh_val != 0 %}
-                        <span class="size-val" data-cm="{{ sh_val }}">{{ sh_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
+                  <td>
+                    {% if sh_val != blank and sh_val != 0 %}
+                      <span class="size-val" data-cm="{{ sh_val }}">{{ sh_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
             {% if has_sleeve %}
               <tr>
                 <th class="sticky-column">{{ 'products.size_chart.sleeve' | t }}</th>
-                {% if chart != blank and chart.rows.value.size > 0 %}
-                  {% for row in chart.rows.value %}
-                    {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
-                    <td>
-                      {% if sl_val != blank and sl_val != 0 %}
-                        <span class="size-val" data-cm="{{ sl_val }}">{{ sl_val }}</span> <span class="unit-text">cm</span>
-                      {% else %}
-                        -
-                      {% endif %}
-                    </td>
-                  {% endfor %}
-                {% endif %}
+                {% for row in chart.rows.value %}
+                  {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
+                  <td>
+                    {% if sl_val != blank and sl_val != 0 %}
+                      <span class="size-val" data-cm="{{ sl_val }}">{{ sl_val }}</span> <span class="unit-text">cm</span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                {% endfor %}
               </tr>
             {% endif %}
           </tbody>
@@ -327,4 +245,4 @@
   <script src="{{ 'size-chart.js' | asset_url }}" defer></script>
   {{ 'size-chart.css' | asset_url | stylesheet_tag }}
   {%- # theme-check-enable MissingAsset -%}
-{% endif %}
+{%- endif -%}

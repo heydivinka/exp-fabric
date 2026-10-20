@@ -1,16 +1,32 @@
 {%- liquid
   assign product = closest.product | default: product
   assign collection = closest.collection | default: collection
+
+  assign chart = nil
+  if product.metafields.custom.size_chart.value != blank
+    assign chart = product.metafields.custom.size_chart.value
+  elsif collection.metafields.custom.default_size_chart.value != blank
+    assign chart = collection.metafields.custom.default_size_chart.value
+  elsif product != blank
+    for col in product.collections
+      if col.metafields.custom.default_size_chart.value != blank
+        assign chart = col.metafields.custom.default_size_chart.value
+        break
+      endif
+    endfor
+  endif
 -%}
 
-<div class="block-size-chart" {{ block.shopify_attributes }}>
-  {% render 'size-chart', product: product, collection: collection, block: block %}
-</div>
+{%- if chart != blank and chart.rows.value.size > 0 -%}
+  <div class="block-size-chart" {{ block.shopify_attributes }}>
+    {% render 'size-chart', chart: chart, product: product, collection: collection, block: block %}
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
   "name": "Size Chart",
-  "tag": null,
+  "tag": "div",
   "settings": [
     {
       "type": "text",
