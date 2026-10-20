@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:names.footer",
@@ -519,12 +528,7 @@
         "exp_payment_icons_1": {
           "type": "exp-payment-icons",
           "settings": {
-            "heading": "",
-            "heading_tag": "h3",
-            "payment_icons": "visa,mastercard,bca,bni,bri,mandiri,dana,ovo,shopeepay,gopay,qris,jcb",
-            "horizontal_alignment": "flex-start",
             "gap": 8,
-            "icon_width": 38,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -558,4 +562,3 @@
     "footer_utilities_jLGE8U"
   ]
 }
-

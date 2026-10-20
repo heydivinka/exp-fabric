@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_jVaWmY": {
@@ -1231,7 +1240,7 @@
           "settings": {
             "alignment": "left",
             "gap": 8,
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -1346,9 +1355,6 @@
       "type": "exp-birthday-popup",
       "name": "Birthday Popup",
       "settings": {
-        "show_delay": 2,
-        "cookie_days": 30,
-        "match_birth_month": false,
         "discount_text": "20% OFF",
         "heading": "It's your birthday month!",
         "text_alignment": "center",
@@ -1358,7 +1364,10 @@
         "btn_label": "Claim my discount",
         "success_message": "Thanks for subscribing! Check your email for the code.",
         "subheading": "Valid this month � Applies at checkout",
-        "promo_code": "BDAY20"
+        "promo_code": "BDAY20",
+        "show_delay": 2,
+        "cookie_days": 30,
+        "match_birth_month": false
       }
     }
   },
@@ -1373,4 +1382,3 @@
     "exp_birthday_popup_home"
   ]
 }
-

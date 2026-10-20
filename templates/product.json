@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -78,6 +87,15 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "size_chart_3jamNF": {
+              "type": "size-chart",
+              "name": "Size Chart",
+              "settings": {
+                "button_label": "Size guide",
+                "show_guide_image": true
+              },
+              "blocks": {}
+            },
             "group_icgrde": {
               "type": "group",
               "name": "t:names.header",
@@ -295,6 +313,7 @@
             }
           },
           "block_order": [
+            "size_chart_3jamNF",
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
@@ -467,7 +486,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>Recently Viewed<\/h3>",
+            "text": "<h3>Recently Viewed</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

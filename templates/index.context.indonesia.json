@@ -1,2 +1,43 @@
-{"context":{"market":"indonesia"},"parent":"index.json","sections":{"hero_jVaWmY":{"settings":{},"blocks":{"group_7ByQV6":{"settings":{"width_mobile":"custom","custom_width_mobile":80,"height":"fit","custom_height":100}}}},"section_rtWhnQ":{"settings":{},"blocks":{"group_fbhi48":{"settings":{"width_mobile":"fit-content","custom_width_mobile":100,"vertical_alignment":"center","horizontal_alignment":"space-between"}}}}}}
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "indonesia"
+  },
+  "parent": "index.json",
+  "sections": {
+    "hero_jVaWmY": {
+      "settings": {},
+      "blocks": {
+        "group_7ByQV6": {
+          "settings": {
+            "width_mobile": "custom",
+            "custom_width_mobile": 80,
+            "height": "fit",
+            "custom_height": 100
+          }
+        }
+      }
+    },
+    "section_rtWhnQ": {
+      "settings": {},
+      "blocks": {
+        "group_fbhi48": {
+          "settings": {
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "vertical_alignment": "center",
+            "horizontal_alignment": "space-between"
+          }
+        }
+      }
+    }
+  }
+}
