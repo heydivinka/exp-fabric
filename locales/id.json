@@ -326,6 +326,19 @@
       "in_cart": "di keranjang",
       "default_title": "Judul Bawaan",
       "sticky_add_to_cart": "Bilah penambahan cepat ke keranjang"
+    },
+    "size_chart": {
+      "button_label": "Lihat Panduan Ukuran",
+      "close": "Tutup",
+      "unit_cm": "CM",
+      "unit_inch": "Inci",
+      "size": "Ukuran",
+      "chest": "Lingkar Dada",
+      "waist": "Lingkar Pinggang",
+      "hip": "Lingkar Pinggul",
+      "length": "Panjang",
+      "shoulder": "Lebar Bahu",
+      "sleeve": "Panjang Lengan"
     }
   },
   "fields": {
