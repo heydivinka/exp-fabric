@@ -17,7 +17,7 @@
         "custom_liquid_overlay": {
           "type": "custom-liquid",
           "settings": {
-            "custom_liquid": "<style>#split-showcase-overlay-wrapper{position:absolute;inset:0;z-index:10;pointer-events:none;display:flex;align-items:center;justify-content:center;}#split-showcase-overlay-wrapper h2{margin:0;color:#ffffff;font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.02em;text-align:center;text-shadow:0 2px 24px rgba(0,0,0,0.45);line-height:1.1;padding:0 1rem;font-weight:300;}.section-content-wrapper:has(#split-showcase-overlay-wrapper){overflow:visible;}</style><div id=\"split-showcase-overlay-wrapper\"><h2>Materials make a difference<\/h2><\/div>"
+            "custom_liquid": "<style>#split-showcase-overlay-wrapper{position:absolute;inset:0;z-index:10;pointer-events:none;display:flex;align-items:center;justify-content:center;}#split-showcase-overlay-wrapper h2{margin:0;color:#ffffff;font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.02em;text-align:center;text-shadow:0 2px 24px rgba(0,0,0,0.45);line-height:1.1;padding:0 1rem;font-weight:300;}.section-content-wrapper:has(#split-showcase-overlay-wrapper){overflow:visible;}</style><div id=\"split-showcase-overlay-wrapper\"><h2>Materials make a difference</h2></div>"
           }
         },
         "group_EXMpch": {
@@ -40,7 +40,7 @@
             "background_media": "image",
             "background_color": "",
             "video_position": "cover",
-            "background_image": "shopify:\/\/shop_images\/tefnut-lookbook-beach-short_1.jpg",
+            "background_image": "shopify://shop_images/tefnut-lookbook-beach-short_1.jpg",
             "background_image_position": "cover",
             "toggle_overlay": true,
             "overlay_color": "#00000026",
@@ -81,7 +81,7 @@
             "background_media": "image",
             "background_color": "",
             "video_position": "cover",
-            "background_image": "shopify:\/\/shop_images\/tefnut-hero-4_1.jpg",
+            "background_image": "shopify://shop_images/tefnut-hero-4_1.jpg",
             "background_image_position": "cover",
             "toggle_overlay": true,
             "overlay_color": "#00000026",
@@ -103,7 +103,11 @@
           "blocks": {}
         }
       },
-      "block_order": ["custom_liquid_overlay", "group_EXMpch", "group_XpJC3m"],
+      "block_order": [
+        "custom_liquid_overlay",
+        "group_EXMpch",
+        "group_XpJC3m"
+      ],
       "name": "t:names.split_showcase",
       "settings": {
         "content_direction": "row",
@@ -242,13 +246,19 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["text_E9hEkc"]
+              "block_order": [
+                "text_E9hEkc"
+              ]
             }
           },
-          "block_order": ["group_VYFXFi"]
+          "block_order": [
+            "group_VYFXFi"
+          ]
         }
       },
-      "block_order": ["group_gNARax"],
+      "block_order": [
+        "group_gNARax"
+      ],
       "name": "t:names.icons_with_text",
       "settings": {
         "content_direction": "row",
@@ -285,7 +295,7 @@
         "text_DRGexr": {
           "type": "text",
           "settings": {
-            "text": "<p>A world of timeless designs that honour the people who make them & the places they’re made.<br\/><br\/><\/p>",
+            "text": "<p>A world of timeless designs that honour the people who make them & the places they’re made.<br/><br/></p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
@@ -308,7 +318,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["text_DRGexr"],
+      "block_order": [
+        "text_DRGexr"
+      ],
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
@@ -324,7 +336,7 @@
         "text_DmDBE3": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>We create quality clothing designed for everyday life. We focus on delivering comfortable, versatile pieces that complement your personal style without compromising on quality. Our collections feature carefully selected fabrics and classic designs that help you look and feel your best, whether you're at work, home, or anywhere in between.<\/strong><\/p><p><strong>We believe in doing business the right way. That means fair pricing, ethical manufacturing, and a commitment to reducing our environmental impact. Our team works hard to ensure that each garment meets our standards for both quality and responsibility. We're proud to offer clothing that you can feel good about wearing, season after season.<\/strong><\/p>",
+            "text": "<p><strong>We create quality clothing designed for everyday life. We focus on delivering comfortable, versatile pieces that complement your personal style without compromising on quality. Our collections feature carefully selected fabrics and classic designs that help you look and feel your best, whether you're at work, home, or anywhere in between.</strong></p><p><strong>We believe in doing business the right way. That means fair pricing, ethical manufacturing, and a commitment to reducing our environmental impact. Our team works hard to ensure that each garment meets our standards for both quality and responsibility. We're proud to offer clothing that you can feel good about wearing, season after season.</strong></p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -347,7 +359,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["text_DmDBE3"],
+      "block_order": [
+        "text_DmDBE3"
+      ],
       "name": "t:names.pull_quote",
       "settings": {
         "content_direction": "column",
@@ -442,12 +456,18 @@
               "blocks": {}
             }
           },
-          "block_order": ["collection_title_NhAXYR"]
+          "block_order": [
+            "collection_title_NhAXYR"
+          ]
         }
       },
       "name": "t:names.collections_grid",
       "settings": {
-        "collection_list": ["sale", "knitwear", "bedding"],
+        "collection_list": [
+          "sale",
+          "knitwear",
+          "bedding"
+        ],
         "layout_type": "grid",
         "carousel_on_mobile": true,
         "columns": 3,
@@ -476,3 +496,4 @@
     "collection_list_nWQrBx"
   ]
 }
+

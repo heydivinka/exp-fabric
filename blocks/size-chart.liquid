@@ -1,0 +1,46 @@
+{%- liquid
+  assign product = closest.product | default: product
+  assign collection = closest.collection | default: collection
+-%}
+
+<div class="block-size-chart" {{ block.shopify_attributes }}>
+  {% render 'size-chart', product: product, collection: collection, block: block %}
+</div>
+
+{% schema %}
+{
+  "name": "Size Chart",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Size guide"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font Color",
+      "default": "#111111"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ruler_icon",
+      "label": "Show Ruler Icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guide_image",
+      "label": "Show Guide Image",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Size Chart"
+    }
+  ]
+}
+{% endschema %}

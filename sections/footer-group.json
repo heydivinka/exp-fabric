@@ -350,7 +350,7 @@
             "text_newsletter_heading": {
               "type": "text",
               "settings": {
-                "text": "<h4>Newsletter<\/h4>",
+                "text": "<h4>Newsletter</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -375,7 +375,7 @@
             "text_newsletter_body": {
               "type": "text",
               "settings": {
-                "text": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>",
+                "text": "<p>Subscribe to receive updates, access to exclusive deals, and more.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -558,3 +558,4 @@
     "footer_utilities_jLGE8U"
   ]
 }
+
