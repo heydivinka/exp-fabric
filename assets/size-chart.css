@@ -183,9 +183,9 @@
 }
 
 .size-chart-table tbody th {
-  text-align: left;
-  font-weight: 500;
-  color: #333333;
+  text-align: center;
+  font-weight: 600;
+  color: #111111;
 }
 
 .size-chart-table .sticky-column {
@@ -193,11 +193,28 @@
   left: 0;
   background: #ffffff;
   z-index: 1;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.02);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .size-chart-table thead .sticky-column {
   background: #fafafa;
+  z-index: 2;
+}
+
+.size-chart-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.size-chart-table tbody tr:hover .sticky-column {
+  background: #fbfbfb;
+}
+
+.size-chart-table tbody tr.is-highlighted {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.size-chart-table tbody tr.is-highlighted .sticky-column {
+  background: #f0f0f0;
 }
 
 .size-chart-table tbody tr:last-child th,

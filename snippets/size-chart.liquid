@@ -1,3 +1,4 @@
+{%- # theme-check-disable OrphanedSnippet -%}
 {% comment %}
   Strictly Dynamic Size Chart:
   1. Product Metafield: product.metafields.custom.size_chart.value
@@ -89,11 +90,16 @@
   </div>
 
   {% comment %} Slide-out Drawer Dialog (<dialog>) {% endcomment %}
-  <dialog id="SizeChartDialog" class="size-chart-drawer" aria-labelledby="SizeChartTitle">
+  <dialog
+    id="SizeChartDialog"
+    class="size-chart-drawer"
+    aria-labelledby="SizeChartTitle"
+    data-default-unit="{{ block.settings.default_unit | default: 'cm' }}"
+  >
     <div class="size-chart-drawer__inner">
       <div class="size-chart-drawer__header">
         <h2 id="SizeChartTitle" class="size-chart-drawer__title">
-          {{ chart.title.value | default: chart.title | default: 'Size guide' }}
+          {{ chart.title.value | default: chart.title | default: '' }}
         </h2>
         <button type="button" class="size-chart-drawer__close" id="SizeChartClose" aria-label="{{ 'products.size_chart.close' | t }}">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
@@ -113,23 +119,45 @@
         <button type="button" class="unit-toggle-btn" data-unit="inch">{{ 'products.size_chart.unit_inch' | t }}</button>
       </div>
 
-      {% comment %} Tabel Ukuran Matriks Mandalas {% endcomment %}
+      {% comment %} Tabel Ukuran Dinamis {% endcomment %}
       <div class="size-chart-table-container">
         <table class="size-chart-table">
           <thead>
             <tr>
               <th class="sticky-column">{{ 'products.size_chart.size' | t }}</th>
-              {% for row in chart.rows.value %}
-                <th>{{ row.size.value | default: row.size }}</th>
-              {% endfor %}
+              {% if has_chest %}
+                <th>{{ 'products.size_chart.chest' | t }}</th>
+              {% endif %}
+              {% if has_waist %}
+                <th>{{ 'products.size_chart.waist' | t }}</th>
+              {% endif %}
+              {% if has_hip %}
+                <th>{{ 'products.size_chart.hip' | t }}</th>
+              {% endif %}
+              {% if has_length %}
+                <th>{{ 'products.size_chart.length' | t }}</th>
+              {% endif %}
+              {% if has_shoulder %}
+                <th>{{ 'products.size_chart.shoulder' | t }}</th>
+              {% endif %}
+              {% if has_sleeve %}
+                <th>{{ 'products.size_chart.sleeve' | t }}</th>
+              {% endif %}
             </tr>
           </thead>
           <tbody>
-            {% if has_chest %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.chest' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
+            {% for row in chart.rows.value %}
+              {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
+              {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
+              {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
+              {% assign l_val = row.length_cm.value | default: row.length_cm %}
+              {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
+              {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
+
+              <tr data-size="{{ row.size.value | default: row.size }}">
+                <th class="sticky-column">{{ row.size.value | default: row.size }}</th>
+
+                {% if has_chest %}
                   <td>
                     {% if c_val != blank and c_val != 0 %}
                       <span class="size-val" data-cm="{{ c_val }}">{{ c_val }}</span> <span class="unit-text">cm</span>
@@ -137,14 +165,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
-              </tr>
-            {% endif %}
-            {% if has_waist %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.waist' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
+                {% endif %}
+
+                {% if has_waist %}
                   <td>
                     {% if w_val != blank and w_val != 0 %}
                       <span class="size-val" data-cm="{{ w_val }}">{{ w_val }}</span> <span class="unit-text">cm</span>
@@ -152,14 +175,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
-              </tr>
-            {% endif %}
-            {% if has_hip %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.hip' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
+                {% endif %}
+
+                {% if has_hip %}
                   <td>
                     {% if h_val != blank and h_val != 0 %}
                       <span class="size-val" data-cm="{{ h_val }}">{{ h_val }}</span> <span class="unit-text">cm</span>
@@ -167,14 +185,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
-              </tr>
-            {% endif %}
-            {% if has_length %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.length' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign l_val = row.length_cm.value | default: row.length_cm %}
+                {% endif %}
+
+                {% if has_length %}
                   <td>
                     {% if l_val != blank and l_val != 0 %}
                       <span class="size-val" data-cm="{{ l_val }}">{{ l_val }}</span> <span class="unit-text">cm</span>
@@ -182,14 +195,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
-              </tr>
-            {% endif %}
-            {% if has_shoulder %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.shoulder' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
+                {% endif %}
+
+                {% if has_shoulder %}
                   <td>
                     {% if sh_val != blank and sh_val != 0 %}
                       <span class="size-val" data-cm="{{ sh_val }}">{{ sh_val }}</span> <span class="unit-text">cm</span>
@@ -197,14 +205,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
-              </tr>
-            {% endif %}
-            {% if has_sleeve %}
-              <tr>
-                <th class="sticky-column">{{ 'products.size_chart.sleeve' | t }}</th>
-                {% for row in chart.rows.value %}
-                  {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
+                {% endif %}
+
+                {% if has_sleeve %}
                   <td>
                     {% if sl_val != blank and sl_val != 0 %}
                       <span class="size-val" data-cm="{{ sl_val }}">{{ sl_val }}</span> <span class="unit-text">cm</span>
@@ -212,9 +215,9 @@
                       -
                     {% endif %}
                   </td>
-                {% endfor %}
+                {% endif %}
               </tr>
-            {% endif %}
+            {% endfor %}
           </tbody>
         </table>
       </div>
