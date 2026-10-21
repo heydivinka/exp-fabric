@@ -9,6 +9,15 @@
   vertical-align: middle;
 }
 
+legend .product__size-chart-wrapper,
+label .product__size-chart-wrapper,
+.variant-option legend .product__size-chart-wrapper,
+.product-form__input legend .product__size-chart-wrapper {
+  margin-left: auto !important;
+  display: inline-flex !important;
+  vertical-align: middle;
+}
+
 /* Minimalist Text-Link Trigger */
 .size-chart-trigger {
   background: transparent !important;
@@ -84,18 +93,26 @@
 /* Header */
 .size-chart-drawer__header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   margin-bottom: 16px;
+  gap: 16px;
 }
 
 .size-chart-drawer__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.01em;
+  font-family: var(--font-body--family, inherit) !important;
+  font-size: clamp(1.5rem, 4vw, 2rem) !important; /* 32px */
+  font-weight: var(--font-body--weight, 400) !important;
+  line-height: var(--line-height--body-normal, normal) !important;
+  letter-spacing: var(--letter-spacing--body-normal, normal) !important;
+  text-transform: none !important;
+  text-wrap: pretty !important;
+  text-align: left !important;
+  margin: 0 !important;
+  max-width: var(--max-width--heading-normal, 100%) !important;
+  color: var(--color-foreground, currentColor) !important;
 }
 
 .size-chart-drawer__close {
@@ -148,6 +165,159 @@
   background: #000000;
   color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Size Recommender Widget (Bonus) */
+.size-chart-recommender {
+  background: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.size-chart-recommender__header {
+  margin-bottom: 10px;
+}
+
+.size-chart-recommender__title {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.size-chart-recommender__desc {
+  display: block;
+  font-size: 0.75rem;
+  color: #666666;
+  margin-top: 2px;
+}
+
+.size-chart-recommender__desc-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.size-chart-recommender__select {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111111;
+  cursor: pointer;
+  outline: none;
+}
+
+.size-chart-recommender__form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.size-chart-recommender__input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 1 1 120px;
+}
+
+.size-chart-recommender__input {
+  width: 100%;
+  padding: 7px 32px 7px 10px;
+  font-size: 0.8125rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.size-chart-recommender__input:focus {
+  border-color: #000000;
+}
+
+.size-chart-recommender__unit {
+  position: absolute;
+  right: 10px;
+  font-size: 0.75rem;
+  color: #888888;
+  pointer-events: none;
+}
+
+.size-chart-recommender__btn {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.size-chart-recommender__btn:hover {
+  background: #333333;
+}
+
+.size-chart-recommender__reset {
+  background: transparent;
+  color: #666666;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px;
+}
+
+.size-chart-recommender__reset:hover {
+  color: #000000;
+}
+
+.size-chart-recommender__result {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #eef8f1;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  color: #155724;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.size-chart-table tbody tr.is-highlighted {
+  background-color: #fff8e1 !important;
+  animation: sizeHighlightPulse 1.2s ease-in-out infinite alternate;
+}
+
+.size-chart-table tbody tr.is-highlighted .sticky-column {
+  background-color: #fff3cd !important;
+  color: #856404 !important;
+}
+
+@keyframes sizeHighlightPulse {
+  0% {
+    background-color: #fff8e1;
+  }
+  100% {
+    background-color: #ffeeba;
+  }
+}
+
+.size-chart-recommender .hidden,
+.size-chart-drawer .hidden {
+  display: none !important;
 }
 
 /* Matrix Table */

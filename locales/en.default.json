@@ -380,7 +380,16 @@
       "hip": "Hip",
       "length": "Length",
       "shoulder": "Shoulder",
-      "sleeve": "Sleeve"
+      "sleeve": "Sleeve",
+      "find_size_title": "Find Your Size",
+      "find_size_desc": "Enter your {{ metric }} to get a recommended size",
+      "find_size_choose_metric": "Select measurement",
+      "find_size_placeholder": "e.g. 100",
+      "find_size_button": "Find Size",
+      "find_size_result": "Recommended size: {{ size }}",
+      "find_size_reset": "Reset",
+      "all_charts_title": "Size Guide",
+      "all_charts_empty": "No size charts found in Shopify Admin."
     }
   }
 }

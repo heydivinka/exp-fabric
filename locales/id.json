@@ -338,7 +338,16 @@
       "hip": "Lingkar Pinggul",
       "length": "Panjang",
       "shoulder": "Lebar Bahu",
-      "sleeve": "Panjang Lengan"
+      "sleeve": "Panjang Lengan",
+      "find_size_title": "Cari Ukuran Anda",
+      "find_size_desc": "Masukkan {{ metric }} Anda untuk rekomendasi ukuran",
+      "find_size_choose_metric": "Pilih ukuran tubuh yang diukur",
+      "find_size_placeholder": "Contoh: 100",
+      "find_size_button": "Cari Ukuran",
+      "find_size_result": "Ukuran yang disarankan: {{ size }}",
+      "find_size_reset": "Reset",
+      "all_charts_title": "Panduan Ukuran Lengkap",
+      "all_charts_empty": "Belum ada size chart yang dibuat di Shopify Admin."
     }
   },
   "fields": {

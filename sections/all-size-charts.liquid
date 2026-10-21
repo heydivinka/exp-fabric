@@ -1,0 +1,315 @@
+{%- # theme-check-disable OrphanedSnippet -%}
+{{ 'size-chart.css' | asset_url | stylesheet_tag }}
+
+<div class="all-size-charts section-{{ section.id }}-padding page-width">
+  <div class="all-size-charts__header">
+    {% if section.settings.heading != blank %}
+      <h1 class="all-size-charts__title">{{ section.settings.heading }}</h1>
+    {% else %}
+      <h1 class="all-size-charts__title">{{ 'products.size_chart.all_charts_title' | t }}</h1>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="all-size-charts__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <div class="size-chart-unit-switcher all-size-charts__switcher">
+      <button type="button" class="unit-toggle-btn active" data-unit="cm">{{ 'products.size_chart.unit_cm' | t }}</button>
+      <button type="button" class="unit-toggle-btn" data-unit="inch">{{ 'products.size_chart.unit_inch' | t }}</button>
+    </div>
+  </div>
+
+  {% assign all_charts = shop.metaobjects.size_chart.values %}
+
+  {% if all_charts.size == 0 %}
+    <div class="all-size-charts__empty">
+      <p>{{ 'products.size_chart.all_charts_empty' | t }}</p>
+    </div>
+  {% else %}
+    <div class="all-size-charts__grid">
+      {% for chart in all_charts %}
+        {%- liquid
+          assign has_chest = false
+          assign has_waist = false
+          assign has_hip = false
+          assign has_length = false
+          assign has_shoulder = false
+          assign has_sleeve = false
+
+          for row in chart.rows.value
+            assign c_val = row.chest_cm.value | default: row.chest_cm
+            assign w_val = row.waist_cm.value | default: row.waist_cm
+            assign h_val = row.hip_cm.value | default: row.hip_cm
+            assign l_val = row.length_cm.value | default: row.length_cm
+            assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm
+            assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm
+
+            if c_val != blank and c_val != 0
+              assign has_chest = true
+            endif
+            if w_val != blank and w_val != 0
+              assign has_waist = true
+            endif
+            if h_val != blank and h_val != 0
+              assign has_hip = true
+            endif
+            if l_val != blank and l_val != 0
+              assign has_length = true
+            endif
+            if sh_val != blank and sh_val != 0
+              assign has_shoulder = true
+            endif
+            if sl_val != blank and sl_val != 0
+              assign has_sleeve = true
+            endif
+          endfor
+        -%}
+
+        <article class="all-size-charts__card" id="chart-{{ chart.system.handle }}">
+          <header class="all-size-charts__card-header">
+            <h2 class="all-size-charts__card-title">{{ chart.title.value | default: chart.title }}</h2>
+            {% assign chart_desc = chart.description.value | default: chart.description %}
+            {% if chart_desc != blank %}
+              <p class="all-size-charts__card-desc">{{ chart_desc }}</p>
+            {% endif %}
+          </header>
+
+          <div class="size-chart-table-container">
+            <table class="size-chart-table">
+              <thead>
+                <tr>
+                  <th class="sticky-column">{{ 'products.size_chart.size' | t }}</th>
+                  {% if has_chest %}<th>{{ 'products.size_chart.chest' | t }}</th>{% endif %}
+                  {% if has_waist %}<th>{{ 'products.size_chart.waist' | t }}</th>{% endif %}
+                  {% if has_hip %}<th>{{ 'products.size_chart.hip' | t }}</th>{% endif %}
+                  {% if has_length %}<th>{{ 'products.size_chart.length' | t }}</th>{% endif %}
+                  {% if has_shoulder %}<th>{{ 'products.size_chart.shoulder' | t }}</th>{% endif %}
+                  {% if has_sleeve %}<th>{{ 'products.size_chart.sleeve' | t }}</th>{% endif %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in chart.rows.value %}
+                  {% assign c_val = row.chest_cm.value | default: row.chest_cm %}
+                  {% assign w_val = row.waist_cm.value | default: row.waist_cm %}
+                  {% assign h_val = row.hip_cm.value | default: row.hip_cm %}
+                  {% assign l_val = row.length_cm.value | default: row.length_cm %}
+                  {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
+                  {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
+
+                  <tr data-size="{{ row.size.value | default: row.size }}">
+                    <th class="sticky-column">{{ row.size.value | default: row.size }}</th>
+                    {% if has_chest %}
+                      <td>
+                        {% if c_val != blank and c_val != 0 %}
+                          <span class="size-val" data-cm="{{ c_val }}">{{ c_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                    {% if has_waist %}
+                      <td>
+                        {% if w_val != blank and w_val != 0 %}
+                          <span class="size-val" data-cm="{{ w_val }}">{{ w_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                    {% if has_hip %}
+                      <td>
+                        {% if h_val != blank and h_val != 0 %}
+                          <span class="size-val" data-cm="{{ h_val }}">{{ h_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                    {% if has_length %}
+                      <td>
+                        {% if l_val != blank and l_val != 0 %}
+                          <span class="size-val" data-cm="{{ l_val }}">{{ l_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                    {% if has_shoulder %}
+                      <td>
+                        {% if sh_val != blank and sh_val != 0 %}
+                          <span class="size-val" data-cm="{{ sh_val }}">{{ sh_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                    {% if has_sleeve %}
+                      <td>
+                        {% if sl_val != blank and sl_val != 0 %}
+                          <span class="size-val" data-cm="{{ sl_val }}">{{ sl_val }}</span> <span class="unit-text">cm</span>
+                        {% else %}-{% endif %}
+                      </td>
+                    {% endif %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          {% assign g_img = chart.guide_image.value | default: chart.guide_image %}
+          {% if g_img != blank and section.settings.show_guide_images %}
+            <div class="size-chart-guide-image all-size-charts__image">
+              {{ g_img | image_url: width: 800 | image_tag: loading: 'lazy' }}
+            </div>
+          {% endif %}
+
+          {% assign chart_notes = chart.notes.value | default: chart.notes %}
+          {% if chart_notes != blank %}
+            <div class="size-chart-notes rte">
+              {% if chart.notes.value %}
+                {{ chart.notes | metafield_tag }}
+              {% else %}
+                {{ chart_notes }}
+              {% endif %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .all-size-charts {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .all-size-charts__header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .all-size-charts__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .all-size-charts__subheading {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0 0 20px;
+  }
+  .all-size-charts__switcher {
+    margin: 0 auto;
+  }
+  .all-size-charts__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .all-size-charts__card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+  .all-size-charts__card-header {
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 12px;
+  }
+  .all-size-charts__card-title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .all-size-charts__card-desc {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0;
+  }
+  .all-size-charts__image {
+    max-width: 500px;
+    margin: 16px auto 0;
+  }
+  .all-size-charts__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888888;
+  }
+</style>
+
+<script>
+  (function() {
+    function initAllChartsUnits() {
+      const container = document.querySelector('.all-size-charts');
+      if (!container) return;
+
+      const unitButtons = container.querySelectorAll('.unit-toggle-btn');
+      const values = container.querySelectorAll('.size-val');
+      const labels = container.querySelectorAll('.unit-text');
+
+      function setUnits(unit) {
+        localStorage.setItem('kainara_size_unit', unit);
+        unitButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.unit === unit));
+        labels.forEach(lbl => lbl.textContent = unit === 'inch' ? 'in' : 'cm');
+        values.forEach(el => {
+          const cm = parseFloat(el.dataset.cm || '');
+          if (!isNaN(cm)) {
+            el.textContent = unit === 'inch' ? (cm / 2.54).toFixed(1) : String(cm);
+          }
+        });
+      }
+
+      unitButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.unit) setUnits(btn.dataset.unit);
+        });
+      });
+
+      const saved = localStorage.getItem('kainara_size_unit') || '{{ section.settings.default_unit | default: "cm" }}';
+      setUnits(saved);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAllChartsUnits);
+    } else {
+      initAllChartsUnits();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "All Size Charts",
+  "tag": "section",
+  "class": "section-all-size-charts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Panduan Ukuran Lengkap"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Temukan ukuran yang paling sesuai untuk setiap kategori produk Kainara."
+    },
+    {
+      "type": "select",
+      "id": "default_unit",
+      "label": "Default Unit",
+      "options": [
+        { "value": "cm", "label": "Centimeter (cm)" },
+        { "value": "inch", "label": "Inci / Inch" }
+      ],
+      "default": "cm"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guide_images",
+      "label": "Show Guide Images",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "All Size Charts"
+    }
+  ]
+}
+{% endschema %}

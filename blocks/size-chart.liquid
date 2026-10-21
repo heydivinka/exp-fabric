@@ -36,6 +36,32 @@
     },
     {
       "type": "select",
+      "id": "heading_source",
+      "label": "Modal Heading",
+      "options": [
+        {
+          "value": "product",
+          "label": "Nama Produk (Product Title)"
+        },
+        {
+          "value": "chart",
+          "label": "Judul Size Chart (Metaobject)"
+        },
+        {
+          "value": "custom",
+          "label": "Teks Kustom"
+        }
+      ],
+      "default": "product"
+    },
+    {
+      "type": "text",
+      "id": "custom_heading",
+      "label": "Custom Heading",
+      "info": "Diisi jika memilih 'Teks Kustom' pada Modal Heading di atas"
+    },
+    {
+      "type": "select",
       "id": "default_unit",
       "label": "Default Unit",
       "options": [

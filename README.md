@@ -83,6 +83,8 @@ Fabric/
    - Block yang dapat ditambah, digeser, atau dihapus melalui Theme Editor di bagian Product Information.
    - Block settings:
      - `button_label` (Text): Ubah label tombol pemicu.
+     - `heading_source` (Select): Sumber judul modal (Nama Produk dinamis, Judul Size Chart Metaobject, atau Kustom).
+     - `custom_heading` (Text): Teks judul kustom (jika memilih opsi kustom).
      - `default_unit` (Select): Pilihan satuan awal (`cm` atau `inch`).
      - `text_color` (Color): Warna teks tombol.
      - `show_ruler_icon` (Checkbox): Opsi tampilkan ikon meteran.
@@ -159,3 +161,33 @@ Validasi kualitas kode tema menggunakan Theme Check:
 shopify theme check
 ```
 *Hasil:* Tidak ada error sintaks Liquid maupun error console JavaScript.
+
+---
+
+## 🌟 8. Fitur Bonus yang Dikerjakan (+10 Nilai)
+
+### Bonus 1: Rekomendasi Ukuran Interaktif (Size Recommender)
+* **Deskripsi:** Di dalam drawer panduan ukuran, terdapat widget kalkulator pintar. Pembeli cukup memasukkan ukuran lingkar dada (atau lingkar pinggang untuk gaun/dress), lalu sistem secara otomatis mencari ukuran terdekat yang paling pas.
+* **Cara Penggunaan di Toko:**
+  1. Buka drawer dengan menekan tombol **Lihat Panduan Ukuran**.
+  2. Pada kotak *"Cari Ukuran Anda"*, masukkan angka lingkar badan Anda (misal `102`).
+  3. Tekan tombol **Cari Ukuran** atau tekan tombol `Enter`.
+  4. Sistem akan menampilkan badge rekomendasi (contoh: *"Ukuran yang disarankan: L"*) dan **baris L di tabel otomatis disorot (highlight) berkedip kuning lembut** serta di-scroll agar langsung terlihat oleh pembeli.
+  5. Tekan link **Reset** untuk menghapus sorotan tabel.
+  6. Perhitungan otomatis menyesuaikan apakah pembeli sedang memilih satuan **CM** atau **Inci**.
+
+### Bonus 2: Dukungan Multi-Bahasa Lengkap (Bahasa Indonesia & Inggris)
+* **Deskripsi:** Semua elemen antarmuka, teks tombol, header tabel, tombol konversi satuan, hingga form rekomendasi ukuran mendukung dua bahasa murni melalui `locales/id.json` dan `locales/en.default.json`.
+* **Cara Penggunaan:**
+  - Ubah bahasa tema melalui selector bahasa toko (atau setting admin). Semua teks akan berganti secara dinamis tanpa ada teks yang ter-hardcode.
+
+### Bonus 3: Section Halaman Statis Panduan Ukuran (`sections/all-size-charts.liquid`)
+* **Deskripsi:** Section khusus yang bisa dipasang pada halaman statis (misalnya halaman `/pages/panduan-ukuran` atau `Size Guide`) untuk menampilkan seluruh koleksi size chart Kainara sekaligus dalam satu halaman katalog lengkap.
+* **Cara Penggunaan:**
+  1. Di Shopify Admin, buat halaman baru melalui **Online Store** > **Pages** > **Add page** dengan judul `"Panduan Ukuran"`.
+  2. Buka **Online Store** > **Themes** > klik **Customize** (Theme Editor).
+  3. Di dropdown navigasi atas, pilih **Pages** > pilih template halaman panduan ukuran (atau Default page).
+  4. Klik **Add section**, lalu pilih section **All Size Charts**.
+  5. Atur judul, sub-judul, satuan default, dan apakah gambar panduan ingin ditampilkan.
+  6. Klik **Save**. Halaman statis sekarang menampilkan seluruh size chart metaobject Kainara lengkap dengan fitur toggle satuan CM/Inci!
+

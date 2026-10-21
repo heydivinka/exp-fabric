@@ -89,6 +89,17 @@
     </button>
   </div>
 
+  {%- liquid
+    assign modal_title = chart.title.value | default: chart.title
+    if block.settings.heading_source == 'product' or block.settings.heading_source == blank
+      assign modal_title = product.title | default: modal_title
+    elsif block.settings.heading_source == 'custom' and block.settings.custom_heading != blank
+      assign modal_title = block.settings.custom_heading
+    elsif block.settings.heading_source == 'chart'
+      assign modal_title = chart.title.value | default: chart.title
+    endif
+  -%}
+
   {% comment %} Slide-out Drawer Dialog (<dialog>) {% endcomment %}
   <dialog
     id="SizeChartDialog"
@@ -98,8 +109,12 @@
   >
     <div class="size-chart-drawer__inner">
       <div class="size-chart-drawer__header">
-        <h2 id="SizeChartTitle" class="size-chart-drawer__title">
-          {{ chart.title.value | default: chart.title | default: '' }}
+        <h2
+          id="SizeChartTitle"
+          class="size-chart-drawer__title"
+          style="font-family: var(--font-body--family, inherit) !important; font-weight: var(--font-body--weight, 400) !important; font-size: clamp(1.5rem, 4vw, 2rem) !important; line-height: var(--line-height--body-normal, normal) !important; letter-spacing: var(--letter-spacing--body-normal, normal) !important; text-transform: none !important; text-wrap: pretty !important;"
+        >
+          {{ modal_title }}
         </h2>
         <button type="button" class="size-chart-drawer__close" id="SizeChartClose" aria-label="{{ 'products.size_chart.close' | t }}">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
@@ -118,6 +133,80 @@
         <button type="button" class="unit-toggle-btn active" data-unit="cm">{{ 'products.size_chart.unit_cm' | t }}</button>
         <button type="button" class="unit-toggle-btn" data-unit="inch">{{ 'products.size_chart.unit_inch' | t }}</button>
       </div>
+
+      {% comment %} Bonus: Rekomendasi Ukuran (Size Recommender) {% endcomment %}
+      {%- liquid
+        assign metric_count = 0
+        if has_chest
+          assign metric_count = metric_count | plus: 1
+        endif
+        if has_waist
+          assign metric_count = metric_count | plus: 1
+        endif
+        if has_hip
+          assign metric_count = metric_count | plus: 1
+        endif
+
+        assign default_metric = 'chest'
+        assign default_metric_label = 'products.size_chart.chest' | t
+        if has_chest == false and has_waist
+          assign default_metric = 'waist'
+          assign default_metric_label = 'products.size_chart.waist' | t
+        elsif has_chest == false and has_waist == false and has_hip
+          assign default_metric = 'hip'
+          assign default_metric_label = 'products.size_chart.hip' | t
+        endif
+      -%}
+
+      {% if metric_count > 0 %}
+        <div class="size-chart-recommender" data-metric="{{ default_metric }}">
+          <div class="size-chart-recommender__header">
+            <span class="size-chart-recommender__title">{{ 'products.size_chart.find_size_title' | t }}</span>
+            <div class="size-chart-recommender__desc-row">
+              {% if metric_count > 1 %}
+                <label for="SizeRecommenderMetricSelect" class="size-chart-recommender__desc">
+                  {{ 'products.size_chart.find_size_choose_metric' | t }}:
+                </label>
+                <select id="SizeRecommenderMetricSelect" class="size-chart-recommender__select">
+                  {% if has_chest %}<option value="chest" selected>{{ 'products.size_chart.chest' | t }}</option>{% endif %}
+                  {% if has_waist %}<option value="waist"{% unless has_chest %} selected{% endunless %}>{{ 'products.size_chart.waist' | t }}</option>{% endif %}
+                  {% if has_hip %}<option value="hip">{{ 'products.size_chart.hip' | t }}</option>{% endif %}
+                </select>
+              {% else %}
+                <span class="size-chart-recommender__desc">
+                  {{ 'products.size_chart.find_size_desc' | t: metric: default_metric_label }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+          <div class="size-chart-recommender__form">
+            <div class="size-chart-recommender__input-wrapper">
+              <input
+                type="number"
+                step="0.1"
+                min="10"
+                max="300"
+                class="size-chart-recommender__input"
+                id="SizeRecommenderInput"
+                placeholder="{{ 'products.size_chart.find_size_placeholder' | t }}"
+                aria-label="{{ default_metric_label }}"
+              >
+              <span class="size-chart-recommender__unit unit-text">cm</span>
+            </div>
+            <button type="button" class="size-chart-recommender__btn" id="SizeRecommenderBtn">
+              {{ 'products.size_chart.find_size_button' | t }}
+            </button>
+            <button type="button" class="size-chart-recommender__reset hidden" id="SizeRecommenderReset">
+              {{ 'products.size_chart.find_size_reset' | t }}
+            </button>
+          </div>
+          <div
+            class="size-chart-recommender__result hidden"
+            id="SizeRecommenderResult"
+            data-template="{{ 'products.size_chart.find_size_result' | t: size: '[SIZE]' }}"
+          ></div>
+        </div>
+      {% endif %}
 
       {% comment %} Tabel Ukuran Dinamis {% endcomment %}
       <div class="size-chart-table-container">
@@ -154,7 +243,12 @@
               {% assign sh_val = row.shoulder_cm.value | default: row.shoulder_cm %}
               {% assign sl_val = row.sleeve_cm.value | default: row.sleeve_cm %}
 
-              <tr data-size="{{ row.size.value | default: row.size }}">
+              <tr
+                data-size="{{ row.size.value | default: row.size }}"
+                {% if c_val != blank and c_val != 0 %}data-chest="{{ c_val }}"{% endif %}
+                {% if w_val != blank and w_val != 0 %}data-waist="{{ w_val }}"{% endif %}
+                {% if h_val != blank and h_val != 0 %}data-hip="{{ h_val }}"{% endif %}
+              >
                 <th class="sticky-column">{{ row.size.value | default: row.size }}</th>
 
                 {% if has_chest %}
