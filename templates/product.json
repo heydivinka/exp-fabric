@@ -92,6 +92,11 @@
               "name": "Size Chart",
               "settings": {
                 "button_label": "Size guide",
+                "heading_source": "product",
+                "custom_heading": "",
+                "default_unit": "cm",
+                "text_color": "#111111",
+                "show_ruler_icon": true,
                 "show_guide_image": true
               },
               "blocks": {}
@@ -432,7 +437,7 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "custom",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
@@ -574,7 +579,7 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "custom",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
@@ -613,11 +618,22 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "all_size_charts_7bYEcm": {
+      "type": "all-size-charts",
+      "name": "All Size Charts",
+      "settings": {
+        "heading": "Panduan Ukuran Lengkap",
+        "subheading": "Temukan ukuran yang paling sesuai untuk setiap kategori produk Kainara.",
+        "default_unit": "cm",
+        "show_guide_images": true
+      }
     }
   },
   "order": [
     "main",
     "product_recommendations_qggXJq",
-    "recently_viewed_section"
+    "recently_viewed_section",
+    "all_size_charts_7bYEcm"
   ]
 }
