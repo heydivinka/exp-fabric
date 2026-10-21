@@ -90,13 +90,25 @@
   </div>
 
   {%- liquid
-    assign modal_title = chart.title.value | default: chart.title
+    assign chart_raw_title = chart.title.value | default: chart.title
+    assign title_handle = chart_raw_title | handleize
+    assign chart_handle_clean = chart.system.handle | default: title_handle | replace: '-', '_'
+    assign title_trans_key = 'products.size_chart.charts.' | append: chart_handle_clean | append: '.title'
+    assign translated_chart_title = title_trans_key | t: default: chart_raw_title
+    assign check_chart_title = translated_chart_title | downcase
+    if check_chart_title contains 'translation missing'
+      assign resolved_chart_title = chart_raw_title
+    else
+      assign resolved_chart_title = translated_chart_title
+    endif
+
+    assign modal_title = resolved_chart_title
     if block.settings.heading_source == 'product' or block.settings.heading_source == blank
       assign modal_title = product.title | default: modal_title
     elsif block.settings.heading_source == 'custom' and block.settings.custom_heading != blank
       assign modal_title = block.settings.custom_heading
     elsif block.settings.heading_source == 'chart'
-      assign modal_title = chart.title.value | default: chart.title
+      assign modal_title = resolved_chart_title
     endif
   -%}
 
@@ -123,7 +135,17 @@
         </button>
       </div>
 
-      {%- assign chart_desc = chart.description.value | default: chart.description -%}
+      {%- liquid
+        assign chart_raw_desc = chart.description.value | default: chart.description
+        assign desc_trans_key = 'products.size_chart.charts.' | append: chart_handle_clean | append: '.description'
+        assign translated_desc = desc_trans_key | t: default: chart_raw_desc
+        assign check_desc = translated_desc | downcase
+        if check_desc contains 'translation missing'
+          assign chart_desc = chart_raw_desc
+        else
+          assign chart_desc = translated_desc
+        endif
+      -%}
       {%- if chart_desc != blank -%}
         <p class="size-chart-drawer__desc">{{ chart_desc }}</p>
       {%- endif -%}

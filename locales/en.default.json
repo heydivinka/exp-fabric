@@ -388,8 +388,43 @@
       "find_size_button": "Find Size",
       "find_size_result": "Recommended size: {{ size }}",
       "find_size_reset": "Reset",
-      "all_charts_title": "Size Guide",
-      "all_charts_empty": "No size charts found in Shopify Admin."
+      "all_charts_title": "Complete Size Guide",
+      "all_charts_subheading": "Find the perfect fit for every Kainara product category.",
+      "all_charts_empty": "No size charts found in Shopify Admin.",
+      "charts": {
+        "dress_wanita_kasual": {
+          "title": "Women's Casual Dress",
+          "description": "Standard size guide for Kainara women's casual dresses."
+        },
+        "dress_wanita": {
+          "title": "Women's Dress",
+          "description": "Standard size guide for Kainara women's dresses."
+        },
+        "kemeja_pria_regular_fit": {
+          "title": "Men's Regular Fit Shirt",
+          "description": "Standard size guide for Kainara men's regular fit shirts."
+        },
+        "kemeja_pria": {
+          "title": "Men's Shirt",
+          "description": "Standard size guide for Kainara men's shirts."
+        },
+        "kaos_pria": {
+          "title": "Men's T-Shirt",
+          "description": "Standard size guide for Kainara men's t-shirts."
+        },
+        "celana_pria": {
+          "title": "Men's Trousers",
+          "description": "Standard size guide for Kainara men's trousers."
+        },
+        "outer_unisex_oversized": {
+          "title": "Unisex Oversized Outerwear",
+          "description": "Standard size guide for Kainara unisex oversized outerwear."
+        },
+        "outer_unisex": {
+          "title": "Unisex Outerwear",
+          "description": "Standard size guide for Kainara unisex outerwear."
+        }
+      }
     }
   }
 }

@@ -347,7 +347,42 @@
       "find_size_result": "Ukuran yang disarankan: {{ size }}",
       "find_size_reset": "Reset",
       "all_charts_title": "Panduan Ukuran Lengkap",
-      "all_charts_empty": "Belum ada size chart yang dibuat di Shopify Admin."
+      "all_charts_subheading": "Temukan ukuran yang paling sesuai untuk setiap kategori produk Kainara.",
+      "all_charts_empty": "Belum ada size chart yang dibuat di Shopify Admin.",
+      "charts": {
+        "dress_wanita_kasual": {
+          "title": "Dress Wanita Kasual",
+          "description": "Panduan ukuran standar untuk dress wanita kasual Kainara."
+        },
+        "dress_wanita": {
+          "title": "Dress Wanita",
+          "description": "Panduan ukuran standar untuk dress wanita Kainara."
+        },
+        "kemeja_pria_regular_fit": {
+          "title": "Kemeja Pria Regular Fit",
+          "description": "Panduan ukuran standar untuk kemeja pria regular fit Kainara."
+        },
+        "kemeja_pria": {
+          "title": "Kemeja Pria",
+          "description": "Panduan ukuran standar untuk kemeja pria Kainara."
+        },
+        "kaos_pria": {
+          "title": "Kaos Pria",
+          "description": "Panduan ukuran standar untuk kaos pria Kainara."
+        },
+        "celana_pria": {
+          "title": "Celana Pria",
+          "description": "Panduan ukuran standar untuk celana pria Kainara."
+        },
+        "outer_unisex_oversized": {
+          "title": "Outer Unisex Oversized",
+          "description": "Panduan ukuran standar untuk outer unisex oversized Kainara."
+        },
+        "outer_unisex": {
+          "title": "Outer Unisex",
+          "description": "Panduan ukuran standar untuk outer unisex Kainara."
+        }
+      }
     }
   },
   "fields": {

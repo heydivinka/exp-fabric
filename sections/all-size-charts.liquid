@@ -3,17 +3,27 @@
 
 <div class="all-size-charts section-{{ section.id }}-padding page-width">
   <div class="all-size-charts__header">
-    {% if section.settings.heading != blank %}
-      <h1 class="all-size-charts__title">{{ section.settings.heading }}</h1>
-    {% else %}
-      <h1 class="all-size-charts__title">{{ 'products.size_chart.all_charts_title' | t }}</h1>
+    {%- liquid
+      assign default_heading = 'products.size_chart.all_charts_title' | t
+      assign default_sub = 'products.size_chart.all_charts_subheading' | t
+      assign heading_text = section.settings.heading
+      if heading_text == blank or heading_text == 'Panduan Ukuran Lengkap' or heading_text == 'Complete Size Guide'
+        assign heading_text = default_heading
+      endif
+
+      assign subheading_text = section.settings.subheading
+      if subheading_text == blank or subheading_text == 'Temukan ukuran yang paling sesuai untuk setiap kategori produk Kainara.' or subheading_text == 'Find the perfect fit for every Kainara product category.'
+        assign subheading_text = default_sub
+      endif
+    -%}
+
+    <h1 class="all-size-charts__title">{{ heading_text }}</h1>
+
+    {% if subheading_text != blank %}
+      <p class="all-size-charts__subheading">{{ subheading_text }}</p>
     {% endif %}
 
-    {% if section.settings.subheading != blank %}
-      <p class="all-size-charts__subheading">{{ section.settings.subheading }}</p>
-    {% endif %}
-
-    <div class="size-chart-unit-switcher all-size-charts__switcher">
+    <div class="size-chart-unit-switcher all-size-charts__switcher" data-active-unit="{{ section.settings.default_unit | default: 'cm' }}">
       <button type="button" class="unit-toggle-btn active" data-unit="cm">{{ 'products.size_chart.unit_cm' | t }}</button>
       <button type="button" class="unit-toggle-btn" data-unit="inch">{{ 'products.size_chart.unit_inch' | t }}</button>
     </div>
@@ -67,8 +77,35 @@
 
         <article class="all-size-charts__card" id="chart-{{ chart.system.handle }}">
           <header class="all-size-charts__card-header">
-            <h2 class="all-size-charts__card-title">{{ chart.title.value | default: chart.title }}</h2>
-            {% assign chart_desc = chart.description.value | default: chart.description %}
+            {%- liquid
+              assign chart_raw_title = chart.title.value | default: chart.title
+              assign title_handle = chart_raw_title | handleize
+              assign chart_handle_clean = chart.system.handle | default: title_handle | replace: '-', '_'
+              assign title_trans_key = 'products.size_chart.charts.' | append: chart_handle_clean | append: '.title'
+              assign translated_title = title_trans_key | t: default: chart_raw_title
+              assign check_title = translated_title | downcase
+              if check_title contains 'translation missing'
+                assign chart_title = chart_raw_title
+              else
+                assign chart_title = translated_title
+              endif
+
+              assign chart_raw_desc = chart.description.value | default: chart.description
+              assign desc_trans_key = 'products.size_chart.charts.' | append: chart_handle_clean | append: '.description'
+              assign translated_desc = desc_trans_key | t: default: chart_raw_desc
+              assign check_desc = translated_desc | downcase
+              if check_desc contains 'translation missing'
+                assign chart_desc = chart_raw_desc
+              else
+                assign chart_desc = translated_desc
+              endif
+            -%}
+            <h2
+              class="all-size-charts__card-title"
+              style="font-family: var(--font-body--family, inherit) !important; font-weight: var(--font-body--weight, 400) !important; font-size: clamp(1.5rem, 4vw, 2rem) !important; line-height: var(--line-height--body-normal, normal) !important; letter-spacing: var(--letter-spacing--body-normal, normal) !important; text-transform: none !important; text-wrap: pretty !important; color: var(--color-foreground, currentColor) !important;"
+            >
+              {{ chart_title }}
+            </h2>
             {% if chart_desc != blank %}
               <p class="all-size-charts__card-desc">{{ chart_desc }}</p>
             {% endif %}
@@ -211,9 +248,15 @@
     padding-bottom: 12px;
   }
   .all-size-charts__card-title {
-    font-size: 1.375rem;
-    font-weight: 600;
-    margin: 0 0 6px;
+    font-family: var(--font-body--family, inherit) !important;
+    font-size: clamp(1.5rem, 4vw, 2rem) !important; /* 32px / 2rem */
+    font-weight: var(--font-body--weight, 400) !important;
+    line-height: var(--line-height--body-normal, normal) !important;
+    letter-spacing: var(--letter-spacing--body-normal, normal) !important;
+    text-transform: none !important;
+    text-wrap: pretty !important;
+    color: var(--color-foreground, #111111) !important;
+    margin: 0 0 8px;
   }
   .all-size-charts__card-desc {
     font-size: 0.875rem;
@@ -283,13 +326,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Panduan Ukuran Lengkap"
+      "info": "Leave blank to use default translated heading"
     },
     {
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Temukan ukuran yang paling sesuai untuk setiap kategori produk Kainara."
+      "info": "Leave blank to use default translated subheading"
     },
     {
       "type": "select",
