@@ -55,7 +55,7 @@ label .product__size-chart-wrapper,
   bottom: 0;
   left: auto;
   margin: 0 0 0 auto;
-  width: 460px;
+  width: 480px;
   max-width: 92vw;
   height: 100dvh;
   max-height: 100dvh;
@@ -64,23 +64,31 @@ label .product__size-chart-wrapper,
   padding: 0;
   background: var(--color-background, #ffffff);
   color: var(--color-foreground, #111111);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-  transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+
+  /* GPU-accelerated smooth slide (60fps, no layout thrashing) */
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
   z-index: 99999;
 }
 
-.size-chart-drawer[open] {
-  transform: translateX(0);
+.size-chart-drawer.is-open {
+  transform: translate3d(0, 0, 0);
 }
 
+/* Backdrop - Fast & clean fade without GPU-heavy blur */
 .size-chart-drawer::backdrop {
   background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Drawer Inner Container */
+.size-chart-drawer.is-open::backdrop {
+  opacity: 1;
+}
+
+/* Drawer Inner Container with subtle content fade & glide */
 .size-chart-drawer__inner {
   display: flex;
   flex-direction: column;
@@ -88,6 +96,15 @@ label .product__size-chart-wrapper,
   padding: 24px;
   overflow-y: auto;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translate3d(8px, 0, 0);
+  transition: opacity 0.25s ease 0.05s, transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0.05s;
+  will-change: opacity, transform;
+}
+
+.size-chart-drawer.is-open .size-chart-drawer__inner {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Header */
@@ -125,11 +142,16 @@ label .product__size-chart-wrapper,
   justify-content: center;
   color: inherit;
   border-radius: 50%;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .size-chart-drawer__close:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.06);
+  transform: rotate(90deg) scale(1.06);
+}
+
+.size-chart-drawer__close:active {
+  transform: rotate(90deg) scale(0.92);
 }
 
 .size-chart-drawer__desc {
@@ -158,13 +180,19 @@ label .product__size-chart-wrapper,
   font-weight: 500;
   cursor: pointer;
   color: #555555;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.size-chart-unit-switcher .unit-toggle-btn:hover:not(.active) {
+  color: #111111;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .size-chart-unit-switcher .unit-toggle-btn.active {
   background: #000000;
   color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
 }
 
 /* Size Recommender Widget (Bonus) */
@@ -260,12 +288,18 @@ label .product__size-chart-wrapper,
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .size-chart-recommender__btn:hover {
-  background: #333333;
+  background: #2b2b2b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.size-chart-recommender__btn:active {
+  transform: translateY(0);
 }
 
 .size-chart-recommender__reset {
@@ -294,6 +328,18 @@ label .product__size-chart-wrapper,
   display: flex;
   align-items: center;
   gap: 6px;
+  animation: sizeResultPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes sizeResultPop {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .size-chart-table tbody tr.is-highlighted {
@@ -379,14 +425,6 @@ label .product__size-chart-wrapper,
   background: #fbfbfb;
 }
 
-.size-chart-table tbody tr.is-highlighted {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.size-chart-table tbody tr.is-highlighted .sticky-column {
-  background: #f0f0f0;
-}
-
 .size-chart-table tbody tr:last-child th,
 .size-chart-table tbody tr:last-child td {
   border-bottom: none;
@@ -413,4 +451,17 @@ label .product__size-chart-wrapper,
 
 .size-chart-notes p {
   margin: 4px 0;
+}
+
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .size-chart-drawer,
+  .size-chart-drawer::backdrop,
+  .size-chart-drawer__inner,
+  .size-chart-recommender__result,
+  .size-chart-table tbody tr.is-highlighted {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }

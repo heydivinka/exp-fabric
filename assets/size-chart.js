@@ -37,18 +37,35 @@ function initSizeChart() {
   trigger.setAttribute('aria-haspopup', 'dialog');
   trigger.setAttribute('aria-expanded', 'false');
 
+  let isClosing = false;
+
   // Buka Modal Drawer & Kunci Scroll Body
-  trigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const openModal = () => {
+    if (isClosing) return;
     dialog.showModal();
     document.body.style.overflow = 'hidden';
     trigger.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(() => {
+      dialog.classList.add('is-open');
+    });
+  };
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openModal();
   });
 
-  // Tutup Modal Drawer, Lepas Kunci Scroll, & Kembalikan Fokus
+  // Tutup Modal Drawer dengan transisi keluar yang mulus
   const closeModal = () => {
-    dialog.close();
+    if (isClosing || !dialog.open) return;
+    isClosing = true;
+    dialog.classList.remove('is-open');
+
+    setTimeout(() => {
+      dialog.close();
+      isClosing = false;
+    }, 280);
   };
 
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -66,8 +83,16 @@ function initSizeChart() {
     }
   });
 
-  // Event 'close' native dialog (menangani ESC, tombol close, dan backdrop secara seragam)
+  // Intersep event 'cancel' native dialog (ESC key) agar animasi close tetap berjalan mulus
+  dialog.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closeModal();
+  });
+
+  // Event 'close' native dialog (pembersihan state fallback)
   dialog.addEventListener('close', () => {
+    dialog.classList.remove('is-open');
+    isClosing = false;
     document.body.style.overflow = '';
     trigger.setAttribute('aria-expanded', 'false');
     trigger.focus();
