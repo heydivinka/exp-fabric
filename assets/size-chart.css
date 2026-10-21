@@ -161,38 +161,76 @@ label .product__size-chart-wrapper,
   color: rgba(var(--color-foreground-rgb, 0, 0, 0), 0.7);
 }
 
-/* Unit Switcher Pill */
+/* Modern Segmented Control / Unit Switcher Pill */
 .size-chart-unit-switcher {
+  position: relative;
   display: inline-flex;
-  background: #f1f1f1;
-  border-radius: 20px;
+  align-items: center;
+  background: #f1f2f4;
+  border-radius: 999px;
   padding: 3px;
   margin-bottom: 18px;
   align-self: flex-start;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Sliding Indicator Thumb */
+.size-chart-unit-switcher::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  background: var(--color-foreground, #111111);
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Slide to right for inch */
+.size-chart-unit-switcher:has(.unit-toggle-btn:last-child.active)::before,
+.size-chart-unit-switcher[data-active-unit="inch"]::before {
+  transform: translateX(100%);
 }
 
 .size-chart-unit-switcher .unit-toggle-btn {
-  background: transparent;
+  position: relative;
+  z-index: 2;
+  flex: 1 1 0;
+  min-width: 58px;
+  padding: 6px 16px;
+  background: transparent !important;
   border: none;
-  border-radius: 16px;
-  padding: 5px 16px;
+  border-radius: 999px;
+  font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 500;
+  line-height: 1.2;
+  color: #666666;
   cursor: pointer;
-  color: #555555;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  transition: color 0.22s ease, transform 0.15s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .size-chart-unit-switcher .unit-toggle-btn:hover:not(.active) {
   color: #111111;
-  background: rgba(0, 0, 0, 0.04);
 }
 
 .size-chart-unit-switcher .unit-toggle-btn.active {
-  background: #000000;
-  color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: scale(1.02);
+  color: var(--color-background, #ffffff);
+  font-weight: 600;
+}
+
+.size-chart-unit-switcher .unit-toggle-btn:active {
+  transform: scale(0.95);
 }
 
 /* Size Recommender Widget (Bonus) */
@@ -458,6 +496,7 @@ label .product__size-chart-wrapper,
   .size-chart-drawer,
   .size-chart-drawer::backdrop,
   .size-chart-drawer__inner,
+  .size-chart-unit-switcher::before,
   .size-chart-recommender__result,
   .size-chart-table tbody tr.is-highlighted {
     animation: none !important;

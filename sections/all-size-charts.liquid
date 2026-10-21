@@ -243,6 +243,8 @@
 
       function setUnits(unit) {
         localStorage.setItem('kainara_size_unit', unit);
+        const switchers = container.querySelectorAll('.size-chart-unit-switcher');
+        switchers.forEach(s => s.dataset.activeUnit = unit);
         unitButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.unit === unit));
         labels.forEach(lbl => lbl.textContent = unit === 'inch' ? 'in' : 'cm');
         values.forEach(el => {

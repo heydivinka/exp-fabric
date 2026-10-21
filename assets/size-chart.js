@@ -102,6 +102,8 @@ function initSizeChart() {
   /** @type {NodeListOf<HTMLElement>} */
   const unitButtons = dialog.querySelectorAll('.unit-toggle-btn');
   /** @type {NodeListOf<HTMLElement>} */
+  const switchers = dialog.querySelectorAll('.size-chart-unit-switcher');
+  /** @type {NodeListOf<HTMLElement>} */
   const values = dialog.querySelectorAll('.size-val');
   /** @type {NodeListOf<HTMLElement>} */
   const labels = dialog.querySelectorAll('.unit-text');
@@ -111,6 +113,9 @@ function initSizeChart() {
    */
   const updateUnits = (unit) => {
     localStorage.setItem('kainara_size_unit', unit);
+    switchers.forEach((s) => {
+      s.dataset.activeUnit = unit;
+    });
     unitButtons.forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.unit === unit);
     });

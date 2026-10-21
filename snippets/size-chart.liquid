@@ -129,7 +129,7 @@
       {%- endif -%}
 
       {% comment %} Toggle Satuan CM / Inci {% endcomment %}
-      <div class="size-chart-unit-switcher">
+      <div class="size-chart-unit-switcher" data-active-unit="{{ block.settings.default_unit | default: 'cm' }}">
         <button type="button" class="unit-toggle-btn active" data-unit="cm">{{ 'products.size_chart.unit_cm' | t }}</button>
         <button type="button" class="unit-toggle-btn" data-unit="inch">{{ 'products.size_chart.unit_inch' | t }}</button>
       </div>
