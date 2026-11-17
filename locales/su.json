@@ -2454,6 +2454,156 @@
           "with_pending_orders": "Ngahapus métode pamayaran ieu bakal ngaleungitkeun tina akun anjeun sareng moal tiasa dianggo deui pikeun pameseran ka hareup. Éta ogé bakal tetep ditagihkeun pikeun saldo nu tacan lunas dina pesenan nu tos aya."
         }
       }
+    },
+    "account_menu": {
+      "signed_in_state": {
+        "orders_button": "Pesenan",
+        "profile_button": "Profil"
+      },
+      "location_picker": {
+        "sheet_title": "Lokasi-lokasi",
+        "search_field_placeholder": "Téang"
+      },
+      "aria_labels": {
+        "close_menu": "Tutup ménu",
+        "back_to_main_menu": "Balik ka menu utama ti {{title}}",
+        "open_submenu": "{{title}}, muka submenu",
+        "loading_menu": "Ngamuat ménu",
+        "loading": "Ngamuat",
+        "account": "Akun",
+        "sign_in_with_email": "Asup ku surélék",
+        "sign_in": "Asup"
+      }
+    },
+    "B2B": {
+      "account_information": {
+        "company_card_section_accessibility_label": "Pausahaan"
+      },
+      "locations": {
+        "contact_contact": "Kontak",
+        "contact_email": "Surélék",
+        "contact_list_title": "Jalma",
+        "contact_name": "Nami",
+        "contact_permissions": "Idin",
+        "contact_phone_number": "Nomer telepon",
+        "deposit_percentage": "{{percentage}} setoran",
+        "own_role_contact_name": "Anjeun",
+        "payment_details_title": "Rincian pamayaran",
+        "payment_terms": "Katangtuan pamayaran",
+        "section_title": "Lokasi",
+        "shipping_address_required": "Tambahkeun alamat pengiriman ka lokasi ieu pikeun ngamimitian mesen",
+        "staff_and_permissions_title": "Staf sareng idin",
+        "tax_id": "ID Pajak",
+        "tax_exemptions": "Bebas pajak",
+        "multiple_tax_exemptions": "{{taxExemptionsCount}} deui",
+        "multiple_tax_exemptions_and": "jeung",
+        "tax_exemptions_modal_close": "Tutup",
+        "tax_exemption_not_applicable": "N/A",
+        "tax_exemptions_modal_button_accessibility_label": "Tempo sadaya pengecualian pajak"
+      },
+      "location_selection": {
+        "description": "Upami anjeun parantos gaduh barang dina karinjang anjeun, ngarobah lokasi tiasa mangaruhan harga sareng kuantitas karinjang.",
+        "description_switch_later": "Anjeun tiasa salawasna gentos engké",
+        "error_loading_locations": "Aya masalah nalika muka lokasi. Pariksa sambungan internét anjeun tuluy coba deui.",
+        "list_accessibility_label": "Daptar lokasi",
+        "list_item_without_address_accessibility_label": "{{name}}: Teu aya alamat",
+        "list_loading_accessibility_message": "Ngamuat daptar lokasi",
+        "list_loading_address_accessibility_message": "Ngalirkeun alamat pikeun {{locationName}}",
+        "list_loading_finished_accessibility_message": "Daptar lokasi parantos dimuat",
+        "loading_store_accessibility_message": "Indit ka toko",
+        "no_locations_found": "Teu aya lokasi nu kapanggih",
+        "search": "Pilarian lokasi",
+        "selection_cancel_button": "Bolay",
+        "selection_continue_button": "Lajengkeun",
+        "title": "Di lokasi mana anjeun balanja?",
+        "title_choose_location": "Pilih lokasi",
+        "try_new_search": "Cobi pamilarian énggal"
+      },
+      "addresses": {
+        "add_billing_address_button": "Tambihkeun alamat tagihan",
+        "add_billing_address_section_accessibility_label": "Tambihkeun alamat tagihan",
+        "add_shipping_address_button": "Tambihkeun alamat pengiriman",
+        "add_shipping_address_section_accessibility_label": "Tambihkeun alamat pengiriman",
+        "billing_address_card_title": "Alamat tagihan",
+        "no_billing_address_banner": "Taya alamat tagihan anu ditambihkeun",
+        "cancel_adding_billing_address_accessibility_label": "Bolaykeun nambihkeun alamat tagihan",
+        "cancel_adding_shipping_address_accessibility_label": "Bolaykeun nambih alamat pangiriman",
+        "save_new_billing_address_accessibility_label": "Simpen alamat tagihan",
+        "save_new_shipping_address_accessibility_label": "Simpen alamat pengiriman",
+        "shipping_address_card_title": "Alamat pengiriman"
+      },
+      "orders": {
+        "draft_order_list": {
+          "title": "Ditangguhkeun",
+          "pending_tab_accessibility_label": {
+            "no_pending_orders": "Anjeun teu gaduh pesenan anu ditangguhkeun",
+            "pending_orders": {
+              "one": "Anjeun gaduh {{count}} pesenan anu ditunda",
+              "other": "Anjeun gaduh {{count}} pesenan anu ditunda"
+            },
+            "more_than_pagination_length": "Anjeun gaduh langkung ti {{count}} pesenan anu ditunda"
+          }
+        }
+      },
+      "draft_order_details": {
+        "draft_order_subtitle": "Konfirmasi {{date}} ti pesenan {{draftOrderName}}",
+        "loading": "Ngamuat detil pesenan",
+        "loading_finished_accessibility_message": "Rincian pesenan parantos dimuat",
+        "payment_status": {
+          "pending": {
+            "banner_overdue": {
+              "one": "Pamayaran anjeun telat {{count}} dinten",
+              "other": "Mayar anjeun tos telat {{count}} dinten"
+            },
+            "banner_due": {
+              "one": "Mayar anjeun kedah dibayar dina {{count}} dinten",
+              "other": "Mayar anjeun kedah dina {{count}} dinten"
+            },
+            "banner_due_today": "Pamayaran anjeun kedah dibayar ayeuna",
+            "banner_due_today_for_multiple_fulfillments": "Mayar ayeuna kanggo {{count}} pemenuhan",
+            "banner_overdue_for_multiple_fulfillments": "Pamayaran kanggo {{count}} pemenuhan",
+            "title": "Mayar jatuh tempo",
+            "title_with_date": "Pamayaran kudu dibayar dina {{date}}",
+            "title_due_on_receipt": "Pamayaran can acan waktuna",
+            "title_due_on_fulfillment": "Pamayaran ditagih nalika parantosan",
+            "description_partially_paid": "Pesenan ieu sabagian tos dibayar. Aya sésa nu kedah dibayar.",
+            "description_waiting_for_manual_payment": "Pesenan ieu gaduh pamayaran anu ditangguhkeun. Sésana bakal diropéa nalika pamayaran katampi.",
+            "description_due_on_receipt": "Anjeun bakal nampi tagihan nalika waktos mayar.",
+            "description_due_on_receipt_partially_paid": "Pesenan ieu sabagian tos dibayar. Anjeun ngagaduhan sésa saldo. Anjeun bakal nampi tagihan nalika waktosna mayar."
+          },
+          "draft": {
+            "in_review": {
+              "description": "Detil pambayaran diputuskeun nalika order dikonfirmasi.",
+              "title": "Pamayaran teu acan waktuna"
+            },
+            "submitted": {
+              "description": "Bayar supados pesenan ieu diyakinkeun.",
+              "title": "Bayar kanggo mastikeun",
+              "deposit": {
+                "title": "Mayar téh kudu ayeuna",
+                "due_later": "Sésana gumantung kana katangtuan {{translatedName}} sarta kudu dibayar dina {{dueDate}}.",
+                "due_on_fulfillment": "Sésa pamayaran téh diwajibkeun sanggeus sadaya barang dina pesenan ieu réngsé kabéh.",
+                "due_on_receipt": "Anjeun bakal nampi tagihan pikeun sésa saldo.",
+                "due_on_date": "The balance is due on {{dueDate}}."
+              }
+            },
+            "deposit": {
+              "due_later": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Saldo bakal nganggo istilah {{translatedName}}.",
+              "due_on_fulfillment": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Sésana kedah dibayar nalika pesenan parantos dilaksanakeun.",
+              "due_on_receipt": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Sésana kedah dibayar engké.",
+              "due_on_date": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Sésana kedah dibayar dina {{dueDate}}."
+            }
+          },
+          "paid": {
+            "title": "Mayar",
+            "title_with_date": "Dibayar {{date}}",
+            "description": "Pesenan anjeun tos lunas sadayana."
+          },
+          "refund": {
+            "title": "Dipulangkeun deui artosna"
+          }
+        }
+      }
     }
   },
   "blocks": {
@@ -2578,7 +2728,77 @@
     "quick_order_list": "Daptar pesenan gancang",
     "recently_viewed_products": "Nu nembe ditingali",
     "remove_all": "Hapus sadayana",
-    "remove_all_items_confirmation": "Hapus sadaya {{ count }} barang tina karanjang anjeun?"
+    "remove_all_items_confirmation": "Hapus sadaya {{ count }} barang tina karanjang anjeun?",
+    "remove_one_item_confirmation": "Leungitkeun 1 barang tina karanjang anjeun?",
+    "reviews": "ulikan",
+    "read_more": "Maca deui...",
+    "search_input_label": "Téang",
+    "search_input_placeholder": "Téang",
+    "search": "Téang",
+    "search_results": "Hasil pamilarian",
+    "search_results_label": "Hasil pamilarian",
+    "search_results_no_results": "Henteu kapendak hasil pikeun \"{{ terms }}\". Cobi pamilarian sanés.",
+    "search_results_no_results_check_spelling": "Taya hasil kapanggih pikeun \"{{ terms }}\". Pariksa éjahan atawa paké kecap atawa frasa séjén.",
+    "search_results_resource_articles": "Tulisan blog",
+    "search_results_resource_collections": "Koléksi",
+    "search_results_resource_pages": "Kaca-kaca",
+    "search_results_resource_products": "Produk",
+    "search_results_resource_products_count": {
+      "one": "{{ count }} produk",
+      "other": "{{ count }} produk"
+    },
+    "search_results_resource_queries": "Saran pamilarian",
+    "total_items": "Jumlah barang",
+    "variant": "Varian",
+    "variant_total": "Varian total",
+    "view_cart": "Témbongkeun karanjang balanja",
+    "your_cart": "Karanjang anjeun",
+    "items_added_to_cart": {
+      "one": "1 barang geus ditambahkeun kana karanjang balanja",
+      "other": "{{ count }} barang dilebetkeun kana karanjang balanja"
+    },
+    "search_results_view_all": "Témbongkeun sadayana",
+    "search_results_view_all_button": "Témbongkeun sadayana",
+    "seller_note": "Parentah husus",
+    "shipping_policy": "Ongkos kirim diitung nalika parantos mesen.",
+    "shipping_policy_html": "<a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Ongkos kirim</a> diitung di kasir.",
+    "store_owner_link_html": "Naha anjeun gaduh toko? <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Asup di dieu</a>",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Pajak, diskon, sareng <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">ongkos kirim</a> diitung nalika pamayaran.",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "Pajak sareng <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">ongkos kirim</a> diitung nalika pamayaran.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy": "Pajak, diskon jeung ongkos kirim diitung nalika pariksa.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Pajak sareng ongkos kirim diitung nalika pariksa.",
+    "taxes_included": "Pajeg kalebet.",
+    "taxes_included_shipping_at_checkout_with_policy_html": "Kaasup pajeg. Diskon sareng <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">ongkos kirim</a> diitung nalika pamayaran.",
+    "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Pajak kaasup. Ongkos kirim diitung nalika pariksa.",
+    "taxes_included_shipping_at_checkout_without_policy": "Pajak kalebet. Diskon sareng pengiriman diitung nalika pariksa.",
+    "taxes_included_shipping_at_checkout_without_policy_without_discounts": "Pajak kaasup. Ongkos kirim diitung nalika pariksa.",
+    "unavailable": "Teu sayogi",
+    "use_fewer_filters_html": "Cobi nganggo saringan anu langkung saeutik, atanapi <a class=\"&lt;span class='notranslate'&gt;{{ class }}&lt;/span&gt;\" href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">pupus sadaya saringan</a>.",
+    "view_more_details": "Tingali langkung rinci",
+    "volume_pricing_available": "Harga borongan sayogi",
+    "volume_pricing": "Harga borongan",
+    "at_price_each": "at {{ price }}/siki",
+    "each": "{{ price }}/siki",
+    "each_abbreviation": "enya",
+    "price_at": "dina",
+    "price_range": "Rentang harga",
+    "your_cart_is_empty": "Karanjang anjeun kosong",
+    "product_count": "Jumlah produk",
+    "errors": "Kasalahan",
+    "wrong_password": "Sandi lepat",
+    "recipient_form_send_to": "Kirim ka",
+    "recipient_form_email_label": "Surélék nu narima",
+    "recipient_form_email_label_my_email": "Surélék kuring",
+    "recipient_form_email_address": "Alamat email panarima",
+    "recipient_form_name_label": "Ngaran panampi (opsional)",
+    "recipient_form_message": "Pesen (opsional)",
+    "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} karakter digunakeun",
+    "recipient_form_send_on": "YYYY-MM-DD",
+    "recipient_form_send_on_label": "Kirimkeun dina (opsional)",
+    "recipient_form_fields_visible": "Kolom formulir nu narima ayeuna katingali",
+    "recipient_form_fields_hidden": "Widang formulir nu narima ayeuna disumputkeun",
+    "recipient_form_error": "Aya kasalahan dina pangiriman formulir",
+    "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} karakter digunakeun"
   },
   "products": {
     "size_chart": {
@@ -2637,6 +2857,50 @@
           "description": "Pituduh ukuran standar pikeun pakéan luar uniseks Kainara."
         }
       }
+    },
+    "product": {
+      "add_to_cart": "Tambahkeun kana karanjang",
+      "adding_to_cart": "Nambihan...",
+      "added_to_cart": "Asup kana karanjang",
+      "add_to_cart_error": "Gagal nambahkeun kana karanjang balanja",
+      "quantity_error_max": "Barang ieu gaduh maksimal {{ maximum }}",
+      "sold_out": "Entong disada",
+      "unavailable": "Teu sayogi",
+      "quantity": "Jumlah",
+      "quantity_increments": "Paningkatan {{ increment }}",
+      "quantity_minimum": "Minimum of {{ minimum }}",
+      "quantity_maximum": "Maximum {{ maximum }}",
+      "in_cart": "Dina karanjang",
+      "default_title": "Judul standar",
+      "sticky_add_to_cart": "Bar gancang tambahkeun kana karanjang"
     }
+  },
+  "fields": {
+    "separator": "ka"
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Anggo kode kartu kado online atanapi kode QR di toko",
+      "title": "Ieu kasaimbangan kartu kado {{ value }} anjeun kanggo {{ shop }}!",
+      "subtext": "Kartu kado anjeun",
+      "shop_link": "Didatangan toko online",
+      "add_to_apple_wallet": "Tambihkeun kana Apple Wallet",
+      "qr_image_alt": "Kode QR — pindai kanggo nukeurkeun kartu kado",
+      "copy_code": "Salin kode kartu kado",
+      "expiration_date": "Kedaluwarsa {{ expires_on }}",
+      "copy_code_success": "Kode geus disalin",
+      "expired": "Kadaluwarsa"
+    }
+  },
+  "placeholders": {
+    "password": "Sandi",
+    "search": "Téang",
+    "product_title": "Judul produk",
+    "collection_title": "Judul koléksi",
+    "blog_posts": "Tulisan blog",
+    "blog_post_title": "Judul",
+    "blog_post_author": "Pangarang",
+    "blog_post_date": "Tanggal",
+    "blog_post_description": "Cutatan eusi tulisan blog anjeun"
   }
 }
