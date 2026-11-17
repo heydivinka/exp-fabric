@@ -834,7 +834,21 @@
         "order_status_confirmed_order_with_email": "Anjeun bakal nampi email nalika pesenan anjeun parantos siap.",
         "order_status_confirmed_order_with_phone": "Anjeun tiasa nampi SMS nalika pesenan anjeun parantos siap.",
         "order_status_confirmed_order_with_email_and_phone": "Anjeun bakal nampi email nalika pesenan anjeun parantos siap.",
-        "order_status_confirmed_order_with_email_payment": "Anjeun parantos mayar kanggo pesenan anjeun %{date}."
+        "order_status_confirmed_order_with_email_payment": "Anjeun parantos mayar kanggo pesenan anjeun %{date}.",
+        "title": "Hatur nuhun kana pameseranana!",
+        "confirmation_email_sent_text": "Hiji surélék konfirmasi geus dikirim ka %{email}",
+        "return_to_store_link_label": "Neraskeun balanja",
+        "print_link_label": "Cetak resi",
+        "payment_information_title": "Émbaran pamayaran",
+        "shipping_information_title": "Inpo pangiriman",
+        "page_title": "Hatur nuhun, %{display_name}!",
+        "page_title_no_name": "Nuhun!",
+        "recommendations": {
+          "title": "Anjeun ogé badé resep"
+        },
+        "purchase_order_number_title": "Nomer PO #%{purchase_order_number}",
+        "cancelled_page_title": "Pesenan dibatalkeun",
+        "failed_pending_payment_page_title": "Aya masalah sareng pamayaran anjeun"
       },
       "vaulted": {
         "change_button": "Robah",
@@ -2313,7 +2327,10 @@
         "title": "Pengiriman teu sayogi",
         "invalid_selected_address": "Alamat pengiriman nu dipilih teu valid",
         "invalid_selected_address_with_update_link": "Alamat pengiriman anu dipilih teu valid. %{update_address_link} atanapi pilih alamat anu sanés",
-        "unavailable_addresses_only_countries": "Order anjeun ngan ukur tiasa dikirim ka {{countriesList}}. Tambihkeun alamat énggal pikeun neraskeun."
+        "unavailable_addresses_only_countries": "Order anjeun ngan ukur tiasa dikirim ka {{countriesList}}. Tambihkeun alamat énggal pikeun neraskeun.",
+        "unavailable_address_country": "Pangiriman henteu sayogi di nagara anu anjeun pilih. Anggo alamat anu béda pikeun neraskeun",
+        "unavailable_selected_address": "Pengiriman teu sayogi kanggo alamat nu dipilih",
+        "unavailable_selected_address_for_region": "Pangiriman henteu sayogi pikeun {{region}}. Pilih alamat anu sanés pikeun neraskeun"
       },
       "marketing": {
         "accept_marketing_checkbox_label": "Surel abdi kalayan béja sareng tawaran",
@@ -2985,6 +3002,117 @@
         "errors": {
           "interaction_required": "Pikeun ngarengsekeun checkout, diperlukeun interaksi éksténsi."
         }
+      },
+      "alternative_payment_method_banner": {
+        "express_checkout": "Bérés gancang",
+        "or": "ATAWA",
+        "or_pay_another_way": "Atawa bayar ku cara séjén",
+        "or_check_out_another_way": "Atawa parios cara séjén",
+        "or_pay_with_credit_card": "Atanapi mayar ku kartu kiridit",
+        "show_more_options": "Tuduhkeun deui pilihan",
+        "hide_more_options": "Sumputkeun pilihan séjén"
+      },
+      "post_purchase": {
+        "page_title": "Saatos mésér",
+        "title": "Saatos mésér",
+        "escape_confirmation": "Anjeun parantos mayar pesenan anjeun.",
+        "escape_action": "Tingali konfirmasi pesenan ›",
+        "components": {
+          "close": "Tutup",
+          "expand": "Témbongkeun deui",
+          "processing": "Diprosés…",
+          "submit": "Kirimkeun"
+        }
+      },
+      "processing": {
+        "redirecting_page_title": "Dialihkeun…",
+        "redirecting_title": "Dialihkeun…",
+        "redirecting_notice": "Antosan sakedap bari anjeun diarahkeun.",
+        "redirecting_to_bank": "Ngarahkeun ka {{bank}}",
+        "complete_your_purchase_title": "Réngsékeun pameseran anjeun",
+        "continue_to_payment_gateway_notice": "Teraskeun kana pamayaran pikeun nambihan inpormasi pamayaran anjeun.",
+        "continue_to_payment_gateway_button_label": "Lajengkeun kana pamayaran",
+        "complete_your_purchase_title_error": "Lereskeun inpormasi pamayaran anjeun",
+        "continue_to_payment_gateway_notice_error": "Inpo pamayaran anjeun teu tiasa diverifikasi.",
+        "continue_to_payment_gateway_button_label_error": "Anyarkeun inpormasi pamayaran",
+        "page_title": "Ngolah pesenan",
+        "title": "Ngolah pesenan",
+        "your_order_has_been_received_title": "Hatur nuhun kana pesenanna",
+        "you_will_receive_confirmation": "Nuju seueur pesenan ayeuna. Engké bakal aya konfirmasi ngalangkungan email atanapi téks. Upami teu acan nampi dina sajam ka payun, wartosan kami.",
+        "you_will_not_be_charged": "Anjeun moal ditagih heula",
+        "wait": {
+          "short": "Pesenan anjeun nuju diprosés.",
+          "medium": {
+            "one": "Pesenan anjeun nuju diprosés. Kira-kira waktos ngantosan %{count} menit.",
+            "other": "Pesanan anjeun nuju diprosés. Kira-kira waktos ngantosan nyaéta %{count} menit."
+          },
+          "long": "Anjeun bakal nampi email saatos pesenan anjeun diproses. Ayeuna-ayeuna seueur pesenan.",
+          "no_auto_refresh_html": "Upami anjeun henteu dialihkeun sacara otomatis, %{link}.",
+          "refresh_this_page": "segarkan halaman ieu"
+        },
+        "remote_shops_payments_processing": "Ngolah pamayaran",
+        "action_required": "Kedah dilaksanakeun",
+        "modal_notice": "Kami ngahubungi {{paymentMethod}}",
+        "remote_checkout_count": "%{current} tina %{total}"
+      },
+      "payment_challenge_modal": {
+        "instructions": "Parampurnakeun pameseran anjeun nganggo kode {{paymentMethod}} anjeun",
+        "timer_message": "Anjeun gaduh {{timeLeft}} kanggo mayar",
+        "copy_text": "Salin kode {{paymentMethod}}",
+        "open_app_text": "Buka aplikasi {{paymentMethod}}",
+        "header": "Mayar nganggo {{paymentMethod}}",
+        "qr_code": {
+          "instructions": "Parampurnakeun pameseran anjeun nganggo kode {{paymentMethod}} anjeun",
+          "wechat_instructions": "Pindai ieu kode QR nganggo aplikasi WeChat dina telepon anjeun pikeun ngalengkepan pamelengan",
+          "wechat_instructions_mobile": "Pindai ieu kode QR nganggo aplikasi WeChat dina pakakas sanés pikeun ngaréngsékeun pamesetan anjeun",
+          "paynow_instructions": "Pindai ieu kode QR nganggo aplikasi bank atanapi pembayaran anjeun pikeun ngalengkepan pamandegan",
+          "paynow_mobile_steps": {
+            "save": "Simpen kode QR-na",
+            "upload": "Di bank atanapi aplikasi mayar anjeun, unggah tina foto-foto anjeun",
+            "come_back": "Balik deui ka ieu kaca saatos anjeun mayar"
+          },
+          "save_qr_code": "Simpen kode QR"
+        },
+        "external": {
+          "instructions": "Konfirmasi pamayaran dina aplikasi anjeun pikeun ngarengsekeun pameseran ieu"
+        },
+        "close": "Tutup tangtangan"
+      },
+      "payment_gateway": {
+        "credit_card_label": "Kartu kiridit",
+        "bogus_label": "Cék Coba Gerbang Pamayaran",
+        "bank_deposit_label": "Setoran bank",
+        "bank_account_label": "Rekening bank",
+        "cash_on_delivery_label": "Mayar di Tempat (COD)",
+        "money_order_label": "Wesel Pos",
+        "debit_card_label": "Kartu debit",
+        "credit_or_debit_card_label": "Kartu Kredit/Debit",
+        "credit_or_debit_card_option_label": "Kartu kiridit atanapi debit",
+        "credit_or_debit_tile_label": "Kredit atanapi débét",
+        "deferred_payment_label": "Pilih cara pembayaran engké",
+        "fixed_payment_label": "Mayar anjeun bakal murag dina {{dueDate}}.",
+        "generic_payment_terms": "Anjeun dina istilah {{translatedName}}. Pamayaran anjeun kedah dibayar dina {{dueDate}}.",
+        "login_prompt": {
+          "no_access": {
+            "message": "{{logIn}} kana akun anu tiasa ngakses lokasi ieu pikeun nambahkeun atawa ngagunakeun metode pembayaran anu geus disimpen.",
+            "link": "Asup"
+          }
+        },
+        "direct_payment_terms": "Anjeun dina istilah {{translatedName}}. Kartu anjeun bakal ditagihkeun dina {{dueDate}}.",
+        "fixed_direct_payment_terms": "Kartu anjeun bakal dicharge dina {{dueDate}}.",
+        "order_due_on_fulfillment_choose_later": "Mayar anjeun bakal dibayar saatos pesenan anjeun réngsé.",
+        "order_due_on_fulfillment_payment": "Kartu anjeun bakal dicharge saatos pesenan anjeun réngsé.",
+        "order_due_on_receipt_choose_later": "Pamayaran anjeun kedah dibayar pas ditampi.",
+        "order_deposit_due_now": "{{depositAmount}} kedah dibayar ayeuna. Saldo dina istilah {{translatedName}} sareng kedah dibayar dina {{dueDate}}.",
+        "order_deposit_due_on_fulfillment": "{{depositAmount}} kedah dibayar dinten ayeuna. Sésana bakal dibayar saatos pesenan anjeun réngsé.",
+        "order_deposit_due_on_receipt": "{{depositAmount}} kedah dibayar dinten ayeuna. Sésana bakal dibayar engké.",
+        "order_deposit_due_on_fixed_date": "{{depositAmount}} kedah dibayar dinten ayeuna. Sésana kedah dibayar dina {{dueDate}}.",
+        "draft_order_payment_due_later_no_terms": "Pamayaran anjeun bakal dibayar saatos pesenan anjeun dikonfirmasi.",
+        "draft_order_payment_due_later_no_terms_payment_selected": "Kartu anjeun bakal ditagih saatos pesenan anjeun dikonfirmasi.",
+        "draft_order_payment_due_later_terms": "Anjeun bakal aya dina istilah {{translatedName}} saatos pesenan anjeun dikonfirmasi.",
+        "draft_order_payment_due_on_fulfillment": "Mayar anjeun bakal dibayar saatos pesenan anjeun dikonfirmasi sareng disayogikeun.",
+        "draft_order_deposit_due_later": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Saldo bakal nganggo istilah {{translatedName}}.",
+        "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Saldo bakal dibayar nalika pesenan anjeun parantos réngsé."
       }
     },
     "pagination": {
