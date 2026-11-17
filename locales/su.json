@@ -3232,8 +3232,147 @@
         "gift_card_with_components_not_supported": "Produk bungkusan '%{name}' teu tiasa dilebetkeun kana karanjang.",
         "gift_card_price_must_be_greater_than_zero": "Produk bungkusan '%{name}' teu tiasa dilebetkeun kana karanjang.",
         "gift_card_recipient_validation_error": "Panarima kartu kado nu diémbarkeun teu valid",
-        "view_lines_limit_reached": "Barisan kedah kirang ti atanapi sami sareng %{limit}"
+        "view_lines_limit_reached": "Barisan kedah kirang ti atanapi sami sareng %{limit}",
+        "cart_too_large": "Karanjangna ageung teuing.",
+        "cart_attributes_error": "Atribut karanjang balanja ngandung data anu teu valid.",
+        "merchandise_line_transformers": {
+          "run_error": "Aya kasalahan dina karanjang anjeun."
+        },
+        "merchandise_not_applicable": "Barang teu tiasa dipésér sakumaha nu diatur."
+      },
+      "storefront": {
+        "invalid_password": "Sandi lepat, mangga cobian deui."
+      },
+      "tags": {
+        "add_articles": "Sempitkeun pamilarian kana artikel nu ogé miboga tag %{tag}",
+        "add_products": "Saring dumasar kana tag %{tag}",
+        "remove_articles": "Legaan pamilarian ka artikel nu teu ditandaan %{tag}",
+        "remove_products": "Pupus tag %{tag}"
       }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Hatur nuhun parantos ngalanggan daptar email kami.",
+        "disclaimer": "Anjeun tiasa unsubscribe iraha waé.",
+        "unsubscribe": "Pareuman langganan"
+      },
+      "unsubscribed": {
+        "confirmation": "Anjeun parantos ngabatalkeun langganan tina daptar surelek kami.",
+        "disclaimer": "Anjeun moal nampi deui apdet pamasaran ti kami. Anjeun tiasa ngalanggan deui iraha waé.",
+        "preview": "Anjeun nempo sawangan naon anu bakal katempo ku palanggan lamun maranehna ngabatalkeun langganan."
+      },
+      "unsubscribe_confirm": {
+        "title": "Batalkeun langganan tina email?",
+        "description": "Anjeun moal nampi deui email marketing ti %{shop_name}",
+        "button": "Pareuman langganan"
+      },
+      "sms_unsubscribe_confirm": {
+        "message": "Anjeun yakin bade ngabatalkeun langganan SMS marketing?",
+        "button": "Pareuman langganan"
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Anjeun parantos milih pikeun ngalacak kabuka email.</b>",
+          "visibility": "Laju muka email bakal dilaporkeun sacara anonim. Kami ngan ukur bakal ningali naha anjeun muka email salaku bagian tina laju muka email anu digulung.",
+          "opt_out_html": "Anjeun tiasa <a style=\"text-decoration:underline;\" href=\"%{link}\">mareuman</a> palacakan muka email upami anjeun henteu hoyong ngabagikeun inpormasi ieu.",
+          "preview_bar": "Anjeun nuju ningali sawangan naon anu bakal ditingali ku palanggan nalika milih ngalacak email dibuka."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Anjeun parantos milih kaluar tina tracking email dibuka.</b>",
+          "visibility": "Moal katingal upami anjeun parantos muka email kami.",
+          "opt_in_html": "<a style=\"text-decoration:underline;\" href=\"%{link}\">Asup</a> kana ngalacak email anu dibuka.",
+          "preview_bar": "Anjeun ningali sawangan naon anu bakal ditingali ku palanggan nalika milih henteu ngalacak email anu dibuka."
+        },
+        "no_longer_track": {
+          "status_html": "<b>Kami henteu ngalacak deui email anu dibuka.</b>",
+          "privacy_policy": "Saatos email ieu dikirim, kami ngapdet kabijakan privasi sareng kami henteu deui ngalacak bukaan."
+        },
+        "track": {
+          "status_html": "<b>Panalungtikan email kabuka dilaporkeun.</b>",
+          "visibility": "Kami ukur tiasa ningali upami anjeun parantos muka email, salaku bagian tina total laju muka email."
+        },
+        "updated_policy": {
+          "status_html": "<b>Panalungtikan email kabuka dilaporkeun.</b>",
+          "visibility": "Simkuring parantos ngomean kawijakan, sarta ayeuna ngalacak bubuka surélék. Laju bubuka surélék bakal dilaporkeun sacara anonim. Simkuring ngan ukur tiasa ningali upami anjeun muka surélék salaku bagian tina total laju bubuka surélék.",
+          "opt_out_html": "Saupami anjeun henteu hoyong ngabagikeun inpormasi ieu, anjeun tiasa <a style=\"text-decoration:underline;\" href=\"%{link}\">berhenti berlangganan.</a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "in_stock": "Aya stokna",
+          "out_of_stock": "Stok béak"
+        }
+      },
+      "boolean": {
+        "true_label": "Muhun",
+        "false_label": "Henteu"
+      }
+    },
+    "search": {
+      "error": "Aya masalah nalika ngamuat hasil pamilarian anjeun. Mangga segerkeun halaman atanapi cobian deui engké.",
+      "sorting": {
+        "relevance": "Rélevansi",
+        "price_ascending": "Harga, handap ka luhur",
+        "price_descending": "Harga, luhur ka handap"
+      }
+    },
+    "page_titles": {
+      "blog_or_article_with_error": "Kasalahan - %{title}",
+      "products": "Produk",
+      "shopping_cart": "Karanjang Balanja Anjeun",
+      "account": "Akun",
+      "create_account": "Jieun Akun",
+      "reset_account": "Reset Akun",
+      "addresses": "Alamat-alamat",
+      "order": "Pesen %{name}",
+      "search": "Téang",
+      "search_results": {
+        "one": "Pilarian: kapanggih %{count} hasil kanggo \"%{terms}\"",
+        "other": "Panggihan: %{count} hasil kapanggih pikeun \"%{terms}\""
+      },
+      "collections": "Koléksi",
+      "not_found": "404 Teu Kapanggih",
+      "challenge": "Tantangan",
+      "checkpoint": "Titik Pamariksaan"
+    },
+    "cart": {
+      "discounts_with_count": "Geus aya %{count} diskon anu diterapkeun"
+    },
+    "challenge": {
+      "message": "Kanggo neraskeun, bejaan kami yén anjeun sanés robot.",
+      "error": "Jawaban anjeun lepat, mangga cobian deui.",
+      "submit_button_text": "Kirimkeun"
+    },
+    "checkpoint": {
+      "message": "Réréskeun Captcha kanggo neraskeun",
+      "error": "Validasi Captcha gagal",
+      "submit_button_text": "Kirimkeun"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Biasana siap dina 1 jam",
+        "two_hours": "Biasana siap dina 2 jam",
+        "four_hours": "Biasana siap dina 4 jam",
+        "twenty_four_hours": "Biasana siap dina 24 jam",
+        "two_to_four_days": "Biasana siap dina 2-4 dinten",
+        "five_or_more_days": "Ilaharna siap dina 5+ dinten",
+        "zero_to_two_hours": "Biasana siap dina 2 jam",
+        "two_to_four_hours": "Biasana siap dina 4 jam",
+        "immediately": "Tiasa dicandak ayeuna",
+        "next_day": "Siap dicokot poé isukna"
+      }
+    },
+    "subscriptions": {
+      "buyer_consent_product": "Barang ieu mangrupikeun pameseran anu diulang atanapi ditunda. Ku neraskeun, abdi satuju kana %{cancellationPolicyLink} sareng otorisasi anjeun pikeun ngecas metode pamayaran kuring dina harga, frekuensi sareng tanggal anu didaptarkeun dina halaman ieu dugi ka pesenan kuring kaeusi atanapi kuring ngabatalkeun, upami diidinan.",
+      "buyer_consent_cart": "Hiji atawa leuwih barang dina karanjang anjeun mangrupa pameseran nu terus-terusan atawa ditunda. Ku neraskeun, abdi satuju kana %{cancellationPolicyLink} tur ngidinan anjeun pikeun ngecas padika pamayaran abdi dina harga, frekuensi sareng tanggal nu didaptarkeun dina kaca ieu dugi pesenan abdi kaeusi atawa abdi ngabatalkeun, upami diidinan.",
+      "cancellation_policy": "kawijakan ngabatalkeun"
+    },
+    "managed_markets": {
+      "buyer_consent": "Ku cara ngaliwatan pesenan, anjeun satuju ngabali ti Global-e salaku padagang resmi, anu teu ngaleungit tina %{termsAndConditionsLink} sareng %{privacyPolicyLink} Global-e, sarta ngabagikeun inpormasi anjeun ka %{shopName}.",
+      "terms_and_conditions": "Sarat jeung Katangtuan",
+      "privacy_policy": "Kawijakan Privasi"
     }
   },
   "customer_accounts": {
@@ -3457,9 +3596,44 @@
           "reference_number": "Nomer rujukan:",
           "section_title": "Pituduh mayar",
           "show_barcode": "Témbongkeun kode batang",
-          "show_barcode_accessibility_label": "Témbongkeun kode batang (ngabuka jandéla énggal)"
+          "show_barcode_accessibility_label": "Témbongkeun kode batang (ngabuka jandéla énggal)",
+          "apple_wallet_badge_alt": "Tambihkeun kana Apple Wallet",
+          "code_copied": "Disalin",
+          "copy_code": "Salin {{label}}",
+          "expired": "Geus payu {{date}}",
+          "expired_title": "Barcode parantos kedaluwarsa",
+          "expires": "Nyéép {{date}}",
+          "konbini_choose_outlet": "Pilih Konbini pikeun ningali kode anjeun sareng cara mayarna",
+          "konbini_expired_title": "Kode pembayaran parantos kedaluwarsa",
+          "konbini_keep_receipt": "Simpen kuitansi anjeun salaku bukti pembayaran",
+          "multibanco_expired_title": "Rujukan pembayaran parantos kedaluwarsa",
+          "oxxo_already_paid": "Tos mayar? Prosésna tiasa 1–3 dinten"
         },
-        "paid_at_store_chain": "Dibaé di {{storeChain}}"
+        "paid_at_store_chain": "Dibaé di {{storeChain}}",
+        "title": "Pamayaran",
+        "payment_type": {
+          "gift_card": "Kartu kado",
+          "store_credit": "Kredit toko",
+          "money_order": "Wesel Pos",
+          "cash_on_delivery": "Mayar di Tempat (COD)",
+          "bank_deposit": "Setoran bank",
+          "manual": "Manual"
+        },
+        "shop_pay_installments": {
+          "summary": "Cicilan toko",
+          "view_schedule": "Témbongkeun jadwal"
+        },
+        "transactions": {
+          "show_all": "Tunjukkeun sadayana",
+          "show_less": "Témbongkeun saeutik",
+          "details": "Detilna",
+          "payment_details": "Rincian Pamayaran"
+        },
+        "emv_details": {
+          "auth": "OTOR:",
+          "aid": "BANTUAN:",
+          "source": "TARJAMAHAN:"
+        }
       },
       "paid_with_shop_pay_installments_card": {
         "title": "Pangéling pambayaran pikeun Angsuran Shop Pay",
@@ -3575,7 +3749,54 @@
       "tip": "Tips",
       "title": "Pesenan {{name}}",
       "total": "Jumlah sadayana",
-      "unit_price": "{{price}}/siki"
+      "unit_price": "{{price}}/siki",
+      "order_details": "Rincian pesenan",
+      "order_details_skeleton_accessibility_label": "Asup pikeun nempo sakabéh rinci pesenan.",
+      "billing_address": "Alamat tagihan",
+      "contact": "Kontak",
+      "company": "Pausahaan",
+      "fulfillment_images": {
+        "one_products_accessibility_label": "Pangaturan ngawitan {{lineItemName1}} jumlahna {{lineItemQuantity1}}",
+        "two_products_accessibility_label": "Pangaturan ngawitan {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}",
+        "three_products_accessibility_label": "Pemenuan ngawengku {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}, {{lineItemName3}} jumlahna {{lineItemQuantity3}}",
+        "four_products_accessibility_label": "Pemenuan ngawengku {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}, {{lineItemName3}} jumlahna {{lineItemQuantity3}}, {{lineItemName4}} jumlahna {{lineItemQuantity4}}",
+        "five_products_accessibility_label": "Pangaturan ngawengku {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}, {{lineItemName3}} jumlahna {{lineItemQuantity3}}, {{lineItemName4}} jumlahna {{lineItemQuantity4}}, {{lineItemName5}} jumlahna {{lineItemQuantity5}}",
+        "six_products_accessibility_label": "Pangaturan ngawitan {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}, {{lineItemName3}} jumlahna {{lineItemQuantity3}}, {{lineItemName4}} jumlahna {{lineItemQuantity4}}, {{lineItemName5}} jumlahna {{lineItemQuantity5}}, {{lineItemName6}} jumlahna {{lineItemQuantity6}}",
+        "six_and_more_products_accessibility_label": "Pangaturan ngawitan {{lineItemName1}} jumlahna {{lineItemQuantity1}}, {{lineItemName2}} jumlahna {{lineItemQuantity2}}, {{lineItemName3}} jumlahna {{lineItemQuantity3}}, {{lineItemName4}} jumlahna {{lineItemQuantity4}}, {{lineItemName5}} jumlahna {{lineItemQuantity5}}, {{lineItemName6}} jumlahna {{lineItemQuantity6}} sareng sanésna"
+      },
+      "group_title_label": "Bagian tina: {{groupTitle}}",
+      "group_title_label_with_parent": "Pikeun: {{groupTitle}}",
+      "grouped_view_components": {
+        "expand_line_items": "Tuduhkeun {{count}} item",
+        "collapse_line_items": "Sumputkeun {{count}} barang",
+        "line_item_summary_list_accessibility_label": "Barang-barang dina pakét {{productTitle}}"
+      },
+      "discount": "Diskon",
+      "discount_order_stacking": {
+        "one": "Diskon pesenan",
+        "other": "Diskon pesenan"
+      },
+      "price_before_discount_accessibility_label": "Harga asli",
+      "price_after_discount_accessibility_label": "Harga diskon",
+      "compare_at_sale": "Sale ({{saleAmount}})",
+      "loading": "Ngamuat detil pesenan",
+      "loading_finished_accessibility_message": "Rincian pesenan parantos dimuat",
+      "location": "Lokasi",
+      "image_gallery": {
+        "next": "Tuduhkeun item salajengna",
+        "previous": "Tuduhkeun barang-barang sateuacanna",
+        "additional_items": {
+          "one": "+ {{count}} barang deui",
+          "other": "+ {{count}} barang deui"
+        }
+      },
+      "no_data_provided_accessibility_label": "{{fieldName}} kosong",
+      "paid_amount": "Mayar",
+      "payment_confirmation": {
+        "payment_received": "Hatur nuhun! Pamayaran anjeun {{amount}} parantos katampi.",
+        "full_payment_received": "Hatur nuhun! Pamayaran anjeun sajumlah {{amount}} geus katampi, sarta pesenan ieu ayeuna geus lunas.",
+        "payment_authorized": "Hatur nuhun! Saldo bakal diropéa nalika pamayaran katampi."
+      }
     },
     "returns_and_cancellations": {
       "request_withdrawal_page": {
@@ -4364,7 +4585,73 @@
           "heading": {
             "one": "Produk teu sayogi",
             "other": "Produk teu sadia"
+          },
+          "body": {
+            "one": "Produk ieu teu diasupkeun kana keranjang anjeun margi teu aya di nagara/kawilatan anjeun.",
+            "other": "Produk-produk ieu teu ditambahan kana keranjang anjeun margi teu ngahiji di nagara/kawidang anjeun."
+          },
+          "none_body": {
+            "one": "Produk ieu henteu sayogi di nagara/wewengkon anjeun.",
+            "other": "Produk ieu henteu sayogi di nagara/wilayah anjeun."
           }
+        },
+        "gift_card_sent": {
+          "heading": "Kartu kado teu ditambahan",
+          "body": "Karanjang anjeun ngawengku sésa ti pesenan ieu. Kartu kado anu dikintunkeun ka batur teu ditambahan. Tambahkeun deui pikeun milih penerima, pesen, sareng tanggal ngintun.",
+          "none_body": "Kartu kado anu dikintunkeun ka batur teu ditambihkeun. Tambihkeun deui pikeun milih anu nampi, pesen, sareng tanggal ngintun."
+        },
+        "no_longer_available": {
+          "heading": "Sababaraha barang parantos teu kasedian deui"
+        },
+        "changed": {
+          "heading": "Aya sababaraha barang anu teu tiasa ditambihkeun",
+          "body": "Keranjang anjeun ngawengku sésa pesenan ieu."
+        },
+        "none": {
+          "heading": "Barang teu tiasa ditambihkeun",
+          "body": "Barang-barang ieu teu sayogi."
+        },
+        "not_added": {
+          "body": "Teu aya salah sahiji ogé anu ditambihkeun kana keranjang anjeun."
+        },
+        "error": {
+          "heading": "Teu tiasa nambihan barang kana keranjang anjeun",
+          "body": "Aya masalah ng Tambahkeun barang tina pesenan ieu. Cobi deui atanapi hubungi kami."
+        },
+        "list_title": "Barang tina pesenan ieu",
+        "columns": {
+          "image": "Gambar produk",
+          "description": "Déskripsi",
+          "status": "Status"
+        },
+        "labels": {
+          "not_added": "Teu ditambahan",
+          "sold_out": "Entong disada",
+          "unavailable": "Teu sayogi"
+        },
+        "item_count": {
+          "one": "{{count}} barang",
+          "other": "{{count}} barang"
+        },
+        "quantity_added": {
+          "one": "{{added}} tina {{count}} barang parantos ditambihkeun",
+          "other": "{{added}} tina {{count}} barang parantos ditambihan"
+        },
+        "reasons": {
+          "cart_too_large": "Troli anjeun pinuh",
+          "gift_card_recipient_invalid": "Rincian penerima kedah di-update. Tambahkeun deui ti kaca produkna.",
+          "gift_card_sent_to_recipient": "Dikintunkeun ka batur",
+          "not_for_sale": "Teu kaseddeng pikeun dibeuli deui",
+          "parent_unavailable": "Barang anu cocog sareng éta teu aya dina keranjang anjeun",
+          "selling_plan_unavailable": "Langganan teu kasedian deui",
+          "unavailable_in_market": "Teu ngahampang di nagara/wewengkon anjeun"
+        },
+        "add_from_product_page": "Tambahkeun tina halaman produkna",
+        "continue_to_cart": "Lajengkeun ka keranjang",
+        "return_to": {
+          "order_details": "Balik deui kana pesenan",
+          "order_list": "Balik deui ka pesenan",
+          "store": "Balik deui ka toko"
         }
       }
     },
@@ -4466,6 +4753,37 @@
       "save_accessibility_label": "Simpen alamat {{address}}",
       "section_title_accessibility_label": "Tambahkeun alamat",
       "update_success_notification": "Alamat diropéa"
+    },
+    "callback": {
+      "try_again": "Cobi deui"
+    },
+    "date": {
+      "humanize": {
+        "lessThanOneHourAgo": {
+          "one": "{{count}} menit kapengker",
+          "other": "{{count}} menit kapengker"
+        },
+        "lessThanOneMinuteAgo": "Bieu",
+        "yesterday": "Kamari tabuh {{time}}",
+        "today": "Dinten ieu jam {{time}}",
+        "tomorrow": "Isukan tabuh {{time}}"
+      }
+    },
+    "enable_javascript": "Pikeun ningali akun anjeun, aktipkeun JavaScript dina setelan panyungsi anjeun atawa asup ku panyungsi séjén.",
+    "order_receipt_document": {
+      "placeholder_title": "Panganteur kuitansi",
+      "placeholder": "Pangantar: Pesenan %{name} pikeun %{total} teu siap ditéangkeun."
+    },
+    "navigation_and_structure": {
+      "action_menu_accessibility_label": "Langkung seueur tindakan",
+      "back_button_accessibility_label": "Balik",
+      "close_menu_accessibility_label": "Tutup navigasi utama",
+      "contact_link": "Émbaran Kontak",
+      "dismiss_toast": "Pungkas",
+      "document_title": "{{sectionName}} - {{shopName}} - Akun",
+      "loading_message": "Ngamuat",
+      "loading_policy_content_accessibility_label": "Ngamuat eusi kawijakan",
+      "loading_section_accessibility_label": "Mโหลด {{sectionName}}"
     }
   },
   "blocks": {
