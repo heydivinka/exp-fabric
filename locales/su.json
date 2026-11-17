@@ -4623,7 +4623,14 @@
       "store_credit": {
         "details_modal": {
           "events": {
-            "recurring_payment": "Pamentikan anu ngulang"
+            "recurring_payment": "Pamentikan anu ngulang",
+            "adjustment": "Panyaluyuan",
+            "order_payment": "Mayar pesenan",
+            "order_refund": "Pamulangan pesenan",
+            "payment_failure": "Gagal mayar",
+            "payment_returned": "Pamayaran dibalikeun",
+            "order_cancellation": "Ngabatalkeun pesenan",
+            "tax_finalization": "Finalisasi Pajak"
           },
           "expirable_amounts_info": "Jumlah anu béakna leuwih gancang dipaké tiheula nalika checkout",
           "pagination": {
@@ -4647,8 +4654,11 @@
             "debit": "Dihaséakeun",
             "debit_revert": "Dipulangkeun deui artosna",
             "expiration": "Kadaluwarsa"
-          }
-        }
+          },
+          "load_error": "Teu tiasa ngamuat kredit toko."
+        },
+        "label": "Kredit toko",
+        "expirable_amounts_label": "Jumlah kadaluarsa"
       },
       "payment_details": {
         "title": "Rincian métodeu pamayaran",
@@ -4802,6 +4812,60 @@
       "three_d_secure": {
         "title": "3D Secure",
         "verification_failed": "Pamayaran anjeun teu tiasa diverifikasi. Cobi deui atanapi anggo metode pamayaran anu sanés."
+      },
+      "replacement_payment_method_title": "Cara mayar gaganti",
+      "title": "Métode pamayaran",
+      "add_payment_method_button": "Tambihkeun metode pamayaran",
+      "add_payment_method_dropdown": {
+        "bank_account_consent": "Ku nambihan metode pamayaran, anjeun otorisasi kartu anjeun ditagih atanapi akun bank anjeun didebit kanggo pameseran ka hareup anu anjeun satuju, dugi ka anjeun ngabatalkeunana."
+      },
+      "bank_account": {
+        "iframe_title_accessibility_label": "Nyieun rekening bank",
+        "display_name": "Rekening bank",
+        "generic_error": "Henteu tiasa nambihan rekening bank. Cobi deui engké."
+      },
+      "no_payment_methods_banner": "Taya métode pamayaran anu ditambihkeun",
+      "edit_payment_method_button_accessibility_label": "Robah {{paymentMethodName}} nu pungkasanna {{lastDigits}}",
+      "edit_payment_method_brand_button_accessibility_label": "Édit {{paymentMethodName}}",
+      "delete_payment_method_button": "Pupus",
+      "delete_payment_method_button_accessibility_label": "Pupus {{paymentMethodName}}",
+      "back_button": "Balik",
+      "back_button_accessibility_label": "Balik deui ka {{paymentMethodStepTitle}}",
+      "default": "Standar",
+      "generic_card": "Kartu",
+      "expires_soon": "Kartu ieu badé béak mangsana",
+      "expired": "Kartu ieu béak mangsa aktipna.",
+      "expired_badge_label": "Kadaluwarsa",
+      "expiring_badge_label": "Bakal béak",
+      "card_update_consent": "Métode pamayaran ieu bakal disimpen pikeun pameseran salajengna.",
+      "card_update_consent_subscriptions": "Métode pamayaran ieu bakal disimpen kanggo pameseran ka payun sareng tiasa dianggo kanggo pameseran ngulang atanapi ditunda.",
+      "digital_wallet_title": "Dompét digital",
+      "credit_or_debit_card_title": "Kartu kiridit atanapi debit",
+      "credit_card_title": "Kartu kiridit",
+      "additional_payment_methods": "Métode pamayaran tambahan",
+      "or": "ATAWA",
+      "google_pay": {
+        "iframe_title_accessibility_label": "Tambihkeun métode pamayaran Google Pay",
+        "loading_accessibility_message": "Ngamuat Google Pay",
+        "errors": {
+          "generic": "Aya masalah dina Google Pay. Cobi deui atanapi anggo metode pamayaran nu sanés.",
+          "missing_billing_address": "Google Pay peryogi alamat tagihan. Punten tambihan salah sahijina kana akun anjeun."
+        }
+      },
+      "pay_pal": {
+        "iframe_title_accessibility_label": "Tambihkeun métode pamayaran PayPal",
+        "loading_accessibility_message": "Ngamuat PayPal",
+        "errors": {
+          "generic": "Aya masalah sareng PayPal. Cobi deui atanapi anggo metode pamayaran anu sanés."
+        }
+      },
+      "apple_pay": {
+        "loading": "Ngamuat Apple Pay",
+        "errors": {
+          "generic": "Aya masalah dina Apple Pay. Punten cobi deui atanapi anggo padika pamayaran anu sanés.",
+          "not_available": "Apple Pay teu sayogi dina alat ieu.",
+          "missing_billing_address": "Apple Pay meryogikeun alamat tagihan. Punten tambihkeun kana akun anjeun."
+        }
       }
     },
     "account_menu": {
@@ -4963,9 +5027,37 @@
             "description": "Pesenan anjeun tos lunas sadayana."
           },
           "refund": {
-            "title": "Dipulangkeun deui artosna"
-          }
+            "title": "Dipulangkeun deui artosna",
+            "title_with_date": "Dibalikkeun {{date}}",
+            "description_full_refund": "Anjeun nampi ngabalikeun duit pinuh pikeun pesenan ieu.",
+            "description_single_refund": "Anjeun nampi sawaréh ngabalikeun duit pikeun pesenan ieu.",
+            "description_multiple_refunds": "Anjeun nampi sawaréh ngabalikeun duit pikeun pesenan ieu."
+          },
+          "canceled": {
+            "title": "Pamayaran dibatalkeun",
+            "description": "Anjeun henteu ditagih."
+          },
+          "due_date": "Datang {{date}}",
+          "total_balance": "Jumlah saldo",
+          "pay_now": "Bayar ayeuna",
+          "pay_now_accessibility_label": "Bayar ayeuna kanggo pesenan {{orderName}}",
+          "title": "Status pamayaran"
+        },
+        "subtitle": "Dikintun {{date}}",
+        "title": "Pesenan {{name}}"
+      },
+      "payment_methods": {
+        "payment_delete": {
+          "description_without_replacement": "Métode pamayaran ieu moal tiasa dianggo deui kanggo ngagaleuh ka payun ti lokasi ieu.",
+          "description_with_replacement": "Ngahapus métode pamayaran ieu bakal mangaruhan pamayaran anu tos diotorisasi pikeun lokasi ieu. Ganti ku métode pamayaran alternatif supados tetep tiasa nampi pesenan anu badé sumping."
+        },
+        "payment_details": {
+          "order_label": "Pesenan {{name}}",
+          "draft_label": "Draf pesenan {{name}}"
         }
+      },
+      "purchase_order_number": {
+        "title": "PO #{{poNumber}}"
       }
     },
     "orders": {
@@ -5569,6 +5661,78 @@
         }
       },
       "add_button": "Tambihkeun"
+    },
+    "errors": {
+      "address_deletion_error": {
+        "description": "Aya masalah nalika ngahapus alamat ieu. Cobi deui atanapi muat ulang halaman."
+      },
+      "addresses_loading_issue": {
+        "description": "Éror sambungan. Pariksa sambungan internét anjeun tuluy cobian deui."
+      },
+      "banner_title": {
+        "one": "Aya {{count}} kasalahan",
+        "other": "Aya {{count}} kasalahan"
+      },
+      "failed_address_creation": {
+        "description": "Aya masalah nalika nyieun alamat anjeun. Cobi muatkeun deui kaca ieu atawa pariksa sambungan internét anjeun."
+      },
+      "failed_address_update": {
+        "description": "Aya masalah nalika ngapdet alamat anjeun. Coba muatkeun deui kaca ieu atawa pariksa sambungan internét anjeun."
+      },
+      "load_address_form_error": {
+        "title": "Teu tiasa ngamuat formulir alamat",
+        "description": "Teu tiasa ngamuat formulir alamat.",
+        "refresh_button": "Segarkeun kaca"
+      },
+      "load_orders_error": {
+        "title": "Teu tiasa muka pesenan",
+        "description": "Cobian deui atawa engkéan.",
+        "retry_button": "Coba deui"
+      },
+      "load_paypal_error": {
+        "description": "Aya masalah ngamuat PayPal. Punten cobian deui."
+      },
+      "logout_everywhere": {
+        "description": "Aya kasalahan nalika kaluar. Mangga cobian deui."
+      },
+      "no_access_to_locations": {
+        "description": "Anjeun teu gaduh aksés ka lokasi mana waé"
+      },
+      "not_found": {
+        "description": "Cék URL-na atanapi cobian deui sababaraha menit deui.",
+        "title": "Aya masalah nalika muka kaca ieu"
+      },
+      "order_not_found": {
+        "description": "Pesanan ieu teu aya atawa anjeun teu gaduh ijin ningalina.",
+        "title": "Pesenan teu kapanggih"
+      },
+      "profile_update_error": {
+        "description": "Aya masalah nalika ngapdet profil anjeun. Cobi muatkeun deui kaca ieu atawa parios sambungan internét anjeun."
+      },
+      "profile_name_update_error": {
+        "description": "Aya kasalahan nalika ngamutahirkeun ngaran anjeun. Mangga segerkeun deui kaca ieu atanapi pariksa konéksi internét anjeun."
+      },
+      "retry_action_label": "Cobi deui",
+      "resend_link": {
+        "too_many_requests": "Loba teuing pamundut. Cobi deui engké.",
+        "generic": "Pamenta gagal"
+      },
+      "load_extension_error": {
+        "title": "Kasalahan",
+        "description": "Segarkeun ieu kaca atawa cobian deui sababaraha menit engké.",
+        "refresh_button": "Segarkeun kaca"
+      },
+      "already_upgraded": "Akun palanggan tos di-upgrade.",
+      "failed_to_upgrade": "Gagal ngaronjatkeun setélan akun palanggan.",
+      "not_upgraded": "Akun palanggan can di-upgrade.",
+      "failed_to_revert": "Gagal malikkeun setélan akun palanggan.",
+      "revert_window_expired": "Jandéla balik geus kadaluarsa."
+    },
+    "throttle": {
+      "too_many_attempts": {
+        "message": "Usaha teuing seueur",
+        "description": "Punten cobian deui sababaraha menit engké"
+      }
     }
   },
   "blocks": {
