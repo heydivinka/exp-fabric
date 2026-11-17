@@ -237,7 +237,16 @@
           "not_authorized": "Otentikasi checkout gagal. Verifikasi kredensial aplikasi anjeun",
           "killswitch_enabled": "Checkout sementawis boten saged dipunginaaken",
           "policy_violation": "Teu tiasa ngarengsekeun pamayaran kusabab larangan konfigurasi kawijakan",
-          "unrecoverable_failure": "Henteu tiasa ngamuat panyaluran. Cobi deui"
+          "unrecoverable_failure": "Henteu tiasa ngamuat panyaluran. Cobi deui",
+          "storefront_password_required": "Toko ieu dijaga ku sandi"
+        },
+        "terminal": {
+          "title": "Aya masalah dina pamayaran urang",
+          "message": "Segerkeun kaca ieu atawa cobi deui sababaraha menit engkin",
+          "action": {
+            "cta": "Segerkeun Halaman"
+          },
+          "request_id": "Request ID: {{requestId}}"
         }
       },
       "notice_banner": {
@@ -2205,7 +2214,9 @@
           "shipping_credential_es": "DNI/NIF",
           "shipping_credential_tw": "Nomer KTP/VAT",
           "tax_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN",
-          "shipping_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN"
+          "shipping_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN",
+          "title": "Inpo tambahan",
+          "tax_credential_br": "CPF/CNPJ"
         }
       },
       "shipping": {
@@ -2332,7 +2343,286 @@
             "day": {
               "one": "Unggal poé",
               "other": "unggal %{count} dinten"
+            },
+            "week": {
+              "one": "unggal minggu",
+              "other": "unggal %{count} minggu"
+            },
+            "month": {
+              "one": "unggal bulan",
+              "other": "unggal %{count} sasih"
+            },
+            "year": {
+              "one": "unggal taun",
+              "other": "unggal %{count} taun"
             }
+          },
+          "multiple_subscriptions_shipping_price_label": "%{shipping_price} unggal pangiriman",
+          "prepaid_shipping_price_label": "%{shipping_price} unggal pangiriman x %{delivery_interval_count}",
+          "initial_order_discounted": "Ongkos kirim munggaran %{discounted_shipping_cost}, teras %{frequency_description}",
+          "prepaid_initial_order_discounted": "Ongkos kirim munggaran %{discounted_shipping_price} %{prepaid_delivery_frequency}",
+          "prepaid_initial_order_discounted_with_per_delivery_price": "Biaya pangiriman munggaran %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery})",
+          "prepaid_initial_order_discounted_with_renewal": "Ongkos kirim munggaran %{discounted_shipping_price} %{prepaid_delivery_frequency}, teras %{shipping_price} %{billing_cycle}",
+          "prepaid_initial_order_discounted_with_per_delivery_price_and_renewal": "Biaya pangiriman mimiti %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery}), teras %{shipping_price} %{billing_cycle}",
+          "shipping_price_included": "Kaasup",
+          "recurring_order_shipping_price": "dituturkeun ku %{recurring_order_shipping_price}",
+          "first_order_shipping_price_included": "Pesenan kahiji kaasup, dituturkeun ku %{recurring_order_shipping_price}",
+          "first_order_different_shipping_price": "%{first_order_shipping_price} (%{per_delivery_price} saban pangiriman), teras %{recurring_order_shipping_price}",
+          "first_n_order_free": {
+            "one": "Gratis ongkir munggaran",
+            "other": "%{count} pesenan munggaran haratis"
+          },
+          "free_for_first_n_order": {
+            "one": "Kanggo orde kahiji",
+            "other": "Pikeun %{count} pesenan munggaran"
+          }
+        },
+        "one_time_purchase_shipping": "Sakali kirim",
+        "duties_and_taxes_title": "Kawajiban sareng Pajak",
+        "shipping_information_required_notice": "Shipping information is required. {{link}}.",
+        "shipping_information_redirect_link": "Lebetkeun inpormasi anjeun di dieu",
+        "loading_progressive_rates": "Milari deui ongkos…",
+        "no_other_methods_available": "Taya deui métode séjén anu sayogi",
+        "duties_and_taxes_options": {
+          "ddu_title": "Mayar di tempat",
+          "ddu_caption": "Biaya tambahan tiasa diterapkeun",
+          "ddp_title": "Bayar ayeuna",
+          "ddp_caption": "Taya waragad tambahan nalika pangiriman"
+        },
+        "shipping_method_combinations": {
+          "without_separator": "%{firstMethod}, %{secondMethod}",
+          "with_separator": "%{rest}, %{current},",
+          "combination": "%{rest} sareng %{current}"
+        },
+        "shipping_used_as_billing_notice": "Ieu ogé bakal dianggo salaku alamat panagihan anjeun pikeun pesenan ieu.",
+        "address_update": "Anyarkeun alamat",
+        "shipping_address_title": "Kirim ka",
+        "shipping_address_rollup_accessibility_label": "Opsi alamat pangiriman",
+        "protected_destination_notice": "Anjeun ngirim langsung ka {{firstName}}.",
+        "third_party_address_timeout": "Teu tiasa muka alamat. Cobi deui atanapi anggo alamat anu sanes.",
+        "third_party_address_error": "Aya kasalahan nalika ngamuat pilihan alamat. Asupkeun alamat anjeun sacara manual di handap.",
+        "third_party_payment_timeout": "Teu tiasa muka métode pamayaran. Cobi deui atanapi nganggo métode pamayaran sanés.",
+        "third_party_payment_error": "Aya kasalahan nalika ngamuat pamilihan pamayaran. Anggo metode pamayaran anu sanés.",
+        "add_address": "Anggo alamat anu sanés",
+        "add_delivery_instructions": "Tambihan parentah pangiriman",
+        "edit": "Édit",
+        "delete": "Pupus",
+        "back": "Balik",
+        "address_more": "Peta langkung seueur pikeun alamat ieu",
+        "address_edit": "Édit alamat",
+        "address_delete": "Hapus alamat",
+        "address_confirm": "Naha anjeun yakin hoyong mupus alamat ieu tina akun anjeun?",
+        "address_default": "Jadikeun standar",
+        "address_form": {
+          "add_address": "Tambahkeun alamat",
+          "save": "Simpen",
+          "cancel": "Bolay",
+          "edit": "Édit alamat",
+          "update": "Simpen parobahan",
+          "generic_error": "Aya kasalahan nalika nyimpen alamat anjeun. Mangga cobian deui.",
+          "one_time_address_subtitle": "Anggo alamat sakali ieu kanggo pesenan ieu"
+        },
+        "different_shipping_method_summary": "Lebetkeun alamat pengiriman anu béda pikeun ningali métode pengiriman anu sayogi",
+        "invalid_shipping_method_summary": "Lebetkeun alamat pengiriman anu valid pikeun ningali metode pengiriman anu sayogi",
+        "invalid_shipping_method_summary_selected": "Pilih alamat kirim nu béda pikeun nilik métodeu kirim nu sadia",
+        "method_summary": {
+          "incomplete_address_entered": "Lebetkeun alamat pengiriman anu lengkep pikeun ningali metode pengiriman anu sayogi",
+          "incomplete_address_selected": "Pilih alamat pengiriman lengkep kanggo ningali metode pengiriman anu sayogi"
+        },
+        "local_pickup": {
+          "search_address": "Téangan alamat",
+          "rollup_title": "Lokasi jemputan",
+          "rollup_accessibility_label": "Pilihan lokasi jemputan"
+        },
+        "missing_shipping_address": "Alamat pangiriman teu aya",
+        "split_shipping_merchandise_quantity_label_standard": "%{quantity} barang",
+        "split_shipping_merchandise_quantity_label_additional": "+%{quantity} deui",
+        "split_shipping_merchandise_shipment_number": "Pangiriman %{number} tina %{total}",
+        "pre_order_ships_now": "Kapal ayeuna",
+        "pre_order_ships_later": "Kapal engké",
+        "pre_order_ships_date": "Kapal %{date}",
+        "split_shipping_shipped_by_shop": "Dikirim ku %{shop_name}",
+        "split_shipping_multiple_shipment_label": "Sababaraha kiriman",
+        "split_shipping_shipping_label": "Métode",
+        "split_shipping_shipment_notice": "Pesenan anjeun bakal datang dina %{quantity_shipments}",
+        "split_shipping_first_shipment_notice": "Pesenan munggaran anjeun bakal dongkap dina %{quantity_shipments}",
+        "split_shipping_multiple_shipment_quantity_label": "%{quantity} kiriman",
+        "split_shipping_multiple_shipment_notice": "Pesenan anjeun bakal dongkap sababaraha kiriman",
+        "split_shipping_multiple_shipment_notice_one_time_purchase": "Pesanan anjeun bakal datang dina %{quantity} kiriman",
+        "split_shipping_shipment_count_notice_one_time_purchase": {
+          "one": "Pesenan anjeun bakal dugi dina %{count} pengiriman",
+          "other": "Pesenan anjeun bakal sumping dina %{count} pengiriman"
+        },
+        "split_shipping_arrives_in_shipments": {
+          "one": "Nyarita dina %{count} pengiriman",
+          "other": "Nyarita dina %{count} pengiriman"
+        },
+        "includes_recurring_items": "Ngawengku barang anu terus-terusan",
+        "split_shipping_more_shipping_options": "Pilihan pengiriman langkung seueur",
+        "split_shipping_shipment_number": "Kiriman %{number}",
+        "split_shipping_option_free": "Bébas ongkos kirim",
+        "split_shipping_option_lowest_price": "Harga panghandapna",
+        "split_shipping_option_fastest": "Panggancangna",
+        "split_shipping_option_recommended": "Disarankeun",
+        "split_shipping_option_custom": "Adat",
+        "add_shipping_address": "Tambihkeun alamat pengiriman",
+        "add_new_delivery_address": "Tambihkeun alamat pangiriman anyar",
+        "choose_new_address": "Pilih alamat énggal"
+      },
+      "throttle": {
+        "too_many_attempts": {
+          "message": "Usaha teuing seueur",
+          "description": "Cobi deui sababaraha menit deui"
+        },
+        "line_to_check_out": "Anjeun nuju antre bade ka kasir",
+        "cart_summary_heading": "Karanjang anjeun",
+        "merchandise": {
+          "available": "Aya",
+          "sold_out": "Entong Dijual"
+        },
+        "inventory": {
+          "partial_inventory_banner": "Sabagian tina karanjang anjeun tos seep sarta moal sayogi kanggo dipésér nalika checkout.",
+          "sold_out": {
+            "heading": "Karéta anjeun béak",
+            "storefront_body": "Balik deui ka toko pikeun neruskeun balanja",
+            "no_storefront_body": "Hapunten, barang anu ku anjeun dipikahoyong kanggo dipésér tos teu aya.",
+            "link": "Balik ka toko"
+          }
+        },
+        "title": "Antrean",
+        "time_to_checkout_title": "Waktosna Checkout - {{shopName}}",
+        "estimated_wait_time": {
+          "calculating": "Ngitung perkiraan waktos antosan",
+          "less_than_one": "Estimasi waktu antosan: Kirang ti samet menit",
+          "one": "Estimasi waktos ngantosan: {{count}} menit",
+          "other": "Perkiraan waktos ngantosan: {{count}} menit"
+        },
+        "last_checked": "(Terakhir dipariksa: {{time}})",
+        "footer": {
+          "heading": "Tong segarkeun ieu halaman, engké bakal otomatis diropéa.",
+          "body": "Barang-barang nu aya dina karanjang anjeun moal dicadangkeun dugi ka anjeun parantos réngsé balanja."
+        }
+      },
+      "cart_checkout_validation": {
+        "runtime_error": "Aya masalah dina ngolah paménta anjeun. Mangga hubungi nu boga toko."
+      },
+      "no_address_location": {
+        "title": "Lokasi tanpa alamat",
+        "header": "Anjeun teu gaduh alamat pengiriman pikeun lokasi ieu",
+        "alt_header": "Alamat pengiriman leungit",
+        "message": "Taroskeun ka kami pikeun nambihan alamat lokasi ieu kanggo ngalengkepan checkout.",
+        "email_us_button_label": "Kirim email ka kami"
+      },
+      "shop_wallet": {
+        "title": "Dompét Shop Pay",
+        "description": "Pilih anu hoyong dianggo pikeun ieu pamandegan.",
+        "loading": "Nuju ngamuat dompét Shop Pay anjeun…",
+        "ready_status": "Dompét Shop Pay anjeun parantos siap. Pilih métode mayar.",
+        "cancel": "Bolay",
+        "retry": "Cobi deui",
+        "return_to_hatch": "Balik deui ka Hatch",
+        "choose_again": "Pilih deui",
+        "payment_method": {
+          "heading": "Métode pamayaran",
+          "expiry": "Nyéép {{expiry}}"
+        },
+        "shipping_address": {
+          "heading": "Alamat pengiriman"
+        },
+        "confirm": {
+          "label": "Pastiin pamilihan",
+          "success_title": "Pilihan dikonfirmasi",
+          "success_message": "Rincian dompét anu dipilih parantos siap. Prototipe ieu teu acan ngintankanna deui ka aplikasi mitra.",
+          "retryable_error_title": "Pilihan teu dibagikeun",
+          "retryable_error_message": "Cobi konfirmasi deui pilihan dompét anjeun.",
+          "terminal_error_title": "Sambungan dompét réngsé",
+          "terminal_error_message": "Balik deui sarta muka Shop Pay sakali deui."
+        },
+        "cancelled": {
+          "title": "Pilihan dibatalkeun",
+          "message": "Teu aya detil dompét anu dibagikeun sarta teu aya pamandegan anu dilakukeun."
+        },
+        "empty": {
+          "title": "Teu aya kartu anu disimpen",
+          "message": "Teu aya kartu anu disimpen dina dompét Shop Pay ieu."
+        },
+        "ineligible": {
+          "title": "Teu aya kartu anu berhak",
+          "message": "Teu aya kartu anu disimpen anu tiasa dianggo kanggo ieu pamandegan."
+        },
+        "expired": {
+          "title": "Sési dompét ieu parantos angger",
+          "message": "Balik deui ka aplikasi mitra sarta ngamimitian deui pamengsianana."
+        },
+        "revoked": {
+          "title": "Shop Pay teu dikaitkeun deui",
+          "message": "Sambungkeun deui Shop Pay dina aplikasi mitra sateuacan neruskeun."
+        },
+        "error": {
+          "title": "Dompét Shop Pay anjeun teu tiasa dimuat",
+          "message": "Balik deui ka Hatch sarta cobi muka Shop Pay deui."
+        }
+      },
+      "order_errors": {
+        "creation_failure": "Aya masalah nalika nyiptakeun pesenan anjeun. Cobi deui, atanapi kontak kami kanggo langkung jelasna.",
+        "network_failure": "Pesenan anjeun teu tiasa dikintunkeun kusabab aya kasalahan jaringan. Mangga parios sambungan anjeun teras cobian deui.",
+        "inventory_reservation_failure": "Sababaraha barang atos teu aya."
+      },
+      "session_errors": {
+        "session_not_unique": "Aya masalah nalika ngolah pesenan anjeun. Muat ulang kaca ieu pikeun mulang ka toko.",
+        "session_already_finished": "Pesenan ieu tos diajukeun. Anjeun tiasa uih deui ka toko kanggo ngamimitian pesenan énggal."
+      },
+      "artifact_errors": {
+        "artifact_dissatisfaction_without_violation": "Aya masalah nalika ngolah pesenan anjeun. Cobian deui sababaraha menit ka payun."
+      },
+      "pickup_point": {
+        "location_is_currently_closed": "Ditutup",
+        "business_hours": "Jam buka",
+        "no_business_hours": "Teu aya jam buka sadia",
+        "open_twenty_four_hours": "Buka 24/7",
+        "title": "Titik jemput",
+        "or": "atawa",
+        "search_button": "Téang",
+        "address_label": "Alamat",
+        "selector_tabs": "Pamilah titik jemputan",
+        "selector_tab_map": "Peta",
+        "selector_tab_list": "Daptar",
+        "could_not_resolve_address": "Alamat anjeun teu tiasa kapanggih. Mangga cobian deui atanapi nganggo alamat anu sanés.",
+        "no_pickup_points_near_you": "Taya titik pangiriman anu kapanggih di deukeut alamat anu dipilih",
+        "no_pickup_points_near_location": "Teu aya titik panyokot anu kapanggih di deukeut lokasi anjeun",
+        "pickup_unavailable_banner_title": {
+          "one": "Teu aya titik panyokot pikeun barang anjeun",
+          "other": "Henteu aya tempat pangambilan anu sayogi kanggo barang anjeun"
+        },
+        "no_pickup_points_found": "Teu kapanggih titik pangangkutan",
+        "paginator": {
+          "next_accessibility_label": "Kaca salajengna",
+          "previous_accessibility_label": "Kaca saacanna",
+          "header": {
+            "one": "Némbongkeun %{first} - %{last} ti %{count} poin",
+            "other": "Nuduhkeun %{first} - %{last} tina %{count} poin"
+          },
+          "selected_pickup_point_label": {
+            "one": "titik ka %{pickup_point_index} tina %{count}",
+            "other": "%{pickup_point_index} ti %{count} titik"
+          },
+          "selected_page": {
+            "one": "%{first} - %{last} tina %{count} poin",
+            "other": "%{first} - %{last} tina %{count} poin"
+          }
+        },
+        "number_of_pickup_points_near_location": {
+          "one": "%{count} titik pick-up caket lokasi anjeun",
+          "other": "%{count} titik pick-up caket lokasi anjeun"
+        },
+        "change": "Robah lokasi",
+        "waiting_on_pickup_point_location_notice": "Pilarian titik jemputan...",
+        "geolocation": {
+          "shared_location_button": "Anggo lokasi abdi",
+          "errors": {
+            "unsuported_by_browser": "Kéngingkeun géolokasi henteu didukung ku panyungsi anjeun. Cobi deui atanapi anggo panyungsi nu sanés.",
+            "permission_not_allowed": "Idinan idu ngabagi lokasi anjeun.",
+            "permission_denied": "Lokasimu teu kapanggih. Coba deui."
           }
         }
       }
