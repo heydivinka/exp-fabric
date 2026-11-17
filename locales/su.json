@@ -1308,7 +1308,125 @@
         "estimated_taxes_finalization_tooltip_content": "Pajeg ahir jeung total baris dikonfirmasi via email atawa pesen téks saatos anjeun mesen.",
         "estimated_taxes_finalization_tooltip_content_short": "Pajak réngsé saatos pamayaran",
         "order_total_label": "Jumlah Pesanan",
-        "price_before_discount_aria_text": "Harga asli"
+        "price_before_discount_aria_text": "Harga asli",
+        "price_after_discount_aria_text": "Harga diskon",
+        "discount_code_aria_text": "Kode diskon",
+        "total_savings": "Total tabungan",
+        "total_label": "Jumlah sadayana",
+        "total_due_label": "Jumlah dibayar",
+        "total_paid_label": "Jumlah anu dibayar",
+        "total_price_label": "Jumlah harga",
+        "total_outstanding_label": "Jumlah anu kudu dibayar",
+        "deposit_label": "Setoran",
+        "total_due_today_label": "Total anu kedah dibayar dinten ieu",
+        "total_due_later_label": "Total anu kedah dibayar engké",
+        "partial_total_label": "Jumlah sadayana",
+        "free_total_label": "Gratis",
+        "free_shipping_total_label": "Gratis",
+        "paid_label": "Mayar",
+        "payment_due_label": "Mayar jatuh tempo",
+        "vat_label_html": "Kaasup pajeg %{amount}",
+        "duties_included_label": "Total kalebet pajak sareng bea. Henteu aya biaya tambahan nalika pangiriman.",
+        "discount_and_gift_card_savings_notice": "Saatos diskon %{discount_amount} sareng kartu hadiah %{gift_card_amount}",
+        "discount_savings_notice": "Saatos diskon %{discount_amount}",
+        "gift_card_savings_notice": "Sanggeus %{gift_card_amount} dina kartu hadiah",
+        "cost_table_title": "Ringkesan biaya",
+        "cost_table_item_column_header": "Barang",
+        "cost_table_value_column_header": "Peunteun",
+        "description_label": "Déskripsi",
+        "price_label": "Harga",
+        "price_per_item": {
+          "accessibility_label": "%{price} per barang",
+          "label": "%{price}/éiji"
+        },
+        "quantity_label": "Jumlah",
+        "product_change_label": "Robah",
+        "product_image_label": "Gambar produk",
+        "product_image_quantity_label": "Jumlah",
+        "scroll_order_summary": "Gulirkeun pikeun item séjénna",
+        "expand_order_summary_short": "Témbongkeun",
+        "collapse_order_summary_short": "Sumputkeun",
+        "original_price": "Harga asli",
+        "sale_price": "Harga diskon",
+        "compare_at_sale": "Diskon (%{sale_amount})",
+        "total_updated_label": "Total harga diropéa:",
+        "order_total_updated_label": "Total anu parantos diénggalan",
+        "total_already_paid_label": "Mayar",
+        "waived_label": "Dihapusing",
+        "unit_price": {
+          "accessible_separator": "per",
+          "content_html": "%{price}%{accessible_separator}/%{per_unit}",
+          "per_item": {
+            "single": "%{price} hiji",
+            "one": "%{price} per %{count} item",
+            "other": "%{price} per %{count} barang"
+          },
+          "per_unit": {
+            "single": "%{price}/%{unit}",
+            "plural": "%{price}/%{count}%{unit}"
+          }
+        },
+        "gift_card_ending": "Kartu kado tungtungna ku %{last_characters}",
+        "estimated_tax_label": "Taksiran pajeg",
+        "multiple_shipping_lines_label": "Total pengiriman",
+        "recurring_subtotal_label": "Jumlah leutik anu ngulang",
+        "recurring_total_label": "Total ngulang",
+        "recurring_total_tooltip": "Teu ngawengku ongkos kirim, pajeg, bea, atanapi diskon anu tiasa dilakukeun",
+        "recurring_total_tooltip_taxes_included": "Teu ngawengku ongkos kirim, papacar, atanapi diskon anu leres",
+        "recurring_total_tooltip_duties_included": "Teu ngawengku ongkos kirim, pajeg, atanapi diskon anu leres",
+        "recurring_total_tooltip_taxes_and_duties_included": "Teu ngawengku ongkos kirim atanapi diskon anu luyu",
+        "confirmation_number_label": "Konfirmasi #%{confirmation_number}",
+        "higher_value_discount_applied": "<strong style=\"text-transform:uppercase\">%{code}</strong> teu tiasa dianggo sareng diskon anu parantos aya.",
+        "percent_off_shipping": "Diskon ongkir %{percent}%",
+        "amount_off_shipping": "Potongan ongkos kirim %{amount}",
+        "deferred_payment_info": {
+          "title": "Pamayaran sagedé %{amount_due} kedah dilunasan kaping %{due_at}",
+          "description_html": "Pikeun patarosan ngeunaan pesenan anjeun, %{contact_us}.",
+          "paid_today": "Total dibayar ayeuna",
+          "paid_today_next": "Dibayar dinten ayeuna",
+          "due_on_fulfillment_title": "Pamayaran %{amount_due} tiasa dilaksanakeun saatos hasilna réngsé",
+          "due_on_receipt_title": "Pembayaran %{amount_due} kedah dilunasan saatos ditampi"
+        },
+        "deferred_balance_info": {
+          "title": "Sésa {{amount_due}} kedah dibayar dina {{due_at}}",
+          "due_on_fulfillment_title": "Sésana {{amount_due}} kedah dibayar nalika pinuh."
+        },
+        "payment_terms_totals": {
+          "due_today": "Total anu kedah dibayar dinten ieu",
+          "due_today_next": "Kuduna ayeuna",
+          "due_later": "Jumlah total %{due_at}",
+          "due_on_fulfillment": "Jumlah anu kedah dibayar nalika pinuh",
+          "due_on_fulfillment_next": "Ditagih nalika minuhan",
+          "due_on_receipt": "Total anu kedah dibayar nalika nampi",
+          "due_later_checkout_to_draft": "Total anu kedah dibayar engké",
+          "total_paid": "Jumlah anu dibayar"
+        },
+        "maximum_discount_code_limit_reached": "Anjeun parantos ngahontal wates maksimal kode diskon. Leupaskeun kode nu tos aya pikeun ngagunakeun <strong style=\"text-transform:uppercase\">%{code}</strong>.",
+        "discount_code_application_failed": "<strong style=\"text-transform:uppercase\">%{code}</strong> nuju teu tiasa dianggo ayeuna. Taros Kami upami peryogi bantosan.",
+        "discount_code_client_error": "Aya masalah ngalaponkeun %{code}. Cobi deui.",
+        "due_on_fulfillment": "Ditagih nalika minuhan",
+        "gift_card_masked": "•••• %{last_characters}",
+        "subscriptions": "Langganan",
+        "duties_label": "Kawajiban",
+        "duty_label": "Tugas",
+        "duties_and_taxes_label": "Kawajiban sareng Pajak",
+        "error_duties_tooltip": "Pesenan ieu dikirim ti nagara sanés, janten pajak sareng biaya tiasa ditagih nalika pangiriman.",
+        "may_be_charged_on_delivery": "Bisa ditagih nalika pangiriman",
+        "total_updated_label_with_price": "Total harga anu diénggalan: %{totalPrice}",
+        "updated_shipping_method": "Métode pengiriman anu dianyarkeun: %{shipping_method}",
+        "recurring_payments": "Pamayaran Ngulang",
+        "recurring_total_multiple_label": "Pesenan ieu ngagaduhan bii rutin pikeun sababaraha barang",
+        "deferred_total_due_date_label": "Total due {{date}}",
+        "deferred_total_due_date_label_next": "Jatuh tempo %{date}",
+        "full_price": "Harga pinuh: %{price}",
+        "custom_discount": "Diskon khusus",
+        "expand_component_information": {
+          "one": "Témbongkeun %{count} item",
+          "other": "Témbongkeun %{count} item"
+        },
+        "collapse_component_information": {
+          "one": "Sumputkeun %{count} item"
+        }
       },
       "store_credit_errors": {
         "generic_error": "Aya masalah jeung pulsa toko anjeun. Cobi deui atanapi muat ulang halaman."
@@ -1747,5 +1865,129 @@
         }
       }
     }
+  },
+  "blocks": {
+    "contact_form": {
+      "email": "Surélék",
+      "phone": "Telepon",
+      "comment": "Koméntar",
+      "post_success": "Hatur nuhun parantos ngahubungan kami. Kami bakal geuwat ngabales.",
+      "error_heading": "Punten saluyukeun ieu:"
+    },
+    "email_signup": {
+      "label": "Surélék",
+      "placeholder": "Alamat email",
+      "success": "Hatur nuhun parantos subscribe!"
+    },
+    "filter": "Saring",
+    "load_video": "Muat vidéo: {{ description }}",
+    "sold_out": "Entong disada",
+    "payment_methods": "Métode pamayaran",
+    "slider_label": "Geseran"
+  },
+  "blogs": {
+    "article": {
+      "comments_heading": {
+        "one": "{{ count }} koméntar",
+        "other": "{{ count }} komentar"
+      }
+    },
+    "comment_form": {
+      "email": "Surélék",
+      "error": "Komentar gagal diposting, punten perhatoskeun ieu:",
+      "heading": "Tinggalkeun koméntar",
+      "message": "Pesen",
+      "moderated": "Punten, komentar kedah disatujuan heula sateuacan dipublikasikeun.",
+      "name": "Nami",
+      "post": "Pasang komentar",
+      "success_moderated": "Koméntar dipasang, ngantosan modérasi",
+      "success": "Koméntar dipasang"
+    }
+  },
+  "content": {
+    "cancel": "Bolay",
+    "discount": "Diskon",
+    "account_title": "Akun",
+    "terms_and_policies": "Sarat jeung Katangtuan",
+    "account_title_personalized": "Hai {{ first_name }}",
+    "account_orders": "Pesenan",
+    "account_profile": "Profil",
+    "cart_estimated_total": "Jumlah perkiraan",
+    "cart_title": "Karéta balanja",
+    "cart_subtotal": "Subtotal",
+    "cart_total": "Jumlah balanjaan",
+    "checkout": "Tingali atuh",
+    "collection_placeholder": "Judul koléksi",
+    "discount_code": "Kode diskon",
+    "shipping_discount_error": "Diskon ongkos kirim bakal katingal di *checkout* saatos ngalebetkeun alamat",
+    "discount_code_error": "Kode diskon henteu tiasa diterapkeun kana karinjang anjeun",
+    "discounts": "Diskon",
+    "duties_and_taxes_included": "Pajak jeung biaya geus kaasup.",
+    "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Kawajiban jeung pajeg kaasup. Diskon jeung <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">ongkos kirim</a> diitung nalika pariksa.",
+    "duties_and_taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Pajak sareng bea kaasup. Ongkos kirim diitung di *checkout*.",
+    "duties_and_taxes_included_shipping_at_checkout_without_policy": "Pajak sareng bea kalebet. Diskon sareng pengiriman diitung dina checkout.",
+    "duties_and_taxes_included_shipping_at_checkout_without_policy_without_discounts": "Pajak sareng bea kaasup. Ongkos kirim diitung di *checkout*.",
+    "duties_included": "Tanggung jawab kalebet.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tugas kaasup. Pajak, diskon jeung <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">ongkos kirim</a> diitung nalika parantos balanja.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "Tugas kalebet. Pangiriman diitung nalika checkout.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Kawajiban kaasup. Pajeg, diskon sareng pengiriman diitung dina checkout.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Tugas kalebet. Pangiriman diitung nalika checkout.",
+    "featured_products": "Produk Pilihan",
+    "filters": "Saringan",
+    "grid_view": {
+      "default_view": "Standar",
+      "grid_fieldset": "Grid kolom",
+      "single_item": "Jomblo",
+      "zoom_out": "Leutikeun tampilanana"
+    },
+    "inventory_low_stock_show_count": {
+      "one": "{{ count }} deui",
+      "other": "{{ count }} deui"
+    },
+    "inventory_low_stock": "Sésa saeutik",
+    "inventory_in_stock": "Aya stokna",
+    "inventory_out_of_stock": "Stok béak",
+    "item_count": {
+      "one": "{{ count }} barang",
+      "other": "{{ count }} barang"
+    },
+    "item_count_cutoff": "Langkowih ti {{ count }} barang",
+    "language": "Basa",
+    "localization_region_and_language": "Wewengkon jeung basa",
+    "no_products_found": "Euweuh produk kapanggih.",
+    "no_results_found": "Teu aya hasil anu kapanggih",
+    "page_placeholder_title": "Judul kaca",
+    "page_placeholder_content": "Pilih kaca pikeun mintonkeun eusina.",
+    "pagination": {
+      "nav_label": "Paginasi",
+      "previous": "Samemehna",
+      "next": "Salajengna",
+      "page": "Kaca {{ page }}"
+    },
+    "pickup_available_at_html": "Bisa dicokot di <b>{{ location }}</b>",
+    "pickup_available_in": "Bisa dicokot, {{ pickup_time }}",
+    "pickup_not_available": "Angkat-jeung-candak kiwari teu sadia",
+    "powered_by": "Toko ieu bakal didamel ku",
+    "price": "Harga",
+    "price_compare_at": "Bandingkeun harga aslina",
+    "price_from": "Ti {{ price }}",
+    "price_regular": "Harga normal",
+    "price_sale": "Harga diskon",
+    "price_filter_html": "Harga pangluhurna nyaéta {{ price }}",
+    "product_image": "Gambar produk",
+    "product_information": "Émbaran produk",
+    "product_disclosures": "Émbaran produk",
+    "product_subtotal": "Total samentara produk",
+    "product_total": "Jumlah produk",
+    "product_badge_sold_out": "Entong disada",
+    "product_badge_sale": "Diskon",
+    "product_card_placeholder": "Judul produk",
+    "placeholder_image": "Gambar pananda",
+    "quantity": "Jumlah",
+    "quantity_per_item": "/ea/",
+    "quick_order_list": "Daptar pesenan gancang",
+    "recently_viewed_products": "Nu nembe ditingali",
+    "remove_all": "Hapus sadayana",
+    "remove_all_items_confirmation": "Hapus sadaya {{ count }} barang tina karanjang anjeun?"
   }
 }
