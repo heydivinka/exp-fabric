@@ -1607,8 +1607,36 @@
           "other": "Témbongkeun %{count} item"
         },
         "collapse_component_information": {
-          "one": "Sumputkeun %{count} item"
-        }
+          "one": "Sumputkeun %{count} item",
+          "other": "Sumputkeun %{count} item"
+        },
+        "component_quantity_title": "%{quantity} × %{product_title}",
+        "discount_discovery": {
+          "add_code": "Tambih diskon",
+          "back_to_finalize_order": "Balik deui pikeun ngarengsekeun pesenan",
+          "merchandise_quantity_label": {
+            "one": "%{count} barang",
+            "other": "%{count} barang"
+          }
+        },
+        "alternative_payment_currency_total": "Ditagih %{amount_due}",
+        "alternative_payment_currency_chinese_yuan": "Pastiin total akhir CNY dina aplikasi %{wallet}.",
+        "lpm": {
+          "wechat_pay": {
+            "checkout_disclosure": "Pastiakeun total akhir CNY dina aplikasi WeChat",
+            "checkout_disclosure_with_alternative_payment_currency": "%{shop_name} bakal ngolah ieu pembayaran salaku %{amount_due} %{processing_currency}, anu ku WeChat dirobihkeun kana CNY",
+            "checkout_disclosure_charged_in_cny": "%{shop_name} bakal ngolah ieu pembayaran salaku %{amount_due} %{processing_currency}",
+            "post_purchase_disclosure": "Tingali total CNY di WeChat"
+          },
+          "alipay": {
+            "checkout_disclosure": "Pastiakeun total akhir CNY dina aplikasi Alipay",
+            "checkout_disclosure_with_alternative_payment_currency": "%{shop_name} bakal ngolah ieu pembayaran salaku %{amount_due} %{processing_currency}, anu ku Alipay dirobihkeun kana CNY",
+            "checkout_disclosure_charged_in_cny": "%{shop_name} bakal ngolah ieu pembayaran salaku %{amount_due} %{processing_currency}",
+            "post_purchase_disclosure": "Tingali total CNY di Alipay"
+          }
+        },
+        "pay_merchant_label": "Mayar ka %{merchant_name}",
+        "discount_applies_to_subscription_items_only": "Diskon ieu ngan lumaku pikeun barang langganan"
       },
       "store_credit_errors": {
         "generic_error": "Aya masalah jeung pulsa toko anjeun. Cobi deui atanapi muat ulang halaman."
@@ -2178,6 +2206,134 @@
           "shipping_credential_tw": "Nomer KTP/VAT",
           "tax_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN",
           "shipping_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN"
+        }
+      },
+      "shipping": {
+        "title": "Pangiriman",
+        "delivery_title": "Pangiriman",
+        "shipping_method_title": "Métode pangiriman",
+        "shipping_method_rollup_accessibility_label": "Pilihan métode pengiriman barang",
+        "shipping_method_one_time_purchase_group_title": "Meuli sakali geuwat",
+        "shipping_method_first_shipment_group_title": {
+          "one": "Pangiriman mimiti",
+          "other": "Pangiriman munggaran"
+        },
+        "shipping_method_subscription_group_title": "Langganan",
+        "shipping_method_recurring_shipments_group_title": {
+          "one": "Pangiriman nu ngulang",
+          "other": "Pangiriman nu ngulang"
+        },
+        "subscription_shipping": "Pengiriman langganan",
+        "subscription_local_delivery": "Langganan pangiriman lokal",
+        "subscription_pickup": "Langganan dicokot",
+        "waiting_on_rate_notice": "Manggihan ongkos kirim nu sadia…",
+        "waiting_on_pickup_location_notice": "Milarian lokasi panyokot anu sayogi…",
+        "no_rates_for_cart_or_destination_notice": "Teu aya metode pengiriman anu sayogi kanggo karanjang atanapi alamat anjeun",
+        "no_pickup_location_notice": "Sahenteuna salah sahiji produk anjeun teu sadia pikeun pick up",
+        "no_rates_for_country_notice": "Taya ongkos kirim anu kapanggih pikeun alamat ieu.",
+        "no_rates_contact_notice": "Mangga wartosan kami pikeun inpo nu leuwih lengkep",
+        "free_rate_label": "Gratis",
+        "cheapest_rate_label": "Pangmurahna",
+        "estimated_delivery_date": {
+          "one": "%{count} dinten damel",
+          "other": "%{count} dinten damel"
+        },
+        "estimated_delivery_date_range": "%{minimum} dugi ka %{maximum} dinten damel",
+        "delivery_date_range": "%{min_time}–%{max_time}",
+        "estimated_delivery_time": "Kinten-kinten dugi %{time}",
+        "estimated_delivery_time_range": "Perkiraan pangiriman %{min_time}–%{max_time}",
+        "delivery_today": "Dikirim poé éta kénéh %{time}",
+        "delivery_tomorrow": "Énjing dugi tabuh %{time}",
+        "two_day_delivery": "Pangiriman 2 dinten %{time}",
+        "delivery": "Pangiriman %{time}",
+        "delivery_to": "Pangiriman ka",
+        "arrives_time": "Datang tabuh %{time}",
+        "arrives_time_range": "Datang %{min_time}–%{max_time}",
+        "estimated_time": "Kinten-kinten %{time}",
+        "estimated_time_range": "Diperkirakeun %{min_time}–%{max_time}",
+        "default_description": "Dikirim dina 1 dinten damel",
+        "unbranded_default_description": "Siap kirim",
+        "unbranded_description_same_day": "Dikirim poé gawé anu sarua",
+        "unbranded_description_with_fulfillment_days": {
+          "one": "Dikirim énjingna dinten damel",
+          "other": "Dikirim dina %{count} dinten damel"
+        },
+        "unbranded_description_with_fulfillment_weeks": {
+          "one": "Dikirim dina %{count} minggu",
+          "other": "Dikirim dina %{count} minggu"
+        },
+        "shipping_line_phone_label": "Nomer telepon sélulér (wajib)",
+        "shipping_line_phone": "Kurir tiasa nganggo nomer ieu pikeun ngahubungan anjeun.",
+        "shipping_line_delivery_phone_label": "Nomer telepon sélulér",
+        "shipping_line_delivery_phone": "Anjeun tiasa dihubungkeun pikeun apdet ngeunaan pangiriman anjeun.",
+        "optional_shipping_line_delivery_instructions_label": "Parentah pangiriman (opsional)",
+        "shipping_line_delivery_instructions": "Lebetkeun inpormasi anu diperlukeun saperti kodeu panto atawa pitunjuk nurunkeun barang.",
+        "other_method": {
+          "zero": "Taya deui métode séjén anu sayogi",
+          "one": "Aya %{count} métodeu séjén nu sayogi di",
+          "other": "Aya %{count} métodeu lian nu sayogi mimitian ti"
+        },
+        "shipping_rate_discounted_amount": "Baheula: %{original_amount}. Ayeuna: %{amount}",
+        "local_delivery": "Pangiriman lokal",
+        "prime_not_available": {
+          "default": "Pangiriman Primér henteu sayogi kanggo pesenan anjeun. Pilihan pangiriman anjeun parantos diropéa."
+        },
+        "subscription_delivery_description": {
+          "free_shipping_cycles": {
+            "one": "Bébas ongkos kirim pikeun %{count} kiriman deui",
+            "other": "Bebas ongkos kirim pikeun %{count} kiriman deui"
+          },
+          "free_shipping_cycles_delivery_not_included": {
+            "one": "Bebas ongkos kirim pikeun %{count} pangiriman",
+            "other": "Bébaskeun ongkos kirim pikeun %{count} pangiriman"
+          },
+          "first_n_order_free_with_cycle": {
+            "one": "Gratis ongkir kangge %{count} kiriman deui, teras %{recurring_order_shipping_price}",
+            "other": "Gratis ongkos kirim pikeun %{count} kiriman salajengna, teras %{recurring_order_shipping_price}"
+          },
+          "first_n_order_free_with_cycle_delivery_not_included": {
+            "one": "Bebas ongkos kirim pikeun %{count} kiriman, saterusna %{recurring_order_shipping_price}",
+            "other": "Gratis ongkir kanggo %{count} pangiriman, teras %{recurring_order_shipping_price}"
+          },
+          "max_cycles_base_shipping": {
+            "one": "%{count} pangiriman deui kalayan %{shipping_price}",
+            "other": "Tambahan %{count} pangiriman kalawan harga %{shipping_price} hijina"
+          },
+          "max_cycles_base_shipping_delivery_not_included": {
+            "one": "%{count} kiriman kanggo %{shipping_price}",
+            "other": "Tambahan %{count} pangiriman kalawan harga %{shipping_price} hijina"
+          },
+          "prepaid_free_shipping_with_cycles": {
+            "one": "Bebas ongkos kirim pikeun nu kahiji %{cycle}, dituturkeun ku %{recurring_order_shipping_price}",
+            "other": "Bebas ongkos kirim pikeun nu kahiji %{cycle}, dituturkeun ku %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_one_cycle": {
+            "one": "%{shipping_price} kanggo %{count} kiriman deui",
+            "other": "%{shipping_price} kanggo %{count} kiriman deui (%{per_delivery_cost})"
+          },
+          "prepaid_order_one_cycle_delivery_not_included": {
+            "one": "%{shipping_price} kanggo %{count} pangiriman",
+            "other": "%{shipping_price} kanggo %{count} pangiriman (%{per_delivery_cost})"
+          },
+          "prepaid_order_no_cycle": {
+            "one": "%{shipping_price} kanggo %{count} kiriman deui, teras %{recurring_order_shipping_price}",
+            "other": "%{shipping_price} pikeun %{count} kiriman deui (%{per_delivery_cost}), terus %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_no_cycle_delivery_not_included": {
+            "one": "%{shipping_price} kanggo %{count} pangiriman, saterusna %{recurring_order_shipping_price}",
+            "other": "%{shipping_price} kanggo %{count} pangiriman (%{per_delivery_cost}), tuluy %{recurring_order_shipping_price}"
+          },
+          "subscription_free_with_frequency_label": "Bébas ongkos kirim %{delivery_frequency}",
+          "prepaid_delivery_frequency": {
+            "one": "pikeun %{count} pangiriman",
+            "other": "pikeun %{count} pangiriman"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "one": "Unggal poé",
+              "other": "unggal %{count} dinten"
+            }
+          }
         }
       }
     },
