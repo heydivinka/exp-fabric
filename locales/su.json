@@ -935,7 +935,18 @@
         "have_an_account_label": "Gaduh akun?",
         "sign_in_link_label": "Asup",
         "sign_out_link_label": "Kaluar",
-        "save_my_information_label": "Simpen ieu inpormasi pikeun kapayun"
+        "save_my_information_label": "Simpen ieu inpormasi pikeun kapayun",
+        "invalid_address": "Alamat nu dipilih teu valid. %{update_address_link} atawa pilih alamat nu séjén.",
+        "incomplete_address": "Alamat nu dipilih henteu lengkep. %{update_address_link} atawa pilih alamat séjén.",
+        "rollup_label": "Akun",
+        "rollup_accessibility_label": "Pilihan akun",
+        "invalid_shipping_method_summary": "Pilih alamat pangiriman nu bener pikeun ningali métodeu pangiriman nu sadia",
+        "saved_address_option_description": {
+          "one": "Anjeun gaduh {{count}} alamat nu disimpen.",
+          "other": "Anjeun ngagaduhan {{count}} alamat anu disimpen."
+        },
+        "saved_address_option_link": "Anggo alamat nu disimpen",
+        "saved_address_modal_title": "Anggo alamat kuring nu disimpen"
       },
       "field_errors": {
         "email_or_phone_blank": "Asupkeun surélék atawa nomer telepon",
@@ -1954,7 +1965,8 @@
           }
         },
         "pay_merchant_label": "Mayar ka %{merchant_name}",
-        "discount_applies_to_subscription_items_only": "Diskon ieu ngan lumaku pikeun barang langganan"
+        "discount_applies_to_subscription_items_only": "Diskon ieu ngan lumaku pikeun barang langganan",
+        "title": "Ringkesan Pesenan"
       },
       "store_credit_errors": {
         "generic_error": "Aya masalah jeung pulsa toko anjeun. Cobi deui atanapi muat ulang halaman."
@@ -3113,6 +3125,158 @@
         "draft_order_payment_due_on_fulfillment": "Mayar anjeun bakal dibayar saatos pesenan anjeun dikonfirmasi sareng disayogikeun.",
         "draft_order_deposit_due_later": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Saldo bakal nganggo istilah {{translatedName}}.",
         "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} kedah dibayar nalika pesenan anjeun dikonfirmasi. Saldo bakal dibayar nalika pesenan anjeun parantos réngsé."
+      },
+      "remote_merchandise_only": {
+        "title": "Réngsékeun pameseran anjeun",
+        "remote_only_notice": "Barang-barang ieu dijual sareng dikirim ku toko-toko sanés. Checkout ti unggal toko kanggo ngarengsekeun pameseran anjeun.",
+        "return_to_store_label": "Balik deui ka toko",
+        "detail_item_label": {
+          "one": "{{count}} barang",
+          "other": "{{count}} barang"
+        },
+        "checkout_on_shop_label": "Cék dina %{shop_name}",
+        "single_shop_transition": "Ngalihkeun anjeun ka %{advertiser} pikeun ngabéréskeun pameseran anjeun."
+      },
+      "stock": {
+        "page_title": "Masalah inventarisir",
+        "title": "Stok béak",
+        "items_unavailable_notice": "Sababaraha barang atos teu aya.",
+        "product_column_header": "Produk",
+        "quantity_column_header": "Jumlah",
+        "price_column_header": "Harga",
+        "status_column_header": "Status",
+        "removed_from_cart_notice": "Dipiceun tina karanjang balanja",
+        "sold_out_label": "Entong disada",
+        "reduced_label": "Diréduksi",
+        "reduced_with_quantity_label": "Ngan %{quantity_available} deui sesana",
+        "remove_from_cart_button_label": "Angkat tina karanjang balanja",
+        "continue_shopping_button_label": "Lajengkeun",
+        "go_back_to_cart_button_label": "Balik deui ka karanjang abdi",
+        "remove": "Pupuskeun",
+        "return_to_store_label": "Balik deui ka toko",
+        "continue_cta_label": "Teraskeun balanja",
+        "item_label": {
+          "one": "{{count}} barang",
+          "other": "{{count}} barang"
+        },
+        "empty_cart_label": "Karanjang anjeun kosong",
+        "quantity_update": {
+          "page_title": "Pangénggalan kuantitas",
+          "title": "Pangénggalan kuantitas",
+          "description": "Jumlah éntri ieu geus robah sarta geus diropéa dina karanjang anjeun."
+        },
+        "unpurchasable_product": {
+          "title": "Produk teu tiasa dipésér",
+          "header": "Sababaraha barang parantos dipiceun tina karanjang anjeun",
+          "message": "Barang-barang ieu henteu sayogi kanggo pesenan B2B.",
+          "status_column_header": "Teu sayogi"
+        },
+        "unpurchasable_product_generic": {
+          "title": "Produk teu tiasa dipésér",
+          "header": "Sababaraha barang parantos dipiceun tina karanjang anjeun",
+          "message": "Barang-barang ieu teu sayogi.",
+          "status_column_header": "Teu sayogi"
+        },
+        "unfulfillable_product": {
+          "title": "Pangiriman henteu sayogi",
+          "message": {
+            "one": "%{delivery_method} teu sadia deui pikeun ieu barang.",
+            "other": "%{delivery_method} teu sayogi deui pikeun barang-barang ieu."
+          },
+          "default_message": {
+            "one": "Métodeu pangiriman anu dipilih henteu sayogi deui kanggo barang ieu.",
+            "other": "Métode pangiriman nu dipilih teu sayogi deui pikeun barang-barang ieu."
+          }
+        },
+        "unshippable_product": {
+          "title": "Teu aya pangiriman",
+          "header": {
+            "one": "Teu aya pangiriman sayogi kanggo %{count} barang",
+            "other": "Teu tiasa ngirimkeun %{count} barang"
+          },
+          "message": {
+            "one": "Barang ieu bakal dipupus tina karinjang anjeun margi teu aya metode pangiriman nu sayogi kanggo alamat anjeun.",
+            "other": "Barang-barang ieu bakal dipupus tina karanjang anjeun sabab teu aya padika pangiriman nu sayogi kanggo alamat anjeun."
+          },
+          "status_column_header": "Teu aya pangiriman"
+        },
+        "price_update": {
+          "title": "Apdet harga",
+          "description": "Harga barang-barang ieu geus robah jeung geus diropéa dina karinjang anjeun.",
+          "updated_price": "Harga diropéa"
+        },
+        "price_and_quantity_update": {
+          "title": "Apdet harga jeung kuantitas",
+          "description": "Harga sareng jumlah sayogi pikeun barang-barang ieu parantos robih sareng diropéa dina karanjang balanja anjeun."
+        },
+        "out_of_stock": {
+          "description": "Barang-barang ieu geus teu sadia sarta bakal dipiceun tina karanjang anjeun.",
+          "items_unavailable": "Sababaraha barang geus euweuh sadia sarta bakal dihapus tina karinjang anjeun.",
+          "missing_items": {
+            "title": {
+              "one": "{{count}} barang teu kasedih deui",
+              "other": "{{count}} barang teu aya deui"
+            },
+            "some_available_notice": {
+              "one": "Sésa barang masih kénéh tiasa dipesen. Barang anu teu kasedianna bakal dicandak tina karanjang.",
+              "other": "Sésa barang masih kénéh tiasa dipesen. Barang anu teu kasedianna bakal dicandak tina karanjang."
+            },
+            "none_available_notice": {
+              "one": "Ieu barang geus teu kasedia deui sarta parantos dicandak tina keranjang anjeun.",
+              "other": "Barang-barang ieu geus teu kasedi deui sarta parantos dicandak tina keranjang anjeun."
+            },
+            "mixed_issues_title": "Sababaraha barang parantos teu kasedian deui"
+          }
+        },
+        "out_of_stock_in_context_label": "Produk ieu henteu sayogi di nagara/wewengkon anjeun.",
+        "unavailable_at_pickup_location_label": "Ieu barang teu kasedi pikeun dicandak di tempat anu dipilih."
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "Produk teu sayogi",
+          "other": "Produk teu sadia"
+        },
+        "products_not_available": {
+          "one": "Produk ieu bade dihapus tina karanjang anjeun kusabab henteu sayogi di nagara/wilayah anjeun.",
+          "other": "Produk-produk ieu bakal dihapus tina karanjang anjeun sabab teu sayogi di nagara/wilayah anjeun."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "Produk ieu henteu sayogi di nagara/wewengkon anjeun.",
+          "other": "Produk ieu henteu sayogi di nagara/wilayah anjeun."
+        },
+        "unavailable_label": "Teu sayogi"
+      },
+      "merchandise_unavailable_in_buyer_location": {
+        "banner_title": {
+          "some_products_one": "Produk ieu teu sadia pikeun pangiriman ka %{location_name}.",
+          "some_products_other": "Produk ieu henteu sayogi dikirimkeun ka %{location_name}.",
+          "all_products_one": "Produk dina karanjang anjeun henteu tiasa dikirim ka %{location_name}.",
+          "all_products_other": "Produk nu aya di karanjang balanja anjeun teu sayogi pikeun dikirim ka %{location_name}."
+        },
+        "missing_country_fallback": "nagara anjeun",
+        "indeterminate_location_fallback": "lokasi anjeun",
+        "cart_updated": "Karéta balanja anjeun parantos diropéa.",
+        "change_address_only": "Ganti alamat pangiriman pikeun neraskeun.",
+        "change_address_or_remove": "Gentos alamat pangiriman atanapi %{remove_action}.",
+        "remove_items_action": {
+          "one": "pupus barang nu henteu sayogi",
+          "other": "hapus barang anu teu sayogi"
+        },
+        "empty_cart_action": "gorolongkeun karanjang sareng uih deui ka toko",
+        "unavailable_line_item": "%{product_name} / %{variant_label}"
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "one": "Teu aya pangiriman sayogi kanggo %{count} barang",
+            "other": "Teu tiasa ngirimkeun %{count} barang"
+          },
+          "message": {
+            "one": "Barang ieu bakal dipupus tina karinjang anjeun margi teu aya metode pangiriman nu sayogi kanggo alamat anjeun.",
+            "other": "Barang-barang ieu bakal dipupus tina karanjang anjeun sabab teu aya padika pangiriman nu sayogi kanggo alamat anjeun."
+          },
+          "label": "Teu aya pangiriman"
+        }
       }
     },
     "pagination": {
