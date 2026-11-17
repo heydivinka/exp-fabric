@@ -4684,7 +4684,22 @@
         "empty_state_product_navigation_accessibility_label": "Produk anu dianjurkeun",
         "empty_state_product_navigation_instructions": "Anggo konci panah kenca sareng katuhu kanggo ningali produk. Pencét Enter atanapi Spasi kanggo muka.",
         "filters_title": "Saringan",
-        "sort_by_title": "Urutkeun dumasar"
+        "sort_by_title": "Urutkeun dumasar",
+        "empty_state_redesign_cta": "Baléanja ayeuna",
+        "empty_state_redesign_subtitle": "Siap balanja?",
+        "empty_state_redesign_welcome": "Wilujeng sumping",
+        "empty_state_redesign_welcome_with_name": "Wilujeng sumping, {{firstName}}",
+        "empty_state_title": "Can acan aya pesenan",
+        "empty_state_with_location_title": "Taya pesenan pikeun {{locationName}}",
+        "empty_state_title_for_pending_orders": "Henteu aya pesenan anu ditangguhkeun",
+        "no_order_banner": "Pikeun nguji éksténsi anjeun dina halaman status Pesenan, jieun pesenan.",
+        "one_images_accessibility_label": "Order kalebet {{lineItemName1}}",
+        "two_images_accessibility_label": "Pesenan kalebet {{lineItemName1}}, {{lineItemName2}}",
+        "three_images_accessibility_label": "Pesenan kaasup {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}",
+        "four_images_accessibility_label": "Pesenan kaasup {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}, {{lineItemName4}}",
+        "more_than_three_products_accessibility_label": "Pesenan ngawengku {{lineItemName1}}, {{lineItemName2}}, sareng {{numberOfAdditionalProducts}} produk sanesna",
+        "more_than_four_products_accessibility_label": "Pesenan kalebet {{lineItemName1}}, {{lineItemName2}}, {{lineItemName3}}, sareng {{numberOfAdditionalProducts}} produk sanésna",
+        "plus_more": "+{{numberOfAdditionalProducts}}"
       },
       "order_status": {
         "fulfillment_tracking": {
@@ -4960,7 +4975,12 @@
           "order_list": "Balik deui ka pesenan",
           "store": "Balik deui ka toko"
         }
-      }
+      },
+      "list_title": "Pesenan",
+      "list_title_confirmed_orders_accessibility_label": "Pesenan: ditampa",
+      "list_title_pending_orders_accessibility_label": "Pesanan: nuju diprosés",
+      "switch_order_type_pending_orders_accessibility_label": "Gentos jinis pesenan, ayeuna ningali pesenan nu ditunda",
+      "switch_order_type_confirmed_orders_accessibility_label": "Ganti jinis pesenan, ayeuna nempo pesenan nu geus dikonfirmasi"
     },
     "payment_method_brands": {
       "visa": "Visa",
@@ -5090,7 +5110,111 @@
       "document_title": "{{sectionName}} - {{shopName}} - Akun",
       "loading_message": "Ngamuat",
       "loading_policy_content_accessibility_label": "Ngamuat eusi kawijakan",
-      "loading_section_accessibility_label": "Mโหลด {{sectionName}}"
+      "loading_section_accessibility_label": "Mโหลด {{sectionName}}",
+      "policy_load_error": "Teu tiasa muka {{policyName}}",
+      "policy_try_again": "Cobi deui",
+      "log_out_link": "Kaluar",
+      "logout_overlay_label": "Kaluar...",
+      "nav_label_accessibility_label": "Navigasi utama",
+      "navigation_accessibility_message": "Anjeun ngotéktak ka {{sectionName}}",
+      "open_menu_accessibility_label": "Buka navigasi utama",
+      "shop_logo_accessibility_label": "{{shopName}} logo",
+      "store_credit_accessibility_label": "{{formattedBalance}} kredit toko",
+      "store_credit_balances_list_accessibility_label": "Sésa kredit toko",
+      "store_credit_multi_currency_accessibility_label": {
+        "one": "{{formattedBalance}} sareng {{count}} deui kredit toko mata uang",
+        "other": "{{formattedBalance}} sareng kredit toko dina {{count}} mata uang sanésna"
+      },
+      "country_switcher_toast_message": "Nagara robah jadi {{countryName}}",
+      "switch_country": "Ganti nagara",
+      "no_countries_found": "Henteu kapendak nagara-nagara",
+      "location_switcher_toast_message": "Lokasi diganti ka {{locationName}}",
+      "switch_location": "Pindah lokasi",
+      "no_locations_found": "Teu aya lokasi nu kapanggih",
+      "try_new_search": "Cobi pamilarian énggal",
+      "view_details": "Témbongkeun detilna",
+      "company_location": "Lokasi perusahaan",
+      "search": "Téang",
+      "skip_to_content": "Lumpat ka eusi"
+    },
+    "announcement_bar": {
+      "expand_label": "Gedéan bewara bar",
+      "collapse_label": "Pocongkeun palang pengumuman",
+      "close_label": "Tutup bar bewara"
+    },
+    "account_information": {
+      "loading_accessibility_message": "Ngamuat inpormasi akun",
+      "loading_finished_accessibility_message": "Émbaran akun parantos dimuat",
+      "profile_card": {
+        "cancel": "Bolay",
+        "cancel_accessibility_label": "Bolaykeun édit profil",
+        "edit": "Édit",
+        "edit_accessibility_label": "Édit profil",
+        "email_help_text": "Surélék teu tiasa diédit",
+        "first_name": "Nami payun",
+        "last_name": "Nami pengker",
+        "email": "Surélék",
+        "phone_number_help_text": "Nomer telepon teu tiasa diédit",
+        "save": "Simpen",
+        "save_accessibility_label": "Simpen profil",
+        "title": "Profil",
+        "errors": {
+          "name_too_long": "{{fieldName}} panjang teuing (maksimal 255 karakter)",
+          "name_cannot_contain_url": "{{fieldName}} teu tiasa ngandung URL",
+          "name_cannot_contain_html_tags": "{{fieldName}} teu tiasa ngandung tag HTML",
+          "email_cant_be_blank": "Surélék teu tiasa kosong",
+          "invalid_email_format": "Asupkeun surélék anu valid"
+        }
+      },
+      "verify_current_email_modal": {
+        "cancel_button": "Bolay",
+        "cancel_button_accessibility_label": "Bolaykeun édit profil",
+        "description": "Lebetkeun kodeu 6-angka anu dikirim ka email asli anjeun:",
+        "email_resend_button_accessibility_label": "Kiriman deui kode verifikasi",
+        "title": "Konfirmasi yén anjeun",
+        "verify_button": "Salajengna",
+        "verify_button_accessibility_label": "Verifikasi email anjeun ayeuna"
+      },
+      "verify_new_email_modal": {
+        "title": "Pariosan email énggal anjeun",
+        "description": "Ayeuna, asupkeun kodeu 6-digit anu dikirim ka email anyar anjeun:",
+        "one_time_password_label": "kode 6-digit",
+        "email_resend_button": "Kirim ulang kode",
+        "email_resend_button_accessibility_label": "Kiriman deui kode verifikasi",
+        "verify_button": "Verifikasi",
+        "verify_button_accessibility_label": "Verifikasi Sandi Sakali Paké",
+        "cancel_button": "Bolay",
+        "cancel_button_accessibility_label": "Bolaykeun édit profil",
+        "email_resend_button_success_toast_message": "Kode verifikasi parantos dikintunkeun",
+        "email_resend_button_failure_banner_message": "Teu tiasa ngirim kode vérifikasi"
+      },
+      "marketing_preferences": {
+        "email_label": "Surélék",
+        "pending_confirmation": "Pencét tumbuan dina email anjeun pikeun mastikeun.",
+        "resend_email": "Kintun deui emailna",
+        "resend_email_success": "Tautan parantos dikirim",
+        "title": "Préferénsi pamasaran",
+        "unsubscribe_confirmation": {
+          "cancel": "Bolay",
+          "description": "Anjeun moal nampi deui pamasaran email ti {{shopName}}",
+          "title": "Batalkeun langganan tina email?",
+          "unsubscribe": "Pareuman langganan"
+        },
+        "update_error": {
+          "description": "Aya masalah nalika ngapdet kahoyong pamasaran anjeun. Cobi muat ulang kaca ieu atanapi parios sambungan internét anjeun."
+        },
+        "update_success": "Préferénsi pamasaran parantos diropéa"
+      },
+      "profile_update_confirmation_message": "Propil parantos diropéa",
+      "title": "Profil",
+      "people": {
+        "pagination": {
+          "load_more": "Tuduhkeun deui",
+          "load_more_accessibility_label": "Témbongkeun langkung seueur jalma",
+          "loading_accessibility_label": "Ngamuat jalma"
+        }
+      },
+      "add_button": "Tambihkeun"
     }
   },
   "blocks": {
