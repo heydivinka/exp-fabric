@@ -393,6 +393,101 @@
         "location_nearby": {
           "one": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun",
           "other": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun"
+        },
+        "location_nearby_one_item": {
+          "one": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun",
+          "other": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun"
+        },
+        "location_nearby_other_items": {
+          "one": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun",
+          "other": "Aya %{count} lokasi caket dieu anu nyayogikeun barang anjeun"
+        },
+        "location_nearby_short": {
+          "one": "Aya %{count} lokasi caket dieu kalawan barang anjeun",
+          "other": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun"
+        },
+        "location_nearby_short_one_item": {
+          "one": "Aya %{count} lokasi caket dieu kalawan barang anjeun",
+          "other": "Aya %{count} lokasi caket dieu nu gaduh barang anjeun"
+        },
+        "location_nearby_short_other_items": {
+          "one": "%{count} lokasi caket sareng barang anjeun",
+          "other": "Aya %{count} lokasi caket dieu kalawan barang anjeun"
+        },
+        "location_far_away": {
+          "one": "%{count} lokasi anu cocog sareng barang anjeun",
+          "other": "%{count} lokasi sareng barang anjeun"
+        },
+        "location_far_away_one_item": {
+          "one": "%{count} lokasi anu cocog sareng barang anjeun",
+          "other": "%{count} lokasi sareng barang anjeun"
+        },
+        "location_far_away_other_items": {
+          "one": "%{count} lokasi sareng barang anjeun",
+          "other": "%{count} lokasi sareng barang anjeun"
+        },
+        "toggle_location": "Robah lokasi",
+        "toggle_more_locations": {
+          "one": "%{count} lokasi deui",
+          "other": "%{count} lokasi deui"
+        },
+        "toggle_multiple_locations": "%{count}+ lokasi lianna",
+        "pick_up_location": "Lokasi jemputan",
+        "or": "ATAWA",
+        "cancel": "Bolay",
+        "your_location": "lokasi anjeun",
+        "no_stores_found": "Euweuh toko nu kapanggih",
+        "all_stores_far_away": {
+          "title": "Lokasi pangdeukeutna leuwih ti %{distance} jauhna",
+          "title_with_item": {
+            "one": "Lokasi anu pangdeukeutna nu nyayagikeun barang anjeun nyaéta leuwih ti %{distance} ti %{location}",
+            "other": "Lokasi pangdeukeutna anu ngagaduhan item anjeun langkung ti %{distance} ti %{location}"
+          },
+          "title_with_location": "Lokasi anu pangcaketna téh langkung ti %{distance} ti %{location}",
+          "title_with_specific_location": "Lokasi anu pangdeukeutna nu nyayagikeun item ieu nyaeta leuwih ti %{distance} ti %{location}",
+          "description": "Pilih lokasi atawa %{ship_to_address_link}",
+          "description_with_location": "%{change_location_link} atanapi %{ship_to_address_link}",
+          "ship_to_address_link": "kirim ka alamat",
+          "change_location_link": "Robah lokasi anjeun"
+        },
+        "selected_pickup_option_no_longer_available": {
+          "title": "Lokasi nu ku anjeun dipilih saméméhna ayeuna teu sadia",
+          "description": "Kami parantos milih lokasi anu pangdeukeutna anu gaduh barang anjeun dina stok"
+        },
+        "could_not_resolve_address": "Alamat anjeun teu tiasa kapanggih. Mangga cobian deui atanapi nganggo alamat anu sanés.",
+        "paginator": {
+          "accessibility_label": "Pamaginasi nyokot lokal",
+          "previous": "Kaca saacanna",
+          "next": "Kaca salajengna",
+          "label": {
+            "one": "%{first} - %{last} ti %{count} toko",
+            "other": "%{first} - %{last} tina %{count} toko"
+          }
+        },
+        "reveal_more_label": {
+          "one": "Tunjukkeun %{count} lokasi deui",
+          "other": "Témbongkeun %{count} lokasi séjén"
+        },
+        "no_pickup_locations_found": "Teu kapanggih tempat nyandak",
+        "pickup_unavailable_banner_title": {
+          "one": "Teu aya lokasi nu cocog jeung barang anjeun",
+          "other": "Teu aya lokasi anu cocog sareng barang anjeun"
+        },
+        "pickup_unavailable_banner_title_with_country": {
+          "one": "Henteu aya lokasi di %{country} kalawan barang anjeun",
+          "other": "Teu aya lokasi di %{country} nganggo barang anjeun"
+        },
+        "pickup_unavailable_banner_body": {
+          "try_different_location": "Coba lokasi anu béda",
+          "ship_to_address": "kirim ka alamat",
+          "there_are_no_stores": "Teu aya toko di deukeut alamat anjeun, atanapi barang anjeun teu tiasa dicandak.",
+          "ship_items": "Kirim barang anjeun",
+          "search_elsewhere": "pilari di tempat sanés",
+          "search_elsewhere_standalone": "Pilarian di tempat séjén",
+          "ship_items_or_search_elsewhere": "%{ship_items} atawa %{search_elsewhere}"
+        },
+        "geolocation": {
+          "permission_not_allowed": "idinan ngabagikeun lokasi atanapi milari salianna."
         }
       },
       "datepicker": {
@@ -1460,6 +1555,87 @@
       "payment_errors": {
         "currency": {
           "no_longer_supported": "Mata uang toko henteu dirojong deui."
+        }
+      },
+      "split_delivery": {
+        "accessibility": {
+          "status": {
+            "ship_separately": "%{items} bakal dikintunkeun sacara misah.",
+            "pickup_in_store": "%{items} bakal dicandak di toko.",
+            "remove_items": "%{items} dicabut tina karanjang."
+          }
+        },
+        "all_items": "Sadayana barang",
+        "pickup_all_items": "Candak sadaya barangna",
+        "pickup_and_ship": "Jemput sareng kirim",
+        "ship_all_items": "Kintunkeun sakabéh barang",
+        "separate_pickup_email_notice": "Anjeun bakal nampi email misah nalika pesenan Anjeun parantos siap dicandak.",
+        "items_for_pickup": "Barang-barang nu bade dicokot",
+        "items_for_shipping": "Barang pikeun kiriman",
+        "items_moved_to_shipping_toast": "Barang-barang anu teu tiasa dicandak dipindahkeun ka pengiriman",
+        "delivery_updated_toast": {
+          "shipping_only": "Pesenan anjeun parantos di-update. {{shipping}}",
+          "removal_only": "Pesenan anjeun parantos di-update. {{removal}}",
+          "shipping_and_removal": "Pesenan anjeun parantos di-update. {{shipping}} {{removal}}",
+          "shipping": {
+            "one": "{{count}} barang parantos dipindahkeun kana pangiriman.",
+            "other": "{{count}} barang parantos dipindahkeun kana pangiriman."
+          },
+          "removal": {
+            "one": "{{count}} barang parantos dihapus.",
+            "other": "{{count}} barang parantos dihapus."
+          }
+        },
+        "items_count": {
+          "one": "%{count} barang",
+          "other": "%{count} barang"
+        },
+        "pickup_items_count": {
+          "one": "Ambil %{count} barang",
+          "other": "Paeh %{count} barang"
+        },
+        "ship_items_count": {
+          "one": "Kintun %{count} barang",
+          "other": "Kirim %{count} barang"
+        },
+        "delivery_method": "Metodeu pangiriman beulah",
+        "delivery_method_menu": "Menu métode kiriman misah",
+        "inventory_issue_banner": {
+          "heading": {
+            "cannot_be_picked_up": {
+              "one": "%{count} barang teu tiasa diangkat",
+              "other": "%{count} barang teu tiasa dicokot"
+            },
+            "cannot_be_shipped": {
+              "one": "%{count} barang teu tiasa dikirim",
+              "other": "%{count} barang teu tiasa dikirim"
+            }
+          },
+          "remove_item": {
+            "one": "hapus barang",
+            "other": "miceun barang"
+          },
+          "remove_item_only": {
+            "one": "Pupus barang",
+            "other": "Piceun barang"
+          },
+          "ship_separately": {
+            "one": "Kirimkeunana misah",
+            "other": "Kirimkeun masing-masing"
+          },
+          "pick_them_up_in_store": {
+            "one": "Cokot di toko",
+            "other": "Candak di toko"
+          },
+          "remove_items_or_ship": "%{ship_separately_link} atanapi %{remove_items_link}",
+          "remove_items_or_pickup": "%{pickup_in_store_link} atanapi %{remove_items_link}",
+          "merchandise_line_with_quantity": "%{title} (×%{quantity})"
+        },
+        "cross_border": {
+          "modal": {
+            "heading": "Ganti nagara?",
+            "content": "Lokasi ngajemput sareng pangiriman anjeun kedah aya di nagara anu sami. Ngarobah nagara bakal ngareset sadaya item kana pengiriman barang."
+          }
         }
       }
     },
