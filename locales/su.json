@@ -2356,7 +2356,36 @@
       "reviewItemHeaderChangeValue": "Gentos nilai",
       "reviewItemHeaderSection": "Bagian",
       "reviewItemHeaderValue": "Peunteun",
-      "chooseDate": "Pilih tanggal"
+      "chooseDate": "Pilih tanggal",
+      "clear": "Jelas",
+      "clipboardCopied": "Disalin",
+      "clipboardFailedToCopy": "Gagal nyalin",
+      "closeNotification": "Tutup",
+      "expandNotification": "Témbongkeun deui",
+      "closeModal": "Tutup",
+      "submit": "Kirimkeun",
+      "processing": "Diprosés…",
+      "increase": "Ningkatkeun {{type}}",
+      "decrease": "Ngurangan {{type}}",
+      "minimumReached": "Minimum {{value}} kahontal",
+      "maximumReached": "Maksimum {{value}} kahontal",
+      "january": "Januari",
+      "february": "Pébruari",
+      "march": "Maret",
+      "april": "April",
+      "may": "Méi",
+      "june": "Juni",
+      "july": "Juli",
+      "august": "Agustus",
+      "september": "Séptémber",
+      "october": "Oktober",
+      "november": "Nopémber",
+      "december": "Désémber",
+      "monday": "Senén",
+      "tuesday": "Salasa",
+      "wednesday": "Rebo",
+      "thursday": "Kemis",
+      "friday": "Jumaah"
     },
     "profile_preview_bar": {
       "badge_active": "Aktif",
@@ -2456,7 +2485,8 @@
     "order_details": {
       "pagination": {
         "load_more_accessibility_label": "Témbongkeun deui barang",
-        "loading_accessibility_label": "Ngamuat barang-barang"
+        "loading_accessibility_label": "Ngamuat barang-barang",
+        "load_more": "Tuduhkeun deui"
       },
       "logged_in_account_no_permission_to_order": "Anjeun asup salaku {{email}}. Akun ieu teu boga widi pikeun ngatur pesenan ieu.",
       "log_in_to_a_different_account": "Asup kana akun séjén",
@@ -2498,7 +2528,132 @@
         "returns_accepted": "Ditarima deui",
         "returns_on_eligible_items": "Pangembalian barang anu ngajajap",
         "trusted_delivery": "Pancetitan anu dipercaya"
-      }
+      },
+      "payment": {
+        "voucher": {
+          "pay": "Bayar {{amount}}",
+          "reference_number": "Nomer rujukan:",
+          "section_title": "Pituduh mayar",
+          "show_barcode": "Témbongkeun kode batang",
+          "show_barcode_accessibility_label": "Témbongkeun kode batang (ngabuka jandéla énggal)"
+        },
+        "paid_at_store_chain": "Dibaé di {{storeChain}}"
+      },
+      "paid_with_shop_pay_installments_card": {
+        "title": "Pangéling pambayaran pikeun Angsuran Shop Pay",
+        "paid_with_shop_pay_installments": "Dibayar nganggo Shop Pay Installments",
+        "description": "Tetep dina jadwal pembayaran anjeun kalayan panginget dina aplikasi Shop.",
+        "payment_reminders_button": "Kenging pangémutan pamayaran",
+        "desktop_qr_code_content": {
+          "title": "Scan panginget",
+          "description": "Kénging panginget cicilan anjeun sareng Shop."
+        }
+      },
+      "refunded_amount": "Dipulangkeun deui artosna",
+      "login_card": {
+        "title": "Aksés detil pesenan",
+        "resend_link_and_login": "Pikeun ningali rinci pesenan anjeun, asup atawa kirim tautan anyar ka email atawa nomer telepon nu digunakeun basa mayar.",
+        "resend_link_only": "Pikeun ningali rinci pesenan anjeun, kirimkeun tumbu énggal ka email atanapi nomer telepon anu dianggo nalika checkout.",
+        "log_in": "Asup",
+        "resend_link": "Kintun tautan énggal",
+        "link_expired": "Tumbu kadaluarsa"
+      },
+      "remaining_amount": "Sésana",
+      "marketing_section_title": "Warta sareng tawaran-tawaran",
+      "marketing_checkbox_label": "Surel abdi kalayan béja sareng tawaran",
+      "marketing_checkmark_label": "Anjeun nyetel pikeun nampi warta sareng panawaran via email",
+      "marketing_pending_confirmation": "Pencét tumbuan dina email anjeun pikeun mastikeun.",
+      "marketing_resend_email": "Kintun deui emailna",
+      "marketing_resend_email_success": "Tautan parantos dikirim",
+      "returns": {
+        "expand_events_label": "Tuduhkeun rinci na",
+        "hide_events_label": "Sumputkeun detil",
+        "ineligible_return_message": "Teu aya barang dina urutan ieu nu tiasa dipulangkeun.",
+        "ineligible_return_message_when_returned": "Euweuh barang tambahan dina pesenan ieu anu tiasa dibalikkeun.",
+        "print_shipping_label": "Cetak label pengiriman",
+        "tracking_number": "Nomer palacak:",
+        "exchange_header": "Paeuhan barang-barang",
+        "exchange_subheader": "Barang tukeur bakal ditambahan kana pesenan saatos prosés pamulangan réngsé."
+      },
+      "shipping": {
+        "address": "Alamat pengiriman",
+        "method": "Métode pangiriman",
+        "method_short": "Métode",
+        "ship_to": "Kirim ka",
+        "summary": "Pangiriman",
+        "free": "Gratis",
+        "one_time": "Sakali kirim",
+        "subscription": "Pengiriman langganan"
+      },
+      "pickup": {
+        "pickup": "Jemputan",
+        "pickup_location": "Lokasi jemputan",
+        "pickup_point": "Titik jemput"
+      },
+      "total_savings": "Total tabungan",
+      "subtitle": "Dikonfirmasi {{date}}",
+      "subtotal_label_with_quantity": {
+        "one": "Subtotal",
+        "other": "Subtotal · {{count}} barang"
+      },
+      "summary_list_title_accessibility_label": "Pesen barang-barang",
+      "summary_title": "Ringkesan Pesenan",
+      "summary_totals_title_accessibility_label": "Jumlah pesenan",
+      "shop_order_tracking": {
+        "open_in_shop": "Buka {{shop}}",
+        "track_order_with_shop": "Lacak pesenan di {{shop}}",
+        "animated_intro_value_props": "Manggetan pangumbuhan sacara langsung",
+        "leave_review_with_shop": "Tinggalke ulasan di {{shop}}",
+        "popover_description_pickup_updates": "Manggetan béwara ngokolakeun sacara langsung dina aplikasi Shop",
+        "popover_description_review": "Bagikeun masukan ngeunaan pesenan anjeun dina aplikasi Shop",
+        "popover_description_tracking_updates": "Dangukeun pangawatesan anu mutakhir dina aplikasi Shop",
+        "popover_qr_iframe_title": "Tokoh QR code",
+        "popover_title_leave_review": "Tinggalke ulasan sareng Shop",
+        "popover_title_track_all_orders": "Lacak sakabéh pesenan anjeun ngaliwatan Shop",
+        "popover_title_track_order": "Lacak pesenan anjeun ngaliwatan Shop",
+        "popover_title_track_pickup_order": "Lacak pesenan ambalan anjeun ngaliwatan Shop",
+        "shop_brand_name": "Tokoh",
+        "track_all_your_orders_with_shop": "Lacak sakabéh pesenan anjeun sareng {{shop}}",
+        "track_pickup_with_shop": "Lacak amsukan sareng {{shop}}"
+      },
+      "edit_summary": {
+        "added": "Ditambahkeun",
+        "removed": "Dicabut",
+        "updated_at": "Pesenan di-update {{date}}",
+        "returned": "Dipulangkeun",
+        "return_line_item_removed": "Dipiceun tina mulangkeun",
+        "custom_discount": "Diskon khusus ({{value}})",
+        "custom_line_discount_added": "Diskon khusus ({{value}}) parantos ditambihkeun",
+        "custom_line_discount_removed": "Diskon khusus ({{value}}) dihapus",
+        "code_discount": "Kode diskon ({{value}})",
+        "discount": "Diskon",
+        "shipping_address": "Alamat pengiriman",
+        "shipping_address_taxes": "Pajeg sateuacanna: {{previousTaxes}} → Pajeg énggalna: {{newTaxes}}",
+        "taxes_none": "Euweuh",
+        "updated": "Diperbarui",
+        "updated_count": {
+          "one": "Pesen parantos di-update sakali",
+          "other": "Pesenan parantos di-update {{count}} kali"
+        },
+        "discount_added": "Diskon ditambahan",
+        "discount_removed": "Diskon dihapus",
+        "discount_updated": "Diskon parantos di-update"
+      },
+      "shop_pay": {
+        "order_completed_with": "Pesenan parantos réngsé sareng",
+        "usdc_rewards_terms": "Tingali pasararat panghargaan USDC"
+      },
+      "taxes": "Pajeg",
+      "taxes_included": "Kaasup {{amount}} pajeg",
+      "duties_and_taxes_included": "Total kaasup tugas jeung pajeg. Teu aya biaya tambahan nalika pangiriman.",
+      "duties": "Kawajiban",
+      "ok_duties_tooltip": "Pesanan ieu dikirim ti nagara sanés, janten bea parantos ditambihan kana total pesenan anjeun.",
+      "error_duties_tooltip": "Pesenan ieu dikirim ti nagara sanés, janten pajak sareng biaya tiasa ditagih nalika pangiriman.",
+      "zero_duties_tooltip": "Pesenan ieu dikirim ti nagara sanés. Pajeg teu dilarapkeun kana pesenan anu nilaina sakieu.",
+      "tip": "Tips",
+      "title": "Pesenan {{name}}",
+      "total": "Jumlah sadayana",
+      "unit_price": "{{price}}/siki"
     },
     "returns_and_cancellations": {
       "request_withdrawal_page": {
@@ -2735,8 +2890,55 @@
         },
         "warning_message_without_replacement": {
           "with_pending_orders_and_subscriptions": "Ngahapus metode pamayaran ieu bakal mangaruhan pamayaran nu geus diidinan sateuacanna. Metode pamayaran ieu tetep bakal ditagih pikeun sésa saldo dina pesenan nu geus aya, tapi anjeun moal nampi pesenan langganan nu bakal datang. Tambahkeun metode pamayaran alternatif pikeun tetep nampi pesenan langganan.",
-          "with_pending_orders": "Ngahapus métode pamayaran ieu bakal ngaleungitkeun tina akun anjeun sareng moal tiasa dianggo deui pikeun pameseran ka hareup. Éta ogé bakal tetep ditagihkeun pikeun saldo nu tacan lunas dina pesenan nu tos aya."
-        }
+          "with_pending_orders": "Ngahapus métode pamayaran ieu bakal ngaleungitkeun tina akun anjeun sareng moal tiasa dianggo deui pikeun pameseran ka hareup. Éta ogé bakal tetep ditagihkeun pikeun saldo nu tacan lunas dina pesenan nu tos aya.",
+          "with_subscriptions": "Ngahapus métode pamayaran ieu bakal mangaruhan pamayaran anu parantos diidinan. Tambahkeun métode pamayaran séjén pikeun neraskeun nampi pesenan anu badé sumping."
+        },
+        "payment_method_selector_placeholder": "Pilih métode pamayaran pangganti (opsional)",
+        "payment_method_selector_no_alternative_payment": "Teu aya métodeu panggantian",
+        "replace_method_with_new_method_description": "Your {{currentPaymentMethodName}} bakal dipupus sareng digentos ku {{newPaymentMethodName}} anjeun.",
+        "error_when_deleting": "Hapunten, aya kasalahan sarta kami henteu tiasa ngahapus metode pamayaran ieu. Mangga cobian deui engké atanapi muat ulang halaman.",
+        "delete_and_replace_button": "Pupus sarta gentos",
+        "delete_and_replace_button_accessibility_label": "Pupus {{currentPaymentMethodName}} teras gentos ku {{newPaymentMethodName}}.",
+        "deleted_successfully": "Métode pamayaran suksés dihapus.",
+        "loading_available_payment_methods_accessibility_label": "Nuju muka cara pembayaran anu sayogi"
+      },
+      "add_payment_method": {
+        "title": "Tambihkeun metode pamayaran",
+        "button_title": "Tambihkeun",
+        "payment_method_added_confirmation": "Métode pamayaran parantos ditambihan",
+        "missing_customer_error": "Aya kasalahan. Mangga cobian deui atanapi kontak tim dukungan.",
+        "replace_mode_warning": "Ngahapus metode pamayaran ieu bakal mangaruhan langganan atanapi pre-order. Gentos ku metode pamayaran alternatip supados tetep nampi pesenan salajengna.",
+        "choose_from_list": "Pilih tina daptar",
+        "add_new_button": "Tambihkeun anyar",
+        "billing_address": {
+          "title": "Alamat tagihan",
+          "add_billing_address_button": "Tambihkeun anyar",
+          "add_billing_address_button_accessibility_label": "Tambih alamat tagihan énggal",
+          "choose_billing_address_from_list_button": "Pilih tina daptar",
+          "choose_billing_address_from_list_button_accessibility_label": "Pilih alamat tagihan tina daptar",
+          "missing_billing_address_error_message": "Punten tangtukeun alamat panagihanana",
+          "default_checkbox": "Atur minangka métode pembayaran standar"
+        },
+        "subscription_contracts": {
+          "title": "Anggo metode pamayaran kanggo pesenan rutin",
+          "more_items": {
+            "one": "{{count}} produk deui",
+            "other": "{{count}} produk deui"
+          },
+          "product_count": {
+            "one": "{{count}} produk",
+            "other": "{{count}} produk"
+          },
+          "product_details": "Rincian produk",
+          "load_more": "Tuduhkeun deui"
+        },
+        "contracts_update_failed": "Gagal ngamutahirkeun sababaraha kontrak langganan",
+        "subscription_contracts_updated": "Diénggalan {{succeeded}} tina {{total}} langganan",
+        "invalid_wallet_type_error": "Tipe dompét teu valid."
+      },
+      "three_d_secure": {
+        "title": "3D Secure",
+        "verification_failed": "Pamayaran anjeun teu tiasa diverifikasi. Cobi deui atanapi anggo metode pamayaran anu sanés."
       }
     },
     "account_menu": {
@@ -3026,6 +3228,46 @@
           "one": "Kartu kado dikirim ku téks."
         }
       }
+    },
+    "payment_method_brands": {
+      "visa": "Visa",
+      "mastercard": "Mastercard",
+      "americanexpress": "American Express",
+      "discover": "Panggihan",
+      "dinersclub": "Diners Club",
+      "jcb": "JCB",
+      "elo": "Euleuh",
+      "visaelectron": "Visa Electron",
+      "maestro": "Maéstro",
+      "forbrugsforeningen": "Forbrugsforeningen",
+      "dankort": "Dankort",
+      "hipercard": "Hipercard",
+      "unionpay": "UnionPay",
+      "laser": "Léser",
+      "shoppay": "Mayar Balanja",
+      "applepay": "Apple Pay",
+      "googlepay": "Google Pay",
+      "paypal": "PayPal",
+      "storecredit": "Kredit toko",
+      "bogus": "Tes gerbang pembayaran",
+      "klarna_pay_now": "Klarna",
+      "klarna_pay_later": "Klarna",
+      "klarna_slice_it": "Klarna",
+      "blik": "BLIK",
+      "ideal": "iDEAL",
+      "klarna": "Klarna",
+      "konbini": "Konbini",
+      "mobilepay": "MobilePay",
+      "paypay": "PayPay",
+      "przelewy24": "Przelewy24",
+      "swish": "Swish",
+      "twint": "TWINT",
+      "vipps": "Vipps",
+      "usdc": "Kripto: USDC",
+      "oxxo": "OXXO"
+    },
+    "privacy_banner": {
+      "cookie_preferences_link": "Préferénsi kukis"
     }
   },
   "blocks": {
