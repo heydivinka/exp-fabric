@@ -1128,7 +1128,10 @@
         "split_by_delivery_method_requires_merchandise_from_single_location": "Pamisah ku metode pangiriman ngabutuhkeun barisan barang masing-masing dieusian tina hiji lokasi.",
         "split_by_delivery_method_unsupported_method_type": "Dipisah dumasar padika pangiriman anu diusahakeun ku jinis padika pangiriman anu henteu dirojong.",
         "split_cart_not_allowed": "Sési teu valid atanapi fitur teu diaktipkeun pikeun toko anu dimaksud.",
-        "split_quantity_per_delivery_line_not_allowed": "Saeutikna hiji lini barang dagangan dicaritake ku sababaraha lini pangiriman."
+        "split_quantity_per_delivery_line_not_allowed": "Saeutikna hiji lini barang dagangan dicaritake ku sababaraha lini pangiriman.",
+        "handle_phone_invalid": "Lebetkeun nomer telepon anu leres",
+        "handle_email_invalid": "Asupkeun surélék anu valid",
+        "email_invalid": "Asupkeun surélék anu valid"
       },
       "payment": {
         "pending_payment": {
@@ -1604,7 +1607,107 @@
         "cashapppay_label": "Cash App Pay",
         "przelewy24_label": "Przelewy24",
         "blik_label": "BLIK",
-        "twint_label": "TWINT"
+        "twint_label": "TWINT",
+        "expired_cards_info": {
+          "one": "Aya %{count} kartu béak, nu tiasa anjeun tingali sareng robih dina akun anjeun.",
+          "other": "Aya %{count} kartu béak tempo, anjeun tiasa ningali tur ngédit di akun anjeun."
+        },
+        "local_payment_method_receiver_notice": "Sanggeus ngalakukeun order, anjeun bakal narima detail pembayaran. Lakukeun pembayaran via ATM atawa online dina waktu {{dueDays}} poé.",
+        "order_edit_banner_title": "Pamayaran sajumlah {{amount_owed}} diperyogikeun",
+        "order_edit_banner_subtitle": "Pesanan anjeun {{order_number}} geus diropéa. Pariksa parobahan ieu, teras bayar pikeun mastikeun pesanan anjeun.",
+        "order_edit_banner_items_added": {
+          "one": "Ditambahkeun",
+          "other": "Ditambahkeun %{count}"
+        },
+        "order_edit_banner_items_removed": {
+          "in_full": "Dicabut",
+          "with_quantities": "Dipiceun {{delta}} tina {{quantity}}"
+        },
+        "order_edit_banner_items_returned": {
+          "in_full": "Balik deui {{quantity}}",
+          "with_quantities": "Dipulangkeun {{delta}} tina {{quantity}}"
+        },
+        "order_edit_banner_items_return_line_item_removed": {
+          "in_full": "Dipiceun tina mulangkeun",
+          "with_quantities": "Dihapus {{delta}} tina balikna"
+        },
+        "order_edit_banner_single_item_added": "Ditambahkeun",
+        "order_edit_banner_multiple_items_added": "Ditambahkeun {{amount}}",
+        "order_edit_banner_single_item_removed": "Dicabut",
+        "order_edit_banner_multiple_items_removed": "Dipiceun {{amount}}",
+        "order_edit_banner_single_item_returned": "Dipulangkeun",
+        "order_edit_banner_multiple_items_returned": "Dipulangkeun {{amount}}",
+        "order_edit_banner_single_item_return_line_item_removed": "Dipiceun tina mulangkeun",
+        "order_edit_banner_multiple_items_return_line_item_removed": "Dipiceun {{amount}} tina mulang",
+        "order_edit_banner_single_item_updated": "Diperbarui",
+        "order_edit_banner_updated_order_label": "Pesenan dianyarkeun",
+        "order_edit_banner_previous_taxes_label": "Pajeg sateuacanna:",
+        "order_edit_banner_new_taxes_label": "Pajeg énggal:",
+        "order_edit_banner_no_taxes_label": "Euweuh",
+        "gift_card_wrapper": {
+          "heading": "Kartu kado",
+          "apply_gift_card_label": "Larapkeun kartu hadiah",
+          "apply_another_gift_card_label": "Larapkeun kartu kado nu sanés",
+          "gift_card_label": "Kartu kado %{identifier}",
+          "payment_tag": "Kartu kado",
+          "add_label": "Tambihan kartu hadiah",
+          "manage_label": "Atur kartu kado"
+        },
+        "gift_card_store_credit": {
+          "add_label": "Tambahkeun kartu hadiah atanapi kiridit toko",
+          "manage_label": "Atur kartu hadiah atanapi kiridit toko"
+        },
+        "gift_card_checkbox_label": "Larapkeun kartu hadiah",
+        "custom_onsite_payment_method_modal": {
+          "title": "Konfirmasi Pembayaran Langsung Ngawujudkeun Kahayang"
+        },
+        "markets_pro_disclaimer_label": "Ku ngirim pesenan anjeun, anjeun satuju mésér ti Global-e salaku padagang rekaman, tunduk kana %{markets_pro_terms} Global-e sareng %{privacy_policy}, sareng ngabagi inpormasi anjeun sareng %{shop_name}.",
+        "markets_pro_disclaimer_terms_and_conditions": "Sarat jeung Katangtuan",
+        "markets_pro_disclaimer_privacy_policy": "Kawijakan Privasi",
+        "markets_pro_disclaimer_terms_and_conditions_title": "Sarat jeung Katangtuan padagang Rékam",
+        "markets_pro_disclaimer_privacy_policy_title": "Kawijakan Privasi Pangusaha Anu Kacatet",
+        "purchase_order_number": {
+          "title": "Nomer PO",
+          "label": "Nomer PO (opsional)"
+        },
+        "alternative_payment_currency_total_notice": "Catetan: anjeun bakal ditagih %{amount_due}.",
+        "alternative_payment_currency_total_manual_payment_notice": "Catetan: total nu dikonversi nyaéta %{amount_due}.",
+        "waiting_on_taxes_message": "Upami pajak anjeun henteu kaétang dina sababaraha detik ka payun, segerkeun halaman.",
+        "waiting_on_taxes_notice": "Ngitung Pajak",
+        "payment_method": "Métode pamayaran",
+        "payment_method_rollup_accessibility_label": "Pilihan métode pamayaran",
+        "expired_payment_method": "Métode pamayaran nu dipilih geus béak mangsana",
+        "payment_method_update_failed": "Métode pamayaran gagal diropéa.",
+        "payment_method_incompatible_with_payment_terms": "Cara pembayaran henteu saluyu sareng sarat pamayaran.",
+        "proposed_gateway_unavailable": "Gateway pamayaran anu diusulkeun teu sayogi",
+        "pay_in_installments_split_pay_short": "4 kali mayar %{amount}",
+        "gift_cards_unavailable": "Kartu hadiah anjeun teu tiasa dianggo kana pesenan ieu deui sareng parantos dihapus",
+        "payment_flexibility_terms_id_mismatch": "Sarat kalenturan pamayaran ID henteu cocog",
+        "payment_option": {
+          "accessibility_label": "Pilih pilihan pamayaran"
+        },
+        "bank_account_type": {
+          "checking": "Dipariksa",
+          "savings": "Tabungan"
+        },
+        "new_bank_account_disclaimer": "Ku ngalengkepan pesenan anjeun, anjeun otorisasi %{shop_name} pikeun ngadebit rekening di handap ieu via ACH pikeun jumlah, sareng dina waktos, anu dipidangkeun.",
+        "bank_account_disclaimer": "Pamayaran ACH tiasa dugi ka 4 dinten damel kanggo diprosés.",
+        "bank_account_choose": "Pilih akun pikeun ngarengsekeun pameseran anjeun kalayan aman",
+        "bank_account_connect_another": "Sambungkeun rekening bank sanésna",
+        "bank_account_connect": "Sambungkeun akun bank",
+        "bank_account_missing": "Rekening bank kedah disambungkeun",
+        "bank_account_generic_error": "Henteu tiasa nambihan rekening bank. Cobi deui engké.",
+        "separate_payments_label": "Barang anjeun ti langkung ti hiji toko. Anjeun bakal ditagih dina %{separate_payments_link}.",
+        "separate_payments_text": "pamayaran kapisah",
+        "payments": "Pamayaran",
+        "add_payment_method": "Tambihkeun metode pamayaran",
+        "add_new_payment_method": "Tambihkeun metode pamayaran anyar",
+        "choose_new_payment_method": "Pilih cara mayar nu énggal",
+        "multiple_primary_payment_not_allowed": "Metode pamayaran henteu valid",
+        "vault_for_payment_later": {
+          "pay_button_label": "Tempatkeun pesenan",
+          "notice": "Anjeun moal ditagih ayeuna. Ku neraskeun pamayaran anjeun, anjeun sapuk yén metode pamayaran anjeun bakal ditagih nalika pesenan anjeun diprosés."
+        }
       },
       "taxes": {
         "vat_number": {
@@ -3277,6 +3380,35 @@
           },
           "label": "Teu aya pangiriman"
         }
+      },
+      "billing": {
+        "billing_address_title": "Tagihan ka",
+        "billing_address_rollup_accessibility_label": "Pilihan tagihan ka",
+        "same_as_shipping": "Sarua jeung alamat pengiriman",
+        "add_address": "Anggo alamat anu sanés",
+        "edit": "Édit",
+        "delete": "Pupus",
+        "address_more": "Peta langkung seueur pikeun alamat ieu",
+        "address_edit": "Édit alamat",
+        "address_delete": "Hapus alamat",
+        "address_confirm": "Naha anjeun yakin hoyong mupus alamat ieu tina akun anjeun?",
+        "address_form": {
+          "add_address": "Tambahkeun alamat",
+          "save": "Simpen",
+          "cancel": "Bolay"
+        }
+      },
+      "company_location": {
+        "location_title": "Lokasi perusahaan",
+        "location_rollup_accessibility_label": "Pilihan lokasi perusahaan"
+      },
+      "payment_summary": {
+        "gift_card_current_balance_notice": "Kasaimbangan ayeuna %{amount}",
+        "credit_card_expires_on_notice": "Kadaluarsa dina %{month}/%{year}",
+        "express_payment_gateway_label": "Ekspresikeun",
+        "manual_payment_gateway_label": "Manual",
+        "billing_address_title": "Alamat tagihan",
+        "free_label": "Gratis"
       }
     },
     "pagination": {
