@@ -3674,8 +3674,67 @@
           "no_name": "Anjeun ngajajapkeun pembatalan ngarwak nilay panyatur anu ngamangku pesenan ieu"
         },
         "cancellation_or_return_title": {
-          "full_name": "Anjeun ngajnyatkeun pembatalan atanapi ngarosan ngagentos nami {{firstName}} {{lastName}} anu ngamangkat pesenan ieu"
+          "full_name": "Anjeun ngajnyatkeun pembatalan atanapi ngarosan ngagentos nami {{firstName}} {{lastName}} anu ngamangkat pesenan ieu",
+          "first_name": "Anjeun ngajajapkeun pembatalan atanapi ngarésérkeun pesenan ieu ngaruntah {{firstName}} anu ngadamel ieu pesenan",
+          "last_name": "Anjeun ngajajapkeun pembatalan atanapi ngarosan ngagantikeun {{lastName}} anu ngamangku pesenan ieu",
+          "no_name": "Anjeun nuju ngajnyatkeun pembatalan atanapi ngarésérkeun pesenan ieu ngarwakilkeun palanggan anu ngadamel pesenan ieu"
+        },
+        "description": {
+          "with_email": "Saban notifikasi anu aya pakaitna sareng ieu pamundut pangbalikan bakal dikintunkeun ka {{email}}",
+          "without_email": "Pangumuman anu patali sareng ieu pamundut pangbalikan moal dikintunkeun kumargi teu aya alamat email anu dipasanggakeun kana ieu pesenan"
+        },
+        "cancellation_description": {
+          "with_email": "Saban notifikasi anu aya pakaitna sareng ieu pamundut pembatalan bakal dikintunkeun ka {{email}}",
+          "without_email": "Pangumuman anu aya pakaitna sareng ieu pamundut pembatalan moal dikintunkeun kumargi teu aya alamat email anu dipasanggakeun kana ieu pesenan"
+        },
+        "cancellation_or_return_description": {
+          "with_email": "Saban notifikasi anu aya pakaitna sareng ieu pamundut bakal dikintunkeun ka {{email}}",
+          "without_email": "Pangumuman anu aya pakaitna sareng ieu pamundut moal dikintunkeun kumargi teu aya alamat email anu dipasanggakeun kana ieu pesenan"
         }
+      },
+      "errors": {
+        "submit_error": "Aya masalah nalika ngolah paménta anjeun. Mangga cobian deui.",
+        "not_authorized_error": "Urang teu tiasa ngarobahkeun barang anu dikintunkeun sacara online. Mangga {{contactUs}} kanggo ngajnyékeun ngintunkeun deui barang.",
+        "not_authorized_cancellation_error": "Urang teu tiasa ngalakukeun pembatalan anjeun sacara online. Mangga {{contactUs}} kanggo nyuhunkeun pembatalan.",
+        "contact_us": "hubungi kami"
+      },
+      "not_found": {
+        "heading": "Aya masalah nalika muka kaca ieu",
+        "content": "Pariksa URL-na atanapi cobi deui sababaraha menit"
+      },
+      "order_not_found": {
+        "heading": "Teu aya pesenan di alamat ieu",
+        "description": "Pariksa URL-na sarta cobi deui"
+      },
+      "estimated_refund_summary_card": {
+        "return_label": "Mulang",
+        "item_subtotal_label": "Subtotal barang",
+        "subtotal_with_count": {
+          "one": "Subtotal · {{count}} barang",
+          "other": "Subtotal · {{count}} barang"
+        },
+        "discount_label": "Diskon",
+        "taxes_label": "Pajeg",
+        "estimated_total_label": "Jumlah perkiraan",
+        "item_selected": {
+          "one": "{{count}} barang",
+          "other": "{{count}} barang"
+        },
+        "refund_policy_notice": "Kasaluyuan ngarosan sareng ngembalikeun artos bakal dumasar kana {{refundPolicy}} kami.",
+        "refund_policy": "kawijakan ngembalikeun duit",
+        "no_policy_notice": "Kasaluyuan ngarosan sareng ngembalikeun artos bakal dumasar kana kawijakan ngembalikeun artos kami.",
+        "free": "Gratis",
+        "restocking_fee_title": "Biaya neundeun deui barang",
+        "return_shipping_fee_title": "Biaya kirim"
+      },
+      "order_action": {
+        "request_return": "Panyuhunkeun mulangkeun barang",
+        "cancel_items": "Batalkeun barang",
+        "return_items": "Balikkeun barang",
+        "cancel_or_return": "Batalkeun atanapi pulangkeun",
+        "cancel_items_accessibility_label": "Batalkeun barang pikeun pesenan {{orderName}}",
+        "return_items_accessibility_label": "Balikkeun barang pikeun pesenan {{orderName}}",
+        "cancel_or_return_accessibility_label": "Batalkeun atawa pulangkeun barang pikeun pesenan {{orderName}}"
       }
     },
     "payment_methods": {
@@ -3866,7 +3925,9 @@
     "account_menu": {
       "signed_in_state": {
         "orders_button": "Pesenan",
-        "profile_button": "Profil"
+        "profile_button": "Profil",
+        "greeting_with_name": "Halo, {{first_name}}",
+        "greeting_without_name": "Akun"
       },
       "location_picker": {
         "sheet_title": "Lokasi-lokasi",
@@ -3881,6 +3942,18 @@
         "account": "Akun",
         "sign_in_with_email": "Asup ku surélék",
         "sign_in": "Asup"
+      },
+      "signed_out_state": {
+        "sheet_title": "Lebet atawa jieun akun",
+        "section_divider": "Cara séjén pikeun asup",
+        "alternate_divider": "ATAWA",
+        "use_email_button": "Anggo waé email",
+        "email_field_label": "Surélék",
+        "orders_button": "Pesenan",
+        "profile_button": "Profil",
+        "shop_login_button": "Asup nganggo Shop",
+        "continue_with_google": "Tuluykeun ku Google",
+        "continue_with_facebook": "Teraskeun ku Facebook"
       }
     },
     "B2B": {
@@ -4334,6 +4407,65 @@
     },
     "privacy_banner": {
       "cookie_preferences_link": "Préferénsi kukis"
+    },
+    "addresses": {
+      "add_button_text": "Tambihkeun",
+      "add_button_accessibility_label": "Tambahkeun alamat",
+      "back_button": "Balik",
+      "back_button_accessibility_label": "Balik deui ngédit alamat {{address}}",
+      "no_addresses_banner": "Teu aya alamat anu ditambahkeun",
+      "address_deleted_notification": "Alamat dipupus",
+      "cancel_adding_address_accessibility_label": "Bolaykeun nambihan alamat",
+      "default_address": {
+        "badge_label": "Standar",
+        "title": "Alamat standar",
+        "title_accessibility_label": "Alamat standar: {{address}}"
+      },
+      "delete_button": "Pupus",
+      "delete_button_accessibility_label": "Pupus {{address}}",
+      "delete_confirmation_button": "Hapus alamat",
+      "delete_confirmation_button_accessibility_label": "Pupus {{address}}",
+      "delete_confirmation_title": "Hapus alamat?",
+      "delete_confirmation_description": "Pesenan nu geus aya moal kapangaruhan.",
+      "edit_button_accessibility_label": "Édit {{address}}",
+      "edit_modal_title": {
+        "default": "Édit alamat",
+        "billing": "Édit alamat tagihan",
+        "shipping": "Robah alamat pangiriman"
+      },
+      "loading_accessibility_message": "Ngamuat alamat",
+      "loading_addresses_accessibility_message": "Ngamuat alamat",
+      "loading_billing_accessibility_message": "Ngamuat alamat tagihan",
+      "loading_finished_accessibility_message": "Kaca alamat énggal parantos dimuat",
+      "loading_shipping_accessibility_message": "Ngamuat alamat kiriman",
+      "pagination": {
+        "load_more": "Tuduhkeun deui",
+        "load_more_accessibility_label": "Témbongkeun alamat sanésna"
+      },
+      "save_new_address_accessibility_label": "Simpen alamat",
+      "title": "Alamat-alamat",
+      "billing_address_dropdown_placeholder": "Alamat tagihan"
+    },
+    "address_form": {
+      "attention_company": "Pausahaan/perhatosan",
+      "attention_help_text": "Ngaran jalmi atanapi jurusan",
+      "auto_complete_close_accessibility_label": "Tutup saran-saran",
+      "auto_complete_title": "Saran",
+      "billing_address": "Anggo salaku alamat panagihan",
+      "cancel": "Bolay",
+      "cancel_accessibility_label": "Bolaykeun ngédit alamat {{address}}",
+      "creation_success_notification": "Alamat ditambihkeun",
+      "default_address": "Ieu alamat standar kuring",
+      "default_address_creation_success_notification": "Alamat standar parantos ditambahkeun",
+      "default_address_update_success_notification": "Alamat standar parantos diénggalan",
+      "loading_add_form_accessibility_message": "Ngamuat formulir alamat énggal",
+      "loading_edit_form_accessibility_message": "Ngamuat formulir édit alamat",
+      "loading_form_accessibility_message": "Ngamuat formulir alamat",
+      "loading_finished_accessibility_message": "Form alamat parantos dimuat",
+      "save": "Simpen",
+      "save_accessibility_label": "Simpen alamat {{address}}",
+      "section_title_accessibility_label": "Tambahkeun alamat",
+      "update_success_notification": "Alamat diropéa"
     }
   },
   "blocks": {
