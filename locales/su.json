@@ -1356,10 +1356,66 @@
           "status": {
             "invalid_number": {
               "se": "Asupkeun nomer PPN Swédia anu sah",
-              "gb": "Asupkeun nomer VAT Britania Raya anu sah"
+              "gb": "Asupkeun nomer VAT Britania Raya anu sah",
+              "at": "Lebetkeun nomer PPN Austria anu valid",
+              "be": "Lebetkeun nomer PPN Bélgia nu sah",
+              "bg": "Lebetkeun nomer PPN Bulgaria anu sah",
+              "hr": "Lebetkeun nomer PPN Kroasia nu sah",
+              "cy": "Asupkeun nomer VAT Siprus nu sah",
+              "cz": "Lebetkeun nomer PPN Céko anu valid",
+              "dk": "Lebetkeun nomer VAT Denmark nu valid",
+              "ee": "Asupkeun nomer PPN Éstonia nu valid",
+              "fi": "Lebetkeun nomer VAT Finlandia anu valid",
+              "fr": "Asupkeun nomer PPN Perancis anu sah",
+              "de": "Lebetkeun nomer VAT Jérman anu sah",
+              "gr": "Lebetkeun nomer PPN Yunani anu valid",
+              "hu": "Lebetkeun nomer PPN Hungaria nu sah",
+              "ie": "Asupkeun nomer PPN Irlandia anu valid",
+              "it": "Asupkeun nomer VAT Italia anu sah",
+              "lv": "Asupkeun nomer PPN Lativia anu sah",
+              "lt": "Lebetkeun nomer PPN Lituania nu valid",
+              "lu": "Asupkeun nomer PPN Luksemburg nu valid",
+              "mt": "Lebetkeun nomer PPN Malta anu valid",
+              "nl": "Lebetkeun nomer PPN Walanda anu sah",
+              "pl": "Lebetkeun nomer VAT Polandia anu sah",
+              "pt": "Asupkeun nomer PPN Portugal anu sah",
+              "ro": "Asupkeun nomer VAT Rumania nu bener",
+              "sk": "Lebetkeun nomer PPN Slowakia nu sah",
+              "si": "Lebetkeun nomer PPN Slovenia anu sah",
+              "es": "Lebetkeun nomer PPN Spanyol anu sah"
             },
             "service_unavailable": "Ladenan validasi teu sayogi",
-            "service_error": "Ladenan validasi teu sayogi"
+            "service_error": "Ladenan validasi teu sayogi",
+            "invalid_format": {
+              "at": "Nomer PPN Austria ngandung AT jeung 9 karakter",
+              "be": "Nomer VAT Bélgia diwangun ku BE sareng 10 karakter",
+              "bg": "Nomer PPN Bulgaria ngandung BG sareng 9-10 karakter",
+              "hr": "Nomer PPN Kroasia ngandung HR sareng 11 karakter",
+              "cy": "Nomer PPN Siprus ngandung CY jeung 9 karakter",
+              "cz": "Nomer PPN Républik Céko ngandung CZ sareng 8-10 karakter",
+              "dk": "Nomer PPN Denmark ngandung DK jeung 8 karakter",
+              "ee": "Nomer PPN Éstonia ngandung EE sareng 9 karakter",
+              "fi": "Nomer VAT Finlandia ngandung FI jeung 8 karakter",
+              "fr": "Nomer VAT Perancis diwangun ku FR sareng 11 karakter.",
+              "de": "Nomer PPN Jérman ngandung DE jeung 9 karakter.",
+              "gr": "Nomer PPN Yunani ngandung EL jeung 9 karakter",
+              "hu": "Nomer PPN Hungaria diwangun ku aksara HU jeung 8 karakter.",
+              "ie": "Nomer PPN Irlandia ngandung IE sareng 8-9 karakter",
+              "it": "Nomer PPN Italia diwangun ku IT sareng 11 karakter",
+              "lv": "Nomer PPN Latvia diwangun ku LV sareng 11 karakter.",
+              "lt": "Nomer PPN Lituania ngandung LT jeung 9-12 karakter",
+              "lu": "Nomer PPN Luksemburg ngandung LU sareng 8 karakter",
+              "mt": "Nomer PPN Malta ngandung MT sareng 8 karakter",
+              "nl": "Nomer PPN Walanda diwangun ku NL sareng 12 karakter",
+              "pl": "Nomer PPN Polandia ngandung PL sareng 10 karakter",
+              "pt": "Nomer PPN Portugal diwangun ku PT sareng 9 karakter",
+              "ro": "Nomer VAT Rumania ngandung RO jeung 10 karakter",
+              "sk": "Nomer PPN Slowakia ngandung SK sareng 10 karakter",
+              "si": "Nomer PPN Slovenia ngawengku SI jeung 8 karakter",
+              "es": "Nomer VAT Spanyol diwangun ku ES sareng 9 karakter",
+              "se": "Nomer PPN Swedia ngandung SE sareng 12 karakter",
+              "gb": "Nomer PPN Britania Raya ngandung GB atanapi XI sarta 5-12 karakter"
+            }
           },
           "accessibility": {
             "status": {
@@ -1371,8 +1427,17 @@
               "service_unavailable": "Teu tiasa mariksa pangecualian PPN",
               "service_error": "Teu tiasa mariksa pangecualian PPN"
             }
-          }
-        }
+          },
+          "field": {
+            "label": "Nomer VAT (opsional)",
+            "tooltip": "Validasi nomer PPN tur sacara otomatis nerapkeun *reverse charge* kana pesenan upami cocog"
+          },
+          "add": "Tambahkeun nomer PPN",
+          "vaulted": "Nomer PPN: %{number}",
+          "badge": "Nomer PPN: %{number}",
+          "domestic_order": "Émprés tina *reverse charge* ngan lumaku pikeun pesenan lintas wates EU. Pajak PPN standar dilarapkeun pikeun pesenan lokal."
+        },
+        "tax_details": "Rincian pajeg tambahan"
       },
       "address_management": {
         "saved_with_store": "Disimpen sareng toko ieu"
@@ -1996,7 +2061,9 @@
       "offsite_payment_failed": {
         "title": "Pamayaran di luar situs gagal",
         "payment_not_processed_title": "Pamayaran gagal",
-        "payment_not_processed_text": "Cobi deui *scan* kode QR-na. Upami tetep henteu tiasa, wartosan karyawan kami sareng cobian nganggo métode pamayaran anu sanés."
+        "payment_not_processed_text": "Cobi deui *scan* kode QR-na. Upami tetep henteu tiasa, wartosan karyawan kami sareng cobian nganggo métode pamayaran anu sanés.",
+        "payment_link_expired_title": "Tumbu pamayaran béak",
+        "payment_link_expired_text": "Cobi scan deui kode QR na."
       },
       "shipping_errors": {
         "shipping_method": "Pilihan pengiriman anjeun parantos robih. Mangga parios deui pilihan anjeun.",
@@ -2624,6 +2691,69 @@
             "permission_not_allowed": "Idinan idu ngabagi lokasi anjeun.",
             "permission_denied": "Lokasimu teu kapanggih. Coba deui."
           }
+        }
+      },
+      "one": {
+        "errors": {
+          "merchandise": {
+            "gift_card_price_must_be_greater_than_zero": "Harga kartu hadiah kedah langkung ageung tibatan 0.",
+            "gift_card_price_must_not_exceed_limit": "Harga kartu kado teu kenging ngaleuwihan %{gift_card_limit}.",
+            "subtotal_limit_reached": "Jumlah maksimum item baris geus kahontal.",
+            "signature_mismatch": "Merchandise signature henteu cocog pikeun garis %{stable_id}."
+          }
+        }
+      },
+      "remote": {
+        "errors": {
+          "only_remote_merchandise_lines": "Tempat mayar ngan ngandung dagangan jarak jauh. Pangalihan ka toko jarak jauh diperyogikeun pikeun ngarengsekeun pamayaran.",
+          "currency_mismatch": "Barang ieu moal tiasa diasupkeun kana karanjang anjeun kusabab ti toko anu nganggo mata uang anu benten.",
+          "currency_mismatch_removal": "Hiji barang dihapus tina karanjang anjeun sabab ti toko nu ngagunakeun mata uang nu béda.",
+          "max_remote_shops_exceeded": "Produk ieu moal tiasa ditambahkeun sabab karanjang anjeun tos pinuh ku produk ti toko lianna."
+        }
+      },
+      "units": {
+        "milligram": "mg",
+        "kilogram": "kg",
+        "milliliter": "ml",
+        "centiliter": "cl",
+        "cubic_meter": "méter kubik",
+        "millimeter": "mm",
+        "centimeter": "cm",
+        "square_meter": "m²",
+        "ounce": "ons",
+        "pound": "lb",
+        "fluid_ounce": "fl oz",
+        "pint": "pt",
+        "quart": "unit",
+        "gallon": "gancang",
+        "inch": "dina",
+        "foot": "kaki",
+        "yard": "enya",
+        "square_foot": "kaki pasagi",
+        "item": "barang"
+      },
+      "memberships": {
+        "delivery_promise_unfulfillable": "Alamat henteu dirojong pikeun kaanggotaan ayeuna.",
+        "items_split_across_locations_unsupported": "Pangiriman Primér henteu sayogi kanggo pesenan anjeun. Pilihan pangiriman anjeun parantos diropéa."
+      },
+      "editor": {
+        "navigation": {
+          "store_logo_accessibility_label": "Pindah ka Toko Online"
+        }
+      },
+      "tooltip": {
+        "accessibility_label_context": "Inpo salengkepna ngeunaan %{context}",
+        "additional_payment_methods": "Métode pamayaran tambahan"
+      },
+      "too_many_requests": {
+        "title": "Teuing seueur percobaan checkout",
+        "body": "Punten antosan sababaraha menit teras cobian deui ti karanjang balanja anjeun.",
+        "body_no_cart": "Mangga antosan sababaraha menit teras cobian deui.",
+        "return_to_cart": "Balik ka karanjang balanja"
+      },
+      "required_extensions": {
+        "errors": {
+          "interaction_required": "Pikeun ngarengsekeun checkout, diperlukeun interaksi éksténsi."
         }
       }
     },
