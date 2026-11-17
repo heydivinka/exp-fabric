@@ -802,8 +802,11 @@
               "expiry_date_label": "Tanggal kadaluwarsa",
               "payment_due_label": "Mayar jatuh tempo",
               "reference_number_label": "Nomer rujukan",
-              "ordered_on_label": "Dipésan tanggal"
-            }
+              "ordered_on_label": "Dipésan tanggal",
+              "description": "Voucher pembayaran %{shop_name}",
+              "logo_text": "Voucher Pembayaran"
+            },
+            "badge_alt": "Tambihkeun kana Apple Wallet"
           },
           "due_notice": "Mayar anjeun saloba %{amount_due} kedah dilakonan dina tanggal %{due_date}.",
           "multibanco": {
@@ -936,6 +939,285 @@
             "name": "Ngaran dina kartu",
             "billing": "Tagihan ka"
           }
+        },
+        "mobilepay_label": "MobilePay",
+        "swish_label": "Swish",
+        "vipps_label": "Vipps",
+        "grabpay_label": "GrabPay",
+        "kcp_creditcard_label": "KCP Kartu Kiridit",
+        "alipay_label": "Alipay",
+        "wechat_pay_label": "WeChat Pay",
+        "wechat_app_label": "WeChat",
+        "oxxo_label": "OXXO",
+        "konbini_label": "Konbini",
+        "satispay_label": "Satispay",
+        "paynow_label": "PayNow",
+        "paypay_label": "PayPay",
+        "scalapay_label": "Scalapay",
+        "usdc_label": "USDC",
+        "usdc_cashback_title": "Cashback %{incentive_percentage}%",
+        "usdc_cashback_additional_info": "Bayar ku USDC dina Base tur kéngingkeun %{incentive_percentage}% deui kana dompét anjeun dina 30 dinten.",
+        "usdc_cashback_terms": "Sarat sareng watesan lumaku",
+        "purchase_options_card_update_agreement_label_html": "Ku ngapdet cara mayar anjeun, anjeun otorisasi pamayaran pikeun pameseran anu ngulang-ngulang atanapi ditunda saluyu sareng <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{cancellation_policy}\" href=\"%{policy_href}\">kawijakan pembatalan</a> toko ieu.",
+        "subscription_card_update_agreement_label": "Ngaganti métode pamayaran bakal ngapdet langganan anjeun jeung pamayaran nu bakal datang.",
+        "subscription_agreement_label": "Aya hiji atawa leuwih barang dina karanjang anjeun mangrupa pameseran ditunda atawa langganan. Ku neraskeun pamayaran, anjeun satuju yén métode pamayaran anjeun bakal otomatis ditagih dina harga jeung frekuensi nu kadaptar dina kaca ieu nepi ka tamat atawa anjeun ngabolaykeun. Sadaya pembatalan tunduk kana %{cancelled}.",
+        "subscription_agreement_cancelled": "kawijakan ngabatalkeun",
+        "subscription_heading": "Pasini lengganan",
+        "subscription_agreement_label_html": "Abdi ngartos yén abdi satuju pikeun ngalanggan. Éta bakal diperpanjang dina harga sareng frekuensi anu ditangtukeun dugi ka béak atanapi \n<a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">dibatalkeun</a>.\n",
+        "purchase_options_agreement_label": "Hiji atawa leuwih barang dina karanjang anjeun mangrupa pameseran anu ditunda atawa diulang. Ku neruskeun pamayaran anjeun, anjeun satuju yén métode pamayaran anjeun bakal otomatis ditagih dina harga sareng frekuensi anu didaptarkeun dina kaca ieu dugi ka réngsé atanapi anjeun ngabatalkeun. Sadaya pembatalan tunduk kana %{cancellation_policy_label}.",
+        "purchase_options_agreement_label_html": "Kuring ngartos yén hiji atanapi sababaraha item dina karanjang abdi mangrupa pameseran anu ditunda atanapi diulang. Ku neraskeun, abdi satuju kana\n<a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">kawijakan pembatalan</a>\nsarta otorisasi anjeun pikeun ngeusi metode pamayaran abdi kalayan harga, frekuensi sareng tanggal anu didaptarkeun dina halaman ieu dugi ka\npesenan abdi kaeusi atanapi abdi ngabolaykeun, upami diidinan.\n",
+        "purchase_options_agreement_label_wallets": "Ku déposerkeun maos bayar, anjeun satuju kana biaya anu bakal datang anu daptar dina ieu kaca sareng %{cancellation_policy_label}.",
+        "purchase_options_subscription_confirmation_title": "Pastiakeun langganan anjeun",
+        "purchase_options_subscription_agreement_label": "Karéta anjeun ngandung langganan anu otomatis diperpanjang. Ku ngaklik \"%{button_label},\" %{consent_text} %{cancellation_instructions}",
+        "purchase_options_subscription_agreement_label_wallets": "Keranjang anjeun ngandung langganan anu diperpanjang sacara otomatis. Ku ngagunakeun pembayaran éksprés, %{consent_text} %{cancellation_instructions}",
+        "purchase_options_subscription_consent_text": "anjeun sacara nyata tur teges sapuk yén anjeun bakal otomatis ditagihkeun jumlah ngulang anu dipidangkeun dina karanjang anjeun (ditambah biaya pengiriman sareng pajak) dugi langganan réngsé atawa anjeun ngabatalkeun.",
+        "purchase_options_subscription_cancellation_instructions": "%{cancel_text} Mangga tingali %{cancellation_policy_label}.",
+        "purchase_options_subscription_cancel_text": "Anjeun tiasa ngabatalkeun iraha waé ku ngaksés akun anjeun atanapi ngahubungi toko.",
+        "change_currency_section_description": "Pilih pilihan mata uang",
+        "no_real_orders_dev_store": "Toko ieu moal tiasa nampi pesenan atanapi pamayaran anu saleresna.",
+        "loading": "Nuju ngamuat pembayaran...",
+        "waiting_on_payment_methods": "Ngalaan métode pamayaran nu sayogi...",
+        "apple_pay_payment_error": "Pamayaran anjeun teu tiasa réngsé. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "taxes_not_included": "Pajak henteu kalebet",
+        "no_taxes_banner_content": "Pajak moal dilarapkeun kana pesenan ieu. Sakali anjeun nampi pamayaran, pajak moal tiasa ditambihan deui.",
+        "paypal": {
+          "connect": "Pencét pikeun nyambungkeun akun PayPal anjeun"
+        },
+        "apple": {
+          "connect": "Klik pikeun nyambungkeun akun Apple Pay anjeun",
+          "not_available": "Apple Pay teu sayogi dina panyungsi ieu. Pikeun nyambungkeun akun Apple Pay anjeun kedah nganggo Safari dina alat Apple."
+        },
+        "google": {
+          "connect": "Pencét pikeun nyambungkeun kana akun Google Pay anjeun",
+          "error_authorizing": "Gagal ngidinan pamayaran"
+        },
+        "account_connected": "Akun nyambung.",
+        "mor_disclaimer_html": "Ku ngaklik di handap sareng ngarengsekeun pesenan anjeun, anjeun satuju mésér barang anjeun ti Global-e salaku padagang rékaman\nkanggo transaksi ieu, dina Global-e <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">Sarat jeung Katangtuan</a>\nsareng <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">Kawijakan Privasi</a>. Global-e mangrupikeun panyadia layanan pamenuhan internasional\nka %{shop_name}\n",
+        "lpm": {
+          "multibanco": {
+            "voucher": {
+              "label": "Multibanco",
+              "codes": {
+                "entity": "Éntitas",
+                "reference_number": "Réferénsi"
+              },
+              "steps": {
+                "pay_at_atm_or_online": "Bayar di ATM Multibanco atanapi ngaliwatan perbankan online anjeun ngagunakeun rincian di handap."
+              }
+            }
+          },
+          "konbini": {
+            "voucher": {
+              "label": "Konbini",
+              "outlets": {
+                "familymart": "FamilyMart",
+                "lawson": "Lawson",
+                "ministop": "Ministop",
+                "seicomart": "Seicomart",
+                "seven_eleven": "7-Eleven"
+              },
+              "codes": {
+                "reference_number": "Kode pembayaran",
+                "confirmation_number": "Kode konfirmasi"
+              },
+              "steps": {
+                "familymart": {
+                  "1": "Di mesin fotokopi, pilih 代金支払い／チャージ (\"Pamentasan / Ngeusi Saldo\")",
+                  "2": "Eusi kode mayar anjeun sarta pencét OK",
+                  "3": "Eusian kode konfirmasi anjeun sarta pencét OK",
+                  "4": "Pariksa detilna sarta pencét 確認 (\"Konfirmasi\") pikeun nyetak slip anjeun",
+                  "5": "Bantunkeun strukna ka kasir dina 30 menit jeung mayar nganggo artos tunai atanapi FamiPay"
+                },
+                "lawson": {
+                  "1": "Di terminal Loppi, pilih 各種番号をお持ちの方 (\"Abdi gaduh nomer\")",
+                  "2": "Eusi kode mayar anjeun sarta pencét 次へ (\"Salajengapna\")",
+                  "3": "Eusian kode konfirmasi anjeun sarta pencét 次へ",
+                  "4": "Pariksa detilna sarta pencét はい (\"Sumuhun\") pikeun nyetak slip anjeun",
+                  "5": "Bantunkeun kuwitna ka kasir dina 30 menit sarta mayar nganggo artos tunai"
+                },
+                "ministop": {
+                  "1": "Di terminal Loppi, pilih 各種番号をお持ちの方 (\"Abdi gaduh nomer\")",
+                  "2": "Eusi kode mayar anjeun sarta pencét 次へ (\"Salajengapna\")",
+                  "3": "Eusian kode konfirmasi anjeun sarta pencét 次へ",
+                  "4": "Pariksa detilna sarta pencét はい (\"Sumuhun\") pikeun nyetak slip anjeun",
+                  "5": "Bantunkeun kuwitna ka kasir dina 30 menit sarta mayar nganggo artos tunai"
+                },
+                "seicomart": {
+                  "1": "Di kasir, wartoskeun ka kasirna インターネット支払い (\"internet payment\")",
+                  "2": "Eusi kode mayar anjeun dina layar palumer sareng pilih 登録 (\"Eusi\")",
+                  "3": "Eusian kode konfirmasi anjeun sarta pilih 登録",
+                  "4": "Pariksa detilna sarta pilih Oke",
+                  "5": "Bayar nganggo duit tunai"
+                },
+                "seven_eleven": {
+                  "1": "Di kasir, pencét Témbongkeun kode batang sangkan tiasa di-scan ku petugas kasir"
+                },
+                "1": "Bantun kode pembayaran sareng kode konfirmasi ka terminal atanapi kasir toko, teras bayar nganggo artos tunai sateuacan voucherna kalilipatan."
+              },
+              "pay": "Bayar %{amount}",
+              "choose_outlet": "Pilih Konbini pikeun ningali kode anjeun sareng cara mayarna",
+              "expires_at": "Nyéép %{date}",
+              "expiry_date_time": "%{date} tabuh %{time} JST",
+              "expired_title": "Kode pembayaran parantos kedaluwarsa",
+              "expired": "Geus payu %{date}",
+              "copy_code": "Salin %{label}",
+              "code_copied": "Disalin",
+              "show_barcode": "Témbongkeun kode batang",
+              "keep_receipt": "Simpen kuitansi anjeun salaku bukti pembayaran",
+              "view_instructions": "Tingali paréntah mayar",
+              "view_instructions_accessibility_label": "Tingali instruksi pembayaran (buka dina tab énggal)"
+            }
+          },
+          "oxxo": {
+            "voucher": {
+              "label": "OXXO",
+              "number": "Nomer rujukan",
+              "steps": {
+                "scan_barcode_at_oxxo": "Pindai barcode di OXXO anu pangcaketna."
+              },
+              "barcode_alt": "Barcode kupon OXXO pikeun nomer referensi %{reference_number}"
+            }
+          }
+        }
+      },
+      "taxes": {
+        "vat_number": {
+          "status": {
+            "invalid_number": {
+              "se": "Asupkeun nomer PPN Swédia anu sah",
+              "gb": "Asupkeun nomer VAT Britania Raya anu sah"
+            },
+            "service_unavailable": "Ladenan validasi teu sayogi",
+            "service_error": "Ladenan validasi teu sayogi"
+          },
+          "accessibility": {
+            "status": {
+              "validating": "Nomer PPN nuju divalidasi",
+              "valid": "Nomer PPN sah",
+              "applied": "Bebas PPN parantos diterapkeun",
+              "domestic": "Bebas PPN teu lumaku",
+              "invalid_number": "Pangurangan pajeg GAGAL",
+              "service_unavailable": "Teu tiasa mariksa pangecualian PPN",
+              "service_error": "Teu tiasa mariksa pangecualian PPN"
+            }
+          }
+        }
+      },
+      "address_management": {
+        "saved_with_store": "Disimpen sareng toko ieu"
+      }
+    },
+    "pagination": {
+      "previous": "Samemehna",
+      "next": "Salajengna"
+    },
+    "links": {
+      "powered_by_shopify": "Didukung ku Shopify",
+      "learn_more": "Diajar deui"
+    },
+    "feed": {
+      "more": "Deui"
+    },
+    "attributes": {
+      "email": "surélék",
+      "password": "sandi",
+      "password_confirmation": "Konfirmasi sandi",
+      "first_name": "nami payun",
+      "last_name": "nami pengker",
+      "body": "awak",
+      "signature": "Alamat"
+    },
+    "addresses": {
+      "zip_code": "Kode pos",
+      "postal_code": "Kode pos",
+      "postcode": "Kode pos",
+      "pincode": "Kode Pos",
+      "region": "Wewengkon",
+      "prefecture": "Préfektur",
+      "province": "Propinsi",
+      "state": "Nagara",
+      "state_and_territory": "Propinsi/téritori",
+      "county": "Bupatén",
+      "emirate": "Émirat",
+      "governorate": "Provinsi",
+      "confirm": "Naha anjeun yakin hoyong mupus alamat ieu?"
+    },
+    "collections": {
+      "sorting": {
+        "manual": "Unggulan",
+        "best_selling": "Panglarisna",
+        "az": "Sacara abjad, A-Z",
+        "za": "Sacara abjad, Z-A",
+        "price_ascending": "Harga, handap ka luhur",
+        "price_descending": "Harga, luhur ka handap",
+        "date_ascending": "Tanggal, ti baheula ka ayeuna",
+        "date_descending": "Tanggal, panganyarna ka pangkolotna",
+        "most_relevant": "Paling relevan"
+      }
+    },
+    "errors": {
+      "blank": "teu tiasa kosong",
+      "blocked_address": "Lokasi ieu henteu dirojong",
+      "credit_card_session_expired": "Otorisasi kartu kiridit parantos béak, mangga lebetkeun deui inpormasi pamayaran anjeun. Kartu anjeun henteu acan ditagih.",
+      "empty": "teu kaci kosong",
+      "invalid_email": "kedah alamat surélék anu leres",
+      "discount_disabled": "Diskon ieu geus dinonaktipkeun",
+      "discount_expired": "Diskon ieu geus teu lumaku.",
+      "discount_limit_reached": "Diskon ieu geus beak wates pamakéanana",
+      "discount_not_found": "Teu tiasa mendakan diskon anu valid anu cocog sareng kode anu dilebetkeun",
+      "customer_already_used_once_per_customer_discount_notice": "Diskon ieu geus beak wates pamakéanana",
+      "gift_card_already_applied": "Kode parantos diterapkeun kana karanjang balanja anjeun",
+      "gift_card_code_invalid": "Kodeu teu valid",
+      "gift_card_currency_mismatch": "Kartu kado ieu teu tiasa dianggo kanggo pameseran ieu. Kontak %{shop_name} kanggo dicitak deui.",
+      "gift_card_depleted": "Teu aya sésa dana dina kartu hadiah ieu",
+      "gift_card_disabled": "Kartu hadiah dipareuman",
+      "gift_card_expired": "Kartu hadiahna béak mangsana",
+      "invalid": "teu valid",
+      "bad_domain": "ngandung ngaran domain anu teu valid",
+      "taken": "geus aya nu boga",
+      "contains_html_tags": "teu tiasa ngandung tag HTML",
+      "too_short": "pondok teuing (saeutikna %{count} karakter)",
+      "too_long": "kapapanjangan (maksimalna %{count} karakter)",
+      "password_mismatch": "kedah cocog sareng kecap akses nu disadiakeun",
+      "contains_spaces": "dimimitian atawa ditungtungan ku spasi.",
+      "invalid_for_country": "henteu sah pikeun %{country}",
+      "invalid_for_country_and_province": "teu sah pikeun propinsi %{province} sareng nagara %{country}",
+      "invalid_province_in_country": "sanés propinsi anu sah di %{country}",
+      "invalid_state_in_country": "sanés nagara bagian anu sah di %{country}",
+      "invalid_region_in_country": "sanés mangrupikeun daérah anu valid di %{country}",
+      "less_than_or_equal_to": "kedah kirang ti atanapi sami sareng %{count}",
+      "not_supported": "teu dirojong",
+      "full_name_required": "Lebetkeun ngaran hareup sareng ngaran tukang",
+      "invalid_for_card_type": "henteu sah",
+      "invalid_type": "Hapunten, kami henteu nampi kartu jenis ieu",
+      "invalid_format": "formatna teu valid",
+      "expired": "tos kadaluarsa",
+      "invalid_start_date_or_issue_number_for_debit": "kaperyogikeun tanggal mimiti atawa nomer masalah anu sah",
+      "invalid_expiry_year": "sanés taun béakna anu valid",
+      "reset_password_html": "Alamat email ieu geus pakait sareng akun. Upami akun ieu milik anjeun, anjeun tiasa <a href=\"/account/login#recover\">ngareset sandi anjeun</a>",
+      "verify_email": "Kami parantos ngirim surélék ka %{customer_email}, mangga pencét tautan anu kalebet pikeun verifikasi alamat surélék anjeun.",
+      "verify_email_sent": "Urang parantos ngintun anjeun email, mangga klik tautan anu aya di jerona pikeun ngonfirmasi alamat email anjeun.",
+      "product_not_available": "produk ieu teu diterbitkeun pikeun palanggan ieu.",
+      "shop_404": {
+        "title": "Jieun Website E-commerce sarta Jualan Online! Parangkat Lunak E-commerce ku Shopify",
+        "title_unavailable": "Toko teu sayogi",
+        "heros": {
+          "store_will_be_right_back": "Toko ieu bakal geura-giru dibuka deui",
+          "store_unavailable": "Toko ieu ayeuna nuju teu sayogi.",
+          "store_not_exist": "Toko ieu teu aya.",
+          "no_storefront": "Toko ieu tacan gaduh ramatloka."
+        },
+        "subtitles": {
+          "store_will_be_right_back": "Shopify keur diusahakeun sangkan bisa online deui gancang-gancangna."
+        },
+        "links": {
+          "refresh_page": "Segarkeun ieu kaca",
+          "explore_other_stores": "Jajah toko lianna",
+          "start_free_trial": "Mimitian nyobian gratis"
+        },
+        "status_card": {
+          "eyebrow": "Pitulung pikeun nu boga toko",
+          "header": "Pariksa status Shopify"
         }
       }
     }
