@@ -3225,7 +3225,151 @@
           "other": "Kartu hadiah dikirim via email."
         },
         "delivered_description_gift_card_text": {
-          "one": "Kartu kado dikirim ku téks."
+          "one": "Kartu kado dikirim ku téks.",
+          "other": "Kartu kado dikirim via téks."
+        },
+        "gift_card_resend_button": {
+          "one": "Kirim deui kartu kado",
+          "other": "Kirim deui kartu kado"
+        },
+        "gift_resend_success": {
+          "one": "Kartu hadiah dikirim deui",
+          "other": "Kartu kado dikirim deui"
+        },
+        "gift_resend_failure": {
+          "one": "Aya masalah nalika ngirim deui kartu kado anjeun. Cobian deui atawa kontak kami.",
+          "other": "Aya masalah nalika ngirim deui kartu kado anjeun. Mangga cobian deui atanapi taroskeun ka kami."
+        },
+        "confirmed_gift_card_additional_description": {
+          "one": "Kartu hadiah baris dikirim dina email anu misah.",
+          "other": "Unggal kartu hadiah bakal dikirim dina email anu misah."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "one": "Kartu hadiah bakal dikirim dina téks anu misah.",
+          "other": "Unggal kartu kado bakal dikirim dina téks anu misah."
+        },
+        "status_timestamp": "Diénggalan {{date}}",
+        "estimated_delivery": "Diperkirakeun {{date}}",
+        "was_expected_by": "Diharepkeun ku {{date}}",
+        "delivered": "Dipasrahkeun {{date}}",
+        "buy_with_prime_logo_accessibility_label": "Logo Amazon Balanja nganggo Prime",
+        "in_review_label": "Dina ulasan",
+        "in_review_title": "Pesenan anjeun nuju diulas",
+        "last_updated": "Pembaruan terakhir {{date}}",
+        "multiple_shipments_label": "Sababaraha kiriman",
+        "multiple_statuses_label": "Sababaraha status pesenan",
+        "tracking_number": {
+          "one": "Nomer pelacak",
+          "other": "Nomer lacak"
+        },
+        "on_its_way_label": "Dina perjalanan",
+        "out_for_delivery_label": "Nuju di kirim",
+        "resume_tracking": "Lacak CV",
+        "submitted_label": "Diajukeun",
+        "submitted_description": "Tilik deui pesenan sareng detil pamayaran.",
+        "there_was_a_problem_label": "Aya masalah",
+        "track_shipment": "Lacak pangiriman",
+        "request_return": "Panyuhunkeun mulangkeun barang",
+        "view_order_for_details": "Tingali pesenan kanggo detilna",
+        "external_promise_manage_button_label": {
+          "buy_with_prime": "Atur dina Amazon"
+        },
+        "amazon_buy_with_prime": {
+          "order_tracking_link": {
+            "text": "Atur sareng Amazon",
+            "new_window_disclaimer": "(muka jandela anyar)"
+          }
+        },
+        "delivery_promise_v2": {
+          "promise_line": {
+            "shop_promise_brand_label": "Pangiriman dijamin ku",
+            "external_promise_brand_label": "Dikirim ku",
+            "not_delivered_by_label": "Dikirim saatos {{date}}",
+            "delivery_guarantee_expired_label": "Garansi pangiriman béak",
+            "modal_accessibility_button_label": "Rincian jangji pangiriman",
+            "download_shop_app_button_label": "Unduh Toko pikeun nyukcruk",
+            "track_with_shop_button_label": "Jalur sareng Toko",
+            "claim_shop_cash_button_label": "Klaim Kas Toko"
+          },
+          "details_modal": {
+            "title": "Jaminan pangiriman",
+            "active_delivery_guarantee_label": "Pangiriman ku {{date}}",
+            "expired_shop_promise_guarantee_description": "Jaminan Shop Promise pikeun ieu pesenan parantos réngsé.",
+            "expired_badge_label": "Kadaluwarsa",
+            "order_includes_guarantees_label": "Pesenan anjeun ngawengku {{deliveryAgreementsCount}} jaminan",
+            "order_includes_guarantees_description": "Shop Promise ngajamin pangiriman gancang sareng tiasa diandelkeun. Kéngingkeun Shop Cash upami pesenan anjeun sumping saatos {{date}}.",
+            "delivered_after_label": "Dikirim saatos {{date}}",
+            "delivered_after_description": "Kusabab pesenan anjeun telat dugi, anjeun layak pikeun ngaku {{amount}} Shop Cash.",
+            "claimed_shop_cash_description": "Margi pesenan ieu dugi telat, anjeun ngaklaim {{amount}} Shop Cash.",
+            "eligible_to_claim_shop_cash_description": "Kusabab pesenan anjeun telat dugi, anjeun layak pikeun ngaku {{amount}} Shop Cash.",
+            "learn_more_button_label": "Diajar deui",
+            "claim_shop_cash_button_label": "Klaim Kas Toko",
+            "view_balance_in_shop_button_label": "Tingali kasaimbangan di Toko",
+            "scan_to_claim_shop_cash_label": "Scan pikeun ngaklaim {{amount}} Shop Cash",
+            "buyer_trust_description": "Shop Promise ngajelarkeun toko-toko anu nyadi pilihan utama kalayan pangiriman anu énggal tur bisa dipercaya, sarta ngarojong ngarocas barang anu dipercaya, supados anjeun tiasa ngambang kalayan tenang."
+          }
+        },
+        "delivery_promise": {
+          "promise_line": {
+            "single_brand_label": "Pangiriman dirojong ku",
+            "mixed_brands_label": "Pangiriman dijamin",
+            "not_delivered_by_label": "Henteu dikirimkeun ku {{date}}",
+            "modal_accessibility_button_label": "Rincian jangji pangiriman"
+          },
+          "claim_shop_cash_cta": {
+            "has_shop_app_label": "Candak Shop Cash anjeun",
+            "no_shop_app_label": "{{appDownloadLink}} pikeun ngaku Shop Cash",
+            "download_shop_app_label": "Unduh Toko"
+          },
+          "details_modal": {
+            "title": "Pangiriman dirojong ku",
+            "modal_accessiblity_label": "Rincian jangji pangiriman",
+            "delivery_guarantee_label": "Jaminan pangiriman",
+            "delivery_by_label": "Pangiriman ku {{date}}",
+            "delivery_guaranteed_by_label": "Pangiriman dijamin ku {{date}}",
+            "shop_cash_claim": {
+              "may_be_eligible_label": "Shop Promise ngajamin pangiriman gancang sareng tiasa diandelkeun. Kéngingkeun Shop Cash upami pesenan anjeun telat dugi.",
+              "may_be_eligible_not_authorized_label": "Anjeun tiasa janten layak pikeun ngaku Shop Cash kusabab pesenan ieu dugi telat. Lebet pikeun ningali detil.",
+              "redeemed_label": "Anjeun parantos ngaklaim Shop Cash sabab pesenan ieu telat dugi.",
+              "no_shop_cash_label": "Pesanan ieu teu layak pikeun klaim pangiriman telat sabab henteu dibayar nganggo Shop Pay.",
+              "no_longer_guaranteed_label": "Barang-barang ieu henteu deui dirojong ku jaminan pangiriman.",
+              "claim_shop_cash_title": "Scan pikeun ngklaim {{amount}} dina Shop Cash",
+              "claim_shop_cash_description": "Anjeun tiasa nganggo Shop Cash kanggo pameseran salajengna di aplikasi Shop."
+            }
+          }
+        },
+        "arrives": "Datang {{date}}",
+        "arrives_today": "Nyarita dinten ieu",
+        "arrives_tomorrow": "Dugi énjing",
+        "delivery_estimate_backed_by": "Dirojong ku",
+        "delivery_estimate_delayed_description": "Pangiriman ka wewengkon anjeun langkung laun ti biasana. Pesenan anjeun tiasa dugi telat.",
+        "delivery_estimate_delayed_title": "Ditunda",
+        "delivery_exception_shop_promise_delivered_late_description": "Pesenan anjeun didukung ku Shop Promise. Kusabab datangna telat, klaim {{amount}} dina Shop Cash.",
+        "pickup_address_map_link_accessibility_label": "Tingali lokasi nyandak di {{address}} dina peta (buka jandéla énggal)",
+        "pickup_location_label": "Tempat nyandak:",
+        "predicted_by_shop": "Diprediksi ku Shop",
+        "confirmed_description_awaiting_payment": "Urang bakal nyayagikeun barang-barang ieu saatos mayaranna nuju ditarima."
+      },
+      "fulfillment_status_title": "Status pangiriman: {{status}}",
+      "buy_again": "Beuli deui",
+      "buy_again_accessibility_label": "Meuli deui pikeun pesenan {{orderId}}",
+      "manage": "Ngokolakeun",
+      "manage_accessiblity_label": "Atur pesenan {{orderId}}",
+      "buy_again_review": {
+        "quantity_update": {
+          "heading": "Pangénggalan kuantitas",
+          "body": "Jumlah éntri ieu geus robah sarta geus diropéa dina karanjang anjeun."
+        },
+        "out_of_stock": {
+          "heading": "Stok béak",
+          "body": "Sababaraha barang parantos teu kasedian deui sareng teu dicandak kana keranjang anjeun.",
+          "none_body": "Barang-barang ieu geus teu kasedian deui."
+        },
+        "unavailable_in_market": {
+          "heading": {
+            "one": "Produk teu sayogi",
+            "other": "Produk teu sadia"
+          }
         }
       }
     },
