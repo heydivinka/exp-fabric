@@ -1264,7 +1264,83 @@
               "barcode_alt": "Barcode kupon OXXO pikeun nomer referensi %{reference_number}"
             }
           }
-        }
+        },
+        "shop_pay_hsa": {
+          "eligible_product": "Sarusah HSA/FSA",
+          "mixed_cart_description": "Karét anjeun ngan tiasa ngandung produk anu ngacogk kéngsér HSA/FSA",
+          "mixed_cart_lmn_description": "Anggo kartu pribadi sarta ménta ganti rugi pikeun jumlah anu berhak. Kartu mangpaat bakal ditolak lantaran éta pamandegan teu sagemblengna berhak kana HSA/FSA.",
+          "label": "Abdi hoyong ngagunakeun dana HSA/FSA kanggo ieu pamandegan",
+          "description": "Bayar langsung nganggo kartu mangpaat anjeun, atawa nganggo kartu pribadi sarta ménta penggantian pikeun jumlah anu berhak.",
+          "powered_by_truemed": "Pamentan HSA/FSA anu didukung ku Truemed",
+          "truemed_terms_disclaimer_html": "Ku cara ngagandong, anjeun satuju kana %{terms_link} Truemed sareng ngaku kana %{privacy_link} Truemed",
+          "terms_of_service": "Sarat jeung Katangtuan",
+          "privacy_policy": "Kawijakan Privasi",
+          "eligibility_disclaimer_html": "Kacindekan HSA/FSA nangtukeun ku Truemed. %{terms_link}",
+          "truemed": "Truemed",
+          "view_terms": "Tingali syarat",
+          "login_message": "Asup ka Shop pikeun ngagunakeun dana HSA/FSA anjeun"
+        },
+        "network_card_payment_options": "Pilih jaringan kartu",
+        "network_card_persistence_description": "Jaringan nu dipilih baris disimpen ku métode pamayaran anjeun pikeun transaksi kahareup.",
+        "amazon_payments_label": "Amazon Pay",
+        "amazon_payments_login_hint": "Anjeun bakal dipenta pikeun asup nganggo akun Amazon.",
+        "amazon_payments_logout": "Kaluar tina Amazon Pay",
+        "amazon_payments_failed_mfa_challenge": "Métode pamayaran nu dipilih henteu tiasa dianggo. Punten pilih metode anu sanés atanapi hubungi bank atanapi penerbit kartu anjeun.",
+        "amazon_payments_abandoned_mfa_challenge": "Pamayaran anjeun henteu tiasa réngsé. Cobi nganggo metode pamayaran anu sanés atanapi ngahubungi bank anjeun atanapi penerbit kartu.",
+        "amazon_payments_could_not_enqueue_authorize": "Aya masalah dina ngolah pamayaran anjeun. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "title": "Pamayaran",
+        "amount_left_to_pay_label": "Kedah mayar:",
+        "discount_button_action_label": "Larapkeun Kode Diskon",
+        "discount_codes_removed_summary": {
+          "one": "%{count} kodeu diskon dihapus",
+          "other": "%{count} kodeu diskon dihapus"
+        },
+        "discount_codes_modified_summary": {
+          "one": "%{count} kodeu diskon dirobah",
+          "other": "%{count} kodeu diskon dirobah"
+        },
+        "discount_codes_removed_or_modified_summary": {
+          "one": "%{count} kodeu diskon dihapus atanapi dirobih",
+          "other": "%{count} kodeu diskon dipiceun atawa dirobah"
+        },
+        "discount_show_more_warnings": {
+          "one": "Tuduhkeun %{count} deui",
+          "other": "Tuduhkeun %{count} deui"
+        },
+        "gift_card_code_label": "Kode kartu hadiah",
+        "apply_gift_card_button_label": "Larapkeun",
+        "gift_card_balance_label": "Kasaimbangan:",
+        "supported_card_brands_more_label": "jeung deui…",
+        "detected_card_brand": "Merk kartu kapanggih: {brand}",
+        "credit_card_vaulting_sign_in_banner_title": "Simpen kartu kiridit anjeun",
+        "credit_card_vaulting_sign_in_banner_info": "Asup atawa jieun akun pikeun nyimpen kartu kredit anjeun keur pameseran kahareup.",
+        "credit_card_vaulting_sign_in_banner_button_label": "Asup",
+        "ftd_vault_credit_card_label": "Simpen kartu kiridit ieu ka akun kuring supados leuwih gancang mesenna",
+        "card_number_label": "Nomer kartu",
+        "card_number_placeholder": "Nomer kartu",
+        "bogus_test_checkout": {
+          "title": "Panguji instruksi",
+          "intro": "Anggo ieu nilai-nilai pikeun nguji proses pembayaran anjeun:",
+          "approved_transaction": "{{card_number}} pikeun nyimulasi transaksi anu disatujuan",
+          "declined_transaction": "{{card_number}} pikeun nyimulasi transaksi anu ditolak",
+          "gateway_failure": "{{card_number}} pikeun nyimulasi kagagalan gateway",
+          "additional_instructions": "Anggo tanggal kadaluwarsa mangsa hareup sareng kode kaamanan 3 angka mana waé.",
+          "support_link": "Pikeun pitulung"
+        },
+        "card_pay_with": "Mayar nganggo:",
+        "card_security_notice": "Sadaya transaksi aman sareng énkripsi.",
+        "card_security_vault_notice": "Simkuring peryogi detil anjeun kanggo mayar salajengna. Sadayana transaksi aman tur disandi.",
+        "card_information_notice": "Sadaya transaksi aman sareng énkripsi. Inpormasi kartu kiridit moal pernah disimpen.",
+        "name_on_card_label": "Ngaran dina kartu",
+        "name_on_card_placeholder": "Ngaran dina kartu",
+        "card_nickname_label": "Ngaran Landihan (pilihan)",
+        "card_expired": "Kadaluwarsa",
+        "card_expiry_label": "Tanggal béakna (BB / TT)",
+        "card_expiry_placeholder": "Tanggal béakna (BB / TT)",
+        "credit_card_start_month": "Bulan mimiti",
+        "credit_card_start_year": "Taun mimiti",
+        "delete_customer_mandate_modal_title": "Hapus kartu pamayaran ieu?",
+        "delete_customer_mandate_modal_body": "Upami anjeun ngaluarkeun kartu ieu, anjeun kedah nambihanana deui sateuacan dianggo kanggo pamayaran."
       },
       "taxes": {
         "vat_number": {
@@ -2062,6 +2138,46 @@
         "delete_customer_mandate": {
           "generic_error": "Aya kasalahan nalika ngaprosés paménta anjeun.",
           "success_message": "Métode pamayaran anjeun parantos hasil dipupus"
+        }
+      },
+      "localized_fields": {
+        "additional_information": {
+          "shipping_credential_br": "CPF/CNPJ",
+          "shipping_credential_kr": "Kode Pabean Pribadi",
+          "shipping_credential_cn": "Nomer Induk Penduduk",
+          "tax_credential_it": "Nomer Pajak (pilihan)",
+          "tax_email_it": "PKT (opsional)",
+          "tax_credential_cl": "RUT",
+          "shipping_credential_cl": "RUT",
+          "tax_credential_co": "Kuitansi/PPN",
+          "tax_credential_type_co": "Jenis Idéntitas",
+          "shipping_credential_co": "Kuitansi/PPN",
+          "shipping_credential_type_co": "Jenis Idéntitas",
+          "tax_credential_cr": "Nomer idéntifikasi/RUT",
+          "shipping_credential_cr": "Nomer idéntifikasi/RUT",
+          "tax_credential_ec": "CI/RUC/IVA",
+          "shipping_credential_ec": "CI/RUC/IVA",
+          "tax_credential_gt": "NIN/PPN",
+          "shipping_credential_gt": "NIN/PPN",
+          "tax_credential_id": "NPWP",
+          "shipping_credential_id": "NPWP",
+          "tax_credential_my": "Nomer TIN/Registrasi",
+          "shipping_credential_my": "Nomer TIN/Registrasi",
+          "shipping_credential_mx": "RFC",
+          "tax_credential_mx": "RFC",
+          "tax_credential_type_mx": "Régimén Fiskal",
+          "tax_credential_use_mx": "Mangpaat CFDI",
+          "tax_credential_py": "CI/RUC/IVA",
+          "shipping_credential_py": "CI/RUC/IVA",
+          "tax_credential_pe": "DNI/RUC/CE",
+          "shipping_credential_pe": "DNI/RUC/CE",
+          "tax_credential_pt": "NIP/PPN",
+          "shipping_credential_pt": "NIP/PPN",
+          "tax_credential_es": "DNI/NIF",
+          "shipping_credential_es": "DNI/NIF",
+          "shipping_credential_tw": "Nomer KTP/VAT",
+          "tax_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN",
+          "shipping_credential_tr": "Nomer Induk Pribadi Républik Turki/PPN"
         }
       }
     },
