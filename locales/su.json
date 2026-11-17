@@ -2040,6 +2040,144 @@
           "full_name": "Anjeun ngajnyatkeun pembatalan atanapi ngarosan ngagentos nami {{firstName}} {{lastName}} anu ngamangkat pesenan ieu"
         }
       }
+    },
+    "payment_methods": {
+      "store_credit": {
+        "details_modal": {
+          "events": {
+            "recurring_payment": "Pamentikan anu ngulang"
+          },
+          "expirable_amounts_info": "Jumlah anu béakna leuwih gancang dipaké tiheula nalika checkout",
+          "pagination": {
+            "expirable_transactions_loading": "Nuju ngamuat jumlah anu bakal ngajad kadaluwarsa",
+            "transactions_loading": "Nuju ngamuat transaksi langkung seueur",
+            "load_more_label": "Tuduhkeun deui",
+            "load_more_accessibility_label": "Témbongkeun jumlah anu bakal ngajad kadaluwarsa deui",
+            "load_more_transactions_accessibility_label": "Témbongkeun transaksi langkung seueur",
+            "expirable_transactions_loaded": "Nambaran anu bakal ngajad kadaluwarsa geus ditambahkeun",
+            "transactions_loaded": "Transaksi langkung seueur dimuat"
+          },
+          "expirable_indicator": "{{formattedAmount}} bakal i bereavement",
+          "expirable_indicator_accessibility_label": "{{formattedAmount}} bakal ngarengse. Tingali jumlah anu bakal ngarengse.",
+          "expirable_indicator_with_date_accessibility_label": "{{formattedAmount}} bakal kadaluwarsa dina {{date}}. Tingali jumlah anu bakal kadaluwarsa.",
+          "expires_at": "Nyéép {{date}}",
+          "expirable_transactions_list_accessibility_label": "Transaksi kredit toko anu tiasa kalilungan",
+          "loading_accessibility_message": "Nuju ngamuat rincian kredit toko",
+          "transactions_list_accessibility_label": "Transaksi kredit toko",
+          "transaction_types": {
+            "credit": "Ditambahkeun",
+            "debit": "Dihaséakeun",
+            "debit_revert": "Dipulangkeun deui artosna",
+            "expiration": "Kadaluwarsa"
+          }
+        }
+      },
+      "payment_details": {
+        "title": "Rincian métodeu pamayaran",
+        "credit_card_details_accessibility_label": "ending in {{lastDigits}}",
+        "billing_title": "Alamat tagihan",
+        "card_info_title": "Inpo kartu",
+        "payment_method_expiring_on": "Bakal béak dina {{expiryDate}}",
+        "payment_method_expired_on": "Kadaluarsa dina {{expiryDate}}",
+        "close_payment_modal": "Tutup",
+        "close_payment_modal_accessibility_label": "Tutup modal wincikan métode pamayaran",
+        "payment_method_not_found_error": "Teu tiasa mendakan padika pamayaran",
+        "payment_details_loading": "Ngamuat detil métode pamayaran",
+        "pre_authorized_payments": "Pamayaran anu tos diidinan",
+        "total_amount_of_subscription_line_items_left": "sareng {{total}} deui",
+        "total_amount_of_subscription_line_items_left_accessibility_label": "{{totalItems}} total barang, nembongkeun {{totalItemsToDisplay}} barang.",
+        "next_payment_due": "Pamayaran salajengna {{dueDateInMonthDayYear}}",
+        "edit_payment_method_button": "Édit",
+        "edit_payment_method_button_accessibility_label": "Édit métode pamayaran nu tungtungna {{lastDigits}}",
+        "loading_shop_pay": "Ngamuat Shop Pay",
+        "invalid_payment_method": "Métode pamayaran teu valid",
+        "invalid_payment_method_message": "Anggo kartu kiridit énggal supados teras tiasa nampi pesenan salajengna.",
+        "replace_payment_method": "Gentos métode pamayaran",
+        "checkout_card_banner": "Métode pamayaran ieu ngan tiasa dianggo pikeun pamayaran anu sateuacanna diidinan. Moal némbongan nalika checkout upami anjeun asup ka toko ieu.",
+        "default_checkbox": "Jadikeun standar",
+        "default_checkbox_accessibility_label": "Jadikan métode pamayaran ieu standar",
+        "replace_payment_method_button": "Gentos"
+      },
+      "edit_payment_method": {
+        "title": "Robah métode pamayaran",
+        "save_payment_method_button": "Simpen",
+        "cancel_edit_payment_method_button": "Bolay",
+        "payment_method_updated_toast": "Métode pamayaran parantos diropéa",
+        "generic_error": "Aya kasalahan nalika ngapdet. Mangga cobian deui."
+      },
+      "update_payment_method": {
+        "title": "Énggalan métode pamayaran",
+        "button_title": "Anyaran",
+        "billing_address": "Alamat tagihan",
+        "disclaimer": "Métode pamayaran ieu bakal disimpen kanggo pameseran ka payun sareng tiasa dianggo kanggo pameseran ngulang atanapi ditunda.",
+        "error_message": "Teu tiasa ngapdet métode pamayaran",
+        "subscriptions_title": "Langganan",
+        "pre_orders_title": "Nu bakal datang",
+        "resources_list_accessibility_label": "Produk langganan sareng produk order ngagantung nganggo metodeu pamayaran ieu",
+        "resources_card_scroll": "Gulirkeun pikeun item séjénna",
+        "resources_card_show_more": "Tuduhkeun deui",
+        "resources_card_show_less": "Témbongkeun saeutik",
+        "loading_form_accessibility_message": "Ngamuat formulir pangeusian métode pamayaran",
+        "loading_current_payment_method": "Ngamuat padika mayar ayeuna",
+        "loading_digital_wallets": "Ngamuat pilihan dompét digital",
+        "loading_card_fields": "Ngamuat widang kartu kiridit",
+        "loading_resources": "Ngamuat langganan sareng pesenan anu badé sumping"
+      },
+      "link_expired": {
+        "update_message": "Tautan ieu pikeun ngapdet métode pamayaran anjeun parantos béak.",
+        "add_message": "Tautan ieu pikeun nambihan métode pamayaran anjeun parantos béak.",
+        "return_home_button": "Balik ka kaca utama"
+      },
+      "update_success": {
+        "title": "Métode pamayaran parantos diropéa",
+        "done_button": "Neraskeun balanja"
+      },
+      "add_success": {
+        "title": "Métode pamayaran parantos ditambihan",
+        "done_button": "Neraskeun balanja"
+      },
+      "card_fields": {
+        "card_number_label": "Nomer kartu",
+        "card_number_placeholder": "Nomer kartu",
+        "name_on_card_label": "Ngaran dina kartu",
+        "name_on_card_placeholder": "Ngaran dina kartu",
+        "card_expiry_label": "Tanggal béakna (BB / TT)",
+        "card_expiry_placeholder": "Tanggal béakna (BB / TT)",
+        "card_verification_value_label": "Kode kaamanan",
+        "card_verification_value_placeholder": "Kode kaamanan",
+        "tooltip": {
+          "tooltip_accessibility_label": "Émbaran salajengna",
+          "card_verification_value_explanation_amex": "Kode kaamanan 4-digit dina bagian hareup kartu anjeun",
+          "card_verification_value_explanation_other": "Kode kaamanan 3-angka dina tonggong kartu anjeun",
+          "card_verification_value_explanation": "Kode kaamanan 3-angka biasana aya dina tonggong kartu anjeun. Kartu American Express gaduh kode 4-angka anu aya di hareup.",
+          "card_security_notice": "Sadaya transaksi aman sareng énkripsi."
+        },
+        "field_errors": {
+          "credit_card_name_invalid": "Lebetkeun nami anjeun sapertos nu aya dina kartu anjeun",
+          "credit_card_number_invalid": "Lebetkeun nomer kartu nu valid",
+          "credit_card_expiry_invalid": "Lebetkeun tanggal kadaluwarsa kartu nu valid",
+          "credit_card_verification_value_blank": "Asupkeun CVV atanapi kodeu kaamanan dina kartu anjeun"
+        },
+        "unavailable": {
+          "text": "Pamayaran kartu kiridit sareng debit teu sayogi ayeuna.",
+          "link_text": "Segarkeun ieu kaca",
+          "suffix": "atanapi cobi deui engké."
+        }
+      },
+      "payment_delete": {
+        "title": "Hapus métode pamayaran",
+        "description_without_replacement": "Cara pamayaran ieu moal sayogi deui kanggo pameseran ka hareup.",
+        "description_with_replacement": "Ngahapus métode pamayaran ieu bakal mangaruhan pamayaran anu tos diotorisasi. Anjeun tiasa milih ngagentosna ku métode pamayaran sanés pikeun terus nampi pesenan anu bakal datang.",
+        "warning_message_with_replacement": {
+          "with_pending_orders_and_subscriptions": "Nghapus métode pamayaran ieu bakal mangaruhan pamayaran anu parantos diidinan. Kacuali upami anjeun milih métode pamayaran alternatip, métode pamayaran ieu tetep bakal ditagihkeun pikeun sésa saldo anu teu dibayar dina pesenan anu tos aya. Milih métode pamayaran alternatip bakal ngamungkinkeun anjeun nampi pesenan langganan anu bakal datang tanpa gangguan.",
+          "with_pending_orders": "Ngahapus metode pamayaran ieu bakal ngaleungitkeun tina akun anjeun sareng moal tiasa dianggo deui pikeun pameseran anu bakal datang. Kacuali anjeun milih metode pamayaran sanés, tetep bakal ditagihkeun pikeun sésa saldo anu teu acan dibayar dina pesenan anu tos aya.",
+          "with_subscriptions": "Ngahapus métode pamayaran ieu bakal mangaruhan pamayaran anu tos diidinan. Gentos ku métode pamayaran sanés pikeun terus nampi pesenan anu badé sumping."
+        },
+        "warning_message_without_replacement": {
+          "with_pending_orders_and_subscriptions": "Ngahapus metode pamayaran ieu bakal mangaruhan pamayaran nu geus diidinan sateuacanna. Metode pamayaran ieu tetep bakal ditagih pikeun sésa saldo dina pesenan nu geus aya, tapi anjeun moal nampi pesenan langganan nu bakal datang. Tambahkeun metode pamayaran alternatif pikeun tetep nampi pesenan langganan.",
+          "with_pending_orders": "Ngahapus métode pamayaran ieu bakal ngaleungitkeun tina akun anjeun sareng moal tiasa dianggo deui pikeun pameseran ka hareup. Éta ogé bakal tetep ditagihkeun pikeun saldo nu tacan lunas dina pesenan nu tos aya."
+        }
+      }
     }
   },
   "blocks": {
@@ -2165,5 +2303,64 @@
     "recently_viewed_products": "Nu nembe ditingali",
     "remove_all": "Hapus sadayana",
     "remove_all_items_confirmation": "Hapus sadaya {{ count }} barang tina karanjang anjeun?"
+  },
+  "products": {
+    "size_chart": {
+      "button_label": "Tingali Panduan Ukuran",
+      "close": "Tutup",
+      "unit_cm": "CM",
+      "unit_inch": "Inci",
+      "size": "Ukuran",
+      "chest": "Dada",
+      "waist": "Pinggang",
+      "hip": "Panggulu",
+      "length": "Panjang",
+      "shoulder": "Bahu",
+      "sleeve": "Lengan",
+      "find_size_title": "Mangmilari Ukuran Anjeun",
+      "find_size_desc": "Eusi {{ metric }} anjeun pikeun ngadapatkan ukuran anu disarankeun",
+      "find_size_choose_metric": "Pilih ukuran",
+      "find_size_placeholder": "contona 100",
+      "find_size_button": "Mangmilari Ukuran",
+      "find_size_result": "Ukuran anu disarankeun: {{ size }}",
+      "find_size_reset": "Reset",
+      "all_charts_title": "Pituduh Ukuran Lengkep",
+      "all_charts_subheading": "Manggihan anu pangcocogna pikeun unggal kategori produk Kainara.",
+      "all_charts_empty": "Teu kapanggih tabel ukuran di Admin Shopify.",
+      "charts": {
+        "dress_wanita_kasual": {
+          "title": "Gaun Santai Awewe",
+          "description": "Pituduh ukuran standar pikeun gaun kasual awéwé Kainara."
+        },
+        "dress_wanita": {
+          "title": "Gaun Awéwé",
+          "description": "Pituduh ukuran standar pikeun gaun awé awakeun Kainara."
+        },
+        "kemeja_pria_regular_fit": {
+          "title": "Kemeja Pameget Regular Fit",
+          "description": "Pituduh ukuran standar pikeun kemeja Kainara bapaan regular fit."
+        },
+        "kemeja_pria": {
+          "title": "Kemeja Pameget",
+          "description": "Pituduh ukuran standar pikeun kemeja lalaki Kainara."
+        },
+        "kaos_pria": {
+          "title": "Kaos Pameget",
+          "description": "Pituduh ukuran standar pikeun kaos prik Kainara."
+        },
+        "celana_pria": {
+          "title": "Sélari Pameget",
+          "description": "Pituduh ukuran standar pikeun calana lalaki Kainara."
+        },
+        "outer_unisex_oversized": {
+          "title": "Panganggejayaan Luar Oversized Unisex",
+          "description": "Pituduh ukuran standar pikeun pakéan luar unisex oversized Kainara."
+        },
+        "outer_unisex": {
+          "title": "Panganggejayaan Luar Unisex",
+          "description": "Pituduh ukuran standar pikeun pakéan luar uniseks Kainara."
+        }
+      }
+    }
   }
 }
