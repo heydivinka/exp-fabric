@@ -747,8 +747,19 @@
           "payment_method_saved_company_location": "Simpen kartu pikeun lokasi ieu",
           "company_location": "Lokasi perusahaan",
           "pickup_items_at": {
-            "one": "Angkat %{count} item di"
+            "one": "Angkat %{count} item di",
+            "other": "Candak %{count} barang di"
+          },
+          "ship_items_to": {
+            "one": "Kirim %{count} barang ka",
+            "other": "Kirimkeun %{count} barang ka"
           }
+        },
+        "block_title": "Ulik deui inpormasi anjeun",
+        "item_header": {
+          "change_value": "Gentos nilai",
+          "section": "Bagian",
+          "value": "Peunteun"
         }
       },
       "delivery_options": {
@@ -1555,7 +1566,101 @@
       "payment_errors": {
         "currency": {
           "no_longer_supported": "Mata uang toko henteu dirojong deui."
-        }
+        },
+        "installments": {
+          "retry_same_instrument": {
+            "heading": "Pariksa detil kartu anjeun",
+            "body": "Waladékeun data kartu anjeun atanapi pilih kartu sanés"
+          },
+          "retry_different_instrument": {
+            "heading": "Kartu anjeun ditolak",
+            "body": "Coba deui atawa pilih kartu séjén"
+          },
+          "restart_payment_method": {
+            "heading": "Sési anjeun parantos béak waktosna",
+            "body": "Pilih skema pembayaran pikeun ngamimitian deui"
+          }
+        },
+        "amount_too_small": "Jumlah pamayaran minimal kudu leuwih ti $0.50 USD. Cobi deui ku jumlah anu langkung ageung.",
+        "method_not_available": "Métode pamayaran nu dipénta teu sayogi. Pilih métode pamayaran séjénna teras cobian deui.",
+        "payment_approval_not_verified": "Urang teu tiasa mastikeun persetujuan mayarna. Mangga sahanteun deui pamangkitna atanapi nganggo métode mayar anu sanés.",
+        "payment_approval_expired": "Pangestujuan pembayaran ieu parantos kalapasan. Pangestujuan deui pangadamelanana supados tiasa neraskeun.",
+        "payment_approval_terms_mismatch": "Pangestujuan pembayaran ieu teu luyu sareng total, mata uang, alamat pangiriman, atanapi métode pembayaran ieu transaksi. Pangestujuan pangadamel anu parantos di-update pikeun neraskeun.",
+        "spend_permission_not_covered": "Izin belanja anu dianggo ku nu meuli teu ngawengku ieu pangaksian. Nu meuli tiasa ngaréngsékeun pangaksian nalika ngarobihkeun pesenan.",
+        "spend_permission_over_purchase_limit": "Ijin belanja pamurambang ngabatas maksimal pikeun sakali transaksi, sedengkeun ieu transaksi ngaliwatan watesna.",
+        "spend_permission_not_enough_left": "Ieu pamandegan ngaleuwihan hak belanja anu masih kénéh dipiboga ku nu meuli.",
+        "spend_permission_card_not_covered": "Izin belanja milik pameunteu teu ngawengku kartu ieu.",
+        "spend_permission_paused": "Panyéwa ngajedaan widang ngaluarkeun duit ieu.",
+        "spend_permission_missing": "Pameunte teu gaduh idin ngaluarkeun biaya anu aktif kanggo agen ieu.",
+        "spend_permission_unavailable": "Izin belanja paminson bisa diperiksa. Cobi deui engké.",
+        "local_payment_method_amount_out_of_range": "%{payment_method} ngan saukur bisa dipaké pikeun pembayaran antara %{minimum} jeung %{maximum}.",
+        "local_payment_method_unavailable": "%{payment_method} teu kasedian",
+        "available_methods_updated": "Metode pamayaran anu sayogi parantos diropéa.",
+        "generic_error": "Aya masalah dina ngolah pamayaran anjeun. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "custom_redeemable_no_longer_available": "Penawaran ieu geus teu kasedian deui.",
+        "rejected_transaction": "Pamayaran anjeun ditolak. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "credit_card_processing": "Pamayaran anjeun teu tiasa diprosés kusabab alesan téknis. Cobian deui sababaraha menit atanapi anggo metode pamayaran anu sanés.",
+        "checkout_amount_changed": "Pamayaran anjeun teu tiasa diprosés sabab jumlah anu kedah dibayar nalika checkout parantos robih. Pariksa pesenan anjeun teras cobian deui.",
+        "deferred_payment_not_allowed": "Pamayaran anu ditangguhkeun henteu diidinan. Pariksa pesenan anjeun teras cobian deui.",
+        "deferred_payment_required": "Pesenan ieu merlukeun pamayaran anu ditunda. Pariksa pesenan anjeun teras coba deui.",
+        "deferred_amount_changed": "Pamayaran anjeun teu tiasa diprosés kusabab jumlah pamayaran anu ditunda robih. Pariksa pesenan anjeun teras cobian deui.",
+        "deferred_date_changed": "Pamayaran anjeun teu tiasa diprosés kusabab tanggal pamayaran anu ditunda robih. Pariksa pesenan anjeun teras cobian deui.",
+        "order_total_changed": "Total pesenan anjeun parantos robih. Tinjau deui sareng cobian deui.",
+        "payment_processing": "Pamayaran anjeun teu tiasa diprosés kusabab alesan téknis. Punten cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "payment_processing_no_retry": "Pamayaran anjeun teu tiasa diprosés kusabab alesan téknis. Mangga cobian nganggo métode pamayaran anu sanés.",
+        "paypal_zero_amount": "Anjeun teu tiasa nganggo PayPal kanggo pesenan %{amount}. Pastikeun pesenan anjeun parantos leres teras parios tanpa nganggo PayPal.",
+        "paypal_invalid_token": "PayPal teu sayogi. Cobi deui atanapi anggo pilihan pambayaran sanés.",
+        "pay_later_failed": "Aya kasalahan nalika mayar ku Paylater. Mangga pilih cara mayar sanés teras cobian deui.",
+        "three_d_secure_failed": "Pamayaran anjeun teu tiasa diverifikasi. Cobi deui atawa nganggo metode pamayaran anu sanés.",
+        "three_d_secure_failed_duplicate": "Auténtikasi 3D Secure kartu kiridit gagal kusabab aya oténtikasi sanés anu nuju lumangsung.",
+        "three_d_secure_failed_payment_method": "Kartu anjeun henteu tiasa dipastikeun. Mangga cobian deui atanapi lebetkeun kartu anu sanés.",
+        "three_d_secure_throttled": "Kakehan usaha; antosan sateuacan nyobian deui",
+        "subscription_agreement_blank": "Pikeun ngagaleuh langganan, detil pamayaran anjeun kedah disimpen. Pikeun neraskeun, mastikeun yén anjeun satuju atanapi ngahapus barang langganan tina pesenan anjeun.",
+        "installments_payment_method_incompatible": "Métode pamayaran nu dipilih teu bisa dipaké keur mayar cicilan. Mangga pilih métode pamayaran nu séjén.",
+        "insufficient_funds": "Pamayaran anjeun ditolak kusabab dana teu cekap. Cobi deui atanapi anggo metode pamayaran anu sanés.",
+        "multiple_deferred_payment_not_allowed": "Ngan ukur diidinan hiji pamayaran ditunda per paménta. Parios paménta anjeun teras cobian deui.",
+        "shipping_must_match_billing": "Alamat tagihan kedah sami sareng alamat pangiriman. Anggo metode pamayaran anu sanés.",
+        "shipping_company_required_error": "{{shopName}} peryogi nami perusahaan kanggo alamat pangiriman.",
+        "cancelled_payment": "Pamayaran anjeun dibatalkeun. Cobi deui atanapi nganggo métode pamayaran anu sanés.",
+        "pick_up_card": "Kartu anjeun ditolak. Coba deui atanapi anggo metode pamayaran anu sanés.",
+        "cannot_verify": "Detil pamayaran anjeun teu tiasa diverifikasi. Parios detil kartu anjeun teras cobian deui.",
+        "invalid_customer_account": "Urang teu tiasa ngarobah saldo akun anjeun. Anjeun tiasa nyobian deui saatos ngarengsekeun masalah dina akun anjeun, atanapi ngagunakeun métode mayar anu sanés.",
+        "code_expired": "Kode mayar anjeun parantos kedaluwarsa atanapi parantos dianggo. Anggo deui kode énggal tina aplikasi perbankan anjeun.",
+        "code_invalid": "Kode bayar anjeun teu valid. Pariksa kodenya sarta cobi deui, atanapi angkat kode énggal ti aplikasi perbankan anjeun.",
+        "invalid_number": "Lebetkeun nomer kartu nu valid",
+        "invalid_expiry_date": "Lebetkeun tanggal béakna anu sah",
+        "invalid_cvc": "Lebetkeun kodeu kaamanan anu sah",
+        "missing_cvc": "Asupkeun kodeu kaamanan",
+        "expired_card": "Kartu anjeun parantos seep. Mangga nganggo metode pamayaran sanés.",
+        "payment_method_not_applicable": "Métode pamayaran ieu henteu tiasa dianggo. Anggo métode pamayaran anu sanés.",
+        "card_declined": "Kartu anjeun ditolak. Coba deui atanapi anggo metode pamayaran anu sanés.",
+        "processing_error": "Aya masalah dina ngolah pamayaran anjeun. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "processing_error_checkout_as_guest": "Aya masalah dina ngolah pamayaran anjeun. Cobi deui nganggo metode pamayaran anu sanés atanapi {{checkout_as_guest_link}}.",
+        "selected_payment_method": "Aya masalah dina metode pamayaran nu kapilih jeung anjeun teu acan ditagih. Mangga cobian deui atanapi anggo metode pamayaran nu sanes.",
+        "payment_method_billing_address": "Aya masalah dina alamat panagihan metodeu pamayaran anu dipilih anjeun. Pariksa alamatna teras cobian deui atanapi anggo metodeu pamayaran anu sanés.",
+        "duplicate_autopay_card": "Kartos ieu dikaitkeun sareng cicilan anu badé datang. Mayar nganggo cara sanésna atanapi {{update_payment_details_link}}",
+        "duplicate_autopay_card_link": "ngarobah rincian pembayaran",
+        "duplicate_autopay_card_without_link": "Kartos ieu dikaitkeun sareng cicilan anu bade datang. Mayar nganggo cara sanés.",
+        "call_issuer": "Kartu anjeun ditolak. Anggo metode pamayaran anu sanés atanapi hubungi bank anjeun kanggo inpormasi salengkepna.",
+        "test_mode_live_card": "Toko ieu moal tiasa nampi pesenan atanapi pamayaran anu saleresna.",
+        "test_mode_enabled_only_test_cards": "Mode tés diaktipkeun, ngan kartu kiridit tés nu bisa ditambahkeun.",
+        "transient_error": "Aya masalah dina ngolah pamayaran anjeun. Coba muat ulang halaman ieu atanapi pariksa sambungan internét anjeun.",
+        "missing_shipping_address": "Pamayaran anjeun teu tiasa diprosés kusabab alamat pengiriman anjeun leungit. Tambahkeun alamat pengiriman teras cobian deui.",
+        "invalid_shipping_address": "Pamayaran anjeun teu tiasa diprosés sabab kami teu tiasa mendakan alamat pangiriman anjeun. Pariksa alamat pangiriman anjeun teras cobian deui.",
+        "successful_offsite_with_gift_card_error": "Aya masalah nalika ngolah pamayaran kartu hadiah anjeun. Mangga cobian deui atawa nganggo metodeu pamayaran anu sanés.",
+        "development_store_order_limit_reached": "Anjeun tos dugi ka wates kanggo toko pamekaran pesenan nganggo pamroses pamayaran ieu. Pikeun mesen deui, anjeun kedah nganggo gateway pamayaran uji. Diajar langkung seueur ngeunaan %{development_store_order_testing_docs_link}.",
+        "development_store_with_order_limit": "Pikeun mesen uji coba, anjeun kedah nganggo gateway pamayaran uji coba. Diajar langkung seueur ngeunaan %{development_store_order_testing_docs_link}.",
+        "development_store_order_testing_docs_link": "nguji pesenan di toko pamekaran",
+        "payment_above_threshold": "Jumlah pamayaran ngaleuwihan wates moneter pikeun daérah ieu. Kurangan jumlah totalna teras cobian deui",
+        "risky": "Aya masalah dina ngolah pamayaran anjeun. Cobian deui atanapi anggo metode pamayaran anu sanés.",
+        "expired_buyer_action": "Cara mayar kadaluwarsa. Cobaan deui.",
+        "name_mismatch": "Pariksa detil kartu anjeun. Ngaran dina kartu anjeun sareng alamat panagihan henteu cocog.",
+        "shop_pay_wallet_not_available": "Shop Pay henteu sayogi kanggo pamayaran ieu.",
+        "market_manager_blocks_wallet_payments": "Métode pamayaran henteu dirojong di nagara anjeun.",
+        "paypal_over_capture": "Total pesenan anjeun parantos diropéa. Bayar nganggo {{walletName}} pikeun ngarengsekeun pesenan anjeun.",
+        "captcha_required": "Lebetkeun inpormasi pembayaran sarta réngsékeun captcha pikeun ngarengsekeun pameseran anjeun.",
+        "captcha_required_without_payment_information": "Eusian kaptca pikeun ngarengsekeun pameseran anjeun.",
+        "payment_credential_delegation_error": "Aya kasalahan nalika ngolah pamayaran anjeun. Mangga pilih métode pamayaran nu énggal."
       },
       "split_delivery": {
         "accessibility": {
@@ -1779,6 +1884,185 @@
         "title": "Pamayaran di luar situs gagal",
         "payment_not_processed_title": "Pamayaran gagal",
         "payment_not_processed_text": "Cobi deui *scan* kode QR-na. Upami tetep henteu tiasa, wartosan karyawan kami sareng cobian nganggo métode pamayaran anu sanés."
+      },
+      "shipping_errors": {
+        "shipping_method": "Pilihan pengiriman anjeun parantos robih. Mangga parios deui pilihan anjeun.",
+        "shipping_method_not_available": "Kréta balanja anjeun parantos diropéa sareng barang-barang anu anjeun tambahkeun henteu tiasa dikirim ka alamat anjeun. Piceun barang-barangna pikeun ngalengkepan pesenan anjeun.",
+        "shipping_method_not_available_generic": {
+          "one": "Pesenan anjeun teu tiasa dikirim ka alamat nu dipilih. Mangga parios deui alamatna kanggo mastikeun geus leres teras cobian deui, atanapi pilih alamat nu sanés.",
+          "other": "Sababaraha barang di karanjang anjeun teu tiasa dikirim ka alamat nu diasupkeun. Pariksa deui alamat anjeun pikeun mastikeun bener teras cobian deui, atanapi pilih alamat nu sanés."
+        },
+        "no_delivery_strategy_available": "Pesenan anjeun teu tiasa dikintunkeun ka alamat anu dipilih. Pariksa deui alamat anjeun pikeun mastikeun bener, teras cobi deui, atanapi nganggo alamat anu sanés.",
+        "shipping_method_not_available_due_to_unsatisfied_conditions": "Barang dina karinjang teu cocog jeung sarat harga atawa beurat pikeun ngaktipkeun pangiriman. Punten énggal-énggal ngapdet karinjang anjeun sareng cobian deui.",
+        "shipping_method_not_available_updated": {
+          "one": "Barang nu ditambahkeun teu dikirim ka lokasi anjeun. Hapus kanggo neraskeun mayar, atanapi hubungi toko.",
+          "other": "Hiji atawa leuwih barang nu ditambahkeun ku anjeun teu dikirim ka lokasi anjeun. Hapus barangna pikeun mayar, atawa kontak toko."
+        },
+        "payment_method_not_supported": "Anjeun moal tiasa nganggo metode pamayaran ieu pikeun %{country}. Anggo metode pamayaran anu sanés kanggo ngirim ka nagara ieu.",
+        "empty_state": "Lebetkeun alamat pengiriman anjeun pikeun ningali metodeu pengiriman nu sayogi.",
+        "title": "Pengiriman teu sayogi",
+        "invalid_selected_address": "Alamat pengiriman nu dipilih teu valid",
+        "invalid_selected_address_with_update_link": "Alamat pengiriman anu dipilih teu valid. %{update_address_link} atanapi pilih alamat anu sanés",
+        "unavailable_addresses_only_countries": "Order anjeun ngan ukur tiasa dikirim ka {{countriesList}}. Tambihkeun alamat énggal pikeun neraskeun."
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "Surel abdi kalayan béja sareng tawaran",
+        "post_accept_marketing_checkbox_label": "Anjeun nyetel pikeun nampi warta sareng panawaran via email",
+        "pending_accept_marketing_checkbox_label": "Mangga parios email anjeun pikeun mastikeun langganan anjeun kana warta sareng tawaran-tawaran.",
+        "accept_sms_checkbox_label": "Kirim pesen ka abdi ngeunaan béja sareng nawaran",
+        "accept_whatsapp_marketing_checkbox_label": "Warta sareng tawaran ngaliwatan WhatsApp ka abdi",
+        "disclaimer": {
+          "privacy_policy": "Kawijakan Privasi",
+          "terms_of_service": "Sarat jeung Katangtuan"
+        },
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "Kawijakan Privasi",
+            "terms_of_service": "Sarat jeung Katangtuan",
+            "description_html": "Ku ngadaptar via téks, anjeun satuju nampi talatah pamasaran otomatis anu terusan, kalebet panginget karanjang, ka nomer telepon nu disayogikeun. Idin sanés mangrupikeun kaayaan pameseran. Walon STOP pikeun unsubscribe. Walon HELP pikeun pitulung. Frékuénsi talatah rupa-rupa. Tarif talatah & data tiasa berlaku. Tingali %{privacy_policy_link} sareng %{terms_of_service_link} kami.",
+            "description_transactional_html": "Anjeun tiasa nampi pesen téks nu patali jeung konfirmasi pesenan sareng apdet pangiriman. Walon STOP pikeun lirén langganan. Walon HELP upami peryogi bantosan. Frékuénsi pesen téks rupa-rupa. Biaya pesen téks & data tiasa lumaku. Tingali %{privacy_policy_modal_link} sareng %{terms_of_service_modal_link} kami."
+          },
+          "mobile_phone_number": "Nomer telepon sélulér",
+          "get_offers_by_text": "Meunang tawaran ku téks"
+        },
+        "whatsapp": {
+          "disclaimer": {
+            "description_html": "Ku cara ngadaptoskeun ngaliwatan WhatsApp, anjeun satuju pikeun nampi pesen marketing WhatsApp dina nomer telepon anu disayogikeun. Kasatujuan sanés mangrupikeun syarat ngagandong. Walon STOP pikeun ngaleungitkeun langganan. Ajegna pesen béda-béda. Tarif pesen sareng data tiasa dilarapkeun. Tingali %{privacy_policy_link} sareng %{terms_of_service_link} urang."
+          }
+        },
+        "unsubscribe": {
+          "title": "Anjeun parantos ngabatalkeun langganan",
+          "description": "Moal aya deui panginget karanjang ti kami."
+        },
+        "accept_shop_pay_marketing_checkbox_label": "Ngadaptarkeun abdi pikeun beja jeung tawaran ti toko ieu"
+      },
+      "shop_policies": {
+        "policy_label": "Kawijakan",
+        "policies_label": "Kawijakan",
+        "select_policy_label": "Pilih kawijakan",
+        "refund_policy": "Kawijakan ngabalikeun duit",
+        "privacy_policy": "Kawijakan privasi",
+        "terms_of_service": "Katentuan layanan",
+        "legal_notice": "Bewara hukum",
+        "shipping_policy": "Pangiriman",
+        "terms_of_sale": "Sarat jeung Katangtuan Penjualan",
+        "subscription_policy": "Pembatalan",
+        "purchase_options_policy": "Kawijakan Pilihan Paméséran",
+        "contact_information": "Kontak",
+        "purchase_options_cancellation_policy": "Pembatalan",
+        "cookie_preferences": "Kukis",
+        "terms_and_policies": "Sarat jeung kawijakan"
+      },
+      "remote_policies": {
+        "unavailable_policy": "Taya kawijakan %{policy_name} nu disadiakeun pikeun ieu toko. Pikeun inpo salajengna, mangga ngahubungan %{shop_name} sacara langsung."
+      },
+      "mor_policies": {
+        "terms_and_conditions": "Sarat jeung Katangtuan padagang Rékam",
+        "privacy_policy": "Kawijakan Privasi Pangusaha Anu Kacatet"
+      },
+      "markets": {
+        "invalid_market_manager_error": "Pariksa deui inpormasi kontak anjeun sateuacan mayar"
+      },
+      "notifications": {
+        "title": "Bewara"
+      },
+      "order_payment_collection": {
+        "custom_line_item_description": "Jumlah nu kudu dibayar pikeun pesenan %{order_name}",
+        "changes_summary": {
+          "added": {
+            "one": "Ditambahkeun",
+            "other": "Ditambahkeun %{count}"
+          },
+          "removed": "Dicabut",
+          "subtracted": "Dihapus %{count}",
+          "returned": "Dipulangkeun %{count}",
+          "return_line_item_removed": "Ngahapus %{count} tina pamulangan"
+        },
+        "additional_payment_requested": "Mayar %{total_outstanding} diperyogikeun",
+        "checkout_review_and_pay": "Pesenan sampeyan %{order_name} wis dianyari. Priksani owah-owahan kasebut, banjur bayar kanggo konfirmasi pesenan sampeyan.",
+        "order_updated_on": "Pesenan anjeun parantos diropéa dina %{last_edited_at}.",
+        "order_review_and_pay": "Pesenan anjeun diropéa. Pariksa sareng mayar kanggo mastikeun pesenan anjeun.",
+        "pay_now": "Bayar ayeuna"
+      },
+      "change_currency": {
+        "currency_button_label": "%{currency} (%{currency_symbol})",
+        "credit_card_will_be_charged_html": "Kartu kiridit anjeun bakal dicharge %{amount}",
+        "payment_total_label": "Total bayar",
+        "conversion_rate": "1 %{from_currency_code} = %{rate} %{to_currency_code}",
+        "change_currency_link": "Robah kana %{currency_name}",
+        "card_provider_fx_charges_warning": "Panyadia kartu anjeun tiasa nerapkeun waragad kanggo transaksi %{currency_code}.",
+        "currency_not_supported_by_shop": "Mata uang anu anjeun pilih henteu sayogi. Sadaya harga ayeuna dina %{currency_code}."
+      },
+      "change_country": {
+        "cart_updated_based_on_country": "Karanjang balanja anjeun parantos diropéa dumasar kana nagara pengiriman anjeun.",
+        "cart_and_currency_updated_based_on_country": "Gorobag balanja sareng mata uang anjeun parantos diropéa dumasar kana nagara pengiriman anjeun.",
+        "currency_updated_for_country": "Mata uang diénggalan pikeun %{country}"
+      },
+      "change_cart_localization": {
+        "verify_shipping_address": "Nagara/daérah anjeun parantos diropéa. Asupkeun alamat pangiriman anjeun pikeun neraskeun pamayaran."
+      },
+      "tips": {
+        "title": "Tambihkeun tip",
+        "description": "Tunjukkeun dukungan anjeun ka tim di %{shop_name}",
+        "presets_description": "Pilih persentase tip",
+        "custom_label": "Tip khusus",
+        "add_tip": "Tambihkeun tip",
+        "update_tip": "Perbarui tip",
+        "message": "Hatur nuhun, kami ngahargaan pisan.",
+        "preset_label": "%{tip_percent}%",
+        "no_tip_label": "Euweuh",
+        "not_available_with_spi": "Teu sayogi sareng Shop Pay Installments"
+      },
+      "open_graph_meta_tag": {
+        "title_with_products": {
+          "zero": "Mésér %{product_name}",
+          "one": "Mésér %{product_name} sareng %{count} barang sanésna",
+          "other": "Pésér %{product_name} sareng %{count} barang sanésna"
+        }
+      },
+      "subscriptions": {
+        "recurring_total_intervals": {
+          "day": {
+            "one": "poé",
+            "other": "%{count} dinten"
+          },
+          "week": {
+            "one": "minggu",
+            "other": "%{count} minggu"
+          },
+          "month": {
+            "one": "sasih",
+            "other": "%{count} sasih"
+          },
+          "year": {
+            "one": "taun",
+            "other": "%{count} taun"
+          }
+        },
+        "recurring_totals": "%{total_price} unggal %{interval}",
+        "recurring_totals_with_initial_order_shipping_discount": "Pamayaran munggaran %{total_price_with_discount}, teras %{recurring_total}",
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "one": "Pamayaran kahiji %{total_price}",
+            "other": "%{count} pamayaran munggaran @%{total_price}"
+          },
+          "following_cycles": ", teras %{total_price} unggal %{interval}"
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "one": ", teras %{count} pamayaran dina %{total_price}",
+            "other": ", teras %{count} pamayaran masing-masing %{total_price}"
+          }
+        }
+      },
+      "customer_payment_methods": {
+        "page_title": "Métode pamayaran",
+        "title": "Métode pamayaran",
+        "update_card_button_label": "Update kartu",
+        "delete_customer_mandate": {
+          "generic_error": "Aya kasalahan nalika ngaprosés paménta anjeun.",
+          "success_message": "Métode pamayaran anjeun parantos hasil dipupus"
+        }
       }
     },
     "pagination": {
