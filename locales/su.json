@@ -1634,9 +1634,151 @@
         "cross_border": {
           "modal": {
             "heading": "Ganti nagara?",
-            "content": "Lokasi ngajemput sareng pangiriman anjeun kedah aya di nagara anu sami. Ngarobah nagara bakal ngareset sadaya item kana pengiriman barang."
-          }
+            "content": "Lokasi ngajemput sareng pangiriman anjeun kedah aya di nagara anu sami. Ngarobah nagara bakal ngareset sadaya item kana pengiriman barang.",
+            "country_changed_heading": "Nagari robah",
+            "change_country": "Gentos nagara"
+          },
+          "banner": "Métode pangiriman anjeun parantos diropéa"
         }
+      },
+      "captcha": {
+        "title": "Eusian CAPTCHA pikeun neraskeun",
+        "retry": "Ulal coba CAPTCHA",
+        "errors": {
+          "not_solved": "Eusian CAPTCHA pikeun neraskeun",
+          "load_failed": "CAPTCHA teu tiasa dimuat. Cobi deui."
+        }
+      },
+      "clipboard": {
+        "copied": "Disalin",
+        "failed_to_copy": "Gagal nyalin"
+      },
+      "discount_errors": {
+        "generic_error": "Pesenan anjeun teu tiasa diprosés kusabab kodeu diskon anjeun parantos teu sayogi. Pariksa deui total pesenan anjeun teras cobian deui."
+      },
+      "b2b_errors": {
+        "lost_b2b_purchasing_permissions": "Anjeun henteu deui ngagaduhan idin pikeun nempatkeun pesenan B2B. %{logout_url} pikeun nempatkeun pesenan pribadi.",
+        "log_out_link_text": "Kaluar",
+        "lost_permissions_subtitle": "Anjeun teu gaduh idin deui kanggo mesen B2B. Kaluar pikeun mesen pribadi.",
+        "lost_permissions_title": "Teu aya idin lokasi"
+      },
+      "shop_pay_external": {
+        "title": "Shop Pay Checkout",
+        "errors": {
+          "problem_loading": "Aya masalah nalika muka Shop Pay",
+          "try_again_later": "Pariksa sambungan anjeun atanapi tutup jandela ieu teras cobian deui sababaraha waktos deui.",
+          "checkout_has_expired": "Checkout anjeun kadaluarsa. Tutup jandela ieu tur cobian checkout deui ti {{shopName}}."
+        },
+        "return_to_store": "Balik deui ka {{shopName}}",
+        "return_to_store_simple": "Balik deui ka toko"
+      },
+      "wallets": {
+        "return_to_store": "Balik deui ka toko",
+        "return_to_checkout": "Balik deui ka mayar",
+        "redirect_hint": "<p>Anjeun bakal dipenta pikeun asup nganggo {{walletName}}.</p>",
+        "logged_in": "Nyambung ka {{email}}",
+        "shipping_line_label": "Pangiriman",
+        "payment_in_progress_title": "Mayar dina prosés",
+        "payment_in_progress_body": "Mayar anjeun nuju diprosés. Pesenan anjeun bakal réngsé pas.",
+        "deceleration": {
+          "one_more_step_to_complete_order": "Sakedap deui ngalengkepan pesenan anjeun",
+          "one_more_step": "Sakedap deui...",
+          "split_delivery_notice": "Pesenan anjeun ngawengku barang kanggo dikintun sareng dicandak. Tingali deui rincian pangiriman, teras saksennakeun pesenan anjeun.",
+          "pickup_only_notice": "Pariksa deui tempat nyokotna, tuluy réngsékeun pesenan anjeun."
+        },
+        "continue_with": "Lajengkeun nganggo {{walletName}}",
+        "call_to_action": "Mayar nganggo {{walletName}}",
+        "place_order": "Tempatkeun pesenan",
+        "redirection_notice": "Anjeun bakal dialihkeun ka {{walletName}} pikeun ngarengsekeun pameseran anjeun",
+        "recovery_notice": "Aya masalah dina wincikan pesenan anjeun. Pérbarui inpormasi anjeun pikeun ngabéréskeun pamayaran.",
+        "errors": {
+          "unavailable": {
+            "title": "{{walletName}} teu sayogi",
+            "description": "{{walletName}} teu sayogi. Anggo padika pamayaran nu béda atawa cobian deui engké.",
+            "instructions": "Aya masalah sareng {{walletName}}. Balik deui ka toko pikeun nyobian deui atanapi checkout ku cara anu sanés.",
+            "unavailable_for_country": "{{walletName}} teu sayogi di {{countryName}}. Pilih métode pamayaran séjén pikeun ngarengsekeun pameseran anjeun"
+          },
+          "sdk_load_failure": "Aya masalah ngamuat {{walletName}}. {{refresh_link}} pikeun nyobian deui, atawa ngagunakeun métode pembayaran anu béda.",
+          "refresh_link": "Segeran deui",
+          "unavailable_terminal": {
+            "instructions": "{{walletName}} teu sayogi kanggo pesenan anjeun. Pikeun neraskeun balanja anjeun, pilih métode pamayaran séjén."
+          },
+          "subscription_review_required": "Pesenan anjeun ngawengku langganan. Anjeun kedah mariksa sarat di handap sateuacan ngarengsekeun pesenan anjeun.",
+          "generic": "Aya masalah sareng {{walletName}}. Cobi deui atanapi anggo metode pamayaran anu sanés.",
+          "discount_code": "Kode diskon ieu teu tiasa dianggo. Mangga parios deui kode anjeun teras cobian deui.",
+          "terminal": "Aya masalah jeung {{walletName}}. Anggo métodeu pembayaran nu sanés.",
+          "detour": {
+            "stock_problems": "Sababaraha barang geus teu sayogi. Tutup {{walletName}} teras cobi deui.",
+            "price_change": "Sababaraha harga barang geus robah. Tutup {{walletName}} pikeun nilik deui pesenan anjeun sarta cobian deui.",
+            "queue": "Anjeun geus ditempatkeun dina antrian pikeun checkout. Tutup {{walletName}} pikeun neraskeun.",
+            "currency_change": "Anjeun moal tiasa nganggo alamat sanés nganggo {{walletName}}. Anggo alamat asli, atanapi cobi metode pamayaran anu sanés.",
+            "currency_change_with_country": "{{walletName}} teu tiasa dianggo margi mata uangna parantos robah. Anggo alamat di {{countryName}} atanapi cobi nganggo cara mayar anu sanés."
+          },
+          "unsupported": {
+            "address": "Padagang teu tiasa ngirim ka alamat ieu",
+            "wallet_is_unavailable": "{{walletName}} teu tiasa dianggo sareng alamat ieu. Pilih alamat anu béda atanapi tutup {{walletName}} kanggo ngarengsekeun pameseran",
+            "postal_code": "Lokasi ieu henteu dirojong"
+          },
+          "outdated": {
+            "shipping_method": "Pilihan pengiriman anjeun parantos robih. Mangga parios deui pilihan anjeun.",
+            "payment_terms": "Sarat pamayaranana tos robih. Mangga tilik deui pesenan anjeun."
+          },
+          "invalid": {
+            "shipping_address": "Lebetkeun alamat pengiriman anu valid",
+            "billing_address": "Lebetkeun alamat panagihan nu valid",
+            "shipping_option": "Pilih pilihan pangiriman anu sah",
+            "email": "Asupkeun surélék anu valid",
+            "zone": "Lebetkeun nagara bagian / propinsi anu valid",
+            "billing_zone": "Asupkeun nagara bagian / propinsi alamat tagihan nu valid",
+            "emirate": "Lebetkeun émirat anu sah",
+            "postal_code": "Lebetkeun kodeu pos anu sah",
+            "phone": "Lebetkeun nomer telepon anu leres",
+            "billing_phone": "Lebetkeun nomer telepon alamat tagihan anu leres",
+            "reduction_code": "Lebetkeun kode diskon atanapi kartu hadiah anu sah",
+            "billing_must_match_shipping": "Kedah cocog sareng alamat pangiriman",
+            "billing_zip": "Asupkeun kode pos alamat tagihan anu sah"
+          },
+          "missing": {
+            "first_name": "Asupkeun ngaran payun",
+            "billing_first_name": "Lebetkeun nami hareup alamat tagihan",
+            "last_name": "Lebetkeun nami pengker",
+            "address1": "Lebetkeun alamat",
+            "billing_address1": "Asupkeun alamat tagihan",
+            "address2": "Asup kana apartemen, suite, jsb.",
+            "billing_address2": "Lebetkeun alamat tagihan apartemen, suite, jsb.",
+            "city": "Asupkeun ngaran kota",
+            "billing_city": "Asupkeun kota alamat tagihan",
+            "province": "Pilih nagara bagian / propinsi",
+            "billing_province": "Pilih nagara bagian / propinsi alamat tagihan",
+            "country": "Pilih nagara/wewengkon",
+            "zip": "Asupkeun kode pos",
+            "billing_zip": "Lebetkeun kode pos tagihan",
+            "phone": "Asupkeun nomer telepon",
+            "contact_info": "Lebetkeun informasi kontak"
+          },
+          "formatting": {
+            "name_contains_emojis": "Hapus emoji tina ngaran anjeun",
+            "postal_code_contains_emoji": "Pupus émoji tina kode pos anjeun",
+            "first_name_too_long": "Ngaran hareup ngandung loba teuing aksara",
+            "last_name_too_long": "Nami tukang seueur teuing aksara",
+            "address_too_long": "Alamatna panjang teuing"
+          },
+          "select_different_shipping_address_to_resolve_errors": "Alamat pangiriman anjeun teu valid. Mangga pilih alamat nu sanes atawa nganggo alamat anyar.",
+          "processing_error_checkout_as_guest": "Aya masalah dina ngolah pamayaran anjeun. Cobi deui atanapi {{checkout_as_guest_link}}."
+        },
+        "scrim": {
+          "continue_purchase_in_window": "Teruskeun pameseran anjeun dina jandela {{walletName}}",
+          "and_return_to_checkout": "sareng balik deui ka Checkout",
+          "cancel": "Bolay"
+        }
+      },
+      "note": {
+        "length_exceeds_maximum": "Kirangan ukuran catetan kana 5000 karakter atanapi kirang."
+      },
+      "offsite_payment_failed": {
+        "title": "Pamayaran di luar situs gagal",
+        "payment_not_processed_title": "Pamayaran gagal",
+        "payment_not_processed_text": "Cobi deui *scan* kode QR-na. Upami tetep henteu tiasa, wartosan karyawan kami sareng cobian nganggo métode pamayaran anu sanés."
       }
     },
     "pagination": {
