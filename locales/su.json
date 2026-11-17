@@ -132,19 +132,139 @@
             "phone_number_does_not_match_expected_pattern": "Nomer telepon anu ditangtukeun henteu cocog sareng pola anu diarepkeun.",
             "email_required": "Surélék diperyogikeun nalika mésér dagangan nganggo langganan.",
             "email_domain_is_invalid": "Domain anu ditangtukeun ieu teu tiasa direngsekeun.",
-            "missing_contact_method": "Henteu aya cara ngontak anu valid."
+            "missing_contact_method": "Henteu aya cara ngontak anu valid.",
+            "checkout_completion_target_is_missing": "Target parantosan checkout leungit.",
+            "invalid_customer_profile": "Profil palanggan anu lepat disayogikeun.",
+            "customer_profile_access_restricted": "Checkout henteu gaduh widi pikeun ngaksés profil palanggan.",
+            "checkout_completion_target_is_invalid_proc": "Target parantosan pamayaran henteu valid.",
+            "buyer_identity_presentment_currency_does_not_match": "Aya masalah nalika ngolah pesenan anjeun. Cobian deui sababaraha menit ka payun."
           },
           "captcha": {
             "job_already_queued": "Validasi Captcha parantos diantrékeun pikeun token captcha ieu.",
             "token_expired": "Token captcha anu disayogikeun parantos béak. Eusian captcha énggal kanggo neraskeun balanja.",
             "token_invalid": "Token captcha nu disadiakeun teu valid. Eusian deui captcha nu anyar pikeun neruskeun balanja.",
-            "token_not_valid_for_session": "Captcha nu disadiakeun teu bisa dipake ku pamayaran ieu."
+            "token_not_valid_for_session": "Captcha nu disadiakeun teu bisa dipake ku pamayaran ieu.",
+            "metadata_missing": "Ngalengkepan captcha diperlukeun pikeun pamariksaan ieu.",
+            "metadata_mismatch": "Panyadia captcha sareng jinisna henteu cocog sareng nilai anu dipiharep.",
+            "token_missing": "Captcha kedah disayogikeun kanggo ngarengsekeun pamayaran ieu.",
+            "job_enqueue_failed": "Pagawean validasi captcha gagal diasupkeun kana antrian."
           },
           "fx_reconciliation_override": {
             "shop_currency_mismatch": "Jumlah nu ditarima kudu dina mata uang toko."
           },
           "checkout_source": {
             "revoked": "Pambayaran ieu teu tiasa diteraskeun."
+          },
+          "delivery": {
+            "only_one_delivery_line_allowed": "Karénjang kedah gaduh hiji jalur pangiriman waé.",
+            "wrong_number_of_delivery_lines": "Garis pangiriman kedah ditangtukeun pikeun unggal grup barang.",
+            "external_delivery_promise_error": "Aya kalepatan nalika ngala janji pangiriman ti luar.",
+            "options_instructions_invalid": "Parentah nu diserat henteu saluyu sareng pola nu diharepkeun.",
+            "destination_address_required": "Alamat tujuan diperlukeun pikeun neruskeun.",
+            "pickup_points_unavailable": "Titik panyokot henteu sayogi ayeuna.",
+            "local_pickup_delivery_line_detail_changed": "Strategi pangiriman lokal ayeuna kedah dirobih supados tiasa teras-terasan.",
+            "selected_pickup_option_no_longer_available": "Pilihan nyokot anu sateuacana dipilih henteu sayogi deui.",
+            "local_pickup_no_delivery_strategy_available": "Teu kapendak stratégi pangiriman panyokot lokal.",
+            "origin_location_id_required": "ID lokasi asal diperyogikeun nalika metode pangiriman RETAIL dipénta.",
+            "invalid_origin_location_id": "Teu tiasa manggihan Lokasi nu cocog sareng ID lokasi asal.",
+            "origin_location_id_not_allowed": "Métode pangiriman anu dipénta henteu ngarojong ID lokasi asal.",
+            "auto_fulfill_not_allowed": "Sési ieu henteu diidinan ngagantikeun paripolah palaksanaan.",
+            "auto_fulfill_required": "Auto fulfill diperyogikeun nalika metode pangiriman RETAIL dipénta.",
+            "prefetch_shipping_rates_used": "Ongkos kirim anu tos dipulut teu kedah ngabalikeun ongkos.",
+            "fulfillment_constraints_not_satisfied": "Hiji atawa leuwih watesan pinuh teu kauntung.",
+            "must_fulfill_from_constraint_not_satisfied": "Watesan minuhan henteu dicumponan sabab barang henteu tiasa dicumponan tina lokasi anu diperyogikeun.",
+            "must_fulfill_from_same_location_constraint_not_satisfied": "Kendala minuhan henteu dicumponan sabab barang-barangna teu tiasa dicumponan ti lokasi anu sami.",
+            "delivery_strategy_conditions_not_satisfied": "Stratégi pangiriman sayogi pikeun lokasi ieu, tapi kaayaanana henteu kaeusi.",
+            "out_of_stock_at_origin_location": "Teu aya stok di lokasi asal.",
+            "invalid_signature": "Diskon henteu sah.",
+            "mixed_destination_countries": "Pangiriman henteu tiasa dilakukeun sabab jalur pangiriman ngalangkungan sababaraha nagara."
+          },
+          "discount": {
+            "discounts_not_allowed_for_b2b": "Diskon henteu diidinan di toko B2B.",
+            "mixed_destination_countries": "Diskon teu sayogi sabab jalur pangiriman ngalangkungan sababaraha nagara.",
+            "custom_discount_not_honoured": "Diskon khusus anu disayogikeun teu ditarima.",
+            "unsupported_expectation": "Baris diskon anu disayogikeun ngandung ékspéktasi yén kawijakan éta henteu tiasa diinterpretasi.",
+            "additional_requested_discount_code_discarded": "{{code}} sah tapi teu tiasa dianggo. Parios katangtuan diskon.",
+            "additional_requested_discount_discarded": "Diskon anjeun valid tapi henteu tiasa dianggo. Pariksa sarat diskon.",
+            "allocations_mismatch": "Kode diskon anjeun tos robih. Tilikan karanjang anjeun teras cobi deui.",
+            "discount_code_not_honoured": "%{discount_rejection_message}",
+            "discount_title_too_long": "Judul diskon teu kenging langkung ti 255 karakter."
+          },
+          "tax": {
+            "new_tax_must_be_accepted": "Pajeg anu patali sareng pesenan anjeun parantos robih. Pariksa deui tur cobian deui.",
+            "unresolvable_tax_terms": "Sarat-sarat nu diusulkeun teu tiasa diréréskeun dina kontéks negosiasi ayeuna.",
+            "delivery_price_is_abstract": "Harga pangiriman anu aya hubunganana teu tangtu.",
+            "tax_inclusivity_mismatch": "Régotiate kalawan totalTaxAndDutyAmount atawa totalAmountIncludedInTarget nu geus pasti nilaina.",
+            "mixed_tax_inclusivity_not_supported": "Baris pajeg kedah sadayana parantos kalebet pajeg atanapi sadayana teu kalebet pajeg.",
+            "tax_exemption_not_supported": "Kawajiban mayar pajeg teu dirojong pikeun sési négosiasi ieu.",
+            "delivery_tax_exemption_not_supported": "Ékspémsi pajeg pikeun jalur pangiriman ayeuna teu dirojong.",
+            "proposed_allocations_required": "Widang 'proposed allocations' leungit.",
+            "merchandise_terms_must_be_defined": "Sarat dagangan kudu ditangtukeun.",
+            "delivery_terms_must_be_defined": "Sarat pangiriman kedah ditangtukeun.",
+            "merchandise_discount_terms_must_be_defined": "Sarat diskon barang dagangan kedah ditangtukeun.",
+            "delivery_discount_terms_must_be_defined": "Katentuan diskon pangiriman kudu dihartikeun.",
+            "allocated_required": "Widang 'dialokasikeun' leungit.",
+            "value_required": "Teu aya 'nilai' dina widang.",
+            "line_splits_not_supported": "Kolom 'merchandise lines' kedah dipecah sangkan masing-masing gaduh hiji komponén baris dina proposal anu ngical."
+          },
+          "payment": {
+            "manual_payments_not_allowed_for_b2b": "Pamayaran manual henteu diidinan di toko B2B.",
+            "positive_amount_expected": "Jumlah anu kedah dibayar kedah langkung ti 0.",
+            "total_amount_mismatch": "Total anu kedah dibayar henteu cocog sareng jumlah pamayaran.",
+            "subscription_terms_not_accepted": "Sarat langganan teu ditarima.",
+            "missing_session_id": "Émbaran sési kartu kiridit leungit.",
+            "gateway_not_supported": "Gateway pamayaran henteu ngarojong nyimpen métode pamayaran.",
+            "credit_card_last_name_required": "'nami tukang' teu tiasa kosong.",
+            "credit_card_update_failed": "Gagal ngapdet kartu kiridit.",
+            "invalid_address_type": "Tipe alamat nu disadiakeun teu valid pikeun métode pamayaran ieu.",
+            "missing_retail_attributions": "Atribusi ritel diperyogikeun pikeun pamayaran kartu kiridit anu dilebetkeun sacara manual.",
+            "unexpected_retail_attributions": "Atribusi ritel teu kaduga disadiakeun pikeun pamayaran kartu kiridit.",
+            "invalid_card_source": "Sési ieu teu gaduh idin ngagunakeun sumber kartu ieu.",
+            "wallet_content_missing": "Eusi dompét leungit.",
+            "payment_instrument_not_found": "Henteu tiasa mendakan padika pamayaran",
+            "unauthorized_capture_method": "Nyetél metode panangkepan pamayaran henteu diidinan.",
+            "saved_payment_methods_not_allowed": "Métode pamayaran nu disimpen henteu diidinan.",
+            "saved_payment_methods_not_enabled": "Métode pamayaran anu disimpen teu diaktipkeun pikeun toko ieu.",
+            "saved_payment_methods_cvv_verification_disabled": "Métode pamayaran anu dipilih peryogi verifikasi CVV anu henteu diaktipkeun kanggo toko ieu. Pilih métode pamayaran anu sanés.",
+            "store_credit_not_enabled": "Kiridit toko teu diaktipkeun keur toko ieu.",
+            "store_credit_account_not_found": "Akun kiridit toko teu kapanggih.",
+            "store_credit_account_mismatch": "Akun kiridit toko henteu cocog sareng idéntitas anu mésér.",
+            "store_credit_mismatched_currency": "Mata uang akun kiridit toko henteu cocog sareng mata uang pamayaran.",
+            "store_credit_insufficient_funds": "Dana dina akun kiridit toko teu cekap.",
+            "store_credit_buying_gift_card": "Anjeun teu tiasa nganggo kiridit toko pikeun mésér kartu kado.",
+            "gift_cards_not_allowed_for_b2b": "Kartu hadiah henteu diidinan di toko B2B.",
+            "method_required": "Métode pamayaran kedah diajukeun.",
+            "paypal_express_address_invalid": "PayPal ngabalikkeun alamat nu teu valid."
+          },
+          "tip": {
+            "not_accepted_by_shop": "Toko teu nampi tip.",
+            "only_one_tip_line_allowed": "Sababaraha jalur tips teu dirojong.",
+            "tips_not_allowed_for_b2b": "Tips henteu diidinan di toko B2B.",
+            "currency_change_reset": "Tip parantos direset kusabab robahna mata uang.",
+            "tips_not_allowed_for_deferred_purchase_options": "Tip teu acan didukung pikeun pilihan beuli anu ditunda."
+          },
+          "sale_attribution": {
+            "draft_order_not_exist": "Draf order ieu teu kapanggih di toko nu ayeuna.",
+            "staff_member_not_exist": "Staf ieu teu aya di toko ayeuna.",
+            "location_not_exist": "Lokasi ieu teu aya di toko ayeuna.",
+            "point_of_sale_device_not_exist": "Alat point of sale ieu teu aya di toko nu ayeuna.",
+            "unresolvable_target_merchandise_lines": "Atribusi penjualan anu diajukeun teu tiasa direngsekeun dina kontéks negosiasi ayeuna."
+          },
+          "non_negotiable": {
+            "missing_non_negotiable_terms": "Proposal ti pembeli anjeun kedah ngandung sarat anu teu tiasa ditawar.",
+            "invalid_signature": "Tanda tangan pikeun {{target_terms}} teu sah."
+          },
+          "inventory": {
+            "missing_quantity_value": "Kolom kuantitas euweuh dina garis inventaris nu meuli.",
+            "changing_behavior_not_allowed": "Klién ieu teu gaduh idin pikeun ngarobah paripolah inventaris.",
+            "only_one_inventory_behavior_allowed": "Ayeuna ngan hiji laku-lampah inventarisasi anu diidinan per checkout."
+          },
+          "optional_duties": {
+            "optional_duties_not_permitted": "Nulak tugas teu diidinan pikeun checkout ieu."
+          },
+          "attribution": {
+            "retail_attribution_not_allowed": "Atribusi ritel henteu diidinan pikeun pamayaran ieu.",
+            "retail_attribution_required": "Atribusi ritel diperyogikeun pikeun checkout ieu."
           }
         },
         "full_price": "Harga pinuh:",
