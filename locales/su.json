@@ -1749,8 +1749,142 @@
         },
         "status_card": {
           "eyebrow": "Pitulung pikeun nu boga toko",
-          "header": "Pariksa status Shopify"
+          "header": "Pariksa status Shopify",
+          "caption": "Pilarian upami aya gangguan anu mangaruhan langkung ti toko ieu dina Shopify.",
+          "link_text": "Tingali status sistem Shopify"
+        },
+        "owner_ctas": {
+          "header": "Anjeun nu gaduh toko?",
+          "fix_domain": "Beresskeun nyetel alamat wéb anyar anjeun, buka %{domain_settings_link}. Klik \"Sambungkeun domain\" tuluy asupkeun: %{domain}.<br>Upami anjeun sesah lebet kana toko anjeun, cobian halaman %{forgot_your_store_link}.",
+          "fix_domain_link_text": "setelan domain anjeun",
+          "forgot_your_store_link_text": "Hilap toko anjeun",
+          "add_storefront": "Anjeun tiasa nyetel website ku nambahkeun saluran Toko Online dina %{admin_link} anjeun. Lamun anjeun ngalaman kasulitan pikeun asup kana toko anjeun, cobian kaca %{forgot_your_store_link}.",
+          "admin_link_text": "admin"
+        },
+        "ctas": {
+          "sell_in_person": {
+            "header": "Jual langsung",
+            "caption": "Meunangkeun fitur nu dipikabutuh pikeun ngajalankeun toko ritel anjeun, boh keur ngamimitian boh keur ngagedékeun usaha.",
+            "link_text": "Mimitian uji coba gratis"
+          },
+          "open_a_store": {
+            "header": "Buka toko Shopify énggal",
+            "caption": "Mimitian uji coba gratis 3 dinten, teras teraskeun ku $1/sasih salami 3 sasih ka payun.",
+            "link_text": "Daptar ayeuna"
+          },
+          "editions": {
+            "header": "Pariksa Shopify Editions",
+            "caption": "Kalayan langkung ti 100 pamutahiran produk, anjeun tiasa langkung produktif sareng kréatif, tur tiasa langkung mampuh dina dunya dagang tibatan anu anjeun bayangkeun.",
+            "link_text": "Téangan Édisi Panganyarna"
+          },
+          "store_owner": {
+            "header": "Anjeun nu gaduh toko?",
+            "caption": "Naha anjeun sesah lebet ka toko anjeun? Cobi fitur %{forgot_your_store_link}. Upami anjeun hoyong ngaktipkeun deui toko anjeun, hubungi %{shopify_support_link}.",
+            "shopify_support_link_text": "Pitulung Shopify"
+          }
         }
+      }
+    },
+    "notices": {
+      "customer": {
+        "password_reset_error": "Éror ngareset kecap sandi",
+        "subscribe_error": "Kasalahan langganan",
+        "unsubscribe_error": "Kasalahan batal palanggan",
+        "open_tracking_error": "Buka galat pelacakan",
+        "no_account_found": "Teu aya akun nu kapanggih ku email éta.",
+        "invalid_credentials": "Surélék atanapi kecap sandi salah.",
+        "denylisted_reset_password": "Akun anjeun teu tiasa diakses sabab kecap sandi nu ayeuna teu aman. Anjeun bakal nampi email pikeun ngapdet kecap sandi anjeun.",
+        "signup_disabled": "Panyieunan akun palanggan geus ditumpurkeun."
+      },
+      "address": {
+        "updated": "Alamat tos diénggalan.",
+        "error_updating": "Galat nalika ngapdet alamat",
+        "created": "Alamat hasil dijieun",
+        "error_creating": "Kasalahan nyieun alamat.",
+        "deleted": "Alamat hasil dihapus",
+        "error_deleting": "Gagal ngahapus alamat."
+      },
+      "line_item": {
+        "item_status": {
+          "add_variant": "Ditambah %{delta}",
+          "increment_item": "Ditambah %{delta}",
+          "decrement_item": "Dipiceun %{delta} tina %{total}",
+          "decrement_fulfilled_line_item": "Dikembalikan %{delta} tina %{total}",
+          "decrement_return_line_item": "Dipiceun %{delta} tina pamulangan"
+        }
+      },
+      "order": {
+        "not_available": "Pesenan ieu teu sayogi",
+        "financial_status": {
+          "authorized": "Diidinan",
+          "pending": "Ditangguhkeun",
+          "paid": "Mayar",
+          "unpaid": "Henteu dibayar",
+          "voided": "Teu valid",
+          "partially_paid": "Sawaréh dibayar",
+          "partially_refunded": "Sabagéan dibalikeun",
+          "refunded": "Dipulangkeun deui artosna",
+          "expired": "Kadaluwarsa"
+        },
+        "fulfillment_status": {
+          "fulfilled": "Kalaksanakeun",
+          "complete": "Réngsé",
+          "partial": "Sabagean",
+          "unfulfilled": "Teu kalaksanakeun",
+          "restocked": "Disayogikeun deui"
+        },
+        "transaction_status": {
+          "success": "Kasuksésan",
+          "pending": "Ditangguhkeun",
+          "failure": "Gagal",
+          "error": "Kasalahan"
+        },
+        "cancel_reason": {
+          "declined": "Pamayaran ditolak",
+          "inventory": "Barang teu sayogi",
+          "fraud": "Pesanan palsu",
+          "customer": "Palanggan ngarobih/ngabatalkeun pesenan",
+          "staff": "Kasalahan pagawé",
+          "other": "Lianna"
+        },
+        "cash_on_delivery": "Mayar di Tempat (COD)"
+      },
+      "cart": {
+        "not_found": "Gorobag teu kapanggih",
+        "only_n_items_available": "Anjeun ngan bisa nambahkeun %{count} %{name} kana karanjang.",
+        "too_many_items_in_cart": "Anjeun moal tiasa nambihan %{name} deui kana karanjang.",
+        "only_one_added_to_cart": "Ngan 1 barang nu ditambahkeun kana karanjang anjeun kusabab kasadiaan.",
+        "only_n_added_to_cart": "Ngan %{quantity} barang nu ditambahkeun kana karanjang anjeun sabab kasediaanna.",
+        "maximum_available_quantity_reached": "Jumlah maksimal barang ieu parantos aya dina karanjang anjeun.",
+        "less_than_minimum": "Barang ieu sahenteuna %{min}.",
+        "more_than_maximum": "Barang ieu maksimalna %{max}.",
+        "not_respect_step": "Anjeun ngan tiasa nambihan barang ieu kalayan paningkatan %{step}.",
+        "all_items_in_cart": "Sadayana %{count} %{name} aya dina karanjang anjeun.",
+        "empty_update": "moal bisa ngaropéa karanjang kosong",
+        "missing_parameters": "henteu aya id atawa parameter baris anu valid",
+        "generic_error": "Kasalahan karanjang",
+        "invalid_input": "Parameter %{parameter} teu valid.",
+        "product_not_available": "Produk henteu sayogi",
+        "too_many_line_items_error": "Kréta anjeun teu tiasa ngandung langkung ti %{max} barang.",
+        "link_expired": "Tumbu kadaluarsa",
+        "link_no_longer_exists": "Tumbu henteu aya.",
+        "stock_problems_html": "Hiji atanapi langkung barang parantos teu sayogi. Kami parantos nyayogikeun <a href=\"%{link}\">karinjang balanja anu diénggalan</a>.",
+        "changed": "Gerobak dirobih",
+        "items_changed": "Aya hiji atawa leuwih item anu robah.",
+        "product_sold_out": "Produk '%{name}' tos seep.",
+        "variant_not_found": "Varian teu tiasa dipanggihan",
+        "variant_requires_selling_plan": "Varian ngan ukur tiasa dipésér nganggo rencana penjualan.",
+        "selling_plan_not_available_for_company_locations": "Ngan ukur meuli sakali anu sayogi kanggo pesenan B2B",
+        "digital_product_not_available_for_company_locations": "Barang ieu teu tiasa ditambahkeun kana pesenan B2B",
+        "buyer_cannot_purchase_for_company_locations": "Anjeun moal tiasa balanja pikeun lokasi ieu",
+        "selling_plan_not_applicable": "Henteu tiasa nerapkeun rencana penjualan kana varian ",
+        "shipping_address_not_required": "Gorobag ieu henteu peryogi pengiriman",
+        "shipping_address_invalid": "Aya masalah dina ngitung ongkos kirim anjeun. Mangga teraskeun ka checkout pikeun milih ongkos kirim sateuacan ngarengsekeun pesenan anjeun.",
+        "bundle_requires_components": "Produk bungkusan '%{name}' teu tiasa dilebetkeun kana karanjang.",
+        "gift_card_with_components_not_supported": "Produk bungkusan '%{name}' teu tiasa dilebetkeun kana karanjang.",
+        "gift_card_price_must_be_greater_than_zero": "Produk bungkusan '%{name}' teu tiasa dilebetkeun kana karanjang.",
+        "gift_card_recipient_validation_error": "Panarima kartu kado nu diémbarkeun teu valid",
+        "view_lines_limit_reached": "Barisan kedah kirang ti atanapi sami sareng %{limit}"
       }
     }
   },
