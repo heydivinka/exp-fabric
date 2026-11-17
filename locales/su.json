@@ -2888,6 +2888,144 @@
           }
         }
       }
+    },
+    "orders": {
+      "order_list": {
+        "no_filtered_results_description": "Hapus atanapi saluyukeun panyaring kanggo ningali pesenan anjeun",
+        "no_filtered_results_title": "Taya hasil anu disaring",
+        "order_link": "Tingali pesenan {{name}}, {{status}}, {{total}}",
+        "order_number": "Pesenan {{name}}",
+        "orders_title": "Dikukuhkeun",
+        "pagination": {
+          "load_more": "Tuduhkeun deui",
+          "load_more_accessibility_label": "Témbongkeun pesenan anu sanésna"
+        },
+        "payment_status": {
+          "list_view": {
+            "overdue": "Kabuhulan",
+            "due": "Datang {{date}}",
+            "due_today": "Kuduna ayeuna",
+            "due_without_date": "Ku sabab",
+            "due_on_fulfillment": "Ditagih nalika minuhan",
+            "pay_to_confirm": "Bayar kanggo mastikeun",
+            "payment_not_due": "Teu acan waktuna"
+          }
+        },
+        "sort_by": "Sortir dumasar: {{option}}",
+        "sort_options_accessibility_label": "Pilihan panyortir pikeun pesenan anu parantos dikonfirmasi",
+        "sort_show_options_accessibility_label": "Témbongkeun pilihan nurutan pesenan anu dikonfirmasi.",
+        "sort_currently_sorted_by_accessibility_label": "Ayeuna disortir dumasar: {{option}}",
+        "sort": {
+          "date": {
+            "newest": "Ti nu panganyarna ka nu pangkolotna",
+            "oldest": "Paling heubeul ka panganyarna"
+          },
+          "location": {
+            "ascending": "Lokasi (A-Z)",
+            "descending": "Lokasi (Z-A)"
+          },
+          "order_number": {
+            "ascending": "Nomer urut (handap ka luhur)",
+            "descending": "Nomer pesenan (pangluhurna ka panghandapna)"
+          },
+          "order_total": {
+            "ascending": "Total pesenan (panghandapna ka pangluhurna)",
+            "descending": "Total pesenan (pangluhurna ka panghandapna)"
+          }
+        },
+        "location_filter_picker": {
+          "all_location": "Sadaya lokasi",
+          "current_location": "Lokasi ayeuna",
+          "switch_view": "Ganti tampilan"
+        },
+        "filter": {
+          "clear_section": "Hapus bagian ieu",
+          "apply": "Larapkeun",
+          "date_section_accessibility_label": "Saring dumasar {{sectionTitle}}",
+          "date": {
+            "start_date": "Tanggal mimiti",
+            "end_date": "Tanggal lekasan",
+            "title": "Tanggal pesen",
+            "today": "Dinten ieu",
+            "last_7_days": "7 dinten kapungkur",
+            "last_30_days": "30 dinten kapengker",
+            "last_90_days": "90 dinten ka tukang",
+            "last_365_days": "12 bulan katukang",
+            "custom": "Adat"
+          }
+        },
+        "view_order": "Tingali pesenan",
+        "view_order_accessibility_label": "Tingali pesenan {{orderName}}",
+        "empty_state_product_navigation_accessibility_label": "Produk anu dianjurkeun",
+        "empty_state_product_navigation_instructions": "Anggo konci panah kenca sareng katuhu kanggo ningali produk. Pencét Enter atanapi Spasi kanggo muka.",
+        "filters_title": "Saringan",
+        "sort_by_title": "Urutkeun dumasar"
+      },
+      "order_status": {
+        "fulfillment_tracking": {
+          "attempted_delivery_banner": "Pariksa {{carrier}} pikeun inpormasi pangiriman atanapi ngatur pangiriman énggal",
+          "buyer_action_required_banner": "Pariksa {{carrier}} atanapi hubungi kami kanggo milari inpormasi langkung jangkep",
+          "carrier_banner_link_accessibility_label": "Tingali rincian pelacakan {{carrier}} (buka jandéla éngké)",
+          "carrier_link_accessibility_label": "Lacak pengiriman {{carrier}} (ngabuka jandéla éngké)",
+          "completed_gift_card": "Réngsé {{date}}",
+          "delivered_on": "Dipasrahkeun {{date}}",
+          "delivery_progress_heading": "Kamajuan pangiriman",
+          "gift_card_sent_to_recipient": {
+            "one": "Kartu kado parantos dikintunkeun ka anu nampi.",
+            "other": "Kartu kado parantos dikintunkeun ka para pamanggih."
+          },
+          "in_store_purchase": "Mésér langsung di toko",
+          "picked_up_on": "Dicandak {{date}}",
+          "pickup_details_banner": "Pariksa {{carrier}} pikeun rincian nyandak",
+          "pickup_details_link_accessibility_label": "Tingali rincian nyandak {{carrier}} (buka jandéla énggal)",
+          "status": {
+            "attempted_delivery": "Gagal nganteurkeun",
+            "buyer_action_required": "Kedah dilaksanakeun",
+            "carrier_picked_up": "Kurir parantos nyandak",
+            "confirmed": "Dikukuhkeun",
+            "delayed": "Ditunda",
+            "delivered": "Kirim",
+            "exception": "Masalah ngirim",
+            "failure": "Masalah ngirim",
+            "in_transit": "Dina perjalanan",
+            "label_printed": "Label dicetak",
+            "label_purchased": "Label parantos dipésan",
+            "out_for_delivery": "Nuju di kirim",
+            "picked_up": "Dicokot",
+            "ready_for_pickup": "Tos siap dicandak ku kurir",
+            "ready_for_recipient_pickup": "Siap dicokot",
+            "returning_to_sender": "Dipulikeun deui ka nu ngirim"
+          },
+          "delivery_progress_for_shipment_accessibility_label": "Kamajuan pangiriman pikeun kiriman {{position}}",
+          "tracking_link_accessibility_label": "Lacak pengiriman {{carrier}} {{trackingNumber}} (ngabuka jandéla éngké)",
+          "unknown_carrier_banner": "Mangga wartosan kami pikeun inpo nu leuwih lengkep"
+        },
+        "attempted_delivery_label": "Gagal nganteurkeun",
+        "attempted_to_deliver_label": "Gagal nganteurkeun",
+        "preparing_for_shipping_label": "Nyiapkeun keur kirim",
+        "ready_for_pickup_label": "Siap dicokot",
+        "ready_for_pickup_description": "Barang-barang ieu siap dicokot. Mangga nyandak konfirmasi pesenan anjeun nalika nyokot pesenan anjeun.",
+        "picked_up_label": "Dicokot",
+        "canceled_label": "Dibatalkeun",
+        "canceled_title": "Pesenan anjeun parantos dibatalkeun",
+        "come_back": "Balik deui ka kaca ieu pikeun apdet ngeunaan status kiriman anjeun.",
+        "company_tracking_number": "{{company}} nomer lacak:",
+        "confirmed_label": "Dikukuhkeun",
+        "confirmed_title": "Pesenan anjeun parantos dikonfirmasi",
+        "confirmed_description_pickup": "Barang-barang ieu nuju disiapkeun kanggo dicandak.",
+        "confirmed_description_shipping": "Urang nuju nyiapkeun barang-barang ieu kanggo dikirim.",
+        "confirmed_description_digital": "Anjeun bakal nampi email nalika pesenan anjeun siap.",
+        "confirmed_description_gift_card_text": "Anjeun bakal nampi téks nalika pesenan anjeun parantos siap.",
+        "complete_label": "Réngsé",
+        "delivered_label": "Kirim",
+        "delivered_description_gift_card": {
+          "one": "Kartu hadiah dikirim via email.",
+          "other": "Kartu hadiah dikirim via email."
+        },
+        "delivered_description_gift_card_text": {
+          "one": "Kartu kado dikirim ku téks."
+        }
+      }
     }
   },
   "blocks": {
