@@ -1,0 +1,219 @@
+{%- comment -%}
+  Renders Step 2: Detail Address with Cascading Wilayah API Dropdowns
+  Params:
+    - heading_tag: string (h1-h6, p)
+    - default_address1: string
+    - default_city: string
+    - default_province: string
+    - default_zip: string
+{%- endcomment -%}
+
+{%- assign heading_tag = heading_tag | default: 'h3' -%}
+
+<div class="exp-step-content hidden" data-step="2">
+  <div class="exp-step-header">
+    <{{ heading_tag }} class="exp-step-title">Detail Address</{{ heading_tag }}>
+  </div>
+
+  <div class="exp-form-grid">
+    {%- comment -%} Province {%- endcomment -%}
+    <div class="exp-field-group">
+      <label for="exp-province" class="exp-label">
+        Province <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <div class="exp-select-wrapper">
+        <select
+          id="exp-province"
+          name="province"
+          class="exp-input exp-select"
+          required
+          aria-describedby="exp-province-hint"
+        >
+          <option value="" disabled selected>Select Province</option>
+        </select>
+        <span class="exp-select-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </div>
+      <span class="exp-field-error" aria-live="polite">Pilih provinsi.</span>
+    </div>
+
+    {%- comment -%} City / Regency {%- endcomment -%}
+    <div class="exp-field-group">
+      <label for="exp-regency" class="exp-label">
+        City <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <div class="exp-select-wrapper">
+        <select
+          id="exp-regency"
+          name="city"
+          class="exp-input exp-select"
+          disabled
+          required
+        >
+          <option value="" disabled selected>Select City</option>
+        </select>
+        <span class="exp-select-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </div>
+      <span class="exp-field-error" aria-live="polite">Pilih kota/kabupaten.</span>
+    </div>
+
+    {%- comment -%} District / Kecamatan {%- endcomment -%}
+    <div class="exp-field-group">
+      <label for="exp-district" class="exp-label">
+        District <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <div class="exp-select-wrapper">
+        <select
+          id="exp-district"
+          name="district"
+          class="exp-input exp-select"
+          disabled
+          required
+        >
+          <option value="" disabled selected>Select District</option>
+        </select>
+        <span class="exp-select-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </div>
+      <span class="exp-field-error" aria-live="polite">Pilih kecamatan.</span>
+    </div>
+
+    {%- comment -%} Sub-district / Kelurahan {%- endcomment -%}
+    <div class="exp-field-group">
+      <label for="exp-village" class="exp-label">
+        Sub-district <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <div class="exp-select-wrapper">
+        <select
+          id="exp-village"
+          name="village"
+          class="exp-input exp-select"
+          disabled
+          required
+        >
+          <option value="" disabled selected>Select Sub-district</option>
+        </select>
+        <span class="exp-select-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </div>
+      <span class="exp-field-error" aria-live="polite">Pilih kelurahan/desa.</span>
+    </div>
+
+    {%- comment -%} Postal Code {%- endcomment -%}
+    <div class="exp-field-group exp-field-group--full">
+      <label for="exp-postal-code" class="exp-label">
+        Postal Code <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="exp-postal-code"
+        name="postalCode"
+        class="exp-input"
+        placeholder="Postal Code"
+        value="{{ default_zip | escape }}"
+        required
+        maxlength="6"
+        inputmode="numeric"
+        autocomplete="postal-code"
+      >
+      <span class="exp-field-error" aria-live="polite">Kode pos wajib diisi (5-6 angka).</span>
+    </div>
+
+    {%- comment -%} Detail Address Textarea {%- endcomment -%}
+    <div class="exp-field-group exp-field-group--full">
+      <label for="exp-detail-address" class="exp-label">
+        Detail Address <span class="exp-required" aria-hidden="true">*</span>
+      </label>
+      <textarea
+        id="exp-detail-address"
+        name="detailAddress"
+        class="exp-input exp-textarea"
+        rows="3"
+        placeholder="e.g : Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110"
+        required
+      >{{ default_address1 | escape }}</textarea>
+      <span class="exp-field-error" aria-live="polite">Detail alamat lengkap wajib diisi.</span>
+    </div>
+
+    {%- comment -%} Note Couriers (Optional) {%- endcomment -%}
+    <div class="exp-field-group exp-field-group--full">
+      <label for="exp-courier-note" class="exp-label">
+        Note Couriers (Optional)
+      </label>
+      <input
+        type="text"
+        id="exp-courier-note"
+        name="courierNote"
+        class="exp-input"
+        placeholder="e.g : Please leave the package at the front door"
+      >
+    </div>
+  </div>
+
+  {%- if customer -%}
+    <div class="exp-save-address-panel">
+      <div class="exp-save-address-info">
+        <label class="exp-checkbox-label">
+          <input type="checkbox" id="exp-set-default-address" class="exp-checkbox">
+          <span>Jadikan sebagai Alamat Utama</span>
+        </label>
+      </div>
+
+      <div class="exp-save-address-actions">
+        <button
+          type="button"
+          class="exp-btn exp-btn--save-address"
+          id="exp-btn-save-address"
+          title="Simpan alamat ini langsung ke akun Anda"
+        >
+          <span class="exp-btn-save-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+          </span>
+          <span class="exp-btn-text" id="exp-save-address-btn-text">Save Address to Account</span>
+          <span class="exp-spinner" aria-hidden="true"></span>
+        </button>
+
+        <button
+          type="button"
+          class="exp-btn-cancel-edit hidden"
+          id="exp-btn-cancel-edit"
+        >
+          Batal Edit
+        </button>
+      </div>
+
+      <div id="exp-save-address-feedback" class="exp-save-address-feedback hidden" aria-live="polite"></div>
+    </div>
+  {%- endif -%}
+
+  <div class="exp-step-actions exp-step-actions--dual">
+    <button type="button" class="exp-btn exp-btn--secondary exp-btn-back">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <span>Back</span>
+    </button>
+
+    <button type="submit" class="exp-btn exp-btn--primary exp-btn-complete">
+      <span class="exp-btn-text">Complete</span>
+      <span class="exp-spinner" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>

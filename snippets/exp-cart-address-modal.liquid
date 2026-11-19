@@ -1,0 +1,143 @@
+{%- comment -%}
+  Exp Cart Address Edit Modal Snippet
+  Compliance: RULES-SHOPIFY.md (exp- prefix, accessible dialog, DRY, no hardcoding)
+  Provides a focused, clutter-free modal pop-up for editing saved shipping addresses
+{%- endcomment -%}
+
+<div id="exp-address-modal" class="exp-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="exp-modal-title">
+  <div class="exp-modal-container">
+    <div class="exp-modal-header">
+      <h3 id="exp-modal-title" class="exp-modal-title">Edit Alamat Pengiriman</h3>
+      <button type="button" class="exp-modal-close-btn" id="exp-modal-close-btn" aria-label="Tutup jendela edit alamat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <form id="exp-modal-address-form" class="exp-modal-body" novalidate>
+      <input type="hidden" id="exp-modal-address-id" name="addressId" value="">
+
+      <div class="exp-form-grid exp-modal-grid">
+        <div class="exp-field-group">
+          <label for="exp-modal-first-name" class="exp-label">
+            First Name <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <input type="text" id="exp-modal-first-name" name="firstName" class="exp-input" required placeholder="First Name">
+          <span class="exp-field-error" aria-live="polite">Nama depan wajib diisi.</span>
+        </div>
+
+        <div class="exp-field-group">
+          <label for="exp-modal-last-name" class="exp-label">
+            Last Name <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <input type="text" id="exp-modal-last-name" name="lastName" class="exp-input" required placeholder="Last Name">
+          <span class="exp-field-error" aria-live="polite">Nama belakang wajib diisi.</span>
+        </div>
+
+        <div class="exp-field-group exp-field-group--full">
+          <label for="exp-modal-phone" class="exp-label">
+            Phone Number <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <div class="exp-phone-wrapper">
+            <span class="exp-phone-prefix">{{ phone_prefix | default: '+62' }}</span>
+            <input type="tel" id="exp-modal-phone" name="phone" class="exp-input exp-phone-input" required placeholder="81234567890" inputmode="numeric">
+          </div>
+          <span class="exp-field-error" aria-live="polite">Nomor telepon wajib diisi.</span>
+        </div>
+
+        <div class="exp-field-group">
+          <label for="exp-modal-province" class="exp-label">
+            Province <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <div class="exp-select-wrapper">
+            <select id="exp-modal-province" name="province" class="exp-input exp-select" required>
+              <option value="" disabled selected>Select Province</option>
+            </select>
+            <span class="exp-select-arrow" aria-hidden="true">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-field-group">
+          <label for="exp-modal-regency" class="exp-label">
+            City <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <div class="exp-select-wrapper">
+            <select id="exp-modal-regency" name="city" class="exp-input exp-select" disabled required>
+              <option value="" disabled selected>Select City</option>
+            </select>
+            <span class="exp-select-arrow" aria-hidden="true">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-field-group">
+          <label for="exp-modal-district" class="exp-label">
+            District <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <div class="exp-select-wrapper">
+            <select id="exp-modal-district" name="district" class="exp-input exp-select" disabled required>
+              <option value="" disabled selected>Select District</option>
+            </select>
+            <span class="exp-select-arrow" aria-hidden="true">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-field-group">
+          <label for="exp-modal-village" class="exp-label">
+            Sub-district <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <div class="exp-select-wrapper">
+            <select id="exp-modal-village" name="village" class="exp-input exp-select" disabled required>
+              <option value="" disabled selected>Select Sub-district</option>
+            </select>
+            <span class="exp-select-arrow" aria-hidden="true">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="exp-field-group exp-field-group--full">
+          <label for="exp-modal-postal-code" class="exp-label">
+            Postal Code <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <input type="text" id="exp-modal-postal-code" name="postalCode" class="exp-input" required maxlength="6" inputmode="numeric" placeholder="Postal Code">
+          <span class="exp-field-error" aria-live="polite">Kode pos wajib diisi (5-6 angka).</span>
+        </div>
+
+        <div class="exp-field-group exp-field-group--full">
+          <label for="exp-modal-detail-address" class="exp-label">
+            Detail Address <span class="exp-required" aria-hidden="true">*</span>
+          </label>
+          <textarea id="exp-modal-detail-address" name="detailAddress" class="exp-input exp-textarea" rows="2" required placeholder="Detail jalan, nomor rumah, RT/RW"></textarea>
+          <span class="exp-field-error" aria-live="polite">Detail alamat wajib diisi.</span>
+        </div>
+
+        <div class="exp-field-group exp-field-group--full">
+          <label class="exp-checkbox-label">
+            <input type="checkbox" id="exp-modal-is-default" class="exp-checkbox">
+            <span>Jadikan sebagai Alamat Utama</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="exp-modal-feedback" class="exp-save-address-feedback hidden" aria-live="polite"></div>
+
+      <div class="exp-modal-footer">
+        <button type="button" class="exp-btn exp-btn--secondary" id="exp-modal-cancel-btn">
+          <span>Batal</span>
+        </button>
+        <button type="submit" class="exp-btn exp-btn--primary" id="exp-modal-save-btn">
+          <span class="exp-btn-text">Simpan Perubahan</span>
+          <span class="exp-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

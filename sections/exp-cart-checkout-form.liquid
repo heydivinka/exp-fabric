@@ -1,0 +1,460 @@
+{%- comment -%}
+  Exp Cart Form Auto Filled Checkout
+  Author: Expert Shopify Developer
+  Compliance: RULES-SHOPIFY.md (exp- prefix, DRY, no hardcoding, comprehensive schema)
+  Assets: assets/exp-cart-checkout-form.css, assets/exp-cart-checkout-form.js
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign customer_first_name = customer.first_name | default: ''
+  assign customer_last_name = customer.last_name | default: ''
+  assign customer_email = customer.email | default: ''
+  assign customer_phone = customer.phone | default: customer.default_address.phone | default: ''
+  assign customer_address1 = customer.default_address.address1 | default: ''
+  assign customer_city = customer.default_address.city | default: ''
+  assign customer_province = customer.default_address.province | default: ''
+  assign customer_zip = customer.default_address.zip | default: ''
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --exp-primary: {{ s.color_primary }};
+    --exp-foreground: {{ s.color_foreground }};
+    --exp-border: {{ s.color_border }};
+    --exp-input-bg: {{ s.color_input_bg }};
+    --exp-input-fg: {{ s.color_input_fg }};
+    --exp-background: {{ s.color_background }};
+    --exp-input-rounded: {{ s.input_rounded }}px;
+    --exp-button-rounded: {{ s.button_rounded }}px;
+    --exp-container-desktop: {{ s.container_width_desktop }}px;
+    --exp-container-mobile: {{ s.container_width_mobile }}%;
+    --exp-pad-top-dt: {{ s.padding_top_desktop }}px;
+    --exp-pad-bot-dt: {{ s.padding_bottom_desktop }}px;
+    --exp-pad-top-mb: {{ s.padding_top_mobile }}px;
+    --exp-pad-bot-mb: {{ s.padding_bottom_mobile }}px;
+    --exp-heading-dt: {{ s.heading_size_desktop }}px;
+    --exp-heading-mb: {{ s.heading_size_mobile }}px;
+    --exp-text-align: {{ s.text_alignment }};
+  }
+</style>
+
+{%- # theme-check-disable MissingAsset -%}
+{{ 'exp-cart-checkout-form.css' | asset_url | stylesheet_tag }}
+{%- # theme-check-enable MissingAsset -%}
+
+<div
+  class="exp-cart-form-wrapper"
+  data-checkout-action="{{ s.checkout_button_action }}"
+  data-storefront-token="{{ s.storefront_access_token | escape }}"
+  data-storefront-version="{{ s.storefront_version | strip | default: '2026-10' }}"
+  data-region-api="{{ s.region_api | strip | default: 'https://www.emsifa.com/api-wilayah-indonesia/v2' }}"
+  data-phone-prefix="{{ s.phone_prefix | default: '+62' }}"
+  data-require-village="{{ s.require_village }}"
+  data-village-placement="{{ s.village_placement }}"
+  data-customer-first-name="{{ customer_first_name | escape }}"
+  data-customer-last-name="{{ customer_last_name | escape }}"
+  data-customer-phone="{{ customer_phone | escape }}"
+  {{ section.shopify_attributes }}
+>
+  <div class="exp-cart-form-container">
+    
+    {%- comment -%} Delivery Method Options (Express vs Instant) {%- endcomment -%}
+    {% render 'exp-cart-delivery-method' %}
+
+    {%- comment -%} Saved Addresses Selector (Logged-in Customers) {%- endcomment -%}
+    {%- if customer and s.enable_saved_addresses_selector -%}
+      {% render 'exp-cart-saved-addresses',
+        saved_addresses_style: s.saved_addresses_style,
+        saved_addresses_heading: s.saved_addresses_heading,
+        allow_new_address: s.allow_new_address_entry,
+        enable_one_click: s.enable_one_click_checkout,
+        heading_tag: s.heading_tag
+      %}
+
+      {%- if s.enable_address_edit_modal -%}
+        {% render 'exp-cart-address-modal', phone_prefix: s.phone_prefix %}
+      {%- endif -%}
+
+      <script type="application/json" id="exp-customer-saved-addresses-json">
+        [
+          {%- if customer.addresses.size > 0 -%}
+            {%- for addr in customer.addresses -%}
+              {
+                "id": {{ addr.id | json }},
+                "isDefault": {% if addr == customer.default_address %}true{% else %}false{% endif %},
+                "firstName": {{ addr.first_name | json }},
+                "lastName": {{ addr.last_name | json }},
+                "name": {{ addr.name | json }},
+                "company": {{ addr.company | json }},
+                "phone": {{ addr.phone | default: customer.phone | json }},
+                "address1": {{ addr.address1 | json }},
+                "address2": {{ addr.address2 | json }},
+                "city": {{ addr.city | json }},
+                "province": {{ addr.province | json }},
+                "provinceCode": {{ addr.province_code | json }},
+                "zip": {{ addr.zip | json }},
+                "country": {{ addr.country | json }},
+                "countryCode": {{ addr.country_code | json }}
+              }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          {%- endif -%}
+        ]
+      </script>
+    {%- endif -%}
+
+    {%- comment -%} Stepper (1 Information -> 2 Detail Address) {%- endcomment -%}
+    {% render 'exp-cart-stepper' %}
+
+    <form id="exp-cart-checkout-form" class="exp-cart-form" novalidate>
+      {%- comment -%} Step 1: Recipient Information {%- endcomment -%}
+      {% render 'exp-cart-step-information',
+        heading_tag: s.heading_tag,
+        default_first_name: customer_first_name,
+        default_last_name: customer_last_name,
+        default_email: customer_email,
+        default_phone: customer_phone,
+        phone_prefix: s.phone_prefix
+      %}
+
+      {%- comment -%} Step 2: Detail Address {%- endcomment -%}
+      {% render 'exp-cart-step-address',
+        heading_tag: s.heading_tag,
+        default_address1: customer_address1,
+        default_city: customer_city,
+        default_province: customer_province,
+        default_zip: customer_zip
+      %}
+    </form>
+
+  </div>
+</div>
+
+{%- # theme-check-disable MissingAsset -%}
+<script type="module" src="{{ 'exp-cart-checkout-form.js' | asset_url }}"></script>
+{%- # theme-check-enable MissingAsset -%}
+
+{% schema %}
+{
+  "name": "Cart Form Auto Checkout",
+  "tag": "section",
+  "class": "exp-cart-checkout-form-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout & Container"
+    },
+    {
+      "type": "range",
+      "id": "container_width_desktop",
+      "min": 400,
+      "max": 1920,
+      "step": 40,
+      "unit": "px",
+      "label": "Container Width (Desktop)",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "container_width_mobile",
+      "min": 80,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Container Width (Mobile)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Tipografi"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size (Desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size (Mobile)",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Skema Warna (Sesuai Spesifikasi Desain)"
+    },
+    {
+      "type": "color",
+      "id": "color_primary",
+      "label": "Primary (Brand Highlight / Button)",
+      "default": "#F2CC3A",
+      "info": "Warna tombol utama, active indicator, dan highlight"
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Foreground (Text on Primary)",
+      "default": "#010101",
+      "info": "Warna teks di atas elemen berwarna primer"
+    },
+    {
+      "type": "color",
+      "id": "color_border",
+      "label": "Border Color",
+      "default": "#2E2A39",
+      "info": "Warna garis tepi input dan pemisah"
+    },
+    {
+      "type": "color",
+      "id": "color_input_bg",
+      "label": "Input Background",
+      "default": "#FFFFFF",
+      "info": "Warna latar kotak input, select, dan textarea"
+    },
+    {
+      "type": "color",
+      "id": "color_input_fg",
+      "label": "Input Foreground",
+      "default": "#1F2937",
+      "info": "Warna teks dan placeholder isian"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Bentuk & Radius Sudut"
+    },
+    {
+      "type": "range",
+      "id": "input_rounded",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Input Rounded",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_rounded",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Rounded",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Opsi Utilitas & Integrasi Toko"
+    },
+    {
+      "type": "select",
+      "id": "checkout_button_action",
+      "label": "Tindakan Tombol Checkout Bawaan di Summary",
+      "options": [
+        {
+          "value": "scroll_to_form",
+          "label": "Opsi A: Arahkan ke Form Ini"
+        },
+        {
+          "value": "default",
+          "label": "Opsi B: Biarkan Default Normal"
+        },
+        {
+          "value": "hide",
+          "label": "Opsi C: Sembunyikan Tombol Summary"
+        }
+      ],
+      "default": "scroll_to_form",
+      "info": "Memberikan kontrol kepada merchant untuk menentukan interaksi tombol checkout bawaan tema di summary."
+    },
+    {
+      "type": "checkbox",
+      "id": "require_before_checkout",
+      "label": "Wajibkan Form Sebelum Checkout",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "require_village",
+      "label": "Wajibkan Pilihan Kelurahan / Desa",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "village_placement",
+      "label": "Posisi Penempatan Kelurahan di Checkout",
+      "options": [
+        { "value": "address2", "label": "Address Line 2 (Sub-district / Kecamatan)" },
+        { "value": "address1", "label": "Digabung ke Address Line 1" }
+      ],
+      "default": "address2"
+    },
+    {
+      "type": "text",
+      "id": "phone_prefix",
+      "label": "Phone Country Prefix",
+      "default": "+62"
+    },
+    {
+      "type": "header",
+      "content": "Saved Addresses (Pengguna Login)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_saved_addresses_selector",
+      "label": "Aktifkan Pemilih Alamat Tersimpan",
+      "default": true,
+      "info": "Tampilkan daftar alamat tersimpan jika pelanggan telah login ke akun mereka."
+    },
+    {
+      "type": "select",
+      "id": "saved_addresses_style",
+      "label": "Gaya Tampilan Alamat",
+      "options": [
+        {
+          "value": "cards",
+          "label": "Grid Kartu Interaktif"
+        },
+        {
+          "value": "dropdown",
+          "label": "Dropdown Ringkas"
+        }
+      ],
+      "default": "cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_new_address_entry",
+      "label": "Izinkan Entri Alamat Baru",
+      "default": true,
+      "info": "Menampilkan kartu/opsi '+ Tambah Alamat Baru' agar pengguna bisa mengirim ke alamat berbeda."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_one_click_checkout",
+      "label": "Aktifkan Tombol Fast Checkout 1-Klik",
+      "default": false,
+      "info": "Tampilkan tombol 'Langsung Checkout' pada kartu alamat jika seluruh kolom alamat lengkap."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_address_edit_modal",
+      "label": "Gunakan Modal Pop-up untuk Edit Alamat",
+      "default": true,
+      "info": "Membuka modal pop-up saat tombol Edit diklik agar alur edit terisolasi dan tidak membingungkan pengguna."
+    },
+    {
+      "type": "text",
+      "id": "saved_addresses_heading",
+      "label": "Judul Bagian Alamat Tersimpan",
+      "default": "Pilih Alamat Pengiriman Tersimpan"
+    },
+    {
+      "type": "header",
+      "content": "Konfigurasi Backend API (Storefront & Wilayah)"
+    },
+    {
+      "type": "text",
+      "id": "storefront_access_token",
+      "label": "Storefront Access Token (Opsional)",
+      "info": "Jika diisi, pengisian checkout menggunakan mutasi GraphQL CartBuyerIdentity & DeliveryAddress. Jika kosong, otomatis menggunakan metode URL Permalinks + AJAX Attributes."
+    },
+    {
+      "type": "text",
+      "id": "storefront_version",
+      "label": "Storefront API Version",
+      "default": "2026-10"
+    },
+    {
+      "type": "text",
+      "id": "region_api",
+      "label": "API Wilayah Indonesia Base URL",
+      "default": "https://www.emsifa.com/api-wilayah-indonesia/v2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Exp Cart Form Auto Checkout"
+    }
+  ]
+}
+{% endschema %}

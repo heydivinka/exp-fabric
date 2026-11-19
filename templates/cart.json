@@ -246,10 +246,44 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "exp_cart_checkout_form": {
+      "type": "exp-cart-checkout-form",
+      "settings": {
+        "container_width_desktop": 1200,
+        "container_width_mobile": 100,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_top_mobile": 16,
+        "padding_bottom_mobile": 16,
+        "heading_tag": "h3",
+        "heading_size_desktop": 20,
+        "heading_size_mobile": 18,
+        "text_alignment": "left",
+        "color_primary": "#F2CC3A",
+        "color_foreground": "#010101",
+        "color_border": "#2E2A39",
+        "color_input_bg": "#FFFFFF",
+        "color_input_fg": "#1F2937",
+        "color_background": "#FFFFFF",
+        "input_rounded": 16,
+        "button_rounded": 16,
+        "checkout_button_action": "scroll_to_form",
+        "require_before_checkout": true,
+        "require_village": true,
+        "village_placement": "address2",
+        "phone_prefix": "+62",
+        "enable_saved_addresses_selector": true,
+        "enable_address_edit_modal": true,
+        "storefront_access_token": "",
+        "storefront_version": "2026-10",
+        "region_api": "https://www.emsifa.com/api-wilayah-indonesia/v2"
+      }
     }
   },
   "order": [
     "cart-section",
+    "exp_cart_checkout_form",
     "product_list_NNFgcy"
   ]
 }

@@ -1,0 +1,59 @@
+{%- comment -%}
+  Renders Delivery Method radio cards (Express vs Instant)
+  Adheres to RULES-SHOPIFY.md (exp- prefix, accessible radio inputs)
+{%- endcomment -%}
+
+<div class="exp-delivery-method">
+  <p class="exp-field-label exp-delivery-method__title">Delivery Method</p>
+  <div class="exp-delivery-method__grid" role="radiogroup" aria-label="Metode Pengiriman">
+    
+    {%- comment -%} Express Delivery Option {%- endcomment -%}
+    <label class="exp-delivery-card is-selected" for="exp-delivery-express">
+      <input
+        type="radio"
+        id="exp-delivery-express"
+        name="exp_delivery_method"
+        value="Express"
+        class="exp-delivery-card__input visually-hidden"
+        checked
+      >
+      <div class="exp-delivery-card__inner">
+        <div class="exp-delivery-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div class="exp-delivery-card__content">
+          <span class="exp-delivery-card__name">Express</span>
+          <span class="exp-delivery-card__subtext">Regular delivery options</span>
+        </div>
+      </div>
+    </label>
+
+    {%- comment -%} Instant Delivery Option {%- endcomment -%}
+    <label class="exp-delivery-card" for="exp-delivery-instant">
+      <input
+        type="radio"
+        id="exp-delivery-instant"
+        name="exp_delivery_method"
+        value="Instant"
+        class="exp-delivery-card__input visually-hidden"
+      >
+      <div class="exp-delivery-card__inner">
+        <div class="exp-delivery-card__icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="exp-delivery-card__content">
+          <span class="exp-delivery-card__name">Instant</span>
+          <span class="exp-delivery-card__subtext">Only available in selected areas</span>
+        </div>
+      </div>
+    </label>
+
+  </div>
+</div>
