@@ -210,6 +210,20 @@
           }
         });
       });
+
+      // Dengarkan event Theme Editor inspector saat merchant klik block
+      document.addEventListener('shopify:block:select', (event) => {
+        const blockEl = event.target;
+        if (blockEl && blockEl.classList.contains('exp-delivery-card')) {
+          this.wrapper.querySelectorAll('.exp-delivery-card').forEach((c) => c.classList.remove('is-selected'));
+          blockEl.classList.add('is-selected');
+          const radio = blockEl.querySelector('input[type="radio"]');
+          if (radio) {
+            radio.checked = true;
+            this.saveDraft();
+          }
+        }
+      });
     }
 
     initSavedAddresses() {
@@ -1444,7 +1458,7 @@
       const regOpt = this.regencySelect.selectedOptions[0];
       const distOpt = this.districtSelect.selectedOptions[0];
       const villOpt = this.villageSelect.selectedOptions[0];
-      const deliveryMethod = this.form.querySelector('input[name="exp_delivery_method"]:checked')?.value || 'Express';
+      const deliveryMethod = this.wrapper.querySelector('input[name="exp_delivery_method"]:checked')?.value || 'Express';
 
       const provName = provOpt ? provOpt.dataset.name || provOpt.textContent : '';
       const zoneCode = getProvinceZoneCode(provName);
@@ -1475,7 +1489,7 @@
 
     saveDraft() {
       const data = {
-        deliveryMethod: this.form.querySelector('input[name="exp_delivery_method"]:checked')?.value,
+        deliveryMethod: this.wrapper.querySelector('input[name="exp_delivery_method"]:checked')?.value,
         firstName: this.firstNameInput?.value,
         lastName: this.lastNameInput?.value,
         email: this.emailInput?.value,
@@ -1508,7 +1522,7 @@
       if (draft.courierNote && this.courierNoteInput) this.courierNoteInput.value = draft.courierNote;
 
       if (draft.deliveryMethod) {
-        const radio = this.form.querySelector(`input[name="exp_delivery_method"][value="${draft.deliveryMethod}"]`);
+        const radio = this.wrapper.querySelector(`input[name="exp_delivery_method"][value="${draft.deliveryMethod}"]`);
         if (radio) {
           radio.checked = true;
           this.wrapper.querySelectorAll('.exp-delivery-card').forEach((c) => c.classList.remove('is-selected'));

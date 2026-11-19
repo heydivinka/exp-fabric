@@ -249,6 +249,30 @@
     },
     "exp_cart_checkout_form": {
       "type": "exp-cart-checkout-form",
+      "blocks": {
+        "delivery_option_express": {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Express",
+            "subtext": "Regular delivery options",
+            "icon": "truck",
+            "is_default": true
+          }
+        },
+        "delivery_option_instant": {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Instant",
+            "subtext": "Only available in selected areas",
+            "icon": "lightning",
+            "is_default": false
+          }
+        }
+      },
+      "block_order": [
+        "delivery_option_express",
+        "delivery_option_instant"
+      ],
       "settings": {
         "container_width_desktop": 1200,
         "container_width_mobile": 100,

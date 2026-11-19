@@ -1,59 +1,158 @@
 {%- comment -%}
-  Renders Delivery Method radio cards (Express vs Instant)
-  Adheres to RULES-SHOPIFY.md (exp- prefix, accessible radio inputs)
+  Exp Cart Delivery Method Snippet
+  Compliance: RULES-SHOPIFY.md (exp- prefix, accessible radio inputs, DRY, no hardcoding)
+  Supports dynamic blocks from section schema (can add/remove blocks in Theme Editor)
+  with fallback to default options if no blocks are defined.
 {%- endcomment -%}
 
-<div class="exp-delivery-method">
-  <p class="exp-field-label exp-delivery-method__title">Delivery Method</p>
-  <div class="exp-delivery-method__grid" role="radiogroup" aria-label="Metode Pengiriman">
-    
-    {%- comment -%} Express Delivery Option {%- endcomment -%}
-    <label class="exp-delivery-card is-selected" for="exp-delivery-express">
-      <input
-        type="radio"
-        id="exp-delivery-express"
-        name="exp_delivery_method"
-        value="Express"
-        class="exp-delivery-card__input visually-hidden"
-        checked
-      >
-      <div class="exp-delivery-card__inner">
-        <div class="exp-delivery-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-          </svg>
-        </div>
-        <div class="exp-delivery-card__content">
-          <span class="exp-delivery-card__name">Express</span>
-          <span class="exp-delivery-card__subtext">Regular delivery options</span>
-        </div>
-      </div>
-    </label>
+{%- assign delivery_blocks = section.blocks | where: 'type', 'delivery_option' -%}
 
-    {%- comment -%} Instant Delivery Option {%- endcomment -%}
-    <label class="exp-delivery-card" for="exp-delivery-instant">
-      <input
-        type="radio"
-        id="exp-delivery-instant"
-        name="exp_delivery_method"
-        value="Instant"
-        class="exp-delivery-card__input visually-hidden"
-      >
-      <div class="exp-delivery-card__inner">
-        <div class="exp-delivery-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
+<div class="exp-delivery-method">
+  <p class="exp-field-label exp-delivery-method__title">{{ delivery_method_heading | default: 'Delivery Method' }}</p>
+  <div class="exp-delivery-method__grid" role="radiogroup" aria-label="{{ delivery_method_heading | default: 'Delivery Method' }}">
+    
+    {%- if delivery_blocks.size > 0 -%}
+      {%- comment -%} Mode Dinamis: Render dari Section Blocks {%- endcomment -%}
+      {%- assign selected_block_id = '' -%}
+      {%- for b in delivery_blocks -%}
+        {%- if b.settings.is_default and selected_block_id == '' -%}
+          {%- assign selected_block_id = b.id -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if selected_block_id == '' -%}
+        {%- assign selected_block_id = delivery_blocks.first.id -%}
+      {%- endif -%}
+
+      {%- for block in delivery_blocks -%}
+        {%- assign bs = block.settings -%}
+        {%- assign is_selected = false -%}
+        {%- if block.id == selected_block_id -%}
+          {%- assign is_selected = true -%}
+        {%- endif -%}
+
+        <label
+          class="exp-delivery-card {% if is_selected %}is-selected{% endif %}"
+          for="exp-delivery-{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
+          <input
+            type="radio"
+            id="exp-delivery-{{ block.id }}"
+            name="exp_delivery_method"
+            value="{{ bs.title | escape }}"
+            class="exp-delivery-card__input visually-hidden"
+            form="exp-cart-checkout-form"
+            {% if is_selected %}checked{% endif %}
+          >
+          <div class="exp-delivery-card__inner">
+            <div class="exp-delivery-radio-indicator" aria-hidden="true">
+              <span class="exp-delivery-radio-circle"></span>
+            </div>
+            <div class="exp-delivery-card__icon" aria-hidden="true">
+              {%- case bs.icon -%}
+                {%- when 'lightning' -%}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                {%- when 'box' -%}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                {%- when 'store' -%}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                {%- when 'clock' -%}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                {%- else -%}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+              {%- endcase -%}
+            </div>
+            <div class="exp-delivery-card__content">
+              <div class="exp-delivery-card__header-line">
+                <span class="exp-delivery-card__name">{{ bs.title | default: 'Reguler' }}</span>
+                {%- if bs.badge != blank -%}
+                  <span class="exp-delivery-card__badge">{{ bs.badge }}</span>
+                {%- endif -%}
+              </div>
+              {%- if bs.subtext != blank -%}
+                <span class="exp-delivery-card__subtext">{{ bs.subtext }}</span>
+              {%- endif -%}
+              {%- if bs.price != blank -%}
+                <span class="exp-delivery-card__price">{{ bs.price }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </label>
+      {%- endfor -%}
+
+    {%- else -%}
+      {%- comment -%} Fallback Statis (Jika Belum Ada Block di Section) {%- endcomment -%}
+      <label class="exp-delivery-card is-selected" for="exp-delivery-express">
+        <input
+          type="radio"
+          id="exp-delivery-express"
+          name="exp_delivery_method"
+          value="{{ express_title | default: 'Express' }}"
+          class="exp-delivery-card__input visually-hidden"
+          form="exp-cart-checkout-form"
+          checked
+        >
+        <div class="exp-delivery-card__inner">
+          <div class="exp-delivery-radio-indicator" aria-hidden="true">
+            <span class="exp-delivery-radio-circle"></span>
+          </div>
+          <div class="exp-delivery-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <div class="exp-delivery-card__content">
+            <span class="exp-delivery-card__name">{{ express_title | default: 'Express' }}</span>
+            <span class="exp-delivery-card__subtext">{{ express_subtext | default: 'Regular delivery options' }}</span>
+          </div>
         </div>
-        <div class="exp-delivery-card__content">
-          <span class="exp-delivery-card__name">Instant</span>
-          <span class="exp-delivery-card__subtext">Only available in selected areas</span>
+      </label>
+
+      <label class="exp-delivery-card" for="exp-delivery-instant">
+        <input
+          type="radio"
+          id="exp-delivery-instant"
+          name="exp_delivery_method"
+          value="{{ instant_title | default: 'Instant' }}"
+          class="exp-delivery-card__input visually-hidden"
+          form="exp-cart-checkout-form"
+        >
+        <div class="exp-delivery-card__inner">
+          <div class="exp-delivery-radio-indicator" aria-hidden="true">
+            <span class="exp-delivery-radio-circle"></span>
+          </div>
+          <div class="exp-delivery-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div class="exp-delivery-card__content">
+            <span class="exp-delivery-card__name">{{ instant_title | default: 'Instant' }}</span>
+            <span class="exp-delivery-card__subtext">{{ instant_subtext | default: 'Only available in selected areas' }}</span>
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
+    {%- endif -%}
 
   </div>
 </div>

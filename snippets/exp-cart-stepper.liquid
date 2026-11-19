@@ -12,7 +12,7 @@
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </div>
-      <span class="exp-stepper__label">Information</span>
+      <span class="exp-stepper__label">{{ step_1_label | default: 'Information' }}</span>
     </div>
 
     <div class="exp-stepper__divider" aria-hidden="true">
@@ -26,7 +26,7 @@
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </div>
-      <span class="exp-stepper__label">Detail Address</span>
+      <span class="exp-stepper__label">{{ step_2_label | default: 'Detail Address' }}</span>
     </div>
   </div>
 </div>

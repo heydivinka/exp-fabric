@@ -7,7 +7,7 @@
 <div id="exp-address-modal" class="exp-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="exp-modal-title">
   <div class="exp-modal-container">
     <div class="exp-modal-header">
-      <h3 id="exp-modal-title" class="exp-modal-title">Edit Alamat Pengiriman</h3>
+      <h3 id="exp-modal-title" class="exp-modal-title">{{ modal_title | default: 'Edit Alamat Pengiriman' }}</h3>
       <button type="button" class="exp-modal-close-btn" id="exp-modal-close-btn" aria-label="Tutup jendela edit alamat">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -131,10 +131,10 @@
 
       <div class="exp-modal-footer">
         <button type="button" class="exp-btn exp-btn--secondary" id="exp-modal-cancel-btn">
-          <span>Batal</span>
+          <span>{{ modal_cancel_btn_text | default: 'Batal' }}</span>
         </button>
         <button type="submit" class="exp-btn exp-btn--primary" id="exp-modal-save-btn">
-          <span class="exp-btn-text">Simpan Perubahan</span>
+          <span class="exp-btn-text">{{ modal_save_btn_text | default: 'Simpan Perubahan' }}</span>
           <span class="exp-spinner" aria-hidden="true"></span>
         </button>
       </div>

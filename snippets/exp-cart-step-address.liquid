@@ -12,7 +12,7 @@
 
 <div class="exp-step-content hidden" data-step="2">
   <div class="exp-step-header">
-    <{{ heading_tag }} class="exp-step-title">Detail Address</{{ heading_tag }}>
+    <{{ heading_tag }} class="exp-step-title">{{ step_2_heading | default: 'Detail Address' }}</{{ heading_tag }}>
   </div>
 
   <div class="exp-form-grid">
@@ -168,7 +168,7 @@
       <div class="exp-save-address-info">
         <label class="exp-checkbox-label">
           <input type="checkbox" id="exp-set-default-address" class="exp-checkbox">
-          <span>Jadikan sebagai Alamat Utama</span>
+          <span>{{ save_address_checkbox_text | default: 'Jadikan sebagai Alamat Utama' }}</span>
         </label>
       </div>
 
@@ -186,7 +186,7 @@
               <polyline points="7 3 7 8 15 8"></polyline>
             </svg>
           </span>
-          <span class="exp-btn-text" id="exp-save-address-btn-text">Save Address to Account</span>
+          <span class="exp-btn-text" id="exp-save-address-btn-text">{{ save_address_btn_text | default: 'Save Address to Account' }}</span>
           <span class="exp-spinner" aria-hidden="true"></span>
         </button>
 
@@ -195,7 +195,7 @@
           class="exp-btn-cancel-edit hidden"
           id="exp-btn-cancel-edit"
         >
-          Batal Edit
+          {{ cancel_edit_btn_text | default: 'Batal Edit' }}
         </button>
       </div>
 
@@ -208,11 +208,11 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
-      <span>Back</span>
+      <span>{{ step_2_back_btn_text | default: 'Back' }}</span>
     </button>
 
     <button type="submit" class="exp-btn exp-btn--primary exp-btn-complete">
-      <span class="exp-btn-text">Complete</span>
+      <span class="exp-btn-text">{{ step_2_complete_btn_text | default: 'Complete' }}</span>
       <span class="exp-spinner" aria-hidden="true"></span>
     </button>
   </div>

@@ -53,7 +53,7 @@
             <div class="exp-address-card-top">
               <div class="exp-address-card-badges">
                 {%- if is_def -%}
-                  <span class="exp-badge-primary">Alamat Utama</span>
+                  <span class="exp-badge-primary">{{ badge_primary_text | default: 'Alamat Utama' }}</span>
                 {%- endif -%}
                 {%- if addr.company != blank -%}
                   <span class="exp-badge-secondary">{{ addr.company }}</span>
@@ -86,13 +86,13 @@
                 class="exp-card-action-btn exp-card-action-btn--edit"
                 data-action="edit-address"
                 data-address-id="{{ addr.id }}"
-                title="Edit alamat ini"
+                title="{{ card_edit_text | default: 'Edit' }} alamat ini"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                   <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                 </svg>
-                <span>Edit</span>
+                <span>{{ card_edit_text | default: 'Edit' }}</span>
               </button>
 
               <button
@@ -100,13 +100,13 @@
                 class="exp-card-action-btn exp-card-action-btn--delete"
                 data-action="delete-address"
                 data-address-id="{{ addr.id }}"
-                title="Hapus alamat ini dari akun"
+                title="{{ card_delete_text | default: 'Hapus' }} alamat ini dari akun"
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="3 6 5 6 21 6"></polyline>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                 </svg>
-                <span>Hapus</span>
+                <span>{{ card_delete_text | default: 'Hapus' }}</span>
               </button>
             </div>
 
@@ -119,7 +119,7 @@
                   data-address-id="{{ addr.id }}"
                   title="Langsung menuju pembayaran dengan alamat ini"
                 >
-                  ⚡ Langsung Checkout
+                  {{ fast_checkout_text | default: '⚡ Langsung Checkout' }}
                 </button>
               </div>
             {%- endif -%}
@@ -140,8 +140,8 @@
                 <path d="M12 5v14M5 12h14"></path>
               </svg>
             </div>
-            <div class="exp-address-card--new-title">Gunakan Alamat Baru</div>
-            <div class="exp-address-card--new-subtitle">Isi alamat pengiriman yang berbeda</div>
+            <div class="exp-address-card--new-title">{{ new_address_title | default: 'Gunakan Alamat Baru' }}</div>
+            <div class="exp-address-card--new-subtitle">{{ new_address_subtext | default: 'Isi alamat pengiriman yang berbeda' }}</div>
           </div>
         {%- endif -%}
       </div>

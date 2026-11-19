@@ -36,6 +36,30 @@
     --exp-heading-dt: {{ s.heading_size_desktop }}px;
     --exp-heading-mb: {{ s.heading_size_mobile }}px;
     --exp-text-align: {{ s.text_alignment }};
+
+    /* Button Colors */
+    --exp-btn-primary-bg: {{ s.color_btn_primary_bg | default: s.color_primary }};
+    --exp-btn-primary-fg: {{ s.color_btn_primary_text | default: s.color_foreground }};
+    --exp-btn-secondary-bg: {{ s.color_btn_secondary_bg | default: '#FFFFFF' }};
+    --exp-btn-secondary-fg: {{ s.color_btn_secondary_text | default: s.color_input_fg }};
+    --exp-btn-secondary-border: {{ s.color_btn_secondary_border | default: s.color_border }};
+    --exp-btn-save-bg: {{ s.color_btn_save_bg | default: s.color_foreground }};
+    --exp-btn-save-fg: {{ s.color_btn_save_text | default: '#FFFFFF' }};
+    --exp-btn-delete-hover: {{ s.color_btn_delete_hover | default: '#DC2626' }};
+
+    /* Badges */
+    --exp-badge-saved-bg: {{ s.color_badge_saved_bg | default: '#F0FDF4' }};
+    --exp-badge-saved-fg: {{ s.color_badge_saved_text | default: '#166534' }};
+    --exp-badge-new-bg: {{ s.color_badge_new_bg | default: '#FEF9C3' }};
+    --exp-badge-new-fg: {{ s.color_badge_new_text | default: '#854D0E' }};
+
+    /* Delivery Card Colors (Active & Inactive) */
+    --exp-deliv-active-border: {{ s.delivery_card_active_border | default: s.color_primary }};
+    --exp-deliv-active-bg: {{ s.delivery_card_active_bg | default: '#FFFDF0' }};
+    --exp-deliv-active-text: {{ s.delivery_card_active_text | default: s.color_foreground }};
+    --exp-deliv-inactive-border: {{ s.delivery_card_inactive_border | default: '#E5E7EB' }};
+    --exp-deliv-inactive-bg: {{ s.delivery_card_inactive_bg | default: '#FFFFFF' }};
+    --exp-deliv-inactive-text: {{ s.delivery_card_inactive_text | default: '#4B5563' }};
   }
 </style>
 
@@ -59,8 +83,15 @@
 >
   <div class="exp-cart-form-container">
     
-    {%- comment -%} Delivery Method Options (Express vs Instant) {%- endcomment -%}
-    {% render 'exp-cart-delivery-method' %}
+    {%- comment -%} Delivery Method Options (Express vs Instant / Dynamic Blocks) {%- endcomment -%}
+    {% render 'exp-cart-delivery-method',
+      section: section,
+      delivery_method_heading: s.delivery_method_heading,
+      express_title: s.express_title,
+      express_subtext: s.express_subtext,
+      instant_title: s.instant_title,
+      instant_subtext: s.instant_subtext
+    %}
 
     {%- comment -%} Saved Addresses Selector (Logged-in Customers) {%- endcomment -%}
     {%- if customer and s.enable_saved_addresses_selector -%}
@@ -69,11 +100,22 @@
         saved_addresses_heading: s.saved_addresses_heading,
         allow_new_address: s.allow_new_address_entry,
         enable_one_click: s.enable_one_click_checkout,
-        heading_tag: s.heading_tag
+        heading_tag: s.heading_tag,
+        badge_primary_text: s.badge_primary_text,
+        new_address_title: s.new_address_title,
+        new_address_subtext: s.new_address_subtext,
+        card_edit_text: s.card_edit_text,
+        card_delete_text: s.card_delete_text,
+        fast_checkout_text: s.fast_checkout_text
       %}
 
       {%- if s.enable_address_edit_modal -%}
-        {% render 'exp-cart-address-modal', phone_prefix: s.phone_prefix %}
+        {% render 'exp-cart-address-modal',
+          phone_prefix: s.phone_prefix,
+          modal_title: s.modal_title,
+          modal_cancel_btn_text: s.modal_cancel_btn_text,
+          modal_save_btn_text: s.modal_save_btn_text
+        %}
       {%- endif -%}
 
       <script type="application/json" id="exp-customer-saved-addresses-json">
@@ -104,7 +146,10 @@
     {%- endif -%}
 
     {%- comment -%} Stepper (1 Information -> 2 Detail Address) {%- endcomment -%}
-    {% render 'exp-cart-stepper' %}
+    {% render 'exp-cart-stepper',
+      step_1_label: s.step_1_label,
+      step_2_label: s.step_2_label
+    %}
 
     <form id="exp-cart-checkout-form" class="exp-cart-form" novalidate>
       {%- comment -%} Step 1: Recipient Information {%- endcomment -%}
@@ -114,7 +159,12 @@
         default_last_name: customer_last_name,
         default_email: customer_email,
         default_phone: customer_phone,
-        phone_prefix: s.phone_prefix
+        phone_prefix: s.phone_prefix,
+        step_1_heading: s.step_1_heading,
+        step_1_btn_text: s.step_1_btn_text,
+        badge_new_address_text: s.badge_new_address_text,
+        autofill_hint_text: s.autofill_hint_text,
+        btn_fill_contact_text: s.btn_fill_contact_text
       %}
 
       {%- comment -%} Step 2: Detail Address {%- endcomment -%}
@@ -123,7 +173,13 @@
         default_address1: customer_address1,
         default_city: customer_city,
         default_province: customer_province,
-        default_zip: customer_zip
+        default_zip: customer_zip,
+        step_2_heading: s.step_2_heading,
+        save_address_checkbox_text: s.save_address_checkbox_text,
+        save_address_btn_text: s.save_address_btn_text,
+        cancel_edit_btn_text: s.cancel_edit_btn_text,
+        step_2_back_btn_text: s.step_2_back_btn_text,
+        step_2_complete_btn_text: s.step_2_complete_btn_text
       %}
     </form>
 
@@ -299,6 +355,132 @@
     },
     {
       "type": "header",
+      "content": "Warna Tombol (Button Colors)"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_primary_bg",
+      "label": "Tombol Primary (Background)",
+      "default": "#F2CC3A"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_primary_text",
+      "label": "Tombol Primary (Teks)",
+      "default": "#010101"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_secondary_bg",
+      "label": "Tombol Secondary (Background)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_secondary_text",
+      "label": "Tombol Secondary (Teks)",
+      "default": "#1F2937"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_secondary_border",
+      "label": "Tombol Secondary (Border)",
+      "default": "#2E2A39"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_save_bg",
+      "label": "Tombol Save Address (Background)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_save_text",
+      "label": "Tombol Save Address (Teks)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_btn_delete_hover",
+      "label": "Tombol Delete (Hover Background)",
+      "default": "#DC2626"
+    },
+    {
+      "type": "header",
+      "content": "Warna Badge & Indikator"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_saved_bg",
+      "label": "Badge Alamat Tersimpan (BG)",
+      "default": "#F0FDF4"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_saved_text",
+      "label": "Badge Alamat Tersimpan (Teks)",
+      "default": "#166534"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_new_bg",
+      "label": "Badge Mode Baru (BG)",
+      "default": "#FEF9C3"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_new_text",
+      "label": "Badge Mode Baru (Teks)",
+      "default": "#854D0E"
+    },
+    {
+      "type": "header",
+      "content": "Warna Kartu Delivery Method"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_active_border",
+      "label": "Delivery Active (Border)",
+      "default": "#F2CC3A",
+      "info": "Warna garis tepi kartu pengiriman saat aktif/dipilih"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_active_bg",
+      "label": "Delivery Active (Background)",
+      "default": "#FFFDF0",
+      "info": "Warna latar kartu pengiriman saat aktif/dipilih"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_active_text",
+      "label": "Delivery Active (Teks)",
+      "default": "#010101",
+      "info": "Warna teks judul kartu saat aktif/dipilih"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_inactive_border",
+      "label": "Delivery Inactive (Border)",
+      "default": "#E5E7EB",
+      "info": "Warna garis tepi kartu pengiriman saat tidak aktif"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_inactive_bg",
+      "label": "Delivery Inactive (Background)",
+      "default": "#FFFFFF",
+      "info": "Warna latar kartu pengiriman saat tidak aktif"
+    },
+    {
+      "type": "color",
+      "id": "delivery_card_inactive_text",
+      "label": "Delivery Inactive (Teks)",
+      "default": "#4B5563",
+      "info": "Warna teks judul kartu saat tidak aktif"
+    },
+    {
+      "type": "header",
       "content": "Bentuk & Radius Sudut"
     },
     {
@@ -430,6 +612,192 @@
     },
     {
       "type": "header",
+      "content": "Teks Metode Pengiriman"
+    },
+    {
+      "type": "text",
+      "id": "delivery_method_heading",
+      "label": "Judul Opsi Pengiriman",
+      "default": "Delivery Method"
+    },
+    {
+      "type": "text",
+      "id": "express_title",
+      "label": "Judul Express Delivery",
+      "default": "Express"
+    },
+    {
+      "type": "text",
+      "id": "express_subtext",
+      "label": "Keterangan Express Delivery",
+      "default": "Regular delivery options"
+    },
+    {
+      "type": "text",
+      "id": "instant_title",
+      "label": "Judul Instant Delivery",
+      "default": "Instant"
+    },
+    {
+      "type": "text",
+      "id": "instant_subtext",
+      "label": "Keterangan Instant Delivery",
+      "default": "Only available in selected areas"
+    },
+    {
+      "type": "header",
+      "content": "Teks Stepper & Navigasi Alur"
+    },
+    {
+      "type": "text",
+      "id": "step_1_label",
+      "label": "Label Step 1 (Stepper)",
+      "default": "Information"
+    },
+    {
+      "type": "text",
+      "id": "step_2_label",
+      "label": "Label Step 2 (Stepper)",
+      "default": "Detail Address"
+    },
+    {
+      "type": "header",
+      "content": "Teks Step 1: Informasi Penerima"
+    },
+    {
+      "type": "text",
+      "id": "step_1_heading",
+      "label": "Judul Step 1",
+      "default": "Recipient Information"
+    },
+    {
+      "type": "text",
+      "id": "step_1_btn_text",
+      "label": "Teks Tombol Lanjut ke Step 2",
+      "default": "Next"
+    },
+    {
+      "type": "text",
+      "id": "badge_new_address_text",
+      "label": "Badge Mode Alamat Baru",
+      "default": "Mode Alamat Baru"
+    },
+    {
+      "type": "text",
+      "id": "autofill_hint_text",
+      "label": "Teks Petunjuk Autofill Kontak",
+      "default": "💡 Membuat alamat baru. Ingin gunakan kontak akun Anda?"
+    },
+    {
+      "type": "text",
+      "id": "btn_fill_contact_text",
+      "label": "Teks Tombol Gunakan Kontak Saya",
+      "default": "👤 Gunakan Kontak Saya"
+    },
+    {
+      "type": "header",
+      "content": "Teks Step 2: Alamat Pengiriman"
+    },
+    {
+      "type": "text",
+      "id": "step_2_heading",
+      "label": "Judul Step 2",
+      "default": "Detail Address"
+    },
+    {
+      "type": "text",
+      "id": "step_2_back_btn_text",
+      "label": "Teks Tombol Kembali (Back)",
+      "default": "Back"
+    },
+    {
+      "type": "text",
+      "id": "step_2_complete_btn_text",
+      "label": "Teks Tombol Selesai (Complete)",
+      "default": "Complete"
+    },
+    {
+      "type": "text",
+      "id": "save_address_checkbox_text",
+      "label": "Teks Checkbox Simpan Alamat",
+      "default": "Jadikan sebagai Alamat Utama"
+    },
+    {
+      "type": "text",
+      "id": "save_address_btn_text",
+      "label": "Teks Tombol Simpan Alamat Akun",
+      "default": "Save Address to Account"
+    },
+    {
+      "type": "text",
+      "id": "cancel_edit_btn_text",
+      "label": "Teks Tombol Batal Edit Alamat",
+      "default": "Batal Edit"
+    },
+    {
+      "type": "header",
+      "content": "Teks Kartu Alamat Tersimpan"
+    },
+    {
+      "type": "text",
+      "id": "badge_primary_text",
+      "label": "Teks Badge Alamat Utama",
+      "default": "Alamat Utama"
+    },
+    {
+      "type": "text",
+      "id": "new_address_title",
+      "label": "Judul Kartu Tambah Alamat Baru",
+      "default": "Gunakan Alamat Baru"
+    },
+    {
+      "type": "text",
+      "id": "new_address_subtext",
+      "label": "Subjudul Kartu Tambah Alamat Baru",
+      "default": "Isi alamat pengiriman yang berbeda"
+    },
+    {
+      "type": "text",
+      "id": "card_edit_text",
+      "label": "Teks Tombol Edit di Kartu",
+      "default": "Edit"
+    },
+    {
+      "type": "text",
+      "id": "card_delete_text",
+      "label": "Teks Tombol Hapus di Kartu",
+      "default": "Hapus"
+    },
+    {
+      "type": "text",
+      "id": "fast_checkout_text",
+      "label": "Teks Tombol Fast Checkout 1-Klik",
+      "default": "⚡ Langsung Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Teks Modal Pop-up Edit Alamat"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Judul Modal Edit Alamat",
+      "default": "Edit Alamat Pengiriman"
+    },
+    {
+      "type": "text",
+      "id": "modal_cancel_btn_text",
+      "label": "Teks Tombol Batal di Modal",
+      "default": "Batal"
+    },
+    {
+      "type": "text",
+      "id": "modal_save_btn_text",
+      "label": "Teks Tombol Simpan di Modal",
+      "default": "Simpan Perubahan"
+    },
+    {
+      "type": "header",
       "content": "Konfigurasi Backend API (Storefront & Wilayah)"
     },
     {
@@ -451,9 +819,80 @@
       "default": "https://www.emsifa.com/api-wilayah-indonesia/v2"
     }
   ],
+  "blocks": [
+    {
+      "type": "delivery_option",
+      "name": "Opsi Pengiriman",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nama Metode",
+          "default": "Express"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Keterangan / Estimasi",
+          "default": "Regular delivery options"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Info Biaya (Opsional)",
+          "info": "Contoh: Rp 15.000 atau Gratis Ongkir"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Label (Opsional)",
+          "info": "Contoh: Populer, Hemat, Rekomendasi"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ikon Pengiriman",
+          "options": [
+            { "value": "truck", "label": "Truk / Reguler" },
+            { "value": "lightning", "label": "Kilat / Instant" },
+            { "value": "box", "label": "Paket / Standar" },
+            { "value": "clock", "label": "Jam / Same Day" },
+            { "value": "store", "label": "Toko / Pick Up" }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_default",
+          "label": "Pilih Sebagai Default",
+          "default": false
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Exp Cart Form Auto Checkout"
+      "name": "Exp Cart Form Auto Checkout",
+      "blocks": [
+        {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Express",
+            "subtext": "Regular delivery options",
+            "icon": "truck",
+            "is_default": true
+          }
+        },
+        {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Instant",
+            "subtext": "Only available in selected areas",
+            "icon": "lightning",
+            "is_default": false
+          }
+        }
+      ]
     }
   ]
 }
