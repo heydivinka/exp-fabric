@@ -31,6 +31,10 @@
           },
           "blocks": {}
         },
+        "bundler_bundles_app_bundler_target_element_9EPCVk": {
+          "type": "shopify://apps/bundler-bundles-app/blocks/bundler-target-element/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+          "settings": {}
+        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -328,7 +332,8 @@
         }
       },
       "block_order": [
-        "disclosures_g9mWze"
+        "disclosures_g9mWze",
+        "bundler_bundles_app_bundler_target_element_9EPCVk"
       ],
       "settings": {
         "content_width": "content-center-aligned",
