@@ -108,13 +108,10 @@
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
     "blocks": {
-      "5918445685253060206": {
-        "type": "shopify://apps/bundler-bundles-app/blocks/bundler-script-append/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {
-          "disable_on_selected_pages": true,
-          "excluded_page_urls": ""
-        }
+        "settings": {}
       }
     },
     "color_palette": {
