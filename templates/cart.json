@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "cart-section": {
       "type": "main-cart",
@@ -19,6 +20,7 @@
             "show_count": true,
             "type_preset": "h4",
             "alignment": "left",
+            "text_color": "",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -34,6 +36,12 @@
             "image_ratio": "portrait",
             "dividers": true,
             "vendor": false,
+            "input_style": "default",
+            "input_background_color": "{{ settings.color_palette.background }}",
+            "input_text_color": "{{ settings.color_palette.foreground }}",
+            "input_border_color": "{{ settings.color_palette.foreground }}",
+            "border_width": 1,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -47,9 +55,11 @@
           "settings": {
             "extend_summary": true,
             "background_color": "{{ settings.color_palette.color2 }}",
+            "text_color": "",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0
           },
           "blocks": {}
@@ -58,8 +68,119 @@
       "settings": {
         "section_width": "page-width",
         "background_color": "{{ settings.color_palette.background }}",
+        "text_color": "",
         "padding-block-start": 24,
         "padding-block-end": 0
+      }
+    },
+    "exp_cart_checkout_form": {
+      "type": "exp-cart-checkout-form",
+      "blocks": {
+        "delivery_option_express": {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Express",
+            "subtext": "Regular delivery options",
+            "price": "",
+            "badge": "",
+            "icon": "truck",
+            "is_default": true
+          }
+        },
+        "delivery_option_instant": {
+          "type": "delivery_option",
+          "settings": {
+            "title": "Instant",
+            "subtext": "Only available in selected areas",
+            "price": "",
+            "badge": "",
+            "icon": "lightning",
+            "is_default": false
+          }
+        }
+      },
+      "block_order": [
+        "delivery_option_express",
+        "delivery_option_instant"
+      ],
+      "settings": {
+        "container_width_desktop": 1200,
+        "container_width_mobile": 100,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "padding_top_mobile": 16,
+        "padding_bottom_mobile": 16,
+        "heading_tag": "h3",
+        "heading_size_desktop": 20,
+        "heading_size_mobile": 18,
+        "text_alignment": "left",
+        "color_primary": "#f2cc3a",
+        "color_foreground": "#010101",
+        "color_border": "#2e2a39",
+        "color_input_bg": "#ffffff",
+        "color_input_fg": "#1f2937",
+        "color_background": "#ffffff",
+        "color_btn_primary_bg": "#f2cc3a",
+        "color_btn_primary_text": "#010101",
+        "color_btn_secondary_bg": "#ffffff",
+        "color_btn_secondary_text": "#1f2937",
+        "color_btn_secondary_border": "#2e2a39",
+        "color_btn_save_bg": "#000000",
+        "color_btn_save_text": "#ffffff",
+        "color_btn_delete_hover": "#dc2626",
+        "color_badge_saved_bg": "#f0fdf4",
+        "color_badge_saved_text": "#166534",
+        "color_badge_new_bg": "#fef9c3",
+        "color_badge_new_text": "#854d0e",
+        "delivery_card_active_border": "#f2cc3a",
+        "delivery_card_active_bg": "#fffdf0",
+        "delivery_card_active_text": "#010101",
+        "delivery_card_inactive_border": "#e5e7eb",
+        "delivery_card_inactive_bg": "#ffffff",
+        "delivery_card_inactive_text": "#4b5563",
+        "input_rounded": 16,
+        "button_rounded": 16,
+        "checkout_button_action": "scroll_to_form",
+        "require_before_checkout": true,
+        "require_village": true,
+        "village_placement": "address2",
+        "phone_prefix": "+62",
+        "enable_saved_addresses_selector": true,
+        "saved_addresses_style": "cards",
+        "allow_new_address_entry": true,
+        "enable_one_click_checkout": false,
+        "enable_address_edit_modal": true,
+        "saved_addresses_heading": "Pilih Alamat Pengiriman Tersimpan",
+        "delivery_method_heading": "Delivery Method",
+        "express_title": "Express",
+        "express_subtext": "Regular delivery options",
+        "instant_title": "Instant",
+        "instant_subtext": "Only available in selected areas",
+        "step_1_label": "Information",
+        "step_2_label": "Detail Address",
+        "step_1_heading": "Recipient Information",
+        "step_1_btn_text": "Next",
+        "badge_new_address_text": "Mode Alamat Baru",
+        "autofill_hint_text": "💡 Membuat alamat baru. Ingin gunakan kontak akun Anda?",
+        "btn_fill_contact_text": "👤 Gunakan Kontak Saya",
+        "step_2_heading": "Detail Address",
+        "step_2_back_btn_text": "Back",
+        "step_2_complete_btn_text": "Complete",
+        "save_address_checkbox_text": "Jadikan sebagai Alamat Utama",
+        "save_address_btn_text": "Save Address to Account",
+        "cancel_edit_btn_text": "Batal Edit",
+        "badge_primary_text": "Alamat Utama",
+        "new_address_title": "Gunakan Alamat Baru",
+        "new_address_subtext": "Isi alamat pengiriman yang berbeda",
+        "card_edit_text": "Edit",
+        "card_delete_text": "Hapus",
+        "fast_checkout_text": "⚡ Langsung Checkout",
+        "modal_title": "Edit Alamat Pengiriman",
+        "modal_cancel_btn_text": "Batal",
+        "modal_save_btn_text": "Simpan Perubahan",
+        "storefront_access_token": "",
+        "storefront_version": "2026-10",
+        "region_api": "https://www.emsifa.com/api-wilayah-indonesia/v2"
       }
     },
     "product_list_NNFgcy": {
@@ -85,11 +206,13 @@
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -107,10 +230,12 @@
                 "alignment": "left",
                 "type_preset": "h4",
                 "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -128,6 +253,10 @@
                 "label": "View all",
                 "open_in_new_tab": false,
                 "style_class": "link",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -147,9 +276,11 @@
           "static": true,
           "settings": {
             "product_card_gap": 4,
+            "background_color": "",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -165,6 +296,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
+                "border_color": "",
                 "border_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -182,10 +314,12 @@
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -211,6 +345,7 @@
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
+                "text_color": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -245,63 +380,6 @@
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
-    },
-    "exp_cart_checkout_form": {
-      "type": "exp-cart-checkout-form",
-      "blocks": {
-        "delivery_option_express": {
-          "type": "delivery_option",
-          "settings": {
-            "title": "Express",
-            "subtext": "Regular delivery options",
-            "icon": "truck",
-            "is_default": true
-          }
-        },
-        "delivery_option_instant": {
-          "type": "delivery_option",
-          "settings": {
-            "title": "Instant",
-            "subtext": "Only available in selected areas",
-            "icon": "lightning",
-            "is_default": false
-          }
-        }
-      },
-      "block_order": [
-        "delivery_option_express",
-        "delivery_option_instant"
-      ],
-      "settings": {
-        "container_width_desktop": 1200,
-        "container_width_mobile": 100,
-        "padding_top_desktop": 32,
-        "padding_bottom_desktop": 32,
-        "padding_top_mobile": 16,
-        "padding_bottom_mobile": 16,
-        "heading_tag": "h3",
-        "heading_size_desktop": 20,
-        "heading_size_mobile": 18,
-        "text_alignment": "left",
-        "color_primary": "#F2CC3A",
-        "color_foreground": "#010101",
-        "color_border": "#2E2A39",
-        "color_input_bg": "#FFFFFF",
-        "color_input_fg": "#1F2937",
-        "color_background": "#FFFFFF",
-        "input_rounded": 16,
-        "button_rounded": 16,
-        "checkout_button_action": "scroll_to_form",
-        "require_before_checkout": true,
-        "require_village": true,
-        "village_placement": "address2",
-        "phone_prefix": "+62",
-        "enable_saved_addresses_selector": true,
-        "enable_address_edit_modal": true,
-        "storefront_access_token": "",
-        "storefront_version": "2026-10",
-        "region_api": "https://www.emsifa.com/api-wilayah-indonesia/v2"
       }
     }
   },
