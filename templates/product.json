@@ -31,10 +31,6 @@
           },
           "blocks": {}
         },
-        "bundler_bundles_app_bundler_target_element_9EPCVk": {
-          "type": "shopify://apps/bundler-bundles-app/blocks/bundler-target-element/7a6ae1b8-3b16-449b-8429-8bb89a62c664",
-          "settings": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -332,8 +328,7 @@
         }
       },
       "block_order": [
-        "disclosures_g9mWze",
-        "bundler_bundles_app_bundler_target_element_9EPCVk"
+        "disclosures_g9mWze"
       ],
       "settings": {
         "content_width": "content-center-aligned",
@@ -633,12 +628,58 @@
         "default_unit": "cm",
         "show_guide_images": true
       }
+    },
+    "1795419151a9679d19": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_review_widget_zeBJnM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_zeBJnM"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "main",
     "product_recommendations_qggXJq",
     "recently_viewed_section",
-    "all_size_charts_7bYEcm"
+    "all_size_charts_7bYEcm",
+    "1795419151a9679d19"
   ]
 }
