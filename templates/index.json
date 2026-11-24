@@ -1369,6 +1369,60 @@
         "cookie_days": 30,
         "match_birth_month": false
       }
+    },
+    "1795494181024ae08b": {
+      "type": "_blocks",
+      "blocks": {
+        "whatmore_shoppable_videos_app_block_jXmXk4": {
+          "type": "shopify://apps/whatmore-shoppable-videos/blocks/app-block/20db8a72-315a-4364-8885-64219ee48303",
+          "settings": {
+            "heading": "Watch and Buy",
+            "subheading": "W",
+            "widget-identity": "wgt_default",
+            "template-type": "template-j",
+            "title-font-size": 40,
+            "title-font-size-portrait": 24,
+            "subtitle-font-size": 18,
+            "subtitle-font-size-portrait": 14,
+            "landscape-padding": 40,
+            "top-bottom-padding": 20,
+            "scroll-video-tile-size": 80,
+            "scroll-video-tile-size-portrait": 80,
+            "min-height": 380
+          }
+        }
+      },
+      "block_order": [
+        "whatmore_shoppable_videos_app_block_jXmXk4"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
@@ -1379,6 +1433,7 @@
     "section_rtWhnQ",
     "product_list_Pb986e",
     "featured_blog_posts_fhK3VN",
-    "exp_birthday_popup_home"
+    "exp_birthday_popup_home",
+    "1795494181024ae08b"
   ]
 }
