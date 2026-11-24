@@ -1403,27 +1403,47 @@
     },
     "1795502060cd680e46": {
       "type": "_blocks",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "179550597759e2f65f": {
+      "type": "_blocks",
       "blocks": {
-        "reelfy_videos_reelfy_section_Tndywc": {
-          "type": "shopify://apps/reelfy-videos/blocks/reelfy-section/4022ffb0-05c3-4ef3-a409-6df51f4b1b3f",
+        "moast_widget_MFH3UD": {
+          "type": "shopify://apps/moast/blocks/widget/1ac7547b-5443-446c-868c-7fab4566ee16",
           "settings": {
-            "title": "",
-            "subtitle": "",
-            "heading_size": "1",
-            "heading_align": "left",
-            "heading_color": "",
-            "desc_style": "subtitle",
-            "desc_color": "",
-            "custom_class": "",
-            "background_color": "",
-            "padding_top": 36,
-            "padding_bottom": 36,
-            "padding_left_right": 0
+            "widget": ""
           }
         }
       },
       "block_order": [
-        "reelfy_videos_reelfy_section_Tndywc"
+        "moast_widget_MFH3UD"
       ],
       "settings": {
         "content_direction": "column",
@@ -1465,6 +1485,7 @@
     "featured_blog_posts_fhK3VN",
     "exp_birthday_popup_home",
     "1795494181024ae08b",
-    "1795502060cd680e46"
+    "1795502060cd680e46",
+    "179550597759e2f65f"
   ]
 }
