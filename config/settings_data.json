@@ -108,13 +108,10 @@
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
     "blocks": {
-      "18228966181090706294": {
-        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+      "1439897083625640197": {
+        "type": "shopify://apps/cart-by-breeze/blocks/breeze-cart/f3bd0f31-4ceb-4abf-b1f0-9a82592084c4",
         "disabled": false,
-        "settings": {
-          "storefrontAccessToken": "",
-          "scriptInitMode": "immediate"
-        }
+        "settings": {}
       }
     },
     "color_palette": {
