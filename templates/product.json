@@ -31,10 +31,6 @@
           },
           "blocks": {}
         },
-        "cwill_back_in_stock_product_restore_email_AJjLNY": {
-          "type": "shopify://apps/cwill-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
-          "settings": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -319,6 +315,10 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "cwill_back_in_stock_product_restore_email_bKxJKh": {
+              "type": "shopify://apps/cwill-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
+              "settings": {}
             }
           },
           "block_order": [
@@ -327,13 +327,13 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "cwill_back_in_stock_product_restore_email_bKxJKh"
           ]
         }
       },
       "block_order": [
-        "disclosures_g9mWze",
-        "cwill_back_in_stock_product_restore_email_AJjLNY"
+        "disclosures_g9mWze"
       ],
       "settings": {
         "content_width": "content-center-aligned",
