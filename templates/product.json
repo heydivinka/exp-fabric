@@ -31,6 +31,10 @@
           },
           "blocks": {}
         },
+        "selleasy_lb_upsell_widget_bl_eUD6Hq": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-bl/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -315,10 +319,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "cwill_back_in_stock_product_restore_email_bKxJKh": {
-              "type": "shopify://apps/cwill-back-in-stock/blocks/product-restore-email/b190bced-3b7b-47da-a05f-6ea4821c3a77",
-              "settings": {}
             }
           },
           "block_order": [
@@ -327,13 +327,13 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq",
-            "cwill_back_in_stock_product_restore_email_bKxJKh"
+            "text_aEtTtq"
           ]
         }
       },
       "block_order": [
-        "disclosures_g9mWze"
+        "disclosures_g9mWze",
+        "selleasy_lb_upsell_widget_bl_eUD6Hq"
       ],
       "settings": {
         "content_width": "content-center-aligned",
